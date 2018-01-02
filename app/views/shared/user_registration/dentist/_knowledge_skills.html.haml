@@ -1,0 +1,30 @@
+- language_skills = @current_brand.language_skills
+- other_languages = object.languages.to_s.split(",") if object.languages.present?
+.row
+  .col-xs-12
+    .form-group.formTitle
+      =t('executive.language_skills')
+  .col-xs-12#languages
+    .row.row-inline
+      - language_skills.each do |language_skill|
+        .col-xs-12.col-sm-3.col-md-4
+          .form-group
+            %label.checkBox
+              = check_box_tag 'language_skills[]', language_skill.id, (object.language_skills.pluck(:id).include? language_skill.id)
+              %span.lbl
+                = language_skill.localize(I18n.locale).try(:name)
+      - if other_languages
+        - other_languages.each do |language|
+          .col-xs-12.col-sm-3.col-md-4
+            .form-group
+              %label.checkBox
+                = check_box_tag 'language_'+language, true, true
+                %span.lbl
+                  = language
+    .row
+      #input_add_language
+      .col-xs-12
+        %label
+          %a.addLink{:href => "javascript:void(0);", :id => "add_new_language"}
+            %i.addIcon
+            =t("executive.add_language")

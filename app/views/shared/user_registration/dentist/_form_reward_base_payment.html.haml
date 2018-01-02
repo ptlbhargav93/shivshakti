@@ -1,0 +1,26 @@
+- if object.clinic_users.any?
+  %ul.nav.nav-tabs
+    - first_tab = true
+    - object.clinic_users.each_with_index do |clinic_user, i|
+      - if relationship_types.include? clinic_user.relationship_type
+        - active_class = (first_tab) ? "active" : ""
+        - first_tab = false
+        - unless (object.dental_hygienist? and clinic_user.EMPLOYEE_MODEL?) or (object.director? or object.executive? and clinic_user.EMPLOYEE_MODEL?)
+          %li{:class => active_class}
+            %a{"data-toggle" => "tab", :href => "#clinic_#{i}"}
+              = clinic_user.clinic.clinic_name
+  .hide{:id => "add_responsible_modal_user"}
+  .tab-content
+    - first_tab = true
+    - object.clinic_users.each_with_index do |clinic_user, i|
+      - if relationship_types.include? clinic_user.relationship_type
+        - in_active_class = (first_tab) ? "in active" : ""
+        - first_tab = false
+        - partial_name = "shared/user_registration/dentist/payment_rules_and_information"
+        .tab-pane.fade{:id => "clinic_#{i}", :class => "#{in_active_class}"}
+          = f.fields_for :clinic_users, clinic_user do |ff|
+            = render :partial => partial_name, :locals => {clinic_user: clinic_user, ff: ff}
+- else
+  = f.hidden_field :id, :value => object.id
+  .col-md-6.alert.alert-warning
+    %span= t('user.no_clinic_found')

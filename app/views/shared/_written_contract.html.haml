@@ -1,0 +1,11 @@
+%label.label-value
+  - written_contracts = object.resources.with_type('DOCUMENT::WRITTEN_CONTRACT')
+  - if written_contracts.any?
+    - written_contracts.each do |written_contract|
+      %div.pb5
+        = link_to written_contract.media_file_name, download_resource_path(written_contract.id) if written_contract.present? and written_contract.media.present?
+  - contract_attachments = object.resources.with_type('DOCUMENT::CONTRACT_ATTACHMENT')
+  - if contract_attachments.any?
+    - contract_attachments.each do |contract_attachment|
+      %div.pb5
+        = link_to contract_attachment.media_file_name, download_resource_path(contract_attachment.id) if contract_attachment.present? and contract_attachment.media.present?

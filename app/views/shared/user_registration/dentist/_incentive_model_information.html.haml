@@ -1,0 +1,104 @@
+.row.row5.row-inline.form-group
+  .col-xs-12.pt12
+    %label.radioBox{:id => "incentive_type_per_month_radio_#{clinic_user.id}", :class => "incentive_type_per_month"}
+      = ff.radio_button :incentive_type, 'PER_MONTH'
+      %span.lbl
+        =t("dentist.incentive_type_per_month.model1")
+.row.row5.form-group
+  %table.center{:style => "width:100%", :border => "1 px solid"}
+    %tr
+      %th.center=t("dentist.incentive_type_per_month.step")
+      %th.center=t("dentist.turnover")
+      - if clinic_user.EMPLOYEE_MODEL?
+        - if object.dental_hygienist?
+          - title = t("dentist.rental")
+          - turnover_type = "employee_turnover"
+          - reward_type = "employee_rental"
+        - else
+          - title = t("dentist.reward")
+          - turnover_type = "employee_turnover"
+          - reward_type = "employee_reward"
+      - else
+        - title = t("dentist.rental")
+        - turnover_type = "turnover"
+        - reward_type = "rental"
+      %th.center= title
+
+    - patient_turnover_per_month = clinic_user.patient_turnover_per_month.present? ? eval(clinic_user.patient_turnover_per_month) : ""
+
+    - patient_employee_model_per_month = clinic_user.patient_employee_model_per_month.present? ? eval(clinic_user.patient_employee_model_per_month) : ""
+
+    - if clinic_user.EMPLOYEE_MODEL?
+      - if object.profession == "DENTAL_HYGIENIST" or object.dentist? or object.dental_hygienist?
+        = render partial: 'shared/user_registration/dentist/incentive_steps', locals: {clinic_user: clinic_user, patient_per_month_type:"patient_employee_model_per_month", patient_per_month_value: patient_employee_model_per_month,turnover_type: turnover_type, reward_type: reward_type}
+      - else
+        = render partial: 'shared/user_registration/dentist/incentive_steps', locals: {clinic_user: clinic_user, patient_per_month_type:"patient_employee_model_per_month", patient_per_month_value: patient_employee_model_per_month,turnover_type: turnover_type, reward_type: reward_type}
+    - else
+      = render partial: 'shared/user_registration/dentist/incentive_steps', locals: {clinic_user: clinic_user, patient_per_month_type: "patient_turnover_per_month",patient_per_month_value: patient_turnover_per_month,turnover_type: turnover_type, reward_type: reward_type}
+
+  #input_add_incentive_steps.mt10
+    %label
+      - if clinic_user.EMPLOYEE_MODEL?
+        - if object.dental_hygienist?
+          - add_new_step_id = "add_new_incentive_steps_#{clinic_user.relationship_type}_#{clinic_user.id}_HYGIENIST"
+        - else
+          - add_new_step_id = "add_new_incentive_steps_#{clinic_user.relationship_type}_#{clinic_user.id}_#{object.user_role.role}"
+      - else
+        - if object.dental_hygienist?
+          - add_new_step_id = "add_new_incentive_steps_#{clinic_user.relationship_type}_#{clinic_user.id}_HYGIENIST"
+        - else
+          - add_new_step_id = "add_new_incentive_steps_#{clinic_user.relationship_type}_#{clinic_user.id}_#{object.user_role.role}"
+      %a.addLink{:href => "javascript:void(0);", :class => "add_new_incentive_steps", :id => add_new_step_id}
+        %i.addIcon
+        = t("dentist.incentive_type_per_month.add_step")
+  .input_step_box{:id => "input_step_box_#{clinic_user.id}"}
+
+  .col-xs-12.pt12
+    %label.radioBox{:id => "incentive_type_per_hour_radio_#{clinic_user.id}", :class => "incentive_type_per_hour"}
+      = ff.radio_button :incentive_type, 'PER_HOUR'
+      %span.lbl.form-group
+        =t("dentist.incentive_type_per_hour.model2")
+    
+    .row.row5.row-inline
+      - if clinic_user.EMPLOYEE_MODEL?
+        - if object.profession == "DENTAL_HYGIENIST"
+          .col-xs-12.col-sm-8.col-lg-6.pt12
+            %lbl
+              =t("dentist.rental")              
+          .col-xs-8.col-sm-2.col-lg-2
+            = ff.text_field :hourly_rental_rate, :class => "virtualKeyboard form-control w85", :id => "hourly_rental_rate_#{clinic_user.id}", disabled: (clinic_user.incentive_type != "PER_HOUR")
+          .col-xs-4.col-sm-2.col-lg-4
+            %label.pt12 %
+        - else
+          .col-xs-12.col-sm-8.col-lg-6.pt12
+            %lbl
+              =t("dentist.reward")
+          .col-xs-8.col-sm-2.col-lg-2
+            = ff.text_field :hourly_reward_rate, :class => "virtualKeyboard form-control w85", :id => "hourly_reward_rate_#{clinic_user.id}", disabled: (clinic_user.incentive_type != "PER_HOUR")
+          .col-xs-4.col-sm-2.col-lg-4
+            %label.pt12 %
+      - else
+        .col-xs-12.col-sm-8.col-lg-6.pt12
+          %lbl
+            =t("dentist.rental")              
+        .col-xs-8.col-sm-2.col-lg-2
+          = ff.text_field :hourly_rental_rate, :class => "virtualKeyboard form-control w85", :id => "hourly_rental_rate_#{clinic_user.id}", disabled: (clinic_user.incentive_type != "PER_HOUR")
+        .col-xs-4.col-sm-2.col-lg-4
+          %label.pt12 %
+
+      .col-xs-12.col-sm-8.col-lg-6.pt12
+        %lbl
+          =t("dentist.incentive_type_per_hour.until_average_hour_rate")
+      .col-xs-8.col-sm-2.col-lg-2
+        = ff.text_field :average_hourly_rate, :class => "virtualKeyboard form-control w85", :id => "average_hourly_rate_#{clinic_user.id}", disabled: (clinic_user.incentive_type != "PER_HOUR")
+      .col-xs-4.col-sm-2.col-lg-4
+        %label.pt12 
+          = @current_brand.currency_code
+      .col-xs-12.col-sm-8.col-lg-6.pt12
+        %lbl
+          =t("dentist.incentive_type_per_hour.after_that_rental")
+      .col-xs-8.col-sm-2.col-lg-2
+        = ff.text_field :after_rental_rate, :class => "virtualKeyboard form-control w85", :id => "after_rental_rate_#{clinic_user.id}", disabled: (clinic_user.incentive_type != "PER_HOUR")
+      .col-xs-4.col-sm-2.col-lg-4
+        %label.pt12 
+          = @current_brand.currency_code

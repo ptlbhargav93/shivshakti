@@ -1,0 +1,20 @@
+.container
+  .page-title
+    %h1
+      .title-logo
+        = image_tag @current_brand.logo.url, :width => "115"
+  .row.row-10
+    .col-xs-12.col-sm-4
+      %a.toolBox{:href => executives_path}
+        .toolImage= image_tag "dbm_business_management.png"
+        .toolTitle= t("executive_desktop.executive_register").html_safe
+
+    .col-xs-12.col-sm-4
+      %a.toolBox{:href => "#"}
+        .toolImage= image_tag "dbm_business_management.png"
+        .toolTitle= t("executive_desktop.customer_register").html_safe        
+
+    .col-xs-12.col-sm-4
+      %a.toolBox{:href => "#"}
+        .toolImage= image_tag "dbm_business_management.png"
+        .toolTitle= t("executive_desktop.provider_register").html_safe        

@@ -1,0 +1,22 @@
+.nested-fields.working-clinics
+  .row
+    .col-xs-4.pt15
+      .form-group
+        = f.select :clinic_id, ([[t('dentist.select_clinic'), '']] + @current_brand.clinics.order('id DESC').collect{|clinic| [clinic.clinic_name, clinic.id]}), {}, :class => "form-control"
+    .col-xs-8
+      .form-group
+        %label 
+          = t('dentist.contractual_relationship')
+      .row
+        - @relationship_types.keys.each do |relationship_type|
+          .col-xs-12.col-sm-6.col-lg-4
+            .form-group
+              %label.radioBox
+                = f.radio_button :relationship_type, relationship_type
+                %span.lbl=t("dentist.relationship_types.#{relationship_type}")
+    .col-xs-12
+      .text-right.pb5
+        %label
+          = link_to_remove_association f, :class => 'addLink removeWorkingClinic' do
+            %i.removeIcon
+            = t('dentist.remove_clinic')

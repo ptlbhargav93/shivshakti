@@ -1,0 +1,51 @@
+= form_for(current_user, url: personal_settings_path, :multipart => true, :html => {:class => ""}) do |f|
+  %table.tableForm{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+    %tbody
+      %tr
+        %td#stepBtnHeight.leftCol{:width => "80%"}
+          .formBox
+            .formHeader.clearfix
+              %h1
+                = t("user.my_settings.manage_setting")
+            .row
+              .col-xs-12.col-md-6.col-lg-8
+                .formTitle.form-group
+                  = t("user.my_settings.login_id_and_password")
+                .form-group
+                  = f.text_field :email, :class => "form-control", :placeholder => t("user.my_settings.login_id")
+                .row.row7
+                  .col-xs-12.col-lg-8.form-group
+                    = f.password_field :password, :class => "form-control", :placeholder => t("user.my_settings.password"), :disabled=>true
+                  .col-xs-12.col-sm-5.col-md-8.col-lg-4.form-group
+                    %button.btn.btn-primary.btn-lg.btn-block{"data-target" => "#changePasswordModal", "data-toggle" => "modal", :type => "button"}
+                      =t("general.change_password")
+            .row.row7
+              .col-xs-12
+                .hr.hr25
+              .col-xs-12
+                .formTitle.form-group
+                  = t("user.my_settings.basic_information")
+                .formSubTitle.form-group
+                  = current_user.name
+                .row.row7
+                  .col-xs-12.col-sm-8
+                    .form-group
+                      = f.text_field :first_name, :class => "form-control", :placeholder => t("user.first_name")
+                    .form-group
+                      = f.text_field :last_name, :class => "virtualKeyboard form-control", :placeholder => t("user.last_name")
+                  .col-xs-12.col-sm-4
+                    - resource = f.object.resources['IMAGE::USER_PHOTO']
+                    - if resource.present? and resource.media.present?
+                      .groupContent.center
+                        .form-group
+                          = image_tag resource.media.url(:medium),:class => "maxH210"
+              
+          %td.stepBtnGroup{:width => "20%"}
+            %a.stepBtn.backBtn{:href => root_path}
+              %span
+                =t("form_action_button.discard_changes_and_return_back")
+              = image_tag "back_btn.png", :class => "mt15"
+            %button.stepBtn.nextBtn#step3Save{:name => "save", :type => "submit"}
+              %span
+                =t("form_action_button.save_changes_and_return_back")
+              = image_tag "save_btn.png", :class => "mt15"

@@ -1,0 +1,110 @@
+- user = @send_bill.clinic_user.user
+- clinic = @send_bill.clinic_user.clinic
+- user_clinic = @send_bill.clinic_user
+- setting = @current_brand.setting
+- payment_rule = user_clinic.payment_rule_type == "CLINIC_SHARE"
+- base_for_rent_or_reward = @send_bill.clinic_user.EMPLOYEE_MODEL? ? @send_bill.clinic_user.base_for_reward : @send_bill.clinic_user.base_for_rent
+- total_billing = base_for_rent_or_reward == "VALUE_OF_INVOICED_WORK" ? @send_bill.value_of_invoiced_work_amount : @send_bill.value_of_work_done_amount
+.templateTable
+  %table.tableForm{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+    %tbody
+      %tr
+        %td#stepBtnHeight.leftCol{:width => "80%"}
+          .formBox.view-details
+            .formHeader.clearfix
+              .row
+                .col-xs-6
+                  .row
+                    .col-xs-12
+                      %h1= t("send_bills.reward_details")
+                .col-xs-6
+                  %h1
+                    %span=t('send_bills.billing_period_date', date: @send_bill.billing_period.strftime("%m/%Y"))
+              .row
+                .col-xs-12
+                  .hr
+              .row.row5.form-group
+                .col-xs-6.formTitle
+                  = t("send_bills.pdf.your_contact_information").html_safe
+                .col-xs-6.formTitle
+                  = t("send_bills.pdf.additional_fees").html_safe
+              .row.row5.form-group
+                .col-xs-12.col-sm-6.col-lg-3.pt10
+                  = t('send_bills.pdf.reward_base')
+                .col-xs-12.col-sm-6.col-lg-3
+                  = text_field_tag "total_billing","Fixed Rental", :class =>"form-control form-group", readonly: true
+                .col-xs-12.col-sm-6.col-lg-3.pt10
+                  = t('send_bills.pdf.referral_fee_hygienist')
+                .col-xs-12.col-sm-6.col-lg-3
+                  = text_field_tag "referral_fee_hygienist","Fixed Rental", :class =>"form-control form-group", readonly: true
+              .row.row5.form-group
+                .col-xs-12.col-sm-6.col-lg-3.pt10
+                  = t('send_bills.pdf.base_for_rent')
+                .col-xs-12.col-sm-6.col-lg-3
+                  = text_field_tag "base_for_rent","Fixed Rental", :class =>"form-control form-group", readonly: true
+                .col-xs-12.col-sm-6.col-lg-3.pt10
+                  = t('send_bills.pdf.referral_fee_xray')
+                .col-xs-12.col-sm-6.col-lg-3
+                  = text_field_tag "referral_fee_xray","Fixed Rental", :class =>"form-control form-group", readonly: true
+              .row.row5.form-group
+                .col-xs-12.col-sm-6.col-lg-3.pt10
+                .col-xs-12.col-sm-6.col-lg-3
+                .col-xs-12.col-sm-6.col-lg-3.pt10
+                  = t('send_bills.pdf.referral_fee_xray')
+                .col-xs-12.col-sm-6.col-lg-3
+                  = text_field_tag "referral_fee_xray","Fixed Rental", :class =>"form-control form-group", readonly: true
+              .row
+                .col-xs-12
+                  .hr
+              .row.row5.form-group
+                .col-xs-offset-3
+                  .col-xs-12.col-sm-12.col-lg-5.pt10
+                    %label.pt10= t('send_bills.total_billing')
+                  .col-xs-12.col-sm-12.col-lg-4
+                    = text_field_tag "total_billing",total_billing, :class =>"form-control form-group", readonly: true
+              .row.row5.form-group
+                .col-xs-offset-3
+                  .col-xs-12.col-sm-12.col-lg-8.pt10
+                    %label.pt10= t('send_bills.through_billing_reduction')
+              - @send_bill.user_billing_costs.each do |user_billing_cost|
+                .row.row5
+                  .col-xs-offset-3
+                    .col-xs-offset-1.col-xs-12.col-sm-12.col-lg-4.pt10
+                      = user_billing_cost.cost_name
+                    .col-xs-12.col-sm-12.col-lg-4
+                      = text_field_tag "",user_billing_cost.cost_amount, :class => "form-control form-group"
+              .row.row5.form-group
+                .col-xs-offset-3
+                  .col-xs-12.col-sm-12.col-lg-5.pt10
+                    %label.pt10= t('send_bills.through_billing_reduction_total')
+                  .col-xs-12.col-sm-12.col-lg-4.pt10
+                    = text_field_tag "through_blling_reduction_total",@send_bill.through_billing_reduction_total , :class =>"form-control form-group"
+              - @send_bill.rental_costs.each do |rental_cost|
+                .row.row5
+                  .col-xs-offset-3
+                    .col-xs-offset-1.col-xs-12.col-sm-12.col-lg-4.pt10
+                      = rental_cost.cost_name
+                    .col-xs-12.col-sm-12.col-lg-4
+                      = text_field_tag "",rental_cost.cost_amount, :class => "form-control form-group"
+              .row.row5.form-group
+                .col-xs-offset-3
+                  .col-xs-12.col-sm-12.col-lg-5.pt10
+                    %label.normal.pt10=t('send_bills.rend_basis_billing')
+                  .col-xs-12.col-sm-12.col-lg-4
+                    = text_field_tag "rent_basis_billing",@send_bill.rent_basis_billing_amount, :class =>"form-control form-group", :id => "rent_basis_billing", readonly: true
+              .row.row5.form-group
+                .col-xs-offset-3
+                  .col-xs-12.col-sm-12.col-lg-5.pt10
+                    %label.normal.pt10=t('send_bills.dentist_reward_base')
+                    %br
+                      %i=t("send_bills.fixed_rental")
+                  .col-xs-12.col-sm-12.col-lg-4
+                    = text_field_tag "dentist_reward_base",(@send_bill.dentist_reward_base.present? ? @send_bill.dentist_reward_base : user_clinic.fixed_rental), :class =>"form-control form-group", :id => "dentist_reward_base", readonly: true
+              .row.row5.form-group
+                .col-xs-offset-3
+                  .col-xs-12.col-sm-12.col-lg-5.pt10
+                    %label.normal.pt10=t('send_bills.dentist_share_of_billing')
+                    %br
+                      %i=t("send_bills.before_additional_fee_and_extra")
+                  .col-xs-12.col-sm-12.col-lg-4
+                    = text_field_tag "dentist_share_of_billing", @send_bill.dentist_share_of_billing, :class =>"form-control form-group", :id => "dentist_share_of_billing", readonly: true

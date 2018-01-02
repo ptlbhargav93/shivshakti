@@ -1,0 +1,194 @@
+- user = @send_bill.clinic_user.user
+- clinic = @send_bill.clinic_user.clinic
+- user_clinic = @send_bill.clinic_user
+- setting = @current_brand.setting
+- payment_rule = user_clinic.payment_rule_type == "CLINIC_SHARE"
+- due_date = @send_bill.billing_period + 1.month
+- due_date_year = due_date.year
+- due_date_month = due_date.month
+.DBMEmail
+  .formField
+    .row
+      .col-xs-12
+        %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%", :class => "professionalInvoice"}
+          %tbody
+            %tr
+              %td
+                .formBox
+                  %table{:border => "1", :cellpadding => "5", :cellspacing => "0", :width => "100%"}
+                    %tbody
+                      %tr
+                        %td{:width => "50%"}
+                          %table{:border => "0", :cellpadding => "5", :cellspacing => "0"}
+                            %tbody
+                              %tr
+                                %td
+                                  %b
+                                    .col-xs-12= clinic.company_name
+                              %tr  
+                                %td
+                                  .col-xs-12= user.name
+                              %tr
+                                %td
+                                  .col-xs-12= user.address
+                              %tr
+                                %td
+                                  .col-xs-12= user.city
+                              %tr
+                                %td
+                                  .col-xs-12= user.post_number
+                              %tr
+                                %td
+                                  .col-xs-12= user_clinic.company_name                              
+                        %td{:width => "50%", :colspan => "4"}
+                          %table{:border => "0", :cellpadding => "5", :cellspacing => "0"}
+                            %tbody
+                              %tr
+                                %td
+                                  .col-xs-12
+                                    = t('send_bills.invoice.invoice_number')
+                                    = ":"
+                                    = "example"
+                              %tr
+                                %td{:style => "border-bottom:1px solid #818282;"}
+                                  = "&nbsp".html_safe
+                              %tr
+                                %td
+                                  .col-xs-12
+                                    = t('send_bills.invoice.invoice_date')
+                                    = ":"
+                                    = "example"
+                              %tr
+                                %td{:style => "border-bottom:1px solid #818282;"}
+                                  = "&nbsp".html_safe
+                              %tr
+                                %td
+                                  .col-xs-12
+                                    = t('send_bills.invoice.claims_period')
+                                    = ":"
+                                    = "example"
+                              %tr
+                                %td{:style => "border-bottom:1px solid #818282;"}
+                                  = "&nbsp".html_safe
+                              %tr
+                                %td
+                                  .col-xs-12
+                                    = t('send_bills.invoice.late_payment_interest')
+                                    = ":"
+                                    = "example"
+                              %tr
+                                %td
+                                  = "&nbsp".html_safe
+                      %tr
+                        %td{:colspan => "5"}
+                          %table{:border => "0", :cellpadding => "5", :cellspacing => "0", :width => "100%"}
+                            %tbody
+                              %tr
+                                %td
+                                  %b
+                                    .col-xs-12.pt15= t('send_bills.invoice.reward_details', :date => @send_bill.billing_period.strftime("%m/%Y"))
+                              %tr  
+                                %td
+                                  .col-xs-12= t("send_bills.invoice.reward_detail_on_seperate")
+                              %tr
+                                %td
+                                  = "&nbsp".html_safe
+                              %tr
+                                %td
+                                  .col-xs-12= t("send_bills.invoice.sales_of_health_and_medical")
+                              %tr
+                                %td
+                                  = "&nbsp".html_safe
+                                  = "&nbsp".html_safe
+                              %tr
+                                %td
+                                  .col-xs-12= user_clinic.company_name
+                              %tr
+                                %td
+                                  .col-xs-12= user_clinic.company_id
+                      %tr
+                        %td{:style => "padding:0;"}
+                          %table{:border => "0", :cellpadding => "5", :cellspacing => "0", :width => "100%"}
+                            %tbody
+                              %tr
+                                %td{:width => "30%", :style => "border-right:1px solid #818282;"}
+                                  .col-xs-12= t('send_bills.invoice.recipient_account_number')
+                                %td{:width => "81%"}
+                                  .col-xs-12
+                                    = t('send_bills.invoice.iban')
+                                    = user_clinic.bank_account_number
+                        %td{:colspan => "3"}
+                          .col-xs-12= t('send_bills.invoice.bic')
+                      %tr
+                        %td{:rowspan => "1", :style => "padding:0px;"}
+                          %table{:border => "0", :cellpadding => "5", :cellspacing => "0", :width => "100%"}
+                            %tbody
+                              %tr
+                                %td{:colspan => "2", :height => "60", :valign => "top", :style => "border-bottom:1px solid #818282; border-right:1px solid #818282;"}
+                                  .col-xs-12= t('send_bills.invoice.recipient')
+                                %td{:style => "border-bottom:1px solid #818282;"}
+                                  .col-xs-12
+                                    = "&nbsp".html_safe
+                                    = user_clinic.company_name
+                                  .col-xs-12
+                                    = user_clinic.company_address
+                                  .col-xs-12
+                                    = user_clinic.company_post_number
+                                  .col-xs-12
+                                    = user_clinic.company_city
+                              %tr
+                                %td{:width => "10%", :rowspan => "2", style: "transform: rotate(-90deg)"}
+                                  .col-xs-12= t('send_bills.invoice.credit_transfer').html_safe
+                                %td{:width => "14%", :height => "150", :valign => "top"}
+                                  .col-xs-12.pt15= t('send_bills.invoice.payers_name_and_address')
+                                %td{:width => "81%", :valign => "top"}
+                                  = "&nbsp".html_safe
+                                  - unless payment_rule
+                                    .col-xs-12
+                                      = clinic.clinic_name
+                                    .col-xs-12
+                                      = clinic.address
+                                    .col-xs-12
+                                      = "#{clinic.post_number},#{clinic.city}"
+                                  - else
+                                    .col-xs-12
+                                      = user.name
+                                    .col-xs-12
+                                      = user.address
+                                    .col-xs-12
+                                      = "#{user.post_number},#{user.city}"
+                              %tr
+                                %td
+                                  .col-xs-12.form-group= t('send_bills.invoice.signature')
+                                %td
+                                  .col-xs-12.form-group= "__________________________________________"
+                        %td{:colspan => "3", :height => "214", :valign => "top"}
+                          .col-xs-12
+                            = t("send_bills.invoice.message_period", date: @send_bill.billing_period.strftime("%m/%Y"))
+                            = "&nbsp".html_safe
+                      %tr
+                        %td{:colspan => "1"}
+                        %td{:colspan => "1"}
+                          .col-xs-12= t('send_bills.invoice.ref_no')
+                        %td{:colspan => "3"}
+                          .col-xs-12= "&nbsp".html_safe
+                      %tr
+                        %td{:width => "50%", :style => "padding:0;"}
+                          %table{:border => "0", :cellpadding => "5", :cellspacing => "0", :width => "100%"}
+                            %tbody
+                              %tr
+                                %td{:width => "19%", :style => "border-right:1px solid #818282;"}
+                                  .col-xs-12= t('send_bills.invoice.from_account_no')
+                                %td{:width => "81%"}
+                                  .col-xs-12= "&nbsp".html_safe
+                        %td{:width => "10%"}
+                          .col-xs-12= t('send_bills.invoice.due_date')
+                        %td{:width => "20%"}
+                          = "&nbsp".html_safe
+                          - if user_clinic.third_party_latest_day.present?
+                            .col-xs-12= Date.new(due_date_year, due_date_month ,user_clinic.third_party_latest_day.to_i).to_datetime.to_s(:default_date)
+                        %td{:width => "20%"}
+                          .col-xs-12
+                            = "Euro"
+                            = ":"
+                            = @send_bill.dentist_share_in_period

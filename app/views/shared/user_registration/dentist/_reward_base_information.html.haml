@@ -1,0 +1,82 @@
+.form-group.formTitle
+  =t('dentist.reward_base_information')
+- if not clinic_user.EMPLOYEE_MODEL?
+  .row.row5.row-inline.form-group
+    .col-xs-12.col-sm-8.col-lg-6.pt12
+      %label.radioBox{:id => "fixed_rental_radio_#{clinic_user.id}", :class => "fixed_rental_radio"}
+        = ff.radio_button :reward_type, 'FIXED_RENTAL', checked: true
+        %span.lbl
+          =t("dentist.fixed_rental")
+    .col-xs-8.col-sm-2.col-lg-2
+      - set_class = clinic_user.reward_type == "FIXED_RENTAL" ? false : true
+      = ff.text_field :fixed_rental, :class => "virtualKeyboard form-control w85", disabled: set_class, :id => "fixed_rental_#{clinic_user.id}"
+    .col-xs-4.col-sm-2.col-lg-4
+      %label.pt12 %
+
+    .col-xs-12.col-sm-8.col-lg-6.pt12
+      %label.radioBox{:id => "fixed_rental_per_month_radio_#{clinic_user.id}", :class => "fixed_rental_per_month"}
+        = ff.radio_button :reward_type, 'RENT_PER_MONTH'
+        %span.lbl
+          =t("dentist.fixed_per_month")
+    .col-xs-8.col-sm-2.col-lg-2
+      = ff.text_field :fixed_rental_per_month, :class => "virtualKeyboard form-control w85", disabled: (clinic_user.reward_type != "RENT_PER_MONTH"), :id => "fixed_rental_per_month_#{clinic_user.id}"
+    .col-xs-4.col-sm-2.col-lg-4
+      %label.pt12 
+        = @current_brand.currency_code
+  .row.row5.row-inline
+    .col-xs-12.col-sm-8.col-lg-6.pt12
+      %label.radioBox{:id => "fixed_rental_per_hour_radio_#{clinic_user.id}", :class => "fixed_rental_per_hour"}
+        = ff.radio_button :reward_type, 'RENT_PER_HOUR'
+        %span.lbl
+          =t("dentist.fixed_per_hour")
+    .col-xs-8.col-sm-2.col-lg-2
+      = ff.text_field :fixed_rental_per_hour, :class => "virtualKeyboard form-control w85", disabled: (clinic_user.reward_type != "RENT_PER_HOUR"), :id => "fixed_rental_per_hour_#{clinic_user.id}"
+    .col-xs-4.col-sm-2.col-lg-4
+      %label.pt12 
+        = @current_brand.currency_code
+- else
+  - if object.dental_hygienist? or object.profession == "DENTAL_HYGIENIST"
+    .row.row5.row-inline.form-group
+      .col-xs-12.col-sm-8.col-lg-6.pt12
+        %label.radioBox{:id => "fixed_bonus_radio_#{clinic_user.id}", :class => "fixed_bonus_radio"}
+          = ff.radio_button :reward_type, 'FIXED_BONUS', checked: true
+          %span.lbl
+            =t("dentist.fixed_bonus")
+      .col-xs-8.col-sm-2.col-lg-2
+        = ff.text_field :fixed_bonus, :class => "virtualKeyboard form-control w85", :id => "fixed_bonus_#{clinic_user.id}"
+      .col-xs-4.col-sm-2.col-lg-4
+        %label.pt12 %
+  - else
+    .row.row5.row-inline.form-group
+      .col-xs-12.col-sm-8.col-lg-6.pt12
+        %label.radioBox{:id => "fixed_reward_radio_#{clinic_user.id}", :class => "fixed_reward_radio"}
+          = ff.radio_button :reward_type, 'FIXED_REWARD', checked: true
+          %span.lbl
+            =t("dentist.fixed_reward")
+      .col-xs-8.col-sm-2.col-lg-2
+        - set_class = clinic_user.reward_type == "FIXED_REWARD" ? false : true
+        = ff.text_field :fixed_reward, :class => "virtualKeyboard form-control w85", disabled: set_class, :id => "fixed_reward_#{clinic_user.id}"
+      .col-xs-4.col-sm-2.col-lg-4
+        %label.pt12 %
+
+      .col-xs-12.col-sm-8.col-lg-6.pt12
+        %label.radioBox{:id => "fixed_salary_per_month_radio_#{clinic_user.id}", :class => "fixed_salary_per_month"}
+          = ff.radio_button :reward_type, 'SALARY_PER_MONTH'
+          %span.lbl
+            =t("dentist.fixed_salary_per_month")
+      .col-xs-8.col-sm-2.col-lg-2
+        = ff.text_field :fixed_salary_per_month, :class => "virtualKeyboard form-control w85", disabled: (clinic_user.reward_type != "SALARY_PER_MONTH"), :id => "fixed_salary_per_month_#{clinic_user.id}"
+      .col-xs-4.col-sm-2.col-lg-4
+        %label.pt12 
+          = @current_brand.currency_code
+    .row.row5.row-inline
+      .col-xs-12.col-sm-8.col-lg-6.pt12
+        %label.radioBox{:id => "fixed_salary_per_hour_radio_#{clinic_user.id}", :class => "fixed_salary_per_hour"}
+          = ff.radio_button :reward_type, 'SALARY_PER_HOUR'
+          %span.lbl
+            =t("dentist.fixed_salary_per_hour")
+      .col-xs-8.col-sm-2.col-lg-2
+        = ff.text_field :fixed_salary_per_hour, :class => "virtualKeyboard form-control w85", disabled: (clinic_user.reward_type != "SALARY_PER_HOUR"), :id => "fixed_salary_per_hour_#{clinic_user.id}"
+      .col-xs-4.col-sm-2.col-lg-4
+        %label.pt12 
+          = @current_brand.currency_code

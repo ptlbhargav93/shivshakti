@@ -1,0 +1,55 @@
+.col-xs-12
+  .hr.hr25
+.col-xs-12
+  .form-group.formTitle
+    =t('executive.contract_length_and_type')
+.col-xs-12
+  #contract_start_date.form-group.row.row5
+    = ff.label t('executive.starting_date'), :class => "normal pt15 col-xs-12 col-sm-4 col-lg-3"
+    .col-xs-12.col-sm-8.col-lg-9
+      %span.selectBox
+        = ff.date_select :contract_start_date, :start_year => 1950, :end_year => Time.now.year, :order => [:day, :month, :year]
+.col-xs-12
+  #contract_type.form-group.row.row5
+    %label.col-xs-12.col-sm-4.col-lg-3
+    .col-xs-12.col-sm-8.col-lg-9
+      - ClinicUser.valid_contract_types.each do |contract_type|
+        %label.radioBox.radioInline{:id => "#{contract_type.downcase}_#{clinic_user.id}", :class => "contract_type_#{contract_type.downcase}"}
+          = ff.radio_button :contract_type, contract_type, :id => "contract_type_#{contract_type.downcase}_#{clinic_user.id}"
+          %span.lbl= contract_type.humanize
+.col-xs-12
+  #probation.row.row5
+    = ff.label t('executive.probation'), :class => "normal col-xs-12 col-sm-4 col-lg-3"
+    .col-xs-12.col-sm-8.col-lg-9
+      %label.radioBox.radioInline{:id => "probation_lbl_true_#{clinic_user.id}", :class => "contract_probation_true"}
+        = ff.radio_button :contract_probation, true, :id => "contract_probation_true_#{clinic_user.id}"
+        %span.lbl=t("executive.probation_yes")
+      %label.radioBox.radioInline{:id => "probation_lbl_false_#{clinic_user.id}", :class => "contract_probation_false"}
+        = ff.radio_button :contract_probation, false, :id => "contract_probation_false_#{clinic_user.id}"
+        %span.lbl=t("executive.probation_no")
+.contract_until.none{:id => "contract_until_#{clinic_user.id}"}
+  .col-xs-12
+    .form-group.row.row5
+      = ff.label t('executive.until'), :class => "normal pt15 col-xs-12 col-sm-4 col-lg-3"
+      .col-xs-12.col-sm-8.col-lg-9
+        %span.selectBox
+          = ff.date_select :contract_end_date, :start_year => 1950, :end_year => Time.now.year + 80, :class => "form-control", :order => [:day, :month, :year]
+.col-xs-12
+  .hr.hr25
+.col-xs-12
+  .form-group.formTitle
+    =t('executive.contract')
+.col-xs-12.col-md-7.col-lg-7
+  .form-group.file_attachments
+    - written_contract = clinic_user.resources["DOCUMENT::WRITTEN_CONTRACT"]
+    = ff.fields_for :resources, (written_contract || Resource.new) do |ff|
+      - resource_type = ResourceType.find_by(name: "DOCUMENT").id
+      - resource_spec = ResourceSpec.find_by(name: "WRITTEN_CONTRACT").id
+      = render :partial => "shared/upload_file", :locals => {f: ff, :resource_type => resource_type, :resource_spec => resource_spec, :object => written_contract, :title => t("executive.upload_written_contract")}
+.col-xs-12.col-md-7.col-lg-7
+  .form-group.file_attachments
+    - contract_attachment = clinic_user.resources["DOCUMENT::CONTRACT_ATTACHMENT"]
+    = ff.fields_for :resources, (contract_attachment || Resource.new) do |ff|
+      - resource_type = ResourceType.find_by(name: "DOCUMENT").id
+      - resource_spec = ResourceSpec.find_by(name: "CONTRACT_ATTACHMENT").id
+      = render :partial => "shared/upload_file", :locals => {f: ff, :resource_type => resource_type, :resource_spec => resource_spec, :object => contract_attachment, :title => t("executive.upload_contract_attachment")}

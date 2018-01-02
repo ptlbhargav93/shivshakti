@@ -1,0 +1,86 @@
+.col-xs-12
+  .hr.hr25
+.col-xs-12
+  .form-group.formTitle
+    =t('dentist.additional_fees.title')
+.col-xs-12
+  .row.row5.row-inline.form-group
+    .col-xs-12.pt12
+      %label
+        = t('dentist.additional_fees.dentist_is_committed_to_use')
+    .col-xs-12.col-sm-8.col-lg-6.pt12
+      %label.radioBox
+        = ff.radio_button :is_commited_own_laboratory, true, {:id => "is_committed_to_laboratory_fee_true_#{clinic_user.id}", :class => "is_committed_to_laboratory_fee"}
+        %span.lbl
+          = t('dentist.additional_fees.commited_yes')
+    .col-xs-12.col-sm-8.col-lg-6.pt12
+      %label.radioBox
+        = ff.radio_button :is_commited_own_laboratory, false, {:id => "is_committed_to_laboratory_fee_false_#{clinic_user.id}", :class => "is_committed_to_laboratory_fee"}
+        %span.lbl
+          = t('dentist.additional_fees.commited_no')
+
+  .row.row5.row-inline.form-group
+    .col-xs-12.col-sm-8.col-lg-6.pt12
+      %label.checkBox{:id => "is_hygienist_fee_check_#{clinic_user.id}", :class => "is_hygienist_fee"}
+        = ff.check_box :is_hygienist_fee, :class => "form-control"
+        %span.lbl
+          = t('dentist.additional_fees.referral_fee_to_hygienist')
+    .col-xs-8.col-sm-2.col-lg-2
+      = ff.text_field :hygienist_fee, :class => "virtualKeyboard form-control w85", :id => "hygienist_fee_#{clinic_user.id}", disabled: (clinic_user.is_hygienist_fee != true)
+    .col-xs-4.col-sm-2.col-lg-4
+      %label.pt12 
+        = @current_brand.currency_code
+      %lbl.pt12
+        =t('dentist.additional_fees.per_admission_note')
+
+  .row.row5.row-inline.form-group
+    .col-xs-12.col-sm-8.col-lg-6.pt12
+      %label.checkBox{:id => "is_xray_fee_check_#{clinic_user.id}", :class => "is_xray_fee"}
+        = ff.check_box :is_xray_fee, :class => "form-control "
+        %span.lbl
+          = t('dentist.additional_fees.referral_fee_to_x')
+
+    - unless clinic_user.EMPLOYEE_MODEL?
+      .col-xs-12.col-sm-8.col-lg-6.pt12
+        %label.radioBox
+          = ff.radio_button :xray_fee_type, "ADMISSION_NOTE", :id => "xray_fee_radio_button", :class => "xray_fee_type"
+          %span.lbl
+      .col-xs-8.col-sm-2.col-lg-2
+        = ff.text_field :xray_fee, :class => "virtualKeyboard form-control w85", :id => "xray_fee_#{clinic_user.id}", disabled: (clinic_user.is_xray_fee != true)
+      .col-xs-4.col-sm-2.col-lg-4
+        %label.pt12 
+          = @current_brand.currency_code
+        %lbl.pt12
+          =t('dentist.additional_fees.per_admission_note')
+      .col-xs-12.col-sm-8.col-lg-6.pt12
+        %label.radioBox
+          = ff.radio_button :xray_fee_type, "BILLING_FEE", :id => "xray_billing_per_radio_button", :class => "xray_fee_type"
+          %span.lbl
+      .col-xs-4.col-sm-2.col-lg-2
+        = ff.text_field :xray_billing_percentage, :class => "virtualKeyboard form-control w85", :id => "xray_billing_per_#{clinic_user.id}", disabled: (clinic_user.is_xray_fee != true)
+      .col-xs-4.col-sm-2.col-lg-4
+        %label.pt12
+          =t('dentist.additional_fees.per_from_xray_billing')
+    - else
+      .col-xs-8.col-sm-2.col-lg-2
+        = ff.text_field :xray_fee, :class => "virtualKeyboard form-control w85", :id => "xray_fee_#{clinic_user.id}", disabled: (clinic_user.is_xray_fee != true)
+      .col-xs-4.col-sm-2.col-lg-4
+        %label.pt12 
+          = @current_brand.currency_code
+        %lbl.pt12
+          =t('dentist.additional_fees.per_admission_note')    
+
+  .own_lab_fee.hide{:id => "own_lab_fee_#{clinic_user.id}" }
+    .row.row5.row-inline.form-group
+      .col-xs-12.col-sm-8.col-lg-6.pt12
+        %label.checkBox{:id => "is_own_laboratory_fee_check_#{clinic_user.id}", :class => "is_own_laboratory_fee"}
+          = ff.check_box :is_own_laboratory_fee, :class => "form-control"
+          %span.lbl
+            = t('dentist.additional_fees.referral_fee_sending_patient')
+      .col-xs-8.col-sm-2.col-lg-2
+        = ff.text_field :own_laboratory_fee, :class => "virtualKeyboard form-control w85", disabled: (clinic_user.is_own_laboratory_fee != true), :id => "own_laboratory_fee_#{clinic_user.id}"
+      .col-xs-4.col-sm-2.col-lg-4
+        %label.pt12 
+          = "% "
+        %lbl.pt12
+          = t('dentist.additional_fees.from_total_customer_billing')

@@ -1,0 +1,87 @@
+.row.row5
+  .col-xs-12
+    .hr.hr25
+  .col-xs-12
+    .formTitle.form-group
+      =t("general.add_some_profiles")
+  .col-xs-12
+    .row.row5
+      .col-xs-6.col-sm-4.col-md-2
+        .form-group
+          %a{ :href => "javascript:void(0)", :class => "icon-social linkedin-icon"}
+            = image_tag "linkedin.png"
+            = t('general.linkedin')
+      .col-xs-6.col-sm-4.col-md-2
+        .form-group
+          %a{ :href => "javascript:void(0)", :class => "icon-social facebook-icon"}
+            = image_tag "facebook.png"
+            = t('general.facebook')
+      .col-xs-6.col-sm-4.col-md-2
+        .form-group
+          %a{ :href => "javascript:void(0)", :class => "icon-social twitter-icon"}
+            = image_tag "twitter.png"
+            = t('general.twitter')
+      .col-xs-6.col-sm-4.col-md-2
+        .form-group
+          %a{ :href => "javascript:void(0)", :class => "icon-social youtube-icon"}
+            = image_tag "dbm_youtube_icon.png"
+            = t('general.youtube')
+      .col-xs-6.col-sm-4.col-md-2
+        .form-group
+          %a{ :href => "javascript:void(0)", :class => "icon-social whatsapp-icon"}
+            = image_tag "whatsapp.png"
+            = t('general.whatsapp')
+      .col-xs-6.col-sm-4.col-md-2
+        .form-group
+          %a{ :href => "javascript:void(0)", :class => "icon-social skype-icon"}
+            = image_tag "skype.png"
+            = t('general.skype')
+
+  .col-xs-12
+    #linkedin-form.hide.row.row5.pt12
+      .col-xs-12.col-sm-3.col-md-2.mt10.pb10
+        .icon-social
+          = image_tag "linkedin.png"
+          = t('general.linkedin')
+      .col-xs-12.col-sm-9.col-md-10
+        = f.text_field :linkedin_url, :class => "form-control"
+
+    #facebook-form.hide.row.row5.pt12
+      .col-xs-12.col-sm-3.col-md-2.mt10.pb10
+        .icon-social
+          = image_tag "facebook.png"
+          = t('general.facebook')
+      .col-xs-12.col-sm-9.col-md-10
+        = f.text_field :facebook_url, :class => "form-control"
+
+    #twitter-form.hide.row.row5.pt12
+      .col-xs-12.col-sm-3.col-md-2.mt10.pb10
+        .icon-social
+          = image_tag "twitter.png"
+          = t('general.twitter')
+      .col-xs-12.col-sm-9.col-md-10
+        = f.text_field :twitter_url, :class => "form-control"
+
+    #youtube-form.hide.row.row5.pt12
+      .col-xs-12.col-sm-3.col-md-2.mt10.pb10
+        .icon-social
+          = image_tag "dbm_youtube_icon.png"
+          = t('general.youtube')
+      .col-xs-12.col-sm-9.col-md-10
+        = f.text_field :youtube_url, :class => "form-control"
+
+    #whatsapp-form.hide.row.row5.pt12
+      .col-xs-12.col-sm-3.col-md-2.mt10.pb10
+        .icon-social
+          = image_tag "whatsapp.png"
+          = t('general.whatsapp')
+      .col-xs-12.col-sm-9.col-md-10
+        = f.text_field :whatsapp_number, :class => "form-control"
+
+    #skype-form.hide.row.row5.pt12
+      .col-xs-12.col-sm-3.col-md-2.mt10.pb10
+        .icon-social
+          = image_tag "skype.png"
+          = t('general.skype')
+      .col-xs-12.col-sm-9.col-md-10
+        = f.text_field :skype_id, :class => "form-control"

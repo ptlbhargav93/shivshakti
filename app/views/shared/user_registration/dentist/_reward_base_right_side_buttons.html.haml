@@ -1,0 +1,14 @@
+- show_url_path = eval("#{user}_path(#{object.id})")
+- edit_url_path = eval("#edit_#{user}_path(#{object},:step => #{@step.to_i} - 1)")
+%td.stepBtnGroup{:width => "20%"}
+  - back_btn_href = session[:open_card] ? show_url_path : edit_url_path
+  %a.stepBtn.backBtn{:href => back_btn_href }
+    %span=t("form_action_button.return_button")
+    = image_tag "back_btn.png", :class => "mt15"
+  %button.stepBtn.nextBtn#saveMedia{:name => "save", :type => "submit" }
+    %span=t("form_action_button.save_button")
+    = image_tag "save_btn.png", :class => "mt15"
+  - unless session[:open_card]
+    %button.stepBtn.nextBtn{:name => "proceed_next", :type => "submit"}
+      %span= t("form_action_button.save_and_next_button")
+      = image_tag "save_and_next_btn.png", :class => "mt15"

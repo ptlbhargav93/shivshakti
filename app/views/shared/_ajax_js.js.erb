@@ -1,0 +1,105 @@
+$(document).ready(function(){
+
+  common_events();
+
+  calculate_billing_data();
+  
+  $(".is_hygienist_fee").click(function(){
+    calculate_additional_fee("#hygienist_fee","#hygienist_additional_note","#hygienist_total_fee");
+    disable_text_input("is_hygienist_fee","is_hygienist_fee","hygienist_fee","hygienist_additional_note")
+  });
+
+  $(".is_xray_fee").click(function(){
+    calculate_additional_fee("#xray_fee","#xray_additional_note","#xray_total_fee");
+    disable_text_input("is_xray_fee","is_xray_fee","xray_fee","xray_additional_note")
+  });
+
+  $(".is_own_laboratory_fee").click(function(){
+    calculate_additional_fee("#own_laboratory_fee","#own_laboratory_additional_note","#own_laboratory_total_fee");
+    disable_text_input("is_own_laboratory_fee","is_own_laboratory_fee","own_laboratory_fee","own_laboratory_additional_note")
+  });
+
+  for (i = 0; i < 4; i++) {
+    $("#user_bill_user_billing_costs_attributes_"+i+"__destroy").next('a').css('display', 'none');
+  }
+
+  $('.scroll').jscroll({
+    loadingHtml: '<img src="/loading.gif" alt="Loading" />',
+    autoTrigger: true,
+    nextSelector: 'a.jscroll-next:last',
+    callback: common_events
+  });
+
+  $('.scroll-person').jscroll({
+    loadingHtml: '<img src="/loading.gif" alt="Loading" />',
+    autoTrigger: true,
+    nextSelector: 'a.jscroll-next-person:last',
+    callback: common_events
+  });
+});
+
+$('.fileUploadMedia').on( 'change', function(){
+  readURL(this);
+});
+
+function setScrollPosition(selectedId) {
+  $('html,body').animate({scrollTop: ($("#" + selectedId).offset().top - 2) }, 'slow');
+}
+
+function common_events(){
+
+  if ($("#pc_browser").val() != 'true') {
+    $('.virtualKeyboard, .virtualKeyboardRoom').attr('readonly', true);
+  }
+
+  $('.virtualKeyboardRoom').keyboard({
+    layout: 'custom',
+    restrictInput : true, // Prevent keys not in the displayed keyboard from being typed in
+    preventPaste : true,  // prevent ctrl-v and right click
+    autoAccept : true,
+    maxLength: 2,
+    keyBinding: 'mousedown touchstart',
+    position: {
+      of: null, // null = attach to input/textarea; use $(sel) to attach elsewhere
+      my: 'center top',
+      at: 'center top',
+      at2: 'center bottom', // used when "usePreview" is false
+      collision: 'flipfit flipfit'
+    } 
+  });
+
+  $('.virtualKeyboard').keyboard({
+    position: {
+      of: null,
+      my: 'top'
+    },
+    usePreview: true,
+  });
+
+  $("#loader-image, .pre-icon").hide();
+  
+  $("#flash_msg").delay(3000).fadeOut(500);
+ 
+  $("#filter-btn, #saveMedia, #saveMediaNext").click(function(){
+    $("#loader-image").show();
+  });
+  
+  $(".pre-icon-load").click(function(){
+    $(".pre-icon").show();
+  });
+
+  $(".pre-load-form").submit(function(){    
+    $(".pre-icon").show();
+  });
+
+  $('.navbar-toggle').click(function(){
+    $(this).toggleClass('active');
+    $('.navbar-collapse').toggleClass('active');
+    $('.menuOverlay').toggleClass('active');
+  });
+  $('.menuOverlay').click(function(){
+    $(this).removeClass('active');
+    $('.navbar-collapse').toggleClass('active');
+    $('.navbar-toggle').toggleClass('active');
+  });
+}

@@ -1,0 +1,13 @@
+:verbose: true
+:pidfile: ./tmp/pids/sidekiq.pid
+:logfile: ./log/sidekiq.log
+:queues:
+  - [default,           100]
+  - [mailers,           100]
+  - [madhav_mailers,    100]  
+  - [paperclip,           1]
+:concurrency: 1
+staging:
+  :concurrency: 1
+production:
+  :concurrency: 1

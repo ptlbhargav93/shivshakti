@@ -1,0 +1,15 @@
+.row
+  .col-xs-12.col-sm-6
+    = hidden_field_tag 'step', '1'
+    #first_name.form-group
+      = f.text_field :first_name, :class => "form-control",:placeholder => t("executive.first_name")
+      - if object.errors[:first_name].any?
+        %span.text-error.text-message= object.errors[:first_name].first
+    #last_name.form-group
+      = f.text_field :last_name, :class => "form-control", :placeholder => t("executive.last_name")
+      - if object.errors[:last_name].any?
+        %span.text-error.text-message= object.errors[:last_name].first
+    #email.form-group
+      = f.text_field :email, :class => "form-control", :placeholder => t("executive.dbm_email")
+      - if object.errors[:email].any?
+        %span.text-error.text-message= object.errors[:email].first

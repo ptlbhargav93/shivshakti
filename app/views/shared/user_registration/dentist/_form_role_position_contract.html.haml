@@ -1,0 +1,19 @@
+- if object.clinic_users.any?
+  %ul.nav.nav-tabs
+    - object.clinic_users.includes(:clinic).each_with_index do |clinic_user, i|
+      - active_class = (i == 0) ? "active" : ""
+      %li{:class => active_class}
+        %a{"data-toggle" => "tab", :href => "#clinic_#{i}"}
+          = clinic_user.clinic.clinic_name if clinic_user.clinic.present?
+  .tab-content
+    - index = 0
+    - object.clinic_users.includes(:clinic).each_with_index do |clinic_user, i|
+      - in_active_class = (i == 0) ? "in active" : ""
+      .tab-pane.fade{:id => "clinic_#{i}", :class => "user_role_position_form #{in_active_class}"}
+        = f.fields_for :clinic_users, clinic_user do |ff|
+          = render  :partial => 'shared/user_registration/dentist/role_position_contract', :locals => {:clinic_user => clinic_user, ff: ff, :index => index, :object => object}
+      - index += 2
+- else
+  = f.hidden_field :id, :value => object.id
+  .col-md-6.alert.alert-warning
+    %span= t('dentist.no_clinic_found')

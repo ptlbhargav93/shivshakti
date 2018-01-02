@@ -1,0 +1,31 @@
+.row.row10
+  .col-xs-12
+    .form-group.formTitle
+      = object.executive? ? t("form.executive.basic_information") : t("form.director.basic_information")
+  .col-xs-12.col-md-6
+    .card-row
+      %label.label-view
+        %span
+          = object.executive? ? t('executive.name'): t('director.director_name')
+      %label.label-value= object.name
+
+  .col-xs-12.visible-xs.visible-sm.form-group
+  .col-xs-12.col-md-6
+    .card-row
+      %label.label-view
+        %span= t('user.email')
+      %label.label-value= object.email
+    .card-row
+      %label.label-view
+        %span= t('user.job_roles')
+      %label.label-value= object.role.present? ? object.role.humanize : ""
+
+.row.row10
+  .col-xs-12
+    .hr
+  .col-xs-6
+    .col-md-6.col-lg-12
+      .form-group.row
+        .col-xs-12.pt10.right-text
+          - resource = object.resources['IMAGE::USER_PHOTO']
+          = image_tag src="#{resource.media.url(:medium)}" if resource.present?

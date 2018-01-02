@@ -1,0 +1,18 @@
+#upload_media.uploadFile.form-control
+  %i.fa.fa-picture-o
+  = title
+  .btn.btn-primary.btn-lg
+    = t("general.upload")
+  = f.file_field :media, :class => "file-control form-control media-file-upload"
+  = f.hidden_field :resource_type_id, value: resource_type
+  = f.hidden_field :resource_spec_id, value: resource_spec
+  = f.hidden_field :_destroy, value: false, :class => "destroy-media-file"
+%div.upload-file-box
+  %ul.preview_attachments
+    - set_class = object.present? ? "saved_media_file" : ""
+    - if object.present?
+      %li
+        = link_to object.media_file_name, (object.media.url)
+        %a{:href => 'javascript:void(0);', :class => "remove-file dib remove-saved-media-file #{set_class}"}
+          %div{:class => 'remove'}
+            %i.fa.fa-times

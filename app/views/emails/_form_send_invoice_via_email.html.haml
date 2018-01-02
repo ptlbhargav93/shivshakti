@@ -1,0 +1,49 @@
+.DBMEmail
+  .formField
+    .row
+      .col-xs-12
+        = form_for(object, url: send_invoice_via_email_emails_path(object.id), :html => {:class => "", :method => "post", :id => "send_invoice_via_email_form"}) do |f|
+          = f.hidden_field :brand_name, :value => @current_brand.name
+          = hidden_field_tag 'send_bill_id',@send_bill.id, :id => "send_bill_id" 
+          = hidden_field_tag 'form_submit', true, :id => "send_invoice_via_email_form_submit"
+          %table.tableForm{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+            %tbody
+              %tr
+                %td#stepBtnModalHeight.leftCol{:width => "80%"}
+                  .formBox
+                    .row
+                      .col-xs-12
+                        .form-group
+                          %label=t("general.recipient")
+                          = text_field_tag "recipient_email", object.email, :class => "form-control", :id => "recipient_email"
+                      .col-xs-12
+                        .form-group
+                          %label=t("general.subject")
+                          = text_field_tag :subject, t("send_bills.your_copy_of_invoice", date: @send_bill.billing_period.strftime("%m/%Y")), :class => "form-control", :id => "send_bill_subject"
+                      .col-xs-12
+                        .form-group
+                          %label=t("general.message")
+                          - message = t("send_bills.send_invoice_email_text", name: object.name, phone_number: object.phone_number).html_safe
+                          = text_area_tag :message, message, :rows => 16, :class => "form-control ckeditorCustom", :id => "send_bill_body"
+                      .col-xs-12
+                        %label= t('general.attachments')
+                      .col-xs-12
+                        .form-group
+                          = link_to print_invoice_pdf_path(@send_bill.id, format: 'pdf'), class: "stepBtn nextBtn btn_height_class" do
+                            %span=t("send_bills.copy_of_invoice_date", :date => @send_bill.billing_period.strftime("%m/%Y"))
+                      .col-xs-12
+                        .form-group
+                          = link_to reward_detail_pdf_path(@send_bill.id, format: 'pdf'), class: "stepBtn nextBtn btn_height_class" do
+                            %span=t("send_bills.copy_of_reward_detail", :date => @send_bill.billing_period.strftime("%m/%Y"))
+                      .col-xs-12.col-xs-8
+                        .form-group
+                          = render :partial => "shared/upload_files", :locals => {:object => object, :type => 'temp_folder_send_invoice', :resource_type => 'DOCUMENT', :resource_spec => 'ATTACHMENT', :title => t("general.add_attachment").html_safe, :index => "0"}                                                
+                %td.stepBtnGroup{:width => "20%"}
+                  %button.h25.stepBtn.backBtn{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                    %span
+                      =t("form_action_button.return_button")
+                    = image_tag "back_btn.png", :class => "mt15"
+                  %button.h75.stepBtn.nextBtn{:name => "save", :type => "submit", :id => "send_invoice_email_btn"}
+                    %span
+                      =t("send_bills.send_invoice_via_email_text")
+                    = image_tag "email_btn.png", :class => "mt15"                     
