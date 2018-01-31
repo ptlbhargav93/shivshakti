@@ -1,0 +1,182 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    %title Madhav Corporation - Wholesale Peanuts India
+
+    %link{:href => "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic", :rel => "stylesheet", :type => "text/css"}/
+
+    = stylesheet_link_tag 'desktop', media: 'all'
+    = csrf_meta_tags
+
+  %body#page-top
+    / Navigation
+    %a.menu-toggle.rounded{:href => "#"}
+      %i.fa.fa-bars
+    %nav#sidebar-wrapper
+      %ul.sidebar-nav
+        %li.sidebar-brand
+          %a.js-scroll-trigger{:href => "#page-top"} MADHAV
+        %li.sidebar-nav-item
+          %a.js-scroll-trigger{:href => "#page-top"} Home
+        %li.sidebar-nav-item
+          %a.js-scroll-trigger{:href => "#about"} About
+        %li.sidebar-nav-item
+          %a.js-scroll-trigger{:href => "#services"} Services
+        %li.sidebar-nav-item
+          %a.js-scroll-trigger{:href => "#portfolio"} Gallery
+        %li.sidebar-nav-item
+          %a.js-scroll-trigger{:href => "#contact"} Contact
+    / Header
+    %header.masthead.d-flex
+      .container.text-center.my-auto
+        %section.content-section.bg-primary.text-white
+          %h1.mb-1 Madhav Corporation
+          %h3.mb-5
+            %em Wholesale Peanut Seeds - Gujarat (India)
+      .overlay
+    / About
+    %section#about.content-section.bg-light
+      .container.text-center
+        .row
+          .col-lg-10.mx-auto
+            %h2 We Madhav Corporation is a leading firm founded in the year 2015. We are a leading Manufacturer of peanut firm which is located at Ahmedabad (Gujarat, India).
+            %p.lead.mb-5
+              We are providing best service and quality and dealing with a huge network of clients that is spread over India.
+              = succeed "!" do
+                %a{:href => "#"} We ensure the highest standard of quality.
+      .container.text-center
+        %h2.mb-4 Product Description
+        BEST GRADED GROUNT NUT SEEDS
+        %br
+        90%+ GERMINATION 
+        %br
+        5-6% MOISTURE CONTENT.
+        %br
+        FREE MANCOZEB-75% SEED TREATMENT POUCH INSIDE BAG.
+    / Services
+    %section#services.content-section.bg-primary.text-white.text-center
+      .container
+        .content-section-heading
+          %h3.text-secondary.mb-0
+          %h2.mb-5 We Glad To Offer
+        .row
+          .col-lg-3.col-md-6.mb-5.mb-lg-0
+            %span.service-icon.rounded-circle.mx-auto.mb-3
+              %i.icon-screen-smartphone
+            %h4
+              %strong Contribute positively 
+            %p.text-faded.mb-0 to our communities and our environment.
+          .col-lg-3.col-md-6.mb-5.mb-lg-0
+            %span.service-icon.rounded-circle.mx-auto.mb-3
+              %i.icon-pencil
+            %h4
+              %strong Apply the highest 
+            %p.text-faded.mb-0 standards of excellence to the fresh delivery of our nuts.
+          .col-lg-3.col-md-6.mb-5.mb-md-0
+            %span.service-icon.rounded-circle.mx-auto.mb-3
+              %i.icon-like
+            %h4
+              %strong Develop 
+            %p.text-faded.mb-0
+              enthusiastically satisfied customers all of the time.
+              %i.fa.fa-heart
+              Contact Us!
+          .col-lg-3.col-md-6
+            %span.service-icon.rounded-circle.mx-auto.mb-3
+              %i.icon-mustache
+            %h4
+              %strong Our Vission
+            %p.text-faded.mb-0 Service is our motto!...
+    / Callout
+    %section.callout
+      .container.text-center
+        %section.content-section.bg-primary.text-white
+          %h2.mx-auto.mb-5
+            With years of
+            %em experience and knowledge
+          %h4
+            in this market, we are engaged in offering premium quality Ground Nut!
+    / Portfolio
+    %section#portfolio.content-section
+      .container
+        .content-section-heading.text-center
+          %h3.text-secondary.mb-0 Gallery
+          %h2.mb-5
+        .row.no-gutters
+          .col-lg-6
+            %a.portfolio-item{:href => "#"}
+              %span.caption
+                %span.caption-content
+                  %h2 Peanut
+                  %p.mb-0 Seeds!
+              %img.img-fluid{:alt => "", :src => "assets/img/peanut1.jpg"}/
+          .col-lg-6
+            %a.portfolio-item{:href => "#"}
+              %span.caption
+                %span.caption-content
+                  %h2 Peanut
+                  %p.mb-0 Seeds!
+              %img.img-fluid{:alt => "", :src => "assets/img/peanut2.jpg"}/
+          .col-lg-6
+            %a.portfolio-item{:href => "#"}
+              %span.caption
+                %span.caption-content
+                  %h2 Peanuts
+                  %p.mb-0 Mungfali!
+              %img.img-fluid{:alt => "", :src => "assets/img/peanut3.jpg"}/
+          .col-lg-6
+            %a.portfolio-item{:href => "#"}
+              %span.caption
+                %span.caption-content
+                  %h2 Dried
+                  %p.mb-0 Peanuts!.
+              %img.img-fluid{:alt => "", :src => "assets/img/peanut4.jpg"}/
+    / Call to Action
+    %section#contact.content-section.bg-primary.text-white
+      .container.text-center
+        %h2.mb-4 Madhav Corporation
+        %hr
+        %h5.mb-4
+          Sarkhej Sanand Road, Sarkhej, Ahmedabad, Gujarat (India)
+          %br
+          %br
+          Contact Number:
+          %a.text-white{:href => "tel:+919033194939"}
+            +91 9033 194939
+          %br
+          Contact Email:
+          %a.text-white{:href => "mail:madhavcorporation777@gmail.com"}
+            madhavcorporation777@gmail.com
+          %br
+          %a.text-white{:href => "#"}
+            Contact Person: Nitin Barai
+          
+    / Map
+    .map
+      %iframe{:frameborder => "0", :height => "100%", :marginheight => "0", :marginwidth => "0", :scrolling => "no", :src => "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25570.41730979273!2d72.49031245537572!3d22.990710971850802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9a90e7d26763%3A0x5021272d275c426d!2sSarkhej%2C+Ahmedabad%2C+Gujarat!5e0!3m2!1sen!2sin!4v1517383792975", :width => "100%"}
+      %br/
+      %small
+        %a{:href => "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d25570.41730979273!2d72.49031245537572!3d22.990710971850802!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e9a90e7d26763%3A0x5021272d275c426d!2sSarkhej%2C+Ahmedabad%2C+Gujarat!5e0!3m2!1sen!2sin!4v1517383792975"}
+    / Footer
+    %footer.footer.text-center
+      .container
+        / %ul.list-inline.mb-5
+        /   %li.list-inline-item
+        /     %a.social-link.rounded-circle.text-white.mr-3{:href => "#"}
+        /       %i.icon-social-facebook
+        /   %li.list-inline-item
+        /     %a.social-link.rounded-circle.text-white.mr-3{:href => "#"}
+        /       %i.icon-social-twitter
+        /   %li.list-inline-item
+        /     %a.social-link.rounded-circle.text-white{:href => "#"}
+        /       %i.icon-social-github
+        %p.text-muted.small.mb-0 Copyright © Madhav Corporation 2018
+    / Scroll to Top Button
+    %a.scroll-to-top.rounded.js-scroll-trigger{:href => "#page-top"}
+      %i.fa.fa-angle-up
+
+    = javascript_include_tag 'desktop', media: 'all'

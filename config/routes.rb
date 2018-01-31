@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     ActiveAdmin.routes(self)
     
     devise_scope :user do
-      get "sign_in", to: "users/sessions#new"
+      get "madhav", to: "users/sessions#new", as: 'sign_in'
       get "sign_in_by_token/:token", to: "users/sessions#sign_in_by_token", as: 'sign_in_by_token'
       get "sign_out", to: "users/sessions#destroy"
       get "sign_up", to: "users/registrations#new"

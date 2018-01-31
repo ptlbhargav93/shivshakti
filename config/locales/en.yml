@@ -388,7 +388,7 @@ en:
     start: Start
     desktop: Desktop
     user_register: User register
-    executives: Executives
+    executives: Users
     directors: Directors
     dentists: Dentists
     clinics: Clinics
@@ -399,9 +399,9 @@ en:
   executive:
     register: Register
     starting_date: Starting date
-    executive_card: Executive card - %{name}
-    register_executive: Registering new executive
-    name: Executive name
+    executive_card: card - %{name}
+    register_executive: Registering new user
+    name: name
     first_name: First name
     last_name: Last name
     dbm_email: Madhav email
@@ -443,8 +443,8 @@ en:
     write_job_role: Write job role here..
     introduction_text: Introduction text
     add_introduction_text: Add introduction text
-    executive_updated: Executive was successfully updated.
-    executive_destroyed: Executive was successfully destroyed.
+    executive_updated: User was successfully updated.
+    executive_destroyed: User was successfully destroyed.
     upload_photos: Upload photos
     upload_certificates: Upload certificates
     order_dbm_email:
@@ -577,7 +577,7 @@ en:
     owner_name: Name
     birthdate: Date of birth (Social security number)
     members: Members
-    chief_executive_officer: Chief executive officer
+    chief_executive_officer: Chief User officer
     assigned_responsible_person: "Responsible person -"
     no_responsible_person_assigned: Not assigned
     first_name: First Name
@@ -662,7 +662,7 @@ en:
     director_last_name: Last name
     director_ssn: SSN
     remove_director: Remove
-    ceo: Chief executive officer
+    ceo: Chief User officer
     ceo_first_name: First name
     ceo_last_name: Last name
     ceo_ssn: SSN
@@ -845,12 +845,12 @@ en:
     recover_password: RECOVER PASSWORD
   form:
     executive:
-      basic_information: Executive's basic information
+      basic_information: User's basic information
       form_step_1: "Step 1: Basic information"
-      form_step_2: "Step 2: Executive profile and introduction"
+      form_step_2: "Step 2: User profile and introduction"
       form_step_3: "Step 3: Summary"
       form_step_1_without_number: Basic information
-      form_step_2_without_number: Executive profile and introduction
+      form_step_2_without_number: User profile and introduction
       form_step_3_without_number: Summary     
     director:
       basic_information: Director's basic information
@@ -906,8 +906,8 @@ en:
     discard_changes_and_return_back: Discard changes and return back
     edit_profile: Edit profile
     other_options: Other options
-    finish_executive_registration: Finish executive registration
-    save_executive_registration: Save executive
+    finish_executive_registration: Finish User registration
+    save_executive_registration: Save User
     finish_director_registration: Finish director registration
     save_director_registration: Save director
     save_registration: Save
@@ -980,7 +980,7 @@ en:
         RADIOLOGY: Radiology
         SURGERY: Surgery
   performance_reports:
-    executive_reports: Executive <span> reports </span>
+    executive_reports: User <span> reports </span>
     clinic_reports: Clinic <span> reports </span>
     individual_reports: Individual <span> reports </span>
   send_bills:

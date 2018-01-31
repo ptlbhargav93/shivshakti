@@ -1,7 +1,13 @@
 class DesktopController < ApplicationController
-
+  layout 'desktop'
   def index
-    current_user.present? ? (get_desktop_redirection_path current_user) : (redirect_to sign_in_path)
+  	
+    # respond_to do |format|
+    #   format.html {render :layout => 'desktop'}
+    # end  	
+    if current_user.present? 
+    	get_desktop_redirection_path current_user
+    end
   end
 
   def get_desktop_redirection_path current_user

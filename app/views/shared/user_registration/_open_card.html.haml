@@ -1,15 +1,11 @@
 .row.row10
-  .col-xs-12
-    .form-group.formTitle
-      = object.executive? ? t("form.executive.basic_information") : t("form.director.basic_information")
   .col-xs-12.col-md-6
     .card-row
       %label.label-view
         %span
-          = object.executive? ? t('executive.name'): t('director.director_name')
+          = t('executive.name')
       %label.label-value= object.name
 
-  .col-xs-12.visible-xs.visible-sm.form-group
   .col-xs-12.col-md-6
     .card-row
       %label.label-view
@@ -17,8 +13,8 @@
       %label.label-value= object.email
     .card-row
       %label.label-view
-        %span= t('user.job_roles')
-      %label.label-value= object.role.present? ? object.role.humanize : ""
+        %span= t('user.phone_number')
+      %label.label-value= object.token
 
 .row.row10
   .col-xs-12

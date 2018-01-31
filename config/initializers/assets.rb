@@ -9,5 +9,5 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
-Rails.application.config.assets.precompile += %w( pdf.css pdf.js i18n.js jquery.js jquery-ui-1.10.1.custom.min login.js bootstrapValidator.min.js formValidation.min.js formvalidation/framework/bootstrap.min.js)
-Rails.application.config.assets.precompile += %w( i18n/translations.js )
+Rails.application.config.assets.precompile += %w( pdf.css desktop.css pdf.js i18n.js jquery.js jquery-ui-1.10.1.custom.min login.js bootstrapValidator.min.js formValidation.min.js formvalidation/framework/bootstrap.min.js)
+Rails.application.config.assets.precompile += %w( i18n/translations.js desktop.js)

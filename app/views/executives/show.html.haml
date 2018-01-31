@@ -10,7 +10,7 @@
                   %h1
                     = t("executive.executive_card", :name => @executive.name)
 
-                  = render :partial => "shared/user_registration/open_card", :locals => {:object => @executive}
+                = render :partial => "shared/user_registration/open_card", :locals => {:object => @executive}
 
           %td.stepBtnGroup{:width => "20%"}
             %a.h15.stepBtn.backBtn{:href => executives_path}
@@ -19,6 +19,3 @@
             %a.h15.stepBtn.nextBtn{:href => edit_executive_path(@executive, :step => 1), :action => :open_card_param }
               %span= t("form_action_button.edit_basic_information")
               = image_tag "save_and_next_btn.png", :class => "mt15"
-            %a.h15.stepBtn.nextBtn{:href => more_options_settings_path("User",@executive)}
-              %span= t("general.more_options")
-              = image_tag "save_and_next_btn.png", :class => "mt5"

@@ -2,15 +2,14 @@
   .rxBox
     .rxHeader
       .rxTitle= executive.name
-      .rxSubName.minH20= executive.role.humanize if executive.role.present?
       .rxLogo
         = image_tag @executives_resources_url[executive.id]
     .rxContent
       .row.row5
         .col-xs-12
           .rxDesc
-            %span= t('executive.email')
-            .rxValue= executive.email
+            %span= t('executive.phone_number')
+            .rxValue= executive.token
         .col-xs-12
           .rxDesc
             %span= t('executive.first_name')

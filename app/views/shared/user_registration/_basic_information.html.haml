@@ -13,3 +13,7 @@
       = f.text_field :email, :class => "form-control", :placeholder => t("executive.dbm_email")
       - if object.errors[:email].any?
         %span.text-error.text-message= object.errors[:email].first
+    #email.form-group
+      = f.text_field :token, :class => "form-control", :placeholder => t("executive.phone_number")
+      - if object.errors[:token].any?
+        %span.text-error.text-message= object.errors[:token].first        

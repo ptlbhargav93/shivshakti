@@ -60,7 +60,7 @@ class ExecutivesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def executive_params
-    params.require(:user).permit(:brand_id, :email, :password, :password_confirmation, :first_name, :last_name, :creator_id, :updater_id,
+    params.require(:user).permit(:brand_id, :email, :token, :password, :password_confirmation, :first_name, :last_name, :creator_id, :updater_id,
                                  resources_attributes: [:id, :media, :resource_type_id, :resource_spec_id, :_destroy])
   end
 
