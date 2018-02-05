@@ -10,6 +10,9 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require desktop/jquery.min.js
 //= require jquery_ujs
 //= require jquery.remotipart
-//= require_directory ./desktop
+//= require desktop/bootstrap.bundle.min.js
+//= require desktop/jquery.easing.min.js
+//= require desktop/stylish-portfolio.min.js

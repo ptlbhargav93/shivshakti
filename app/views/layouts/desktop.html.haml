@@ -33,7 +33,7 @@
     / Header
     %header.masthead.d-flex
       .container.text-center.my-auto
-        %section.content-section.bg-primary.text-white
+        %section.content-section.bg-primary1.text-white
           %h1.mb-1 Madhav Corporation
           %h3.mb-5
             %em Wholesale Peanut Seeds - Gujarat (India)
@@ -43,13 +43,13 @@
       .container.text-center
         .row
           .col-lg-10.mx-auto
-            %h2 We Madhav Corporation is a leading firm founded in the year 2015. We are a leading Manufacturer of peanut firm which is located at Ahmedabad (Gujarat, India).
+            %h2 We <a href="javascript:void(0);"><i><u>Madhav Corporation</u></i></a> is a leading firm founded in the year 2015. We are a leading manufacturer of peanut firm which is located at Ahmedabad (Gujarat, India).
             %p.lead.mb-5
-              We are providing best service and quality and dealing with a huge network of clients that is spread over India.
+              We are providing best service, quality and dealing with a huge network of clients that is spread over India.
               = succeed "!" do
-                %a{:href => "#"} We ensure the highest standard of quality.
+                %a{:href => "javascript:void(0);"} We ensure the highest standard of quality.
       .container.text-center
-        %h2.mb-4 Product Description
+        %h2.mb-4 !---Product Description---!
         BEST GRADED GROUNT NUT SEEDS
         %br
         90%+ GERMINATION 
@@ -62,7 +62,7 @@
       .container
         .content-section-heading
           %h3.text-secondary.mb-0
-          %h2.mb-5 We Glad To Offer
+          %h2.mb-5 !---We glad to offer---!
         .row
           .col-lg-3.col-md-6.mb-5.mb-lg-0
             %span.service-icon.rounded-circle.mx-auto.mb-3
@@ -94,7 +94,7 @@
     / Callout
     %section.callout
       .container.text-center
-        %section.content-section.bg-primary.text-white
+        %section.content-section.bg-primary1.text-white
           %h2.mx-auto.mb-5
             With years of
             %em experience and knowledge
@@ -104,7 +104,7 @@
     %section#portfolio.content-section
       .container
         .content-section-heading.text-center
-          %h3.text-secondary.mb-0 Gallery
+          %h3.text-secondary.mb-0 !---Gallery---!
           %h2.mb-5
         .row.no-gutters
           .col-lg-6
@@ -113,32 +113,32 @@
                 %span.caption-content
                   %h2 Peanut
                   %p.mb-0 Seeds!
-              %img.img-fluid{:alt => "", :src => "assets/img/peanut1.jpg"}/
+              = image_tag("img/peanut1.jpg", :class => "img-fluid")
           .col-lg-6
             %a.portfolio-item{:href => "#"}
               %span.caption
                 %span.caption-content
                   %h2 Peanut
                   %p.mb-0 Seeds!
-              %img.img-fluid{:alt => "", :src => "assets/img/peanut2.jpg"}/
+              = image_tag("img/peanut2.jpg", :class => "img-fluid")
           .col-lg-6
             %a.portfolio-item{:href => "#"}
               %span.caption
                 %span.caption-content
                   %h2 Peanuts
                   %p.mb-0 Mungfali!
-              %img.img-fluid{:alt => "", :src => "assets/img/peanut3.jpg"}/
+              = image_tag("img/peanut3.jpg", :class => "img-fluid")
           .col-lg-6
             %a.portfolio-item{:href => "#"}
               %span.caption
                 %span.caption-content
                   %h2 Dried
                   %p.mb-0 Peanuts!.
-              %img.img-fluid{:alt => "", :src => "assets/img/peanut4.jpg"}/
+              = image_tag("img/peanut4.jpg", :class => "img-fluid")
     / Call to Action
     %section#contact.content-section.bg-primary.text-white
       .container.text-center
-        %h2.mb-4 Madhav Corporation
+        %h2.mb-4 !---Madhav Corporation---!
         %hr
         %h5.mb-4
           Sarkhej Sanand Road, Sarkhej, Ahmedabad, Gujarat (India)
