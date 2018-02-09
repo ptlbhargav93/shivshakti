@@ -25,7 +25,7 @@ puts "\n> -- Seeds::Development::Brand --------------------------"
 
 puts "\n> -- Seeds::Development::Brand::User  --------------------------"
 
-  executive = brand.users.create!(email: 'murli@madhavcorporation.in', first_name: 'Murli', last_name: 'Barai', password: 'password', password_confirmation: 'password', registered: true)
+  executive = User.create!(email: 'murli@madhavcorporation.in', first_name: 'Murli', last_name: 'Barai', password: 'password', password_confirmation: 'password', registered: true)
 
   admin_user = AdminUser.find_by(email: 'admin@madhavcorporation.in')
   unless admin_user

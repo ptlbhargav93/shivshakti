@@ -1,5 +1,7 @@
 ActiveAdmin.register Area do
 
+  menu :if => proc{ current_admin_user }, parent: 'Area Details'
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -12,7 +14,7 @@ ActiveAdmin.register Area do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-  permit_params :name
+  permit_params :name, :city_id
 
   filter :id
   filter :name
@@ -22,6 +24,7 @@ ActiveAdmin.register Area do
     selectable_column
     id_column
     column :name
+    column :city
     column :created_at
     actions
   end
@@ -33,6 +36,7 @@ ActiveAdmin.register Area do
         attributes_table_for area do
           row :id
           row :name
+          row :city
           row :created_at
           row :updated_at
         end
@@ -46,6 +50,7 @@ ActiveAdmin.register Area do
       tab "Details" do
         f.inputs "Details" do
           f.input :name, include_blank: false
+          f.input :city
         end
       end
 

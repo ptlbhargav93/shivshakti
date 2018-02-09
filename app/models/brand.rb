@@ -1,15 +1,5 @@
 class Brand < ActiveRecord::Base
 
-  has_many :users, inverse_of: :brand do
-    def with_role(role)
-      where({ :'users.role' => User.roles[role] }) if role.present?
-    end
-
-    def with_roles(roles)
-      where({ :'users.role' => roles.map{|role| User.roles[role]} }) if roles.present?
-    end
-  end
-
   has_many :resources, :as => :resource_holder do
     def [](type_spec)
       type, spec = type_spec.to_s.split '::'
@@ -25,9 +15,6 @@ class Brand < ActiveRecord::Base
       includes(:resource_type, :resource_spec).where(conditions)
     end
   end
-
-  has_many :feedbacks, inverse_of: :brand
-  has_one :setting, inverse_of: :brand
 
   CUSTOM_DOMAIN_WITH_SSL = 'ssl'
   CUSTOM_DOMAIN_WITHOUT_SSL = 'no_ssl'

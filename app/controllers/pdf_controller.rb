@@ -7,7 +7,7 @@ class PdfController < ApplicationController
   before_action :set_pdf_asset_url
 
   def send_pdf
-    @user = @current_brand.users.find(params[:id])
+    @user = User.find(params[:id])
     subject = "#{@user.name.gsub(' ', '_')}"
     respond_to do |format|
       format.html

@@ -114,10 +114,9 @@ ActiveRecord::Schema.define(version: 20180102071409) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.integer  "brand_id",       limit: 4,     null: false
     t.integer  "creator_id",     limit: 4
     t.integer  "updater_id",     limit: 4
-    t.string   "company_name",   limit: 255,   null: false
+    t.string   "name",           limit: 255,   null: false
     t.string   "person_name",    limit: 255
     t.string   "mobile_number1", limit: 255
     t.string   "mobile_number2", limit: 255
@@ -128,19 +127,6 @@ ActiveRecord::Schema.define(version: 20180102071409) do
     t.string   "gst_number",     limit: 255
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
-  end
-
-  create_table "feedbacks", force: :cascade do |t|
-    t.integer  "brand_id",   limit: 4,                     null: false
-    t.integer  "sender_id",  limit: 4,                     null: false
-    t.integer  "subject",    limit: 4,     default: 0,     null: false
-    t.text     "message",    limit: 65535
-    t.boolean  "is_active",                default: true,  null: false
-    t.boolean  "is_deleted",               default: false, null: false
-    t.integer  "creator_id", limit: 4
-    t.integer  "updater_id", limit: 4
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
   end
 
   create_table "income_expenses", force: :cascade do |t|
@@ -254,16 +240,6 @@ ActiveRecord::Schema.define(version: 20180102071409) do
     t.datetime "media_updated_at"
   end
 
-  create_table "settings", force: :cascade do |t|
-    t.integer  "brand_id",   limit: 4,                 null: false
-    t.integer  "creator_id", limit: 4
-    t.integer  "updater_id", limit: 4
-    t.boolean  "is_active",            default: true,  null: false
-    t.boolean  "is_deleted",           default: false, null: false
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-  end
-
   create_table "states", force: :cascade do |t|
     t.integer  "creator_id", limit: 4
     t.integer  "updater_id", limit: 4
@@ -286,7 +262,6 @@ ActiveRecord::Schema.define(version: 20180102071409) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.integer  "brand_id",               limit: 4,                   null: false
     t.integer  "role",                   limit: 4,   default: 0,     null: false
     t.integer  "creator_id",             limit: 4
     t.integer  "updater_id",             limit: 4

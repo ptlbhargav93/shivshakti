@@ -1,6 +1,4 @@
-ActiveAdmin.register Product do
-
-  menu :if => proc{ current_admin_user }, parent: 'Product details'
+ActiveAdmin.register Provider, :as => "supplier" do
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,7 +12,7 @@ ActiveAdmin.register Product do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-  permit_params :name, :product_type
+  permit_params :name, :mobile_number1, :mobile_number2, :mobile_number3, :address, :gst_number, :city_id, :area_id
 
   filter :id
   filter :name
@@ -24,8 +22,9 @@ ActiveAdmin.register Product do
     selectable_column
     id_column
     column :name
-    column :product_type
-    column :created_at
+    column :mobile_number1
+    column :area
+    column :gst_number
     actions
   end
 
@@ -33,12 +32,16 @@ ActiveAdmin.register Product do
   show do
     tabs do
       tab "Details" do
-        attributes_table_for product do
+        attributes_table_for provider do
           row :id
           row :name
-          row :product_type
-          row :created_at
-          row :updated_at
+          row :mobile_number1
+          row :mobile_number1
+          row :mobile_number3
+          row :address
+          row :city
+          row :area
+          row :gst_number
         end
       end
     end
@@ -49,8 +52,14 @@ ActiveAdmin.register Product do
       f.semantic_errors *f.object.errors.keys
       tab "Details" do
         f.inputs "Details" do
-          f.input :name, include_blank: false
-          f.input :product_type
+          f.input :name
+          f.input :mobile_number1
+          f.input :mobile_number2
+          f.input :mobile_number3
+          f.textarea :address
+          f.input :city
+          f.input :area
+          f.input :gst_number
         end
       end
 

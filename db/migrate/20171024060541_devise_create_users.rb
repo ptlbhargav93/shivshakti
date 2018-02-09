@@ -2,7 +2,6 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table :users do |t|
 
-      t.integer :brand_id,  null: false
       t.integer :role, :default => 0, null: false
       t.integer :creator_id
       t.integer :updater_id

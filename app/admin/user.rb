@@ -1,5 +1,7 @@
 ActiveAdmin.register User do
 
+  menu :if => proc{ current_admin_user }, parent: 'System Settings'
+
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
@@ -12,12 +14,10 @@ ActiveAdmin.register User do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-  permit_params :role, :is_active, :is_deleted, :email, :password, :password_confirmation,
-                :first_name, :last_name,
-                resources_attributes: [:id, :media, :resource_type_id, :resource_spec_id, :_destroy]
+  permit_params :is_active, :is_deleted, :email, :password, :password_confirmation,
+                :first_name, :last_name
 
   filter :id
-  filter :role, as: :select, collection: User.roles.to_a
   filter :email
   filter :first_name
   filter :last_name
@@ -26,7 +26,6 @@ ActiveAdmin.register User do
   index pagination_total: false do
     selectable_column
     id_column
-    column :role
     column :email
     column :first_name
     column :last_name
@@ -42,7 +41,6 @@ ActiveAdmin.register User do
       tab "Details" do
         attributes_table_for user do
           row :id
-          row :role
           row :email
           row :first_name
           row :last_name
@@ -53,27 +51,6 @@ ActiveAdmin.register User do
           row :updated_at
         end
       end
-
-      tab "Resources" do
-        table_for user.resources do
-          column :id do |r|
-            link_to r.id, admin_resource_path(r.id)
-          end
-          column :media do |r|
-            if r.resource_type.name == "IMAGE"
-              image_tag r.media.url(:small)
-            else
-              link_to r.media_file_name, r.media.url
-            end
-          end
-          column "Resource Type" do |r|
-            r.resource_type
-          end
-          column "Resource Spec" do |r|
-            r.resource_spec
-          end
-        end
-      end
     end
   end
 
@@ -82,7 +59,6 @@ ActiveAdmin.register User do
       f.semantic_errors *f.object.errors.keys
       tab "Details" do
         f.inputs "Details" do
-          f.input :role, include_blank: false
           f.input :email
           if f.object.new_record?
             f.input :password, required: true
@@ -95,21 +71,6 @@ ActiveAdmin.register User do
           f.input :last_name, required: true
           f.input :is_active
           f.input :is_deleted
-        end
-      end
-
-
-      if !object.new_record?
-        tab "Resources" do
-          f.inputs "Resources" do
-            f.has_many :resources, new_record: "Add a resource", allow_destroy: true do |ff|
-              ff.semantic_errors *ff.object.errors.keys
-
-              ff.input :media, :as => :file
-              ff.input :resource_type, required: true
-              ff.input :resource_spec, required: true
-            end
-          end
         end
       end
     end

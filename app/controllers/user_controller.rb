@@ -44,7 +44,7 @@ class UserController < ApplicationController
   private
 
   def get_user
-    @user = @current_brand.users.find(params[:id])
+    @user = User.find(params[:id])
     @back_path = get_user_type_redirection_path @user
   end
 

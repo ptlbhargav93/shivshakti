@@ -6,18 +6,16 @@ class User < ActiveRecord::Base
   
   enum role: ['EXECUTIVE', 'STAFF']
 
-  belongs_to :brand, inverse_of: :users
+  has_many :income_expenses, inverse_of: :user
   belongs_to :creator, class_name: "User", foreign_key: "creator_id"
   belongs_to :updater, class_name: "User", foreign_key: "updater_id"
 
   include HasResources
   
-  validates :brand, :presence => true
   validates :first_name, :presence => true, :length => {:maximum => 255}
   validates :last_name, :presence => true, :length => {:maximum => 50}
   
   validates_presence_of   :email, :length => {:maximum => 15, :allow_blank => true}, if: :email_required?
-  validates_uniqueness_of :email, :scope => :brand_id, :if => :email_changed?
   validates_format_of     :email, :with => Devise.email_regexp, :allow_blank => true, :if => :email_changed?
   
   validates_presence_of     :password, if: :password_required?

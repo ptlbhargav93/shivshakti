@@ -49,7 +49,7 @@ class ResourcesController < ApplicationController
     # begin
       object = nil
       if params[:type] == 'User'
-        object = @current_brand.users.find(params[:id])
+        object = User.find(params[:id])
       elsif params[:type] == "Clinic"
         object = @current_brand.clinics.find(params[:id])
       elsif params[:type] == "ClinicUser"
@@ -84,11 +84,7 @@ class ResourcesController < ApplicationController
     begin
       object = nil
       if params[:type] == 'User'
-        object = @current_brand.users.find(params[:id])
-      elsif params[:type] == 'Clinic'
-        object = @current_brand.clinics.find(params[:id])
-      elsif params[:type] == "ClinicUser"
-        object = @current_brand.clinic_users.find(params[:id])        
+        object = User.find(params[:id])
       end
       if object.present?
         media = object.resources.find(params[:media_id])

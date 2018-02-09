@@ -1,4 +1,4 @@
-ActiveAdmin.register Product do
+ActiveAdmin.register ProductPurchase do
 
   menu :if => proc{ current_admin_user }, parent: 'Product details'
 
@@ -14,17 +14,22 @@ ActiveAdmin.register Product do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-  permit_params :name, :product_type
+  permit_params :product_id, :provider_id, :purchase_date, :total_bag, :kg_per_bag, :amount_per_kg
 
   filter :id
-  filter :name
+  filter :product
+  filter :provider
   
   # Index page definition
   index pagination_total: false do
     selectable_column
     id_column
-    column :name
-    column :product_type
+    column :product
+    column :provider
+    column :purchase_date
+    column :total_bag
+    column :kg_per_bag
+    column :amount_per_kg
     column :created_at
     actions
   end
@@ -33,10 +38,14 @@ ActiveAdmin.register Product do
   show do
     tabs do
       tab "Details" do
-        attributes_table_for product do
+        attributes_table_for product_purchase do
           row :id
-          row :name
-          row :product_type
+          row :product
+          row :provider
+          row :purchase_date
+          row :total_bag
+          row :kg_per_bag
+          row :amount_per_kg
           row :created_at
           row :updated_at
         end
@@ -49,8 +58,12 @@ ActiveAdmin.register Product do
       f.semantic_errors *f.object.errors.keys
       tab "Details" do
         f.inputs "Details" do
-          f.input :name, include_blank: false
-          f.input :product_type
+          f.input :product
+          f.input :provider
+          f.input :purchase_date
+          f.input :total_bag
+          f.input :kg_per_bag
+          f.input :amount_per_kg
         end
       end
 

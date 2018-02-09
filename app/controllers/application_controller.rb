@@ -139,9 +139,9 @@ class ApplicationController < ActionController::Base
   def fetch_users
     if controller_name == "dentists"
       session[:user_role] = session[:user_role].nil? ? params[:user_role] : session[:user_role]
-      users = eval("@current_brand.users.joins(:user_role).where('user_roles.role = ?',UserRole.roles[session[:user_role]])")
+      users = eval("User.joins(:user_role).where('user_roles.role = ?',UserRole.roles[session[:user_role]])")
     else
-      users = controller_name == "clinics" ? eval("@current_brand.#{controller_name}") : eval("@current_brand.users.#{controller_name}")
+      users = controller_name == "clinics" ? eval("@current_brand.#{controller_name}") : eval("User.#{controller_name}")
     end
 
     search_type = "#{controller_name.singularize}_search".to_sym

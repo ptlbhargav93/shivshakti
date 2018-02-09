@@ -1,6 +1,6 @@
-ActiveAdmin.register Product do
+ActiveAdmin.register BalanceSheet do
 
-  menu :if => proc{ current_admin_user }, parent: 'Product details'
+  menu :if => proc{ current_admin_user }, parent: 'Balance & stock'
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -14,18 +14,20 @@ ActiveAdmin.register Product do
 #   permitted << :other if params[:action] == 'create' && current_user.admin?
 #   permitted
 # end
-  permit_params :name, :product_type
+  permit_params :account_date, :open_balance, :income_balance, :expense_balance, :close_balance
 
   filter :id
-  filter :name
+  filter :account_date
   
   # Index page definition
   index pagination_total: false do
     selectable_column
     id_column
-    column :name
-    column :product_type
-    column :created_at
+    column :account_date
+    column :open_balance
+    column :income_balance
+    column :expense_balance
+    column :close_balance
     actions
   end
 
@@ -33,12 +35,13 @@ ActiveAdmin.register Product do
   show do
     tabs do
       tab "Details" do
-        attributes_table_for product do
+        attributes_table_for balance_sheet do
           row :id
-          row :name
-          row :product_type
-          row :created_at
-          row :updated_at
+          row :account_date
+          row :open_balance
+          row :income_balance
+          row :expense_balance
+          row :close_balance
         end
       end
     end
@@ -49,8 +52,11 @@ ActiveAdmin.register Product do
       f.semantic_errors *f.object.errors.keys
       tab "Details" do
         f.inputs "Details" do
-          f.input :name, include_blank: false
-          f.input :product_type
+          f.input :account_date
+          f.input :open_balance
+          f.input :income_balance
+          f.input :expense_balance
+          f.input :close_balance
         end
       end
 
