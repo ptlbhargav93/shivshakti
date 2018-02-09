@@ -32,7 +32,7 @@ ActiveAdmin.register Provider, :as => "supplier" do
   show do
     tabs do
       tab "Details" do
-        attributes_table_for provider do
+        attributes_table_for supplier do
           row :id
           row :name
           row :mobile_number1

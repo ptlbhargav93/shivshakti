@@ -11,6 +11,4 @@ class Provider < ActiveRecord::Base
     belongs_to :updater, class_name: "User", foreign_key: "updater_id"		
 
 	validates :name, :presence => true
-	validates :city, :presence => true
-	validates :area, :presence => true
 end

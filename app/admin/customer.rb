@@ -35,7 +35,7 @@ ActiveAdmin.register Customer do
   show do
     tabs do
       tab "Details" do
-        attributes_table_for area do
+        attributes_table_for customer do
           row :id
           row :name
           row :person_name

@@ -1,5 +1,4 @@
 class Customer < ActiveRecord::Base
-
 	has_many :customer_accounts, inverse_of: :customer
 	has_many :income_expenses, inverse_of: :customer
 	belongs_to :city, inverse_of: :customers
