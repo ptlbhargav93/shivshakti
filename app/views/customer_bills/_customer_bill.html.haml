@@ -1,0 +1,32 @@
+.col-xs-12.col-sm-6.col-md-4.col-10
+  .rxBox
+    .rxHeader
+      .rxTitle= customer_bill.name
+      .rxLogo
+        = image_tag "customer_bill_register.png"
+    .rxContent
+      .row.row5
+        .col-xs-12.col-sm-6
+          .rxDesc
+            %span= t('customer_bill.name')
+            .rxValue= customer_bill.name
+        .col-xs-12.col-sm-6
+          .rxDesc
+            %span= t('customer_bill.person_name')
+            .rxValue= customer_bill.person_name                  
+        .col-xs-12
+          .rxDesc
+            %span= t('customer_bill.mobile_number1')
+            .rxValue= customer_bill.mobile_number1
+        .col-xs-12
+          .rxDesc
+            %span= t('customer_bill.mobile_number2')
+            .rxValue= customer_bill.mobile_number2
+        .col-xs-12.col-sm-6
+          .rxDesc
+            %span= t('customer_bill.gst_number')
+            .rxValue= customer_bill.gst_number
+    .rxBottom
+      %a.rxNextBtn{:href => customer_bill_path(customer_bill) }
+        = t("customer_bill.open_card")
+        %i.fa.fa-angle-double-right

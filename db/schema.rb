@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180102071409) do
+ActiveRecord::Schema.define(version: 20180220072445) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -97,20 +97,44 @@ ActiveRecord::Schema.define(version: 20180102071409) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "customer_accounts", force: :cascade do |t|
-    t.integer  "customer_id",        limit: 4,                  null: false
-    t.integer  "creator_id",         limit: 4
-    t.integer  "updater_id",         limit: 4
-    t.float    "debit_amount",       limit: 24,                 null: false
-    t.string   "debit_bill_number",  limit: 255
-    t.datetime "debit_bill_date",                               null: false
-    t.float    "credit_amount",      limit: 24
-    t.string   "credit_bill_number", limit: 255
-    t.datetime "credit_bill_date"
-    t.integer  "credit_by_id",       limit: 4
-    t.boolean  "verified",                       default: true, null: false
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
+  create_table "customer_bill_payments", force: :cascade do |t|
+    t.integer  "customer_bill_id", limit: 4,             null: false
+    t.integer  "amount",           limit: 4, default: 0
+    t.datetime "payment_date"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  create_table "customer_bill_products", force: :cascade do |t|
+    t.integer  "customer_bill_id", limit: 4,                null: false
+    t.integer  "product_id",       limit: 4,                null: false
+    t.integer  "bag_type",         limit: 4,  default: 3
+    t.integer  "bags",             limit: 4,  default: 0
+    t.float    "quantity",         limit: 24, default: 0.0
+    t.float    "rate",             limit: 24, default: 0.0
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+  end
+
+  create_table "customer_bills", force: :cascade do |t|
+    t.string   "bill_number",         limit: 255,                null: false
+    t.datetime "bill_date",                                      null: false
+    t.string   "reverse_charge",      limit: 255
+    t.integer  "state_id",            limit: 4
+    t.integer  "transportation_mode", limit: 4,   default: 0
+    t.string   "vehical_number",      limit: 255
+    t.datetime "date_of_supply"
+    t.string   "place_of_supply",     limit: 255
+    t.integer  "customer_id",         limit: 4,                  null: false
+    t.float    "cgst",                limit: 24,  default: 0.0
+    t.float    "sgst",                limit: 24,  default: 0.0
+    t.float    "igst",                limit: 24,  default: 0.0
+    t.float    "total_amount",        limit: 24,  default: 0.0
+    t.boolean  "verified",                        default: true, null: false
+    t.integer  "creator_id",          limit: 4
+    t.integer  "updater_id",          limit: 4
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -141,21 +165,6 @@ ActiveRecord::Schema.define(version: 20180102071409) do
     t.text     "detail",      limit: 65535
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
-  end
-
-  create_table "orders", force: :cascade do |t|
-    t.integer  "creator_id",      limit: 4
-    t.integer  "updater_id",      limit: 4
-    t.datetime "order_date",                                 null: false
-    t.integer  "customer_id",     limit: 4,                  null: false
-    t.integer  "product_id",      limit: 4,                  null: false
-    t.integer  "total_bags",      limit: 4
-    t.float    "price_per_kg",    limit: 24
-    t.float    "total_kg",        limit: 24
-    t.datetime "dispatched_date"
-    t.boolean  "dispatched",                 default: false, null: false
-    t.datetime "created_at",                                 null: false
-    t.datetime "updated_at",                                 null: false
   end
 
   create_table "product_purchases", force: :cascade do |t|

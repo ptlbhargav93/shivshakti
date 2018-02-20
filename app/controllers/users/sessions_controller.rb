@@ -23,7 +23,7 @@ class Users::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   def sign_in_by_token
-    user = @current_brand.users.where(:token => params[:token])
+    user = User.where(:token => params[:token]).first()
     if user.present?
       sign_in user
     end
@@ -33,7 +33,7 @@ class Users::SessionsController < Devise::SessionsController
   private 
 
   def after_sign_in_path_for(resource)
-    session[:current_brand_slug] = resource.brand.slug
+    #session[:current_brand_slug] = resource.brand.slug
     flash[:notice] = t("devise.sessions.signed_in")
     root_path
   end

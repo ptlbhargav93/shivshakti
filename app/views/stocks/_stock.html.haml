@@ -1,0 +1,32 @@
+.col-xs-12.col-sm-6.col-md-4.col-10
+  .rxBox
+    .rxHeader
+      .rxTitle= stock.name
+      .rxLogo
+        = image_tag "stock_register.png"
+    .rxContent
+      .row.row5
+        .col-xs-12.col-sm-6
+          .rxDesc
+            %span= t('stock.name')
+            .rxValue= stock.name
+        .col-xs-12.col-sm-6
+          .rxDesc
+            %span= t('stock.person_name')
+            .rxValue= stock.person_name                  
+        .col-xs-12
+          .rxDesc
+            %span= t('stock.mobile_number1')
+            .rxValue= stock.mobile_number1
+        .col-xs-12
+          .rxDesc
+            %span= t('stock.mobile_number2')
+            .rxValue= stock.mobile_number2
+        .col-xs-12.col-sm-6
+          .rxDesc
+            %span= t('stock.gst_number')
+            .rxValue= stock.gst_number
+    .rxBottom
+      %a.rxNextBtn{:href => stock_path(stock) }
+        = t("stock.open_card")
+        %i.fa.fa-angle-double-right

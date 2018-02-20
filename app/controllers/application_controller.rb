@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
 
   def current_brand
     begin
-      @current_brand ||= Brand.find_by_slug(session[:current_brand_slug]) || Brand.find_by_custom_domain(request.host) || Brand.find_by_slug('dbm')
+      @current_brand ||= Brand.find_by_slug(session[:current_brand_slug]) || Brand.find_by_custom_domain(request.host) || Brand.find_by_slug('madhav')
     rescue ActiveRecord::RecordNotFound => e
       raise BrandNotFound
     end

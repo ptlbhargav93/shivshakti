@@ -7,14 +7,14 @@
     .col-xs-12.col-sm-4
       %a.toolBox{:href => executives_path}
         .toolImage= image_tag "dbm_business_management.png"
-        .toolTitle= t("executive_desktop.executive_register").html_safe
+        .toolTitle= "Users"
 
     .col-xs-12.col-sm-4
-      %a.toolBox{:href => "#"}
+      %a.toolBox{:href => customers_path}
         .toolImage= image_tag "dbm_business_management.png"
-        .toolTitle= t("executive_desktop.customer_register").html_safe        
+        .toolTitle= "Customers"
 
     .col-xs-12.col-sm-4
-      %a.toolBox{:href => "#"}
+      %a.toolBox{:href => providers_path}
         .toolImage= image_tag "dbm_business_management.png"
-        .toolTitle= t("executive_desktop.provider_register").html_safe        
+        .toolTitle= "Suppliers"

@@ -1,0 +1,8 @@
+- if @customer_bill_payments.present?
+  - @customer_bill_payments.each do |customer_bill_payment|
+    = render :partial => 'customer_bill_payment', :locals => {customer_bill_payment: customer_bill_payment}
+  - if @customer_bill_payments.count > Settings.system.per_page
+    - count = params[:page].to_i + 1
+    = link_to next_users_customer_bill_payments_path(count), :remote => true, :class => "loadMore jscroll-next" do
+      %i.downArrow
+      = t("general.next")

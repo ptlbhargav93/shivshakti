@@ -1,0 +1,32 @@
+.col-xs-12.col-sm-6.col-md-4.col-10
+  .rxBox
+    .rxHeader
+      .rxTitle= balance_sheet.name
+      .rxLogo
+        = image_tag "balance_sheet_register.png"
+    .rxContent
+      .row.row5
+        .col-xs-12.col-sm-6
+          .rxDesc
+            %span= t('balance_sheet.name')
+            .rxValue= balance_sheet.name
+        .col-xs-12.col-sm-6
+          .rxDesc
+            %span= t('balance_sheet.person_name')
+            .rxValue= balance_sheet.person_name                  
+        .col-xs-12
+          .rxDesc
+            %span= t('balance_sheet.mobile_number1')
+            .rxValue= balance_sheet.mobile_number1
+        .col-xs-12
+          .rxDesc
+            %span= t('balance_sheet.mobile_number2')
+            .rxValue= balance_sheet.mobile_number2
+        .col-xs-12.col-sm-6
+          .rxDesc
+            %span= t('balance_sheet.gst_number')
+            .rxValue= balance_sheet.gst_number
+    .rxBottom
+      %a.rxNextBtn{:href => balance_sheet_path(balance_sheet) }
+        = t("balance_sheet.open_card")
+        %i.fa.fa-angle-double-right

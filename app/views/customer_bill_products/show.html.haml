@@ -1,0 +1,54 @@
+.container
+  .row
+    .col-xs-12#registration-form
+      %table.tableForm{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+        %tbody
+          %tr
+            %td#stepBtnHeight.leftCol{:width => "80%"}
+              .formBox.view-details
+                .formHeader.clearfix
+                  %h1
+                    = t("customer_bill_product.customer_bill_product_card", :name => @customer_bill_product.name)
+
+                .row.row10
+                  .col-xs-12.col-md-6
+                    .card-row
+                      %label.label-view
+                        %span
+                          = t('customer_bill_product.name')
+                      %label.label-value= @customer_bill_product.name
+
+                  .col-xs-12.col-md-6
+                    .card-row
+                      %label.label-view
+                        %span= t('user.person_name')
+                      %label.label-value= @customer_bill_product.person_name
+                    .card-row
+                      %label.label-view
+                        %span= t('user.mobile_number1')
+                      %label.label-value= @customer_bill_product.mobile_number1
+                  .col-xs-12.col-md-6
+                    .card-row
+                      %label.label-view
+                        %span= t('user.mobile_number2')
+                      %label.label-value= @customer_bill_product.mobile_number2
+                    .card-row
+                      %label.label-view
+                        %span= t('user.mobile_number3')
+                      %label.label-value= @customer_bill_product.mobile_number3
+                  .col-xs-12.col-md-6
+                    .card-row
+                      %label.label-view
+                        %span= t('user.gst_number')
+                      %label.label-value= @customer_bill_product.gst_number
+                    .card-row
+                      %label.label-view
+                        %span= t('user.address')
+                      %label.label-value= @customer_bill_product.address
+          %td.stepBtnGroup{:width => "20%"}
+            %a.h15.stepBtn.backBtn{:href => customer_bill_products_path}
+              %span= t("form_action_button.return_button")
+              = image_tag "back_btn.png", :class => "mt15"
+            %a.h15.stepBtn.nextBtn{:href => edit_customer_bill_product_path(@customer_bill_product, :step => 1), :action => :open_card_param }
+              %span= t("form_action_button.edit_basic_information")
+              = image_tag "save_and_next_btn.png", :class => "mt15"

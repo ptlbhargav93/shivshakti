@@ -1,0 +1,53 @@
+= form_for(@provider, :url => (@provider.new_record? ? providers_path : provider_path(@provider)), :method => (@provider.new_record? ? "POST" : "PUT"), :html => {:multipart => true, :id => 'provider-form'}) do |f|
+  = hidden_field_tag 'step', @step
+  %table.tableForm{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+    %tbody
+      %tr
+        %td#stepBtnHeight.leftCol{:width => "80%"}
+          .formBox
+            .formHeader.clearfix
+              %h1
+                = t("provider.register_provider")
+            .row
+              .col-xs-12.col-sm-6
+                = hidden_field_tag 'step', '1'
+                #name.form-group
+                  = f.text_field :name, :class => "form-control",:placeholder => "Firm name"
+                  - if @provider.errors[:name].any?
+                    %span.text-error.text-message= @provider.errors[:name].first
+                #person_name.form-group
+                  = f.text_field :person_name, :class => "form-control", :placeholder => "Person name"
+                  - if @provider.errors[:person_name].any?
+                    %span.text-error.text-message= @provider.errors[:person_name].first
+                #mobile_number1.form-group
+                  = f.text_field :mobile_number1, :class => "form-control", :placeholder => "Mobile number 1"
+                  - if @provider.errors[:mobile_number1].any?
+                    %span.text-error.text-message= @provider.errors[:mobile_number1].first
+                #mobile_number2.form-group
+                  = f.text_field :mobile_number2, :class => "form-control", :placeholder => "Mobile number 2"
+                  - if @provider.errors[:mobile_number2].any?
+                    %span.text-error.text-message= @provider.errors[:mobile_number2].first        
+                #gst_number.form-group
+                  = f.text_field :gst_number, :class => "form-control", :placeholder => "Mobile number 3"
+                  - if @provider.errors[:gst_number].any?
+                    %span.text-error.text-message= @provider.errors[:gst_number].first
+                #address.form-group
+                  = f.text_field :address, :class => "form-control", :placeholder => "Address"
+                  - if @provider.errors[:address].any?
+                    %span.text-error.text-message= @provider.errors[:address].first
+
+        %td.stepBtnGroup{:width => "20%"}
+          - back_btn_href = @provider.new_record? ? providers_path : provider_path(@provider.id)
+          %a.stepBtn.backBtn{:href => back_btn_href}
+            %span
+              =t("form_action_button.return_button")
+            = image_tag "back_btn.png", :class => "mt15"
+          %button.stepBtn.nextBtn#saveMedia{:name => "save", :type => "submit"}
+            %span=t("form_action_button.save_button")
+            = image_tag "save_btn.png", :class => "mt15"
+          - unless session[:open_card]
+            %button.stepBtn.nextBtn#saveMediaNext{:name => "proceed_next", :type => "submit"}
+              %span
+                = t("form_action_button.save_and_next_button")
+              = image_tag "save_and_next_btn.png", :class => "mt15"
+

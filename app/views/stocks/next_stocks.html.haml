@@ -1,0 +1,8 @@
+- if @stocks.present?
+  - @stocks.each do |stock|
+    = render :partial => 'stock', :locals => {stock: stock}
+  - if @stocks.count > Settings.system.per_page
+    - count = params[:page].to_i + 1
+    = link_to next_users_stocks_path(count), :remote => true, :class => "loadMore jscroll-next" do
+      %i.downArrow
+      = t("general.next")

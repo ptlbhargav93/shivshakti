@@ -1,0 +1,8 @@
+- if @providers.present?
+  - @providers.each do |provider|
+    = render :partial => 'provider', :locals => {provider: provider}
+  - if @providers.count > Settings.system.per_page
+    - count = params[:page].to_i + 1
+    = link_to next_users_providers_path(count), :remote => true, :class => "loadMore jscroll-next" do
+      %i.downArrow
+      = t("general.next")

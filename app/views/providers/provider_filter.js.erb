@@ -1,0 +1,9 @@
+$("#filter_providers").html("<%= escape_javascript(render('fetchAll')) %>");
+$("#loader-image, .pre-icon").hide();
+
+$('.scroll').jscroll({
+    loadingHtml: '<img src="/loading.gif" alt="Loading" />',
+    autoTrigger: true,
+    nextSelector: 'a.jscroll-next:last',
+    callback: common_events
+  });

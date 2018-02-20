@@ -1,0 +1,19 @@
+.scroll.row.row-10
+  .col-xs-12.col-sm-6.col-md-4.col-10
+    %a.rxBox.addNew{:href => new_customer_bill_payment_path}
+      .rxImage
+        = image_tag "add_dark.png"
+      .rxBottom
+        .rxAddNewBtn
+          %i.fa.fa-plus-circle
+          = t("customer_bill_payment.register_customer_bill_payment")
+  - if @customer_bill_payments.present?
+    - @customer_bill_payments.each do |customer_bill_payment|
+      = render :partial => 'customer_bill_payment', :locals => {customer_bill_payment: customer_bill_payment}
+    - if @customer_bill_payments.count > Settings.system.per_page
+      = link_to next_users_customer_bill_payments_path(2), :remote => true, :class => "loadMore jscroll-next" do
+        %i.downArrow
+        = t("general.next")
+  - else
+    .col-xs-12.col-sm-6.col-md-4.col-10.alert.alert-warning
+      %span= t('general.no_record_found')

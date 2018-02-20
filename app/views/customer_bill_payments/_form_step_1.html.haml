@@ -1,0 +1,53 @@
+= form_for(@customer_bill_payment, :url => (@customer_bill_payment.new_record? ? customer_bill_payments_path : customer_bill_payment_path(@customer_bill_payment)), :method => (@customer_bill_payment.new_record? ? "POST" : "PUT"), :html => {:multipart => true, :id => 'customer_bill_payment-form'}) do |f|
+  = hidden_field_tag 'step', @step
+  %table.tableForm{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+    %tbody
+      %tr
+        %td#stepBtnHeight.leftCol{:width => "80%"}
+          .formBox
+            .formHeader.clearfix
+              %h1
+                = t("customer_bill_payment.register_customer_bill_payment")
+            .row
+              .col-xs-12.col-sm-6
+                = hidden_field_tag 'step', '1'
+                #name.form-group
+                  = f.text_field :name, :class => "form-control",:placeholder => "Firm name"
+                  - if @customer_bill_payment.errors[:name].any?
+                    %span.text-error.text-message= @customer_bill_payment.errors[:name].first
+                #person_name.form-group
+                  = f.text_field :person_name, :class => "form-control", :placeholder => "Person name"
+                  - if @customer_bill_payment.errors[:person_name].any?
+                    %span.text-error.text-message= @customer_bill_payment.errors[:person_name].first
+                #mobile_number1.form-group
+                  = f.text_field :mobile_number1, :class => "form-control", :placeholder => "Mobile number 1"
+                  - if @customer_bill_payment.errors[:mobile_number1].any?
+                    %span.text-error.text-message= @customer_bill_payment.errors[:mobile_number1].first
+                #mobile_number2.form-group
+                  = f.text_field :mobile_number2, :class => "form-control", :placeholder => "Mobile number 2"
+                  - if @customer_bill_payment.errors[:mobile_number2].any?
+                    %span.text-error.text-message= @customer_bill_payment.errors[:mobile_number2].first        
+                #gst_number.form-group
+                  = f.text_field :gst_number, :class => "form-control", :placeholder => "Mobile number 3"
+                  - if @customer_bill_payment.errors[:gst_number].any?
+                    %span.text-error.text-message= @customer_bill_payment.errors[:gst_number].first
+                #address.form-group
+                  = f.text_field :address, :class => "form-control", :placeholder => "Address"
+                  - if @customer_bill_payment.errors[:address].any?
+                    %span.text-error.text-message= @customer_bill_payment.errors[:address].first
+
+        %td.stepBtnGroup{:width => "20%"}
+          - back_btn_href = @customer_bill_payment.new_record? ? customer_bill_payments_path : customer_bill_payment_path(@customer_bill_payment.id)
+          %a.stepBtn.backBtn{:href => back_btn_href}
+            %span
+              =t("form_action_button.return_button")
+            = image_tag "back_btn.png", :class => "mt15"
+          %button.stepBtn.nextBtn#saveMedia{:name => "save", :type => "submit"}
+            %span=t("form_action_button.save_button")
+            = image_tag "save_btn.png", :class => "mt15"
+          - unless session[:open_card]
+            %button.stepBtn.nextBtn#saveMediaNext{:name => "proceed_next", :type => "submit"}
+              %span
+                = t("form_action_button.save_and_next_button")
+              = image_tag "save_and_next_btn.png", :class => "mt15"
+
