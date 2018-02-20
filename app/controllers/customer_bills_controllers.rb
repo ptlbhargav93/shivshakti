@@ -6,8 +6,7 @@ class CustomerBillsController < ApplicationController
 
   def index
     @nav_header_menus = [
-                          {:href => root_path, :label => t("nav_header.start"), :arrowBack => false},
-                          {:href => resources_and_variables_executives_path, :label => t("nav_header.resource_and_variable") , :arrowBack => true}
+                          {:href => root_path, :label => t("nav_header.start"), :arrowBack => true}
                         ]
     @back_to_top = true
     @customer_bills = fetch_customer_bills.page(page).per(first_limit)
