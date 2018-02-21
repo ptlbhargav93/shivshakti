@@ -29,7 +29,7 @@ $(function(){
   });
 
   // responisble customer register form
-  $('#register-customer, #register-provider').formValidation({
+  $('#register-customer').formValidation({
     framework: 'bootstrap',
     fields: {
       customer_name: {
@@ -40,6 +40,18 @@ $(function(){
       }      
     }
   });
+
+  $('#register-provider').formValidation({
+    framework: 'bootstrap',
+    fields: {
+      provider_name: {
+        selector: "#provider_name",
+        validators: {
+            notEmpty: {message: I18n.t("js.general.task.mandatory_field")}
+        }
+      }      
+    }
+  });  
 
   // customer bill
   $('#register-customer-bill').formValidation({
