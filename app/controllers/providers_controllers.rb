@@ -71,11 +71,11 @@ class ProvidersController < ApplicationController
     if params[:search].present?
       search = session[:register_provider_search] = params[:search]
     else
-      search = session[:register_provider_search] if session[:register_provider_search].present?
+      search = session[:register_provider_search] = nil
     end
     if search.present?
       session[:register_provider_search] = search
-      providers = providers.where('name LIKE :s or person_name LIKE :s or gst_number LIKE :s or CONCAT(name,person_name) LIKE :s', :s => "%#{search.delete(' ')}%")
+      providers = providers.where('name LIKE :s or name LIKE :s or gst_number LIKE :s or CONCAT(name,gst_number) LIKE :s', :s => "%#{search.delete(' ')}%")
     end
     providers.order('id DESC').uniq
   end  

@@ -4,7 +4,7 @@ $(function(){
   $.fn.datepicker.defaults.language = I18n.locale;
 
   // user form validation
-  $('#executive-form, #director-form, #dentist-form').formValidation({
+  $('#executive-form').formValidation({
     framework: 'bootstrap',
     fields: {
       user_first_name: {
@@ -28,30 +28,37 @@ $(function(){
     }
   });
 
-  // responisble preson register form
-  $('#register-responsible-person').formValidation({
+  // responisble customer register form
+  $('#register-customer, #register-provider').formValidation({
     framework: 'bootstrap',
     fields: {
-      responsible_area_of_responsibility: {
-        selector: "#responsible_area_of_responsibility",
+      customer_name: {
+        selector: "#customer_name",
+        validators: {
+            notEmpty: {message: I18n.t("js.general.task.mandatory_field")}
+        }
+      }      
+    }
+  });
+
+  // customer bill
+  $('#register-customer-bill').formValidation({
+    framework: 'bootstrap',
+    fields: {
+      bill_number: {
+        selector: "#bill_number",
         validators: {
             notEmpty: {message: I18n.t("js.general.task.mandatory_field")}
         }
       },
-      responsible_first_name: {
-        selector: "#responsible_first_name",
+      bill_date: {
+        selector: "#bill_date",
         validators: {
             notEmpty: {message: I18n.t("js.general.task.mandatory_field")}
         }
       },
-      responsible_last_name: {
-        selector: "#responsible_last_name",
-        validators: {
-            notEmpty: {message: I18n.t("js.general.task.mandatory_field")}
-        }
-      },            
-      responsible_email: {
-        selector: "#responsible_email",
+      customer_id: {
+        selector: "#customer_id",
         validators: {
             notEmpty: {message: I18n.t("js.general.task.mandatory_field")}
         }

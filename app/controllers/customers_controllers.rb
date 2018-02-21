@@ -71,7 +71,7 @@ class CustomersController < ApplicationController
     if params[:search].present?
       search = session[:register_customer_search] = params[:search]
     else
-      search = session[:register_customer_search] if session[:register_customer_search].present?
+      search = session[:register_customer_search] = nil
     end
     if search.present?
       session[:register_customer_search] = search

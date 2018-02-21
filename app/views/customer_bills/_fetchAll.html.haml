@@ -6,7 +6,7 @@
       .rxBottom
         .rxAddNewBtn
           %i.fa.fa-plus-circle
-          = t("customer_bill.register_customer_bill")
+          = "Register customer bill"
   - if @customer_bills.present?
     - @customer_bills.each do |customer_bill|
       = render :partial => 'customer_bill', :locals => {customer_bill: customer_bill}

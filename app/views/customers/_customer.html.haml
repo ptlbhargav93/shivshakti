@@ -6,19 +6,15 @@
         = image_tag "customer_register.png"
     .rxContent
       .row.row5
-        .col-xs-12.col-sm-6
-          .rxDesc
-            %span= t('customer.name')
-            .rxValue= customer.name
-        .col-xs-12.col-sm-6
+        .col-xs-12.col-sm-12
           .rxDesc
             %span= t('customer.person_name')
             .rxValue= customer.person_name                  
-        .col-xs-12
+        .col-xs-12.col-sm-6
           .rxDesc
             %span= t('customer.mobile_number1')
             .rxValue= customer.mobile_number1
-        .col-xs-12
+        .col-xs-12.col-sm-6
           .rxDesc
             %span= t('customer.mobile_number2')
             .rxValue= customer.mobile_number2

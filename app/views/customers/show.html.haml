@@ -8,7 +8,7 @@
               .formBox.view-details
                 .formHeader.clearfix
                   %h1
-                    = t("customer.customer_card", :name => @customer.name)
+                    = "Customer card"
 
                 .row.row10
                   .col-xs-12.col-md-6
@@ -17,25 +17,19 @@
                         %span
                           = t('customer.name')
                       %label.label-value= @customer.name
-
-                  .col-xs-12.col-md-6
                     .card-row
                       %label.label-view
                         %span= t('user.person_name')
                       %label.label-value= @customer.person_name
-                    .card-row
-                      %label.label-view
-                        %span= t('user.mobile_number1')
-                      %label.label-value= @customer.mobile_number1
                   .col-xs-12.col-md-6
                     .card-row
                       %label.label-view
-                        %span= t('user.mobile_number2')
-                      %label.label-value= @customer.mobile_number2
+                        %span= t('user.mobile_number 1')
+                      %label.label-value= @customer.mobile_number1
                     .card-row
                       %label.label-view
-                        %span= t('user.mobile_number3')
-                      %label.label-value= @customer.mobile_number3
+                        %span= t('user.mobile_number 2')
+                      %label.label-value= @customer.mobile_number2
                   .col-xs-12.col-md-6
                     .card-row
                       %label.label-view
@@ -45,6 +39,21 @@
                       %label.label-view
                         %span= t('user.address')
                       %label.label-value= @customer.address
+                  .col-xs-12.col-md-6
+                    .card-row
+                      %label.label-view
+                        %span= t('user.city')
+                      - if @customer.city
+                        %label.label-value= @customer.city.name
+                      - else
+                        = "-"
+                    .card-row
+                      %label.label-view
+                        %span= t('user.area')
+                      - if @customer.area
+                        %label.label-value= @customer.area.name
+                      - else
+                        = "-"                   
           %td.stepBtnGroup{:width => "20%"}
             %a.h15.stepBtn.backBtn{:href => customers_path}
               %span= t("form_action_button.return_button")
