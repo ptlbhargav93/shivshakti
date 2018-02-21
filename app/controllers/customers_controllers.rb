@@ -45,7 +45,7 @@ class CustomersController < ApplicationController
     elsif @customer.update(customer_params.merge(updater: current_user))
       step = params[:proceed_next] ? (params[:step].to_i + 1) : (params[:step].to_i)
       flash.keep[:notice] = t("general.information_saved") if params[:save]
-      redirect_to edit_customer_path(@customer, :step => step)
+      redirect_to customer_path(@customer)
     else
       @step = params[:step]
       render 'edit'
@@ -75,7 +75,7 @@ class CustomersController < ApplicationController
     end
     if search.present?
       session[:register_customer_search] = search
-      customers = customers.where('name LIKE :s or person_name LIKE :s or gst_number LIKE :s or CONCAT(name,person_name) LIKE :s', :s => "%#{search.delete(' ')}%")
+      customers = customers.joins(:city).where('cities.name LIKE :s or customers.name LIKE :s or customers.person_name LIKE :s or customers.gst_number LIKE :s or CONCAT(customers.name,customers.person_name) LIKE :s', :s => "%#{search.delete(' ')}%")
     end
     customers.order('id DESC').uniq
   end  
@@ -88,7 +88,7 @@ class CustomersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def customer_params
-    params.require(:customer).permit(:name, :person_name, :mobile_number1, :mobile_number2, :mobile_number3, :gst_number, :creator_id, :address,resources_attributes: [:id, :media, :resource_type_id, :resource_spec_id, :_destroy])
+    params.require(:customer).permit(:name, :person_name, :mobile_number1, :mobile_number2, :mobile_number3, :gst_number, :creator_id, :address, :city_id, :area_id)
   end
 
 end

@@ -15,10 +15,10 @@
                   = f.text_field :name, :class => "form-control",:placeholder => "Firm name"
                   - if @provider.errors[:name].any?
                     %span.text-error.text-message= @provider.errors[:name].first
-                / #person_name.form-group
-                /   = f.text_field :person_name, :class => "form-control", :placeholder => "Person name"
-                /   - if @provider.errors[:person_name].any?
-                /     %span.text-error.text-message= @provider.errors[:person_name].first
+                #person_name.form-group
+                  = f.text_field :person_name, :class => "form-control", :placeholder => "Person name"
+                  - if @provider.errors[:person_name].any?
+                    %span.text-error.text-message= @provider.errors[:person_name].first
                 #mobile_number1.form-group
                   = f.text_field :mobile_number1, :class => "form-control", :placeholder => "Mobile number 1"
                   - if @provider.errors[:mobile_number1].any?
@@ -41,12 +41,8 @@
             %span
               =t("form_action_button.return_button")
             = image_tag "back_btn.png", :class => "mt15"
-          %button.stepBtn.nextBtn#saveMedia{:name => "save", :type => "submit"}
-            %span=t("form_action_button.save_button")
-            = image_tag "save_btn.png", :class => "mt15"
-          - unless params[:open_card] == "true"
-            %button.stepBtn.nextBtn#saveMediaNext{:name => "proceed_next", :type => "submit"}
-              %span
-                = t("form_action_button.save_and_next_button")
-              = image_tag "save_and_next_btn.png", :class => "mt15"
+          %button.stepBtn.nextBtn#saveMediaNext{:name => "proceed_next", :type => "submit"}
+            %span
+              = t("form_action_button.save_and_next_button")
+            = image_tag "save_and_next_btn.png", :class => "mt15"
 

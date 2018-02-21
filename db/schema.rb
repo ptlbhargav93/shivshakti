@@ -194,6 +194,7 @@ ActiveRecord::Schema.define(version: 20180220072445) do
     t.integer  "creator_id",     limit: 4
     t.integer  "updater_id",     limit: 4
     t.string   "name",           limit: 255,   null: false
+    t.string   "person_name",    limit: 255
     t.text     "address",        limit: 65535
     t.integer  "city_id",        limit: 4
     t.integer  "area_id",        limit: 4

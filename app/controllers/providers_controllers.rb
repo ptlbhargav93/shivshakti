@@ -45,7 +45,7 @@ class ProvidersController < ApplicationController
     elsif @provider.update(provider_params.merge(updater: current_user))
       step = params[:proceed_next] ? (params[:step].to_i + 1) : (params[:step].to_i)
       flash.keep[:notice] = t("general.information_saved") if params[:save]
-      redirect_to edit_provider_path(@provider, :step => step)
+      redirect_to provider_path(@provider)
     else
       @step = params[:step]
       render 'edit'
@@ -75,7 +75,7 @@ class ProvidersController < ApplicationController
     end
     if search.present?
       session[:register_provider_search] = search
-      providers = providers.where('name LIKE :s or name LIKE :s or gst_number LIKE :s or CONCAT(name,gst_number) LIKE :s', :s => "%#{search.delete(' ')}%")
+      providers = providers.joins(:city).where('cities.name LIKE :s or providers.name LIKE :s or providers.person_name LIKE :s or providers.gst_number LIKE :s or CONCAT(providers.name,providers.person_name) LIKE :s', :s => "%#{search.delete(' ')}%")
     end
     providers.order('id DESC').uniq
   end  
@@ -88,7 +88,7 @@ class ProvidersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def provider_params
-    params.require(:provider).permit(:name, :person_name, :mobile_number1, :mobile_number2, :mobile_number3, :gst_number, :creator_id, :address,resources_attributes: [:id, :media, :resource_type_id, :resource_spec_id, :_destroy])
+    params.require(:provider).permit(:name, :person_name, :mobile_number1, :mobile_number2, :mobile_number3, :gst_number, :creator_id, :address, :city_id, :area_id)
   end
 
 end

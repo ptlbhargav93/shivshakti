@@ -6,21 +6,26 @@
         = image_tag "customer_register.png"
     .rxContent
       .row.row5
-        .col-xs-12.col-sm-12
-          .rxDesc
-            %span= t('customer.person_name')
-            .rxValue= customer.person_name                  
         .col-xs-12.col-sm-6
           .rxDesc
-            %span= t('customer.mobile_number1')
+            %span= "Person name"
+            .rxValue= customer.person_name
+        .col-xs-12.col-sm-6
+          .rxDesc
+            %span= "City"
+            - if customer.city
+              .rxValue= customer.city.name
+        .col-xs-12.col-sm-6
+          .rxDesc
+            %span= "Mobile number 1"
             .rxValue= customer.mobile_number1
         .col-xs-12.col-sm-6
           .rxDesc
-            %span= t('customer.mobile_number2')
+            %span= "Mobile number 2"
             .rxValue= customer.mobile_number2
         .col-xs-12.col-sm-6
           .rxDesc
-            %span= t('customer.gst_number')
+            %span= "GST Number"
             .rxValue= customer.gst_number
     .rxBottom
       %a.rxNextBtn{:href => customer_path(customer) }
