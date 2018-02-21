@@ -5,7 +5,7 @@ worker_processes 1;  # Please check this on **production environment** and ***MA
 timeout 3600           # Please check this on **production environment** and ***MASTER BRANCH*
 preload_app true
 
-shared_path = "/srv/projects/#{application}/shared"
+shared_path = "/srv/#{application}/shared"
 stderr_path "#{shared_path}/log/unicorn.stderr.log"
 stdout_path "#{shared_path}/log/unicorn.stdout.log"
 
