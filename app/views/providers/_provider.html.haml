@@ -7,24 +7,23 @@
         .col-xs-12.col-sm-6
           .rxDesc
             %span= "Person name"
-            .rxValue= provider.person_name
+            .rxValue= provider.person_name.present? ? provider.person_name : '-'
         .col-xs-12.col-sm-6
           .rxDesc
             %span= "City"
-            - if provider.city
-              .rxValue= provider.city.name
+            .rxValue= provider.city.present? ? provider.city.name : '-'
         .col-xs-12.col-sm-6
           .rxDesc
             %span= "Mobile number 1"
-            .rxValue= provider.mobile_number1
+            .rxValue= provider.mobile_number1.present? ? provider.mobile_number1 : '-'
         .col-xs-12.col-sm-6
           .rxDesc
             %span= "Mobile number 2"
-            .rxValue= provider.mobile_number2
+            .rxValue= provider.mobile_number2.present? ? provider.mobile_number2 : '-'
         .col-xs-12.col-sm-6
           .rxDesc
             %span= "GST Number"
-            .rxValue= provider.gst_number
+            .rxValue= provider.gst_number.present? ? provider.gst_number : '-'
     .rxBottom
       %a.rxNextBtn{:href => provider_path(provider) }
         = t("provider.open_card")

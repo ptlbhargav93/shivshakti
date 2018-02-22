@@ -11,7 +11,7 @@
     - @balance_sheets.each do |balance_sheet|
       = render :partial => 'balance_sheet', :locals => {balance_sheet: balance_sheet}
     - if @balance_sheets.count > Settings.system.per_page
-      = link_to next_users_balance_sheets_path(2), :remote => true, :class => "loadMore jscroll-next" do
+      = link_to next_balance_sheets_path(2), :remote => true, :class => "loadMore jscroll-next" do
         %i.downArrow
         = t("general.next")
   - else

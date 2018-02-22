@@ -11,7 +11,7 @@
     - @customer_bills.each do |customer_bill|
       = render :partial => 'customer_bill', :locals => {customer_bill: customer_bill}
     - if @customer_bills.count > Settings.system.per_page
-      = link_to next_users_customer_bills_path(2), :remote => true, :class => "loadMore jscroll-next" do
+      = link_to next_customer_bills_path(2), :remote => true, :class => "loadMore jscroll-next" do
         %i.downArrow
         = t("general.next")
   - else

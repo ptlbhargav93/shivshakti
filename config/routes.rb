@@ -49,7 +49,7 @@ Rails.application.routes.draw do
     resources :customers do
       collection do
         post "/search/customer_filter" => "customers#customer_filter", :as => :customer_filter
-        get 'next_customers/:page', to: 'customers#next_customers', as: 'next_customers'
+        get 'next/:page', to: 'customers#next_customers', as: 'next'
       end
     end    
 
@@ -57,7 +57,7 @@ Rails.application.routes.draw do
     resources :providers do
       collection do
         post "/search/provider_filter" => "providers#provider_filter", :as => :provider_filter
-        get 'next_providers/:page', to: 'providers#next_providers', as: 'next_providers'
+        get 'next/:page', to: 'providers#next_providers', as: 'next'
       end
     end
 
@@ -65,7 +65,7 @@ Rails.application.routes.draw do
     resources :balance_sheets do
       collection do
         post "/search/balance_sheet_filter" => "balance_sheets#balance_sheet_filter", :as => :balance_sheet_filter
-        get 'next_balance_sheets/:page', to: 'balance_sheets#next_balance_sheets', as: 'next_balance_sheets'
+        get 'next/:page', to: 'balance_sheets#next_balance_sheets', as: 'next'
       end
     end 
 
@@ -73,7 +73,7 @@ Rails.application.routes.draw do
     resources :customer_bills do
       collection do
         post "/search/customer_bill_filter" => "customer_bills#customer_bill_filter", :as => :customer_bill_filter
-        get 'next_customer_bill/:page', to: 'customer_bills#next_customer_bills', as: 'next_customer_bills'
+        get 'next/:page', to: 'customer_bills#next_customer_bills', as: 'next'
       end
     end
 
@@ -81,7 +81,7 @@ Rails.application.routes.draw do
     resources :customer_bill_products do
       collection do
         post "/search/customer_bill_product_filter" => "customer_bill_products#customer_bill_product_filter", :as => :customer_bill_product_filter
-        get 'next_customer_bill_product/:page', to: 'customer_bill_products#next_customer_bill_product', as: 'next_customer_bill_product'
+        get 'next/:page', to: 'customer_bill_products#next_customer_bill_product', as: 'next'
       end
     end
 
@@ -89,7 +89,7 @@ Rails.application.routes.draw do
     resources :customer_bill_payments do
       collection do
         post "/search/customer_bill_payment_filter" => "customer_bill_payments#customer_bill_payment_filter", :as => :customer_bill_payment_filter
-        get 'next_customer_bill_payment/:page', to: 'customer_bill_payments#next_customer_bill_payment', as: 'next_customer_bill_payment'
+        get 'next/:page', to: 'customer_bill_payments#next_customer_bill_payment', as: 'next'
       end
     end    
 
@@ -97,7 +97,7 @@ Rails.application.routes.draw do
     resources :stocks do
       collection do
         post "/search/stock_filter" => "stocks#stock_filter", :as => :stock_filter
-        get 'next_stock/:page', to: 'stocks#next_stocks', as: 'next_stocks'
+        get 'next/:page', to: 'stocks#next_stocks', as: 'next_stocks'
       end
     end   
 
@@ -105,7 +105,7 @@ Rails.application.routes.draw do
     resources :product_purchases do
       collection do
         post "/search/product_purchase_filter" => "product_purchases#product_purchase_filter", :as => :product_purchase_filter
-        get 'next_product_purchase/:page', to: 'product_purchases#next_product_purchases', as: 'next_product_purchases'
+        get 'next/:page', to: 'product_purchases#next_product_purchases', as: 'next'
       end
     end 
 
@@ -113,12 +113,9 @@ Rails.application.routes.draw do
     resources :income_expenses do
       collection do
         post "/search/income_expense_filter" => "income_expenses#income_expenses_filter", :as => :income_expense_filter
-        get 'next_income_expense/:page', to: 'income_expenses#next_income_expenses', as: 'next_income_expenses'
+        get 'next/:page', to: 'income_expenses#next_income_expenses', as: 'next'
       end
     end
-
-    #performance reports
-    resources :performance_reports, only: [:index]
 
     # emails
     resources :emails do

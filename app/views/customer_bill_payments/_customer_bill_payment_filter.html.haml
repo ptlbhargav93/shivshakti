@@ -1,9 +1,7 @@
 .filterTop
   .row
     = form_for '', :url => customer_bill_payment_filter_customer_bill_payments_path, :method => 'post', :html => {:id => "filterFormId"}, :remote => true do
-      .col-xs-12.col-sm-6
+      .col-xs-12.col-sm-12
         = text_field_tag :search, session[:customer_bill_payment_search],:class => "form-control",placeholder: t("general.search_name_or_city")
-      .col-xs-12.col-sm-6
-        = select_tag "order", options_for_select([[t('general.ascending'), 'ASC'], [t('general.descending'), 'DESC']]), prompt: t('general.order'), :class => "form-control"
     %div{id: 'loader-image', class: 'loader'}
       = image_tag 'loader-small.gif'

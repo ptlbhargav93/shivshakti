@@ -3,6 +3,6 @@
     = render :partial => 'customer_bill', :locals => {customer_bill: customer_bill}
   - if @customer_bills.count > Settings.system.per_page
     - count = params[:page].to_i + 1
-    = link_to next_users_customer_bills_path(count), :remote => true, :class => "loadMore jscroll-next" do
+    = link_to next_customer_bills_path(count), :remote => true, :class => "loadMore jscroll-next" do
       %i.downArrow
       = t("general.next")

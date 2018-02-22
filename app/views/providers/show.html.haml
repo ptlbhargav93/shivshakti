@@ -20,40 +20,34 @@
                     .card-row
                       %label.label-view
                         %span= t('user.person_name')
-                      %label.label-value= @provider.person_name
+                      %label.label-value= @provider.person_name.present? ? @provider.person_name : '-'
                   .col-xs-12.col-md-6
                     .card-row
                       %label.label-view
                         %span= t('user.mobile_number 1')
-                      %label.label-value= @provider.mobile_number1
+                      %label.label-value= @provider.mobile_number1.present? ? @provider.mobile_number1 : '-'
                     .card-row
                       %label.label-view
                         %span= t('user.mobile_number 2')
-                      %label.label-value= @provider.mobile_number2
+                      %label.label-value= @provider.mobile_number2.present? ? @provider.mobile_number2 : '-'
                   .col-xs-12.col-md-6
                     .card-row
                       %label.label-view
                         %span= t('user.gst_number')
-                      %label.label-value= @provider.gst_number
+                      %label.label-value= @provider.gst_number.present? ? @provider.gst_number : '-'
                     .card-row
                       %label.label-view
                         %span= t('user.address')
-                      %label.label-value= @provider.address
+                      %label.label-value= @provider.address.present? ? @provider.address : '-'
                   .col-xs-12.col-md-6
                     .card-row
                       %label.label-view
                         %span= t('user.city')
-                      - if @provider.city
-                        %label.label-value= @provider.city.name
-                      - else
-                        = "-"
+                      %label.label-value= @provider.city.present? ? @provider.city.name : '-'
                     .card-row
                       %label.label-view
                         %span= t('user.area')
-                      - if @provider.area
-                        %label.label-value= @provider.area.name
-                      - else
-                        = "-"                   
+                      %label.label-value= @provider.area.present? ? @provider.area.name : '-'
           %td.stepBtnGroup{:width => "20%"}
             %a.h15.stepBtn.backBtn{:href => providers_path}
               %span= t("form_action_button.return_button")
