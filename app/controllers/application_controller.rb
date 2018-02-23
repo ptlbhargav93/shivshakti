@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_locale
 
-  helper_method :current_brand_custom_domain_or_subdomain, :current_brand_custom_domain_or_slug
+  before_filter :current_brand_custom_domain_or_subdomain, :current_brand_custom_domain_or_slug
 
   before_action :common_nav_header_menu, :only => [:index, :show, :new, :create, :edit, :update], :if => "controller_name == 'directors' or controller_name == 'executives' or controller_name == 'dentists' or controller_name == 'clinics'"
 
@@ -45,7 +45,11 @@ class ApplicationController < ActionController::Base
   end  
 
   def current_brand_custom_domain_or_subdomain
-    @current_brand.custom_domain ? @current_brand.custom_domain : request.subdomain
+    custom_domain = @current_brand.custom_domain ? @current_brand.custom_domain : request.subdomain
+    if custom_domain == 'staff'
+      redirect_to request.protocol + request.domain.to_s + '/madhav'
+    end
+    return custom_domain
   end
 
   def current_brand_custom_domain_or_slug

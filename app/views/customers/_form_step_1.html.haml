@@ -31,9 +31,9 @@
                 #address.form-group
                   = f.text_area :address, :class => "form-control", :placeholder => "Address"
                 #city_id.form-group
-                  = f.select(:city_id, City.all.collect {|a| [a.name, a.id]}, {:prompt => "Select city"}, {:class => "form-control"})
+                  = f.select(:city_id, City.all.order('name ASC').collect {|a| [a.name, a.id]}, {:prompt => "Select city"}, {:class => "form-control"})
                 #area_id.form-group
-                  = f.select(:area_id, Area.all.collect {|a| [a.name, a.id]}, {:prompt => "Select area"}, {:class => "form-control"})                                          
+                  = f.select(:area_id, Area.all.order('name ASC').collect {|a| [a.name, a.id]}, {:prompt => "Select area"}, {:class => "form-control"})                                          
 
         %td.stepBtnGroup{:width => "20%"}
           - back_btn_href = @customer.new_record? ? customers_path : customer_path(@customer.id)
