@@ -71,11 +71,20 @@ class ProvidersController < ApplicationController
     if params[:search].present?
       search = session[:register_provider_search] = params[:search]
     else
-      search = session[:register_provider_search] = nil
+      if params[:role].present?
+        search = session[:register_provider_search] = nil
+      else
+        search = session[:register_provider_search] if session[:register_provider_search].present?
+      end
     end
     if search.present?
       session[:register_provider_search] = search
-      providers = providers.joins(:city).where('cities.name LIKE :s or providers.name LIKE :s or providers.person_name LIKE :s or providers.gst_number LIKE :s or CONCAT(providers.name,providers.person_name) LIKE :s', :s => "%#{search.delete(' ')}%")
+      providers = providers.joins("LEFT JOIN cities ON providers.city_id = cities.id LEFT JOIN areas ON providers.area_id = areas.id")
+      search.split(' ').each do |s|
+        if s.present?
+          providers = providers.where('areas.name LIKE :s or cities.name LIKE :s or providers.name LIKE :s or providers.person_name LIKE :s or providers.gst_number LIKE :s or providers.mobile_number1 LIKE :s or providers.mobile_number2 LIKE :s or CONCAT(providers.name,providers.person_name) LIKE :s', :s => "%#{s}%")
+        end
+      end      
     end
     providers.order('id DESC').uniq
   end  

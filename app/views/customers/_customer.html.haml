@@ -6,12 +6,12 @@
       .row.row5
         .col-xs-12.col-sm-6
           .rxDesc
-            %span= "Person name"
-            .rxValue= customer.person_name.present? ? customer.person_name : '-'
+            %span= "City"
+            .rxValue= customer.city.present? ? customer.city.name : '-'      
         .col-xs-12.col-sm-6
           .rxDesc
-            %span= "City"
-            .rxValue= customer.city.present? ? customer.city.name : '-'
+            %span= "Area"
+            .rxValue= customer.area.present? ? customer.area.name : '-'
         .col-xs-12.col-sm-6
           .rxDesc
             %span= "Mobile number 1"

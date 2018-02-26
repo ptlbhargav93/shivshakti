@@ -2,6 +2,7 @@
   .row
     = form_for '', :url => provider_filter_providers_path, :method => 'post', :html => {:id => "filterFormId"}, :remote => true do
       .col-xs-12.col-sm-12
-        = text_field_tag :search, session[:provider_search],:class => "form-control",placeholder: t("general.search_name_or_city")
+        = hidden_field_tag 'role', 'provider'
+        = text_field_tag :search, session[:register_provider_search],:class => "form-control",placeholder: t("general.search_name_or_city")
     %div{id: 'loader-image', class: 'loader'}
       = image_tag 'loader-small.gif'

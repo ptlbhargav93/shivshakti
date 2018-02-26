@@ -71,14 +71,23 @@ class CustomersController < ApplicationController
     if params[:search].present?
       search = session[:register_customer_search] = params[:search]
     else
-      search = session[:register_customer_search] = nil
+      if params[:role].present?
+        search = session[:register_customer_search] = nil
+      else
+        search = session[:register_customer_search] if session[:register_customer_search].present?
+      end
     end
     if search.present?
       session[:register_customer_search] = search
-      customers = customers.joins(:city).where('cities.name LIKE :s or customers.name LIKE :s or customers.person_name LIKE :s or customers.gst_number LIKE :s or CONCAT(customers.name,customers.person_name) LIKE :s', :s => "%#{search.delete(' ')}%")
+      customers = customers.joins("LEFT JOIN cities ON customers.city_id = cities.id LEFT JOIN areas ON customers.area_id = areas.id")
+      search.split(' ').each do |s|
+        if s.present?
+          customers = customers.where('areas.name LIKE :s or cities.name LIKE :s or customers.name LIKE :s or customers.person_name LIKE :s or customers.gst_number LIKE :s or customers.mobile_number1 LIKE :s or customers.mobile_number2 LIKE :s or CONCAT(customers.name,customers.person_name) LIKE :s', :s => "%#{s}%")
+        end
+      end
     end
     customers.order('id DESC').uniq
-  end  
+  end
 
   def nav_header
     @nav_header_menus = [
