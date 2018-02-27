@@ -7,7 +7,7 @@
           .formBox
             .formHeader.clearfix
               %h1
-                = "Create customer bill - " + (@customer_bill.new_record? ? @customer.name : customer_bill.customer.name)
+                = "Create customer bill - " + (@customer_bill.new_record? ? @customer.name : @customer_bill.customer.name)
             .row
               .col-xs-12.col-sm-6
                 = hidden_field_tag 'step', '1'
