@@ -2,6 +2,7 @@
   .row
     = form_for '', :url => customer_bill_filter_customer_bills_path, :method => 'post', :html => {:id => "filterFormId"}, :remote => true do
       .col-xs-12.col-sm-12
-        = text_field_tag :search, session[:customer_bill_search],:class => "form-control",placeholder: t("general.search_name_or_city")
+        = hidden_field_tag 'role', 'customer_bill'
+        = text_field_tag :search, session[:register_customer_bill_search],:class => "form-control",placeholder: "Search by bill number"
     %div{id: 'loader-image', class: 'loader'}
       = image_tag 'loader-small.gif'

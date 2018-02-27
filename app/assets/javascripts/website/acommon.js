@@ -301,6 +301,15 @@ function common_events(){
   });
 
   // date picker
+  $('#customer_bill_bill_date').datepicker({
+    format: 'dd.mm.yyyy',
+    weekStart: 1,
+    autoclose: true,
+    todayHighlight: true,
+    clearBtn: true,
+    disableTouchKeyboard: true,
+    Readonly: true
+  });  
   $('.datepickeron').datepicker({
     format: 'dd.mm.yyyy',
     weekStart: 1,

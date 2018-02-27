@@ -8,52 +8,44 @@
               .formBox.view-details
                 .formHeader.clearfix
                   %h1
-                    = "Customer card"
-
+                    = "Customer bill card - " + @customer_bill.customer.name
                 .row.row10
                   .col-xs-12.col-md-6
                     .card-row
                       %label.label-view
                         %span
-                          = t('customer_bill.name')
-                      %label.label-value= @customer_bill.name
+                          = "Bill number"
+                      %label.label-value= @customer_bill.bill_number
                     .card-row
                       %label.label-view
-                        %span= t('user.person_name')
-                      %label.label-value= @customer_bill.person_name
+                        %span
+                          = "Bill date"
+                      %label.label-value
+                        = @customer_bill.bill_date.to_datetime.to_s(:default_date) if @customer_bill.bill_date
+                    .card-row
+                      %label.label-view
+                        %span
+                          = "Total amount"
+                      %label.label-value
+                        = @customer_bill.total_amount
+                    .card-row
+                      %label.label-view
+                        %span
+                          = "Credited"
+                      %label.label-value
+                        = @customer_bill.verified ? "Yes" : "No"
                   .col-xs-12.col-md-6
                     .card-row
                       %label.label-view
-                        %span= t('user.mobile_number 1')
-                      %label.label-value= @customer_bill.mobile_number1
-                    .card-row
-                      %label.label-view
-                        %span= t('user.mobile_number 2')
-                      %label.label-value= @customer_bill.mobile_number2
-                  .col-xs-12.col-md-6
-                    .card-row
-                      %label.label-view
-                        %span= t('user.gst_number')
-                      %label.label-value= @customer_bill.gst_number
-                    .card-row
-                      %label.label-view
-                        %span= t('user.address')
-                      %label.label-value= @customer_bill.address
-                  .col-xs-12.col-md-6
-                    .card-row
-                      %label.label-view
-                        %span= t('user.city')
-                      - if @customer_bill.city
-                        %label.label-value= @customer_bill.city.name
-                      - else
-                        = "-"
-                    .card-row
-                      %label.label-view
-                        %span= t('user.area')
-                      - if @customer_bill.area
-                        %label.label-value= @customer_bill.area.name
-                      - else
-                        = "-"                   
+                        %span
+                          = "Payments"
+                      %label.label-value
+                        - @customer_bill.customer_bill_payments.each do |payment|
+                          .rxDesc
+                            %span
+                              = payment.amount
+                            .rxValue
+                              = payment.payment_date.to_datetime.to_s(:default_date) if payment.payment_date
           %td.stepBtnGroup{:width => "20%"}
             %a.h15.stepBtn.backBtn{:href => customer_bills_path}
               %span= t("form_action_button.return_button")

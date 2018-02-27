@@ -1,28 +1,42 @@
-.col-xs-12.col-sm-6.col-md-4.col-10
-  .rxBox
-    .rxHeader
-      .rxTitle= customer_bill.name
-      .rxLogo
-        = image_tag "customer_bill_register.png"
+.col-xs-12
+  .rxBox.rxBoxEvent
     .rxContent
       .row.row5
-        .col-xs-12.col-sm-12
-          .rxDesc
-            %span= t('customer_bill.person_name')
-            .rxValue= customer_bill.person_name                  
-        .col-xs-12.col-sm-6
-          .rxDesc
-            %span= t('customer_bill.mobile_number1')
-            .rxValue= customer_bill.mobile_number1
-        .col-xs-12.col-sm-6
-          .rxDesc
-            %span= t('customer_bill.mobile_number2')
-            .rxValue= customer_bill.mobile_number2
-        .col-xs-12.col-sm-6
-          .rxDesc
-            %span= t('customer_bill.gst_number')
-            .rxValue= customer_bill.gst_number
-    .rxBottom
-      %a.rxNextBtn{:href => customer_bill_path(customer_bill) }
-        = t("customer_bill.open_card")
-        %i.fa.fa-angle-double-right
+        .col-xs-12
+          .row.row5
+            .col-xs-12.col-sm-4
+              .rxDesc
+                %span
+                  = "Bill Date"
+                .rxValue
+                  = customer_bill.bill_date.to_datetime.to_s(:default_date) if customer_bill.bill_date
+              .rxDesc
+                %span
+                  = "Bill Number"
+                .rxValue
+                  = customer_bill.bill_number
+            .col-xs-12.col-sm-4
+              .rxDesc
+                %span
+                  = "Total amount"
+                .rxValue
+                  = customer_bill.total_amount
+              .rxDesc
+                %span
+                  = "Credited"
+                .rxValue
+                  = customer_bill.verified ? "Yes" : "No"                  
+            .col-xs-12.col-sm-4      
+              .rxDesc
+                %span
+                  = "Payments"
+                .rxValue
+                  - customer_bill.customer_bill_payments.each do |payment|
+                    .rxDesc
+                      %span
+                        = payment.amount
+                      .rxValue
+                        = payment.payment_date.to_datetime.to_s(:default_date) if payment.payment_date
+              %a.rxNextBtn{:href => customer_bill_path(customer_bill) }
+                = "Open Bill"
+                %i.fa.fa-angle-double-right                        

@@ -41,6 +41,31 @@ $(function(){
     }
   });
 
+  // customer bill register form
+  $('#register-customer-bill').formValidation({
+    framework: 'bootstrap',
+    fields: {
+      customer_bill_bill_number: {
+        selector: "#customer_bill_bill_number",
+        validators: {
+            notEmpty: {message: I18n.t("js.general.task.mandatory_field")}
+        }
+      },
+      customer_bill_bill_date: {
+        selector: "#customer_bill_bill_date",
+        validators: {
+            notEmpty: {message: I18n.t("js.general.task.mandatory_field")}
+        }
+      },
+      customer_bill_total_amount: {
+        selector: "#customer_bill_total_amount",
+        validators: {
+            notEmpty: {message: I18n.t("js.general.task.mandatory_field")}
+        }
+      }                  
+    }
+  });  
+
   $('#register-provider').formValidation({
     framework: 'bootstrap',
     fields: {

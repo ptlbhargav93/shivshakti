@@ -25,6 +25,13 @@
             %span= "GST Number"
             .rxValue= customer.gst_number.present? ? customer.gst_number : '-'
     .rxBottom
-      %a.rxNextBtn{:href => customer_path(customer) }
-        = t("customer.open_card")
-        %i.fa.fa-angle-double-right
+      .col-xs-12.col-sm-6
+        .row
+          %a.rxNextBtn{:href => customer_path(customer) }
+            = t("customer.open_card")
+            %i.fa.fa-angle-double-right
+      .col-xs-12.col-sm-6
+        .row.row5
+          %a.rxNextBtn{:href => customer_bills_path(:bill_customer => customer.id) }
+            = "Bills"
+            %i.fa.fa-angle-double-right        
