@@ -1,0 +1,11 @@
+.nested-fields.row.row7
+  .col-xs-12
+    .fieldRemove
+      .row.row7
+        .col-xs-12.col-sm-6.form-group
+          = f.text_field :amount, :class => "form-control", :placeholder => "Amount", :autofocus => true
+        .col-xs-12.col-sm-6.form-group
+          = f.text_field :payment_date, :value => (f.object.payment_date.present? ? f.object.payment_date.to_datetime.to_s(:default_date) : (Time.now).to_datetime.to_s(:default_date)), :class => "datepickeron form-control", :placeholder => "Payment date"
+      = link_to_remove_association f, :class => 'addLink' do
+        %i.removeIcon
+        = t('clinic.remove')

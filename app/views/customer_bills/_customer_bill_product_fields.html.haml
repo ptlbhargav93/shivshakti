@@ -1,0 +1,17 @@
+.nested-fields.row.row7
+  .col-xs-12
+    .fieldRemove
+      .row.row7
+        .col-xs-12.form-group
+          = f.select(:product_id, Product.all.order('name ASC').collect {|a| [a.name, a.id]}, {:prompt => "Select Product"}, {:class => "form-control"})
+        .col-xs-12.col-sm-6.form-group
+          = f.select(:bag_type, CustomerBillProduct.bag_types.collect {|k,v| [k+" KG", k]}, {:prompt => "Select Bag Type"}, {:class => "form-control"})
+        .col-xs-12.col-sm-6.form-group
+          = f.text_field :bags, :value => (f.object.bags > 0 ? f.object.bags : ''), :class => "form-control", :placeholder => "Bags"
+        .col-xs-12.col-sm-6.form-group
+          = f.text_field :quantity, :value => (f.object.quantity > 0 ? f.object.quantity : ''), :class => "form-control", :placeholder => "Quantity"
+        .col-xs-12.col-sm-6.form-group
+          = f.text_field :rate, :value => (f.object.rate > 0 ? f.object.rate : ''), :class => "form-control", :placeholder => "Rate"
+      = link_to_remove_association f, :class => 'addLink' do
+        %i.removeIcon
+        = t('clinic.remove')

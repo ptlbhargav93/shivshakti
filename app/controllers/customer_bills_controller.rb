@@ -114,7 +114,7 @@ class CustomerBillsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def customer_bill_params
-    params.require(:customer_bill).permit(:bill_number, :bill_date, :customer_id, :total_amount, :verified, :creator_id, :updater_id)
+    params.require(:customer_bill).permit(:bill_number, :bill_date, :customer_id, :total_amount, :verified, :creator_id, :updater_id, customer_bill_payments_attributes: [:id, :amount, :payment_date, :_destroy], customer_bill_products_attributes: [:id, :product_id, :bag_type, :bags, :quantity, :rate, :_destroy])
   end
 
 end

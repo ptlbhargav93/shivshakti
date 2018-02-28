@@ -31,12 +31,15 @@
                 %span
                   = "Payments"
                 .rxValue
-                  - customer_bill.customer_bill_payments.each do |payment|
+                  - customer_bill.customer_bill_payments.order('payment_date DESC').each do |payment|
                     .rxDesc
-                      %span
-                        = payment.amount
-                      .rxValue
-                        = payment.payment_date.to_datetime.to_s(:default_date) if payment.payment_date
+                      .row
+                        .col-xs-6
+                          %span
+                            = payment.amount
+                        .col-xs-6
+                          .row5
+                            = payment.payment_date.to_datetime.to_s(:default_date) if payment.payment_date
               %a.rxNextBtn{:href => customer_bill_path(customer_bill) }
                 = "Open Bill"
                 %i.fa.fa-angle-double-right                        

@@ -26,10 +26,32 @@
                       %i.fa.fa-calendar
                   - if @customer_bill.errors[:bill_date].any?
                     %span.text-error.text-message= @customer_bill.errors[:bill_date].first
+
+                .col-xs-12
+                  .row
+                    %hr
+                %h4
+                  = "Items"                          
+                - if @customer_bill.errors["customer_bill_products"].any?
+                  %div.text-error.text-message
+                    = t("data_invalid_or_required")
+                #customer_bill_products
+                  = f.fields_for :customer_bill_products do |customer_bill_product|
+                    = render 'customer_bill_product_fields', f: customer_bill_product
+                  .links
+                    = link_to_add_association f, :customer_bill_products, :class => "addLink" do
+                      %i.addIcon
+                      = "Add Item"
+                .col-xs-12
+                  .row
+                    %hr
+                %h4
+                  = "Total bill amount"      
                 #total_amount.form-group
                   = f.text_field :total_amount, :class => "form-control", :placeholder => "Bill amount"
                   - if @customer_bill.errors[:total_amount].any?
                     %span.text-error.text-message= @customer_bill.errors[:total_amount].first
+              .col-xs-12.col-sm-6
                 .form-group.row.row7
                   .col-xs-1
                     %label.checkBox.noLabel.open_house_event_advanced_registration
@@ -37,7 +59,19 @@
                       = f.check_box :verified,{:checked => check},true
                       %span.lbl=""
                   %label.col-xs-11
-                    = "Credited"                                        
+                    = "Credited"              
+                - if @customer_bill.errors["customer_bill_payments"].any?
+                  %div.text-error.text-message
+                    = t("data_invalid_or_required")
+                #customer_bill_payments
+                  = f.fields_for :customer_bill_payments do |customer_bill_payment|
+                    = render 'customer_bill_payment_fields', f: customer_bill_payment
+                  .links
+                    = link_to_add_association f, :customer_bill_payments, :class => "addLink" do
+                      %i.addIcon
+                      = "Add Payment"
+
+
                 / #reverse_charge.form-group
                 /   = f.text_field :reverse_charge, :class => "form-control", :placeholder => "Reverse charge"
                 /   - if @customer_bill.errors[:reverse_charge].any?
