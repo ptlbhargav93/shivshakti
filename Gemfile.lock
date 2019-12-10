@@ -523,6 +523,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sqlite3 (1.4.1)
     streamio-ffmpeg (3.0.2)
       multi_json (~> 1.8)
     term-ansicolor (1.6.0)
@@ -642,7 +643,7 @@ DEPENDENCIES
   paperclip-ffmpeg
   paranoia (~> 2.0)
   pdfkit
-  pg
+  pg (~> 1.1, >= 1.1.4)
   pry-byebug
   pry-doc
   pry-rails
@@ -664,6 +665,7 @@ DEPENDENCIES
   seedbank
   sidekiq
   spring
+  sqlite3
   streamio-ffmpeg
   terminal-notifier-guard
   thin
