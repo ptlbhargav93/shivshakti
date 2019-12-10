@@ -7,39 +7,36 @@
             .col-xs-12.col-sm-4
               .rxDesc
                 %span
-                  = "Bill Date"
+                  = "Invoice date"
                 .rxValue
-                  = customer_bill.bill_date.to_datetime.to_s(:default_date) if customer_bill.bill_date
+                  = customer_bill.invoice_date.to_datetime.to_s(:default_date) if customer_bill.invoice_date
               .rxDesc
                 %span
-                  = "Bill Number"
+                  = "Invoice Number"
                 .rxValue
-                  = customer_bill.bill_number
+                  = customer_bill.invoice_number
+              .rxDesc
+                %span
+                  = "Route"
+                .rxValue
+                  - customer_bill.customer_bill_products.each do |item|
+                    = "From"
+                    = item.from
+                    = "TO"
+                    = item.to
+
             .col-xs-12.col-sm-4
+              .rxDesc
+                %span
+                  = "LR Number"
+                .rxValue
+                  = customer_bill.lr_number
               .rxDesc
                 %span
                   = "Total amount"
                 .rxValue
                   = customer_bill.total_amount
-              .rxDesc
-                %span
-                  = "Credited"
-                .rxValue
-                  = customer_bill.verified ? "Yes" : "No"                  
-            .col-xs-12.col-sm-4      
-              .rxDesc
-                %span
-                  = "Payments"
-                .rxValue
-                  - customer_bill.customer_bill_payments.order('payment_date DESC').each do |payment|
-                    .rxDesc
-                      .row
-                        .col-xs-6
-                          %span
-                            = payment.amount
-                        .col-xs-6
-                          .row5
-                            = payment.payment_date.to_datetime.to_s(:default_date) if payment.payment_date
+            .col-xs-12.col-sm-4
               %a.rxNextBtn{:href => customer_bill_path(customer_bill) }
                 = "Open Bill"
                 %i.fa.fa-angle-double-right                        

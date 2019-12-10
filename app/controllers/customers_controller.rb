@@ -67,7 +67,7 @@ class CustomersController < ApplicationController
   end
 
   def fetch_customers
-    customers = Customer.all
+    customers = current_user.customers.all
     if params[:search].present?
       search = session[:register_customer_search] = params[:search]
     else
@@ -97,7 +97,7 @@ class CustomersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def customer_params
-    params.require(:customer).permit(:name, :person_name, :mobile_number1, :mobile_number2, :mobile_number3, :gst_number, :creator_id, :address, :city_id, :area_id)
+    params.require(:customer).permit(:name, :address1, :address2, :city, :state, :state_code, :pin_code, :country, :email, :phone_number, :gst_number)
   end
 
 end

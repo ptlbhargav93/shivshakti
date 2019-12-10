@@ -12,28 +12,40 @@
               .col-xs-12.col-sm-6
                 = hidden_field_tag 'step', '1'
                 #name.form-group
-                  = f.text_field :name, :class => "form-control",:placeholder => "Firm name"
+                  = f.text_field :name, :class => "form-control",:placeholder => "Full Name"
                   - if @customer.errors[:name].any?
                     %span.text-error.text-message= @customer.errors[:name].first
-                #person_name.form-group
-                  = f.text_field :person_name, :class => "form-control", :placeholder => "Person name"
-                  - if @customer.errors[:person_name].any?
-                    %span.text-error.text-message= @customer.errors[:person_name].first
-                #mobile_number1.form-group
-                  = f.text_field :mobile_number1, :class => "form-control", :placeholder => "Mobile number 1"
-                  - if @customer.errors[:mobile_number1].any?
-                    %span.text-error.text-message= @customer.errors[:mobile_number1].first
-                #mobile_number2.form-group
-                  = f.text_field :mobile_number2, :class => "form-control", :placeholder => "Mobile number 2"
+                #address1.form-group
+                  = f.text_field :address1, :class => "form-control", :placeholder => "Address 1"
+                  - if @customer.errors[:address1].any?
+                    %span.text-error.text-message= @customer.errors[:address1].first
+                #address2.form-group
+                  = f.text_field :address2, :class => "form-control", :placeholder => "Address 2"
+                  - if @customer.errors[:address2].any?
+                    %span.text-error.text-message= @customer.errors[:address2].first
+                .row
+                  .col-xs-12.col-sm-6
+                    #city.form-group
+                      = f.text_field :city, :value=>@customer.city.present? ? @customer.city : "AHMEDABAD", :class => "form-control", :placeholder => "City"
+                  .col-xs-12.col-sm-6
+                    #pin_code.form-group
+                      = f.text_field :pin_code, :class => "form-control", :placeholder => "Pin code"
+                .row
+                  .col-xs-12.col-sm-6
+                    #state.form-group
+                      = f.text_field :state, :value=>@customer.state.present? ? @customer.state : "AHMEDABAD", :class => "form-control", :placeholder => "State"
+                  .col-xs-12.col-sm-6
+                    #state_code.form-group
+                      = f.text_field :state_code, :value=>@customer.state_code.present? ? @customer.state_code : "24", :class => "form-control", :placeholder => "State code"
+              .col-xs-12.col-sm-6
                 #gst_number.form-group
                   = f.text_field :gst_number, :class => "form-control", :placeholder => "GST Number"
-              .col-xs-12.col-sm-6                  
-                #address.form-group
-                  = f.text_area :address, :class => "form-control", :placeholder => "Address"
-                #city_id.form-group
-                  = f.select(:city_id, City.all.order('name ASC').collect {|a| [a.name, a.id]}, {:prompt => "Select city"}, {:class => "form-control"})
-                #area_id.form-group
-                  = f.select(:area_id, Area.all.order('name ASC').collect {|a| [a.name, a.id]}, {:prompt => "Select area"}, {:class => "form-control"})                                          
+                #country.form-group
+                  = f.text_field :country, :class => "form-control", :placeholder => "Country"
+                #email.form-group
+                  = f.text_field :email, :class => "form-control", :placeholder => "Email"
+                #phone_number.form-group
+                  = f.text_field :phone_number, :class => "form-control", :placeholder => "Phone number"
 
         %td.stepBtnGroup{:width => "20%"}
           - back_btn_href = @customer.new_record? ? customers_path : customer_path(@customer.id)

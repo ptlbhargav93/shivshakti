@@ -6,20 +6,24 @@
       .row.row5
         .col-xs-12.col-sm-6
           .rxDesc
+            %span= "Address 1"
+            .rxValue= customer.address1.present? ? customer.address1: '-'      
+        .col-xs-12.col-sm-6
+          .rxDesc
+            %span= "Address 2"
+            .rxValue= customer.address2.present? ? customer.address2 : '-'      
+        .col-xs-12.col-sm-6
+          .rxDesc
             %span= "City"
-            .rxValue= customer.city.present? ? customer.city.name : '-'      
+            .rxValue= customer.city.present? ? customer.city : '-'      
         .col-xs-12.col-sm-6
           .rxDesc
-            %span= "Area"
-            .rxValue= customer.area.present? ? customer.area.name : '-'
+            %span= "State"
+            .rxValue= customer.state.present? ? customer.state : '-'
         .col-xs-12.col-sm-6
           .rxDesc
-            %span= "Mobile number 1"
-            .rxValue= customer.mobile_number1.present? ? customer.mobile_number1 : '-'
-        .col-xs-12.col-sm-6
-          .rxDesc
-            %span= "Mobile number 2"
-            .rxValue= customer.mobile_number2.present? ? customer.mobile_number2 : '-'
+            %span= "Phone number"
+            .rxValue= customer.phone_number.present? ? customer.phone_number : '-'
         .col-xs-12.col-sm-6
           .rxDesc
             %span= "GST Number"

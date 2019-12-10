@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
 
   def current_brand
     begin
-      @current_brand ||= Brand.find_by_slug(session[:current_brand_slug]) || Brand.find_by_custom_domain(request.host) || Brand.find_by_slug('madhav')
+      @current_brand ||= Brand.find_by_slug(session[:current_brand_slug]) || Brand.find_by_custom_domain(request.host) || Brand.find_by_slug('shivshakti')
     rescue ActiveRecord::RecordNotFound => e
       raise BrandNotFound
     end
@@ -47,7 +47,7 @@ class ApplicationController < ActionController::Base
   def current_brand_custom_domain_or_subdomain
     custom_domain = @current_brand.custom_domain ? @current_brand.custom_domain : request.subdomain
     if custom_domain == 'staff'
-      redirect_to request.protocol + request.domain.to_s + '/madhav'
+      redirect_to request.protocol + request.domain.to_s + '/shivshakti'
     end
     return custom_domain
   end

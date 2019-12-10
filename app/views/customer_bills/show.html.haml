@@ -14,27 +14,25 @@
                     .card-row
                       %label.label-view
                         %span
-                          = "Bill number"
-                      %label.label-value= @customer_bill.bill_number
+                          = "Invoice number"
+                      %label.label-value= @customer_bill.invoice_number
                     .card-row
                       %label.label-view
                         %span
-                          = "Bill date"
+                          = "L R number"
+                      %label.label-value= @customer_bill.lr_number
+                    .card-row
+                      %label.label-view
+                        %span
+                          = "Invoice date"
                       %label.label-value
-                        = @customer_bill.bill_date.to_datetime.to_s(:default_date) if @customer_bill.bill_date
+                        = @customer_bill.invoice_date.to_datetime.to_s(:default_date) if @customer_bill.invoice_date
                     .card-row
                       %label.label-view
                         %span
                           = "Total amount"
                       %label.label-value
                         = @customer_bill.total_amount
-                    .card-row
-                      %label.label-view
-                        %span
-                          = "Credited"
-                      %label.label-value
-                        = @customer_bill.verified ? "Yes" : "No"
-
                 .row.row10
                   .col-xs-12
                     .hr.h25
@@ -48,60 +46,41 @@
                           .card-row
                             %label.label-view
                               %span
-                                = "Item"
+                                = "Ref Invoice Number"
                             %label.label-value
-                              = bill_product.product.name
-                          .card-row
-                            %label.label-view
-                              %span
-                                = "Bag type"
-                            %label.label-value
-                              = bill_product.bag_type
-                      .col-xs-12.col-md-6
-                        .row                              
+                              = bill_product.ref_invoice_number
                           .card-row                              
                             %label.label-view
                               %span
-                                = "Bags"
+                                = "From"
                             %label.label-value
-                              = bill_product.bags
+                              = bill_product.from
+                          .card-row                              
+                            %label.label-view
+                              %span
+                                = "To"
+                            %label.label-value
+                              = bill_product.to
+                      .col-xs-12.col-md-6
+                        .row                              
                           .card-row                              
                             %label.label-view
                               %span
                                 = "Quantity"
                             %label.label-value
                               = bill_product.quantity
+                          .card-row
+                            %label.label-view
+                              %span
+                                = "Vehical number"
+                            %label.label-value
+                              = bill_product.vehical_number
                           .card-row                              
                             %label.label-view
                               %span
                                 = "Rate"
                             %label.label-value
                               = bill_product.rate
-
-                .row.row10
-                  .col-xs-12
-                    .hr.h25
-                  .col-xs-12
-                    .form-group.formTitle
-                      = "Payments"
-                  - @customer_bill.customer_bill_payments.order('payment_date DESC').each do |payment|
-                    .col-xs-12.form-group
-                      .col-xs-12.col-md-6
-                        .row    
-                          .card-row
-                            %label.label-view
-                              %span
-                                = "Amount"
-                            %label.label-value
-                              = payment.amount
-                      .col-xs-12.col-md-6
-                        .row                              
-                          .card-row
-                            %label.label-view
-                              %span
-                                = "Payment date"
-                            %label.label-value
-                              = payment.payment_date.to_datetime.to_s(:default_date) if payment.payment_date                              
 
           %td.stepBtnGroup{:width => "20%"}
             %a.h15.stepBtn.backBtn{:href => customer_bills_path}

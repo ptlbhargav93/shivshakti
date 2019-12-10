@@ -5,20 +5,15 @@
         = image_tag  @current_brand.logo.url, :width => "115"
   - if current_user.executive?
     .row.row-10
+      .col-xs-12.col-sm-4.col-md-4
+        
+
       .col-xs-12.col-sm-4
         %a.toolBox{:href => customers_path}
           .toolImage= image_tag "dbm_business_management.png"
           .toolTitle= "Customers"
-
-      .col-xs-12.col-sm-4.col-md-4
-        %a.toolBox{:href => "#" }
-          .toolImage= image_tag "resource_and_variables.png"
-          .toolTitle= "Bills"
-
       .col-xs-12.col-sm-4
-        %a.toolBox{:href => providers_path}
-          .toolImage= image_tag "dbm_business_management.png"
-          .toolTitle= "Suppliers"
+        
 
       / .col-xs-12.col-sm-4.col-md-4
       /   %a.toolBox{:href => resources_and_variables_executives_path }

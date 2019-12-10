@@ -2,16 +2,18 @@
   .col-xs-12
     .fieldRemove
       .row.row7
-        .col-xs-12.form-group
-          = f.select(:product_id, Product.all.order('name ASC').collect {|a| [a.name, a.id]}, {:prompt => "Select Product"}, {:class => "form-control"})
         .col-xs-12.col-sm-6.form-group
-          = f.select(:bag_type, CustomerBillProduct.bag_types.collect {|k,v| [k+" KG", k]}, {:prompt => "Select Bag Type"}, {:class => "form-control"})
+          = f.text_field :ref_invoice_number, :value => (f.object.ref_invoice_number.present? ? f.object.ref_invoice_number : ''), :class => "form-control", :placeholder => "Ref invoice Number"
         .col-xs-12.col-sm-6.form-group
-          = f.text_field :bags, :value => (f.object.bags > 0 ? f.object.bags : ''), :class => "form-control", :placeholder => "Bags"
+          = f.text_field :from, :value => (f.object.from.present? ? f.object.from : ''), :class => "form-control", :placeholder => "From"
         .col-xs-12.col-sm-6.form-group
-          = f.text_field :quantity, :value => (f.object.quantity > 0 ? f.object.quantity : ''), :class => "form-control", :placeholder => "Quantity"
+          = f.text_field :to, :value => (f.object.to.present? ? f.object.to : ''), :class => "form-control", :placeholder => "To"
         .col-xs-12.col-sm-6.form-group
-          = f.text_field :rate, :value => (f.object.rate > 0 ? f.object.rate : ''), :class => "form-control", :placeholder => "Rate"
+          = f.text_field :quantity, :value => (f.object.quantity.present? ? f.object.quantity : ''), :class => "form-control", :placeholder => "Quantity"
+        .col-xs-12.col-sm-6.form-group
+          = f.text_field :rate, :value => (f.object.rate.present? ? f.object.rate : ''), :class => "form-control", :placeholder => "Amount"
+        .col-xs-12.col-sm-6.form-group
+          = f.text_field :vehical_number, :value => (f.object.vehical_number.present? ? f.object.vehical_number : ''), :class => "form-control", :placeholder => "Vehical number"
       = link_to_remove_association f, :class => 'addLink' do
         %i.removeIcon
         = t('clinic.remove')

@@ -12,6 +12,6 @@ class CustomerBill < ActiveRecord::Base
   belongs_to :updater, class_name: "User", foreign_key: "updater_id"
 
   validates :customer, :presence => true
-	validates :bill_number, :presence => true
-	validates :bill_date, :presence => true
+	validates :invoice_number, :presence => true
+	validates :invoice_date, :presence => true
 end

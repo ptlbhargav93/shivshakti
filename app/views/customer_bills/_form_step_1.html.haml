@@ -15,17 +15,21 @@
                   = f.hidden_field :customer_id, :value => session[:bill_customer]
                 - else
                   = f.hidden_field :customer_id
-                #bill_number.form-group
-                  = f.text_field :bill_number, :class => "form-control",:placeholder => "Bill number"
-                  - if @customer_bill.errors[:bill_number].any?
-                    %span.text-error.text-message= @customer_bill.errors[:bill_number].first
-                #bill_date.form-group
+                #invoice_number.form-group
+                  = f.text_field :invoice_number, :class => "form-control",:placeholder => "Invoice number"
+                  - if @customer_bill.errors[:invoice_number].any?
+                    %span.text-error.text-message= @customer_bill.errors[:invoice_number].first
+                #lr_number.form-group
+                  = f.text_field :lr_number, :class => "form-control",:placeholder => "LR number"
+                  - if @customer_bill.errors[:lr_number].any?
+                    %span.text-error.text-message= @customer_bill.errors[:lr_number].first
+                #invoice_date.form-group
                   .inputGroup
-                    = f.text_field :bill_date, :value => (@customer_bill.bill_date.present? ? @customer_bill.bill_date.to_datetime.to_s(:default_date) : (Time.now).to_datetime.to_s(:default_date)), :class => "form-control", :readonly => true, :placeholder => "Bill date"
+                    = f.text_field :invoice_date, :value => (@customer_bill.invoice_date.present? ? @customer_bill.invoice_date.to_datetime.to_s(:default_date) : (Time.now).to_datetime.to_s(:default_date)), :class => "form-control", :readonly => true, :placeholder => "Invoice date"
                     .inputAddons.iconRight
                       %i.fa.fa-calendar
-                  - if @customer_bill.errors[:bill_date].any?
-                    %span.text-error.text-message= @customer_bill.errors[:bill_date].first
+                  - if @customer_bill.errors[:invoice_date].any?
+                    %span.text-error.text-message= @customer_bill.errors[:invoice_date].first
 
                 .col-xs-12
                   .row
@@ -51,85 +55,6 @@
                   = f.text_field :total_amount, :class => "form-control", :placeholder => "Bill amount"
                   - if @customer_bill.errors[:total_amount].any?
                     %span.text-error.text-message= @customer_bill.errors[:total_amount].first
-              .col-xs-12.col-sm-6
-                .form-group.row.row7
-                  .col-xs-1
-                    %label.checkBox.noLabel.open_house_event_advanced_registration
-                      - check = @customer_bill.new_record? ? false : (@customer_bill.verified == true)
-                      = f.check_box :verified,{:checked => check},true
-                      %span.lbl=""
-                  %label.col-xs-11
-                    = "Credited"              
-                - if @customer_bill.errors["customer_bill_payments"].any?
-                  %div.text-error.text-message
-                    = t("data_invalid_or_required")
-                #customer_bill_payments
-                  = f.fields_for :customer_bill_payments do |customer_bill_payment|
-                    = render 'customer_bill_payment_fields', f: customer_bill_payment
-                  .links
-                    = link_to_add_association f, :customer_bill_payments, :class => "addLink" do
-                      %i.addIcon
-                      = "Add Payment"
-
-
-                / #reverse_charge.form-group
-                /   = f.text_field :reverse_charge, :class => "form-control", :placeholder => "Reverse charge"
-                /   - if @customer_bill.errors[:reverse_charge].any?
-                /     %span.text-error.text-message= @customer_bill.errors[:reverse_charge].first
-                / #state_id.form-group
-                /   = f.select(:state_id, State.all.collect {|a| [a.name, a.id]}, {:prompt => "Select state"}, {:class => "form-control"})                                          
-              / .col-xs-12.col-sm-6
-              /   #transportation_mode.form-group
-              /     = f.text_field :transportation_mode, :class => "form-control", :placeholder => "Transportation mode"
-              /   #vehical_number.form-group                  
-              /     = f.text_field :vehical_number, :class => "form-control", :placeholder => "Vehical number"
-              /   #date_of_supply.form-group                  
-              /     = f.text_field :date_of_supply, :class => "form-control", :placeholder => "Date of supply"
-              /   #place_of_supply.form-group                  
-              /     = f.text_field :place_of_supply, :class => "form-control", :placeholder => "Place of supply"
-              / .col-xs-12.col-sm-6
-              /   #customer_id.form-group
-              /     = f.select(:customer_id, Customer.all.collect {|a| [a.name, a.id]}, {:prompt => "Select customer"}, {:class => "form-control"})
-              / .col-xs-12.col-sm-12
-              /   .form-group
-              /     = "+ Add Product"
-              / .col-xs-12.col-sm-12
-              /   .form-group
-              /     %table
-              /       %tr
-              /         %td
-              /           = "Total amount before Tax:"
-              /         %td
-              /           = text_field_tag "total_amount_before_tax", "", :class => "form-control", :placeholder => "0.0"
-              /       %tr
-              /         %td
-              /           = "Add CGST:"
-              /         %td
-              /           #place_of_supply.form-group                  
-              /             = f.text_field :cgst, :class => "form-control", :placeholder => "CGST"
-              /       %tr
-              /         %td
-              /           = "Add SGST:"
-              /         %td
-              /           #place_of_supply.form-group                  
-              /             = f.text_field :sgst, :class => "form-control", :placeholder => "SGST"
-              /       %tr
-              /         %td
-              /           = "Add IGST:"
-              /         %td
-              /           #place_of_supply.form-group                  
-              /             = f.text_field :igst, :class => "form-control", :placeholder => "IGST"           
-              /       %tr
-              /         %td
-              /           = "Total amount of GST:"
-              /         %td
-              /           = text_field_tag "total_amount_gst", "", :class => "form-control", :placeholder => "0.0"
-              /       %tr
-              /         %td
-              /           = "Total amount after Tax:"
-              /         %td
-              /           #total_amount.form-group                  
-              /             = f.text_field :total_amount, :class => "form-control", :placeholder => "Total amount"
 
 
         %td.stepBtnGroup{:width => "20%"}

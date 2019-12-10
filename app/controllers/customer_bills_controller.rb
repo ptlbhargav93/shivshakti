@@ -37,7 +37,8 @@ class CustomerBillsController < ApplicationController
 
   def create
     @customer_bill = CustomerBill.new(customer_bill_params.merge(:creator_id => current_user.id))
-    if @customer_bill.save
+    # raise @customer_bill.inspect
+    if @customer_bill.save!
       redirect_to customer_bill_path(@customer_bill)
     else
       @customer = Customer.find(session[:bill_customer])
@@ -99,11 +100,11 @@ class CustomerBillsController < ApplicationController
       customer_bills = customer_bills.joins(:customer)
       search.split(' ').each do |s|
         if s.present?
-          customer_bills = customer_bills.where('customer_bills.bill_number LIKE :s or customers.name LIKE :s or customers.person_name LIKE :s or customers.gst_number LIKE :s or customers.mobile_number1 LIKE :s or customers.mobile_number2 LIKE :s or CONCAT(customers.name,customers.person_name) LIKE :s', :s => "%#{s}%")
+          customer_bills = customer_bills.where('customer_bills.invoice_number LIKE :s or customers.name LIKE :s or customers.address1 LIKE :s or customers.gst_number LIKE :s or customers.phone_number LIKE :s or customers.address2 LIKE :s', :s => "%#{s}%")
         end
       end
     end
-    customer_bills.order('customer_bills.bill_date DESC').uniq
+    customer_bills.order('customer_bills.invoice_date DESC').uniq
   end
 
   def nav_header
@@ -114,7 +115,7 @@ class CustomerBillsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def customer_bill_params
-    params.require(:customer_bill).permit(:bill_number, :bill_date, :customer_id, :total_amount, :verified, :creator_id, :updater_id, customer_bill_payments_attributes: [:id, :amount, :payment_date, :_destroy], customer_bill_products_attributes: [:id, :product_id, :bag_type, :bags, :quantity, :rate, :_destroy])
+    params.require(:customer_bill).permit(:invoice_number, :lr_number, :invoice_date, :customer_id, :total_amount, :creator_id, :updater_id, customer_bill_products_attributes: [:id, :vehical_number, :ref_invoice_number, :from, :to, :quantity, :rate, :_destroy])
   end
 
 end

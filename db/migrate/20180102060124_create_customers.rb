@@ -1,17 +1,19 @@
 class CreateCustomers < ActiveRecord::Migration
   def change
     create_table :customers do |t|
+      t.string :name, null: false
+      t.string :address1
+      t.string :address2
+      t.string :city
+      t.string :state
+      t.string :state_code
+      t.string :pin_code
+      t.string :country
+      t.string :email
+      t.string :phone_number
+      t.string :gst_number
       t.integer :creator_id
       t.integer :updater_id      
-      t.string :name,              null: false
-      t.string :person_name
-      t.string :mobile_number1
-      t.string :mobile_number2
-      t.string :mobile_number3
-      t.text :address
-      t.integer :city_id
-      t.integer :area_id
-      t.string :gst_number
       t.timestamps null: false
     end
   end

@@ -18,35 +18,46 @@
                       %label.label-value= @customer.name
                     .card-row
                       %label.label-view
-                        %span= t('user.person_name')
-                      %label.label-value= @customer.person_name.present? ? @customer.person_name : '-'
+                        %span= t('user.address1')
+                      %label.label-value= @customer.address1.present? ? @customer.address1 : '-'
+                    .card-row
+                      %label.label-view
+                        %span= t('user.address2')
+                      %label.label-value= @customer.address2.present? ? @customer.address2 : '-'
+                    .card-row
+                      %label.label-view
+                        %span= t('user.city')
+                      %label.label-value= @customer.city.present? ? @customer.city : '-'
+                    .card-row
+                      %label.label-view
+                        %span= t('user.state')
+                      %label.label-value= @customer.state.present? ? @customer.state : '-'
+                    .card-row
+                      %label.label-view
+                        %span= t('user.state_code')
+                      %label.label-value= @customer.state_code.present? ? @customer.state_code : '-'
                   .col-xs-12.col-md-6
                     .card-row
                       %label.label-view
-                        %span= t('user.mobile_number 1')
-                      %label.label-value= @customer.mobile_number1.present? ? @customer.mobile_number1 : '-'
+                        %span= t('user.pin_code')
+                      %label.label-value= @customer.pin_code.present? ? @customer.pin_code : '-'
                     .card-row
                       %label.label-view
-                        %span= t('user.mobile_number 2')
-                      %label.label-value= @customer.mobile_number2.present? ? @customer.mobile_number2 : '-'
-                  .col-xs-12.col-md-6
+                        %span= t('user.country')
+                      %label.label-value= @customer.country.present? ? @customer.country : '-'
                     .card-row
                       %label.label-view
                         %span= t('user.gst_number')
                       %label.label-value= @customer.gst_number.present? ? @customer.gst_number : '-'
                     .card-row
                       %label.label-view
-                        %span= t('user.address')
-                      %label.label-value= @customer.address.present? ? @customer.address : '-'
-                  .col-xs-12.col-md-6
+                        %span= t('user.email')
+                      %label.label-value= @customer.email.present? ? @customer.email : '-'
                     .card-row
                       %label.label-view
-                        %span= t('user.city')
-                      %label.label-value= @customer.city.present? ? @customer.city.name : '-'
-                    .card-row
-                      %label.label-view
-                        %span= t('user.area')
-                      %label.label-value= @customer.area.present? ? @customer.area.name : '-'
+                        %span= t('user.phone_number')
+                      %label.label-value= @customer.phone_number.present? ? @customer.phone_number : '-'
+
           %td.stepBtnGroup{:width => "20%"}
             %a.h15.stepBtn.backBtn{:href => customers_path}
               %span= t("form_action_button.return_button")
@@ -54,3 +65,6 @@
             %a.h15.stepBtn.nextBtn{:href => edit_customer_path(@customer, :step => 1), :action => :open_card_param }
               %span= t("form_action_button.edit_basic_information")
               = image_tag "save_and_next_btn.png", :class => "mt15"
+            %a.h15.stepBtn.nextBtn{:href => customer_path, "data-method" => :delete, data: { confirm: 'Are you sure?' }}
+              %span= t("form_action_button.delete")
+              = image_tag "btn_discard.png", :class => "mt15"
