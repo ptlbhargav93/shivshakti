@@ -162,10 +162,10 @@ gem "i18n-js"
 gem "roo", "~> 2.7.0"
 
 gem 'formvalidation-rails'
+gem 'pg'
 
 group :production do
   gem 'exception_notification'
-  gem 'pg'
 end
 
 group :development, :test do
