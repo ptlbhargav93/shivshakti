@@ -13,7 +13,7 @@ require 'ffaker'
 
 puts "\n> -- Seeds::Development::Brand --------------------------"
 
-  brand = Brand.find_or_create_by!(name: 'Madhav', prefix: 'madh', phone_number: '99999999', email: 'admin@madhavcorporation.in', :slug => 'madhav', :custom_domain => 'madhavcorporation.in')
+  brand = Brand.find_or_create_by!(name: 'Shivshakti', prefix: 'shiv', phone_number: '99999999', email: 'admin@shivshakti.in', :slug => 'shivshakti')
   brand.logo = File.open("#{Rails.root}/app/assets/images/madhav-logo.png")
 
   brand.country_code = "IN" 
@@ -25,9 +25,10 @@ puts "\n> -- Seeds::Development::Brand --------------------------"
 
 puts "\n> -- Seeds::Development::Brand::User  --------------------------"
 
-  executive = User.create!(email: 'murli@madhavcorporation.in', first_name: 'Murli', last_name: 'Barai', password: 'password', password_confirmation: 'password', registered: true)
+  executive = User.create!(email: 'maulik@shivshakti.in', first_name: 'Maulik', last_name: 'Patel', password: 'password', password_confirmation: 'password', registered: true)
+  executive = User.create!(email: 'rajan@shivshakti.in', first_name: 'Rajan', last_name: 'Patel', password: 'password', password_confirmation: 'password', registered: true)
 
-  admin_user = AdminUser.find_by(email: 'admin@madhavcorporation.in')
+  admin_user = AdminUser.find_by(email: 'admin@shivshakti.in')
   unless admin_user
-    AdminUser.create!(email: 'admin@madhavcorporation.in', password: 'password', password_confirmation: 'password')
+    AdminUser.create!(email: 'admin@shivshakti.in', password: 'password', password_confirmation: 'password')
   end
