@@ -107,7 +107,7 @@ gem 'comma'
 gem "haml", '~> 4.0.6'
 
 # Haml scaffolding functions
-gem 'haml-rails'
+gem 'haml-rails', :group => :development
 # gem 'bullet', group: 'development'
 
 # Authentication
