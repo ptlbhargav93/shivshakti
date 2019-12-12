@@ -19,21 +19,31 @@
                   = f.text_field :invoice_number, :class => "form-control",:placeholder => "Invoice number"
                   - if @customer_bill.errors[:invoice_number].any?
                     %span.text-error.text-message= @customer_bill.errors[:invoice_number].first
-                #lr_number.form-group
-                  = f.text_field :lr_number, :class => "form-control",:placeholder => "LR number"
-                  - if @customer_bill.errors[:lr_number].any?
-                    %span.text-error.text-message= @customer_bill.errors[:lr_number].first
                 #invoice_date.form-group
                   .inputGroup
-                    = f.text_field :invoice_date, :value => (@customer_bill.invoice_date.present? ? @customer_bill.invoice_date.to_datetime.to_s(:default_date) : (Time.now).to_datetime.to_s(:default_date)), :class => "form-control", :readonly => true, :placeholder => "Invoice date"
+                    = f.text_field :invoice_date, :value => (@customer_bill.invoice_date.present? ? @customer_bill.invoice_date.to_datetime.to_s(:default_date) : (Time.now).to_datetime.to_s(:default_date)), :class => "form-control datepickeron", :placeholder => "Invoice date"
                     .inputAddons.iconRight
                       %i.fa.fa-calendar
                   - if @customer_bill.errors[:invoice_date].any?
                     %span.text-error.text-message= @customer_bill.errors[:invoice_date].first
+              .col-xs-12.col-sm-6
+                #lr_number.form-group
+                  = f.text_field :lr_number :class => "form-control",:placeholder => "L R number"
+                  - if @customer_bill.errors[:lr_number].any?
+                    %span.text-error.text-message= @customer_bill.errors[:lr_number].first
+                #lr_date.form-group
+                  .inputGroup
+                    = f.text_field :lr_date, :value => (@customer_bill.lr_date.present? ? @customer_bill.lr_date.to_datetime.to_s(:default_date) : (Time.now).to_datetime.to_s(:default_date)), :class => "form-control datepickeron", :placeholder => "L R date"
+                    .inputAddons.iconRight
+                      %i.fa.fa-calendar
+                  - if @customer_bill.errors[:lr_date].any?
+                    %span.text-error.text-message= @customer_bill.errors[:lr_date].first
 
-                .col-xs-12
-                  .row
-                    %hr
+              .col-xs-12
+                .row
+                  %hr
+            .row
+              .col-xs-12
                 %h4
                   = "Items"                          
                 - if @customer_bill.errors["customer_bill_products"].any?
@@ -46,17 +56,30 @@
                     = link_to_add_association f, :customer_bill_products, :class => "addLink" do
                       %i.addIcon
                       = "Add Item"
-                .col-xs-12
-                  .row
-                    %hr
-                %h4
-                  = "Total bill amount"      
-                #total_amount.form-group
-                  = f.text_field :total_amount, :class => "form-control", :placeholder => "Bill amount"
-                  - if @customer_bill.errors[:total_amount].any?
-                    %span.text-error.text-message= @customer_bill.errors[:total_amount].first
-
-
+              .col-xs-12
+                .row
+                  %hr
+              .row
+                .col-xs-6
+                  .col-xs-12.col-sm-6
+                    .row.row2.form-group
+                      .col-xs-10
+                        = f.text_field :cgst, :class => "form-control", :placeholder => "CGST"
+                      .col-xs-2.pt5.label-sm-up-12
+                        ="%"
+                  .col-xs-12.col-sm-6
+                    .row.row2.form-group
+                      .col-xs-10
+                        = f.text_field :sgst, :class => "form-control", :placeholder => "SGST"
+                      .col-xs-2.pt5.label-sm-up-12
+                        ="%"
+                .col-xs-6
+                  .col-xs-12
+                    .row.row2.form-group
+                      .col-xs-8
+                        = f.text_field :total_amount, :class => "form-control", :placeholder => "Bill amount"
+                      .col-xs-4.pt5.label-sm-up-12
+                        = "Total bill amount"
         %td.stepBtnGroup{:width => "20%"}
           - back_btn_href = @customer_bill.new_record? ? customer_bills_path : customer_bill_path(@customer_bill.id)
           %a.stepBtn.backBtn{:href => back_btn_href}

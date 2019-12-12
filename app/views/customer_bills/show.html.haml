@@ -19,14 +19,20 @@
                     .card-row
                       %label.label-view
                         %span
+                          = "Invoice date"
+                      %label.label-value
+                        = @customer_bill.invoice_date.to_datetime.to_s(:default_date) if @customer_bill.invoice_date
+                    .card-row
+                      %label.label-view
+                        %span
                           = "L R number"
                       %label.label-value= @customer_bill.lr_number
                     .card-row
                       %label.label-view
                         %span
-                          = "Invoice date"
+                          = "L R date"
                       %label.label-value
-                        = @customer_bill.invoice_date.to_datetime.to_s(:default_date) if @customer_bill.invoice_date
+                        = @customer_bill.lr_date.to_datetime.to_s(:default_date) if @customer_bill.lr_date
                     .card-row
                       %label.label-view
                         %span
@@ -89,3 +95,7 @@
             %a.h15.stepBtn.nextBtn{:href => edit_customer_bill_path(@customer_bill, :step => 1), :action => :open_card_param }
               %span= t("form_action_button.edit_basic_information")
               = image_tag "save_and_next_btn.png", :class => "mt15"
+            = link_to print_invoice_pdf_path(@customer_bill.id, format: 'pdf'), class: "h15 stepBtn nextBtn" do
+              %span
+                = t("form_action_button.print invoice pdf")
+              = image_tag "print_profile.png", :class => "mt15"

@@ -4,26 +4,22 @@
       .rxTitle= customer.name
     .rxContent
       .row.row5
-        .col-xs-12.col-sm-6
+        .col-xs-12
           .rxDesc
-            %span= "Address 1"
-            .rxValue= customer.address1.present? ? customer.address1: '-'      
-        .col-xs-12.col-sm-6
-          .rxDesc
-            %span= "Address 2"
-            .rxValue= customer.address2.present? ? customer.address2 : '-'      
+            %span= "Address"
+            .rxValue= customer.b_address.present? ? customer.b_address: '-'
         .col-xs-12.col-sm-6
           .rxDesc
             %span= "City"
-            .rxValue= customer.city.present? ? customer.city : '-'      
+            .rxValue= customer.b_city.present? ? customer.b_city : '-'      
         .col-xs-12.col-sm-6
           .rxDesc
             %span= "State"
-            .rxValue= customer.state.present? ? customer.state : '-'
+            .rxValue= customer.b_state.present? ? customer.b_state : '-'
         .col-xs-12.col-sm-6
           .rxDesc
-            %span= "Phone number"
-            .rxValue= customer.phone_number.present? ? customer.phone_number : '-'
+            %span= "Country"
+            .rxValue= customer.b_country.present? ? customer.b_country : '-'
         .col-xs-12.col-sm-6
           .rxDesc
             %span= "GST Number"

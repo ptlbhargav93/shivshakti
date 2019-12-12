@@ -67,22 +67,25 @@ ActiveRecord::Schema.define(version: 20180102061224) do
   add_index "brands", ["prefix"], name: "index_brands_on_prefix", unique: true, using: :btree
 
   create_table "customer_bill_products", force: :cascade do |t|
-    t.integer  "customer_bill_id",   limit: 4,                 null: false
+    t.integer  "customer_bill_id",   limit: 4,   null: false
     t.string   "vehical_number",     limit: 255
-    t.string   "ref_invoice_number", limit: 255,               null: false
+    t.string   "ref_invoice_number", limit: 255, null: false
     t.string   "from",               limit: 255
     t.string   "to",                 limit: 255
-    t.float    "quantity",           limit: 24,  default: 0.0
-    t.float    "rate",               limit: 24,  default: 0.0
-    t.datetime "created_at",                                   null: false
-    t.datetime "updated_at",                                   null: false
+    t.float    "quantity",           limit: 24
+    t.float    "rate",               limit: 24
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
 
   create_table "customer_bills", force: :cascade do |t|
     t.integer  "customer_id",    limit: 4,                 null: false
     t.string   "invoice_number", limit: 255,               null: false
-    t.string   "lr_number",      limit: 255,               null: false
     t.datetime "invoice_date",                             null: false
+    t.string   "lr_number",      limit: 255,               null: false
+    t.datetime "lr_date",                                  null: false
+    t.float    "cgst",           limit: 24
+    t.float    "sgst",           limit: 24
     t.float    "total_amount",   limit: 24,  default: 0.0
     t.integer  "creator_id",     limit: 4
     t.integer  "updater_id",     limit: 4
@@ -91,21 +94,25 @@ ActiveRecord::Schema.define(version: 20180102061224) do
   end
 
   create_table "customers", force: :cascade do |t|
-    t.string   "name",         limit: 255, null: false
-    t.string   "address1",     limit: 255
-    t.string   "address2",     limit: 255
-    t.string   "city",         limit: 255
-    t.string   "state",        limit: 255
-    t.string   "state_code",   limit: 255
-    t.string   "pin_code",     limit: 255
-    t.string   "country",      limit: 255
-    t.string   "email",        limit: 255
-    t.string   "phone_number", limit: 255
+    t.string   "name",         limit: 255,                 null: false
+    t.string   "b_address",    limit: 255
+    t.string   "b_city",       limit: 255
+    t.string   "b_state",      limit: 255
+    t.string   "b_state_code", limit: 255
+    t.string   "b_pin_code",   limit: 255
+    t.string   "b_country",    limit: 255
+    t.string   "s_address",    limit: 255
+    t.string   "s_city",       limit: 255
+    t.string   "s_state",      limit: 255
+    t.string   "s_state_code", limit: 255
+    t.string   "s_pin_code",   limit: 255
+    t.string   "s_country",    limit: 255
+    t.boolean  "is_shipping",              default: false
     t.string   "gst_number",   limit: 255
     t.integer  "creator_id",   limit: 4
     t.integer  "updater_id",   limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   create_table "resource_specs", force: :cascade do |t|

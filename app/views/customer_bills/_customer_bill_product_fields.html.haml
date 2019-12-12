@@ -5,6 +5,8 @@
         .col-xs-12.col-sm-6.form-group
           = f.text_field :ref_invoice_number, :value => (f.object.ref_invoice_number.present? ? f.object.ref_invoice_number : ''), :class => "form-control", :placeholder => "Ref invoice Number"
         .col-xs-12.col-sm-6.form-group
+          = f.text_field :vehical_number, :value => (f.object.vehical_number.present? ? f.object.vehical_number : ''), :class => "form-control", :placeholder => "Vehical number"
+        .col-xs-12.col-sm-6.form-group
           = f.text_field :from, :value => (f.object.from.present? ? f.object.from : ''), :class => "form-control", :placeholder => "From"
         .col-xs-12.col-sm-6.form-group
           = f.text_field :to, :value => (f.object.to.present? ? f.object.to : ''), :class => "form-control", :placeholder => "To"
@@ -12,8 +14,6 @@
           = f.text_field :quantity, :value => (f.object.quantity.present? ? f.object.quantity : ''), :class => "form-control", :placeholder => "Quantity"
         .col-xs-12.col-sm-6.form-group
           = f.text_field :rate, :value => (f.object.rate.present? ? f.object.rate : ''), :class => "form-control", :placeholder => "Amount"
-        .col-xs-12.col-sm-6.form-group
-          = f.text_field :vehical_number, :value => (f.object.vehical_number.present? ? f.object.vehical_number : ''), :class => "form-control", :placeholder => "Vehical number"
       = link_to_remove_association f, :class => 'addLink' do
         %i.removeIcon
         = t('clinic.remove')

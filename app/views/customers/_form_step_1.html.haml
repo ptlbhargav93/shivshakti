@@ -9,6 +9,8 @@
               %h1
                 = "Register customer"
             .row
+              .col-xs-12
+            .row
               .col-xs-12.col-sm-6
                 = hidden_field_tag 'step', '1'
                 #name.form-group
@@ -16,36 +18,55 @@
                   - if @customer.errors[:name].any?
                     %span.text-error.text-message= @customer.errors[:name].first
                 #address1.form-group
-                  = f.text_field :address1, :class => "form-control", :placeholder => "Address 1"
-                  - if @customer.errors[:address1].any?
-                    %span.text-error.text-message= @customer.errors[:address1].first
-                #address2.form-group
-                  = f.text_field :address2, :class => "form-control", :placeholder => "Address 2"
-                  - if @customer.errors[:address2].any?
-                    %span.text-error.text-message= @customer.errors[:address2].first
+                  = f.text_area :b_address, :class => "form-control", :placeholder => "Billing address"
+                  - if @customer.errors[:b_address].any?
+                    %span.text-error.text-message= @customer.errors[:b_address].first
                 .row
                   .col-xs-12.col-sm-6
                     #city.form-group
-                      = f.text_field :city, :value=>@customer.city.present? ? @customer.city : "AHMEDABAD", :class => "form-control", :placeholder => "City"
+                      = f.text_field :b_city, :value=> @customer.b_city.present? ? @customer.b_city : "AHMEDABAD", :class => "form-control", :placeholder => "Billing city"
                   .col-xs-12.col-sm-6
                     #pin_code.form-group
-                      = f.text_field :pin_code, :class => "form-control", :placeholder => "Pin code"
+                      = f.text_field :b_pin_code, :class => "form-control", :placeholder => "Billing pin code"
                 .row
                   .col-xs-12.col-sm-6
                     #state.form-group
-                      = f.text_field :state, :value=>@customer.state.present? ? @customer.state : "AHMEDABAD", :class => "form-control", :placeholder => "State"
+                      = f.text_field :b_state, :value=>@customer.b_state.present? ? @customer.b_state : "GUJARAT", :class => "form-control", :placeholder => "Billing state"
                   .col-xs-12.col-sm-6
                     #state_code.form-group
-                      = f.text_field :state_code, :value=>@customer.state_code.present? ? @customer.state_code : "24", :class => "form-control", :placeholder => "State code"
+                      = f.text_field :b_state_code, :value=>@customer.b_state_code.present? ? @customer.b_state_code : "24", :class => "form-control", :placeholder => "Billing state code"
+                #country.form-group
+                  = f.text_field :b_country, :value=> @customer.b_country.present? ? @customer.b_country : "INDIA", :class => "form-control", :placeholder => "Billing country"
+                #country.form-group
+                  %label.checkBox{:id => "is_shipping_#{@customer.id}", :class => "is_shipping"}
+                    = f.check_box :is_shipping, :class => "form-control"
+                    %span.lbl
+                      = "Is billing address same as shipping address ?"
               .col-xs-12.col-sm-6
                 #gst_number.form-group
-                  = f.text_field :gst_number, :class => "form-control", :placeholder => "GST Number"
+                  = f.text_field :gst_number, :class => "form-control", :placeholder => "GST number"
+                #address1.form-group
+                  = f.text_area :s_address, :class => "form-control", :placeholder => "Shipping address"
+                  - if @customer.errors[:s_address].any?
+                    %span.text-error.text-message= @customer.errors[:s_address].first
+                .row
+                  .col-xs-12.col-sm-6
+                    #city.form-group
+                      = f.text_field :s_city, :value=> @customer.s_city.present? ? @customer.s_city : "AHMEDABAD", :class => "form-control", :placeholder => "Shipping city"
+                  .col-xs-12.col-sm-6
+                    #pin_code.form-group
+                      = f.text_field :s_pin_code, :class => "form-control", :placeholder => "Shipping pin code"
+                .row
+                  .col-xs-12.col-sm-6
+                    #state.form-group
+                      = f.text_field :s_state, :value=>@customer.s_state.present? ? @customer.s_state : "GUJARAT", :class => "form-control", :placeholder => "Shipping state"
+                  .col-xs-12.col-sm-6
+                    #state_code.form-group
+                      = f.text_field :s_state_code, :value=>@customer.s_state_code.present? ? @customer.s_state_code : "24", :class => "form-control", :placeholder => "Shipping state code"
                 #country.form-group
-                  = f.text_field :country, :class => "form-control", :placeholder => "Country"
-                #email.form-group
-                  = f.text_field :email, :class => "form-control", :placeholder => "Email"
-                #phone_number.form-group
-                  = f.text_field :phone_number, :class => "form-control", :placeholder => "Phone number"
+                  = f.text_field :s_country, :value=> @customer.s_country.present? ? @customer.s_country : "INDIA", :class => "form-control", :placeholder => "Shipping country"
+                .btn.btn-primary.btn-md.right#clear_shipping
+                  = "Clear Shipping Details"
 
         %td.stepBtnGroup{:width => "20%"}
           - back_btn_href = @customer.new_record? ? customers_path : customer_path(@customer.id)

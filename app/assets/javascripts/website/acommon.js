@@ -189,6 +189,26 @@ $(document).ready(function(){
     });
   }
 
+  $('#customer_is_shipping').click(function(){
+    if($(this).is(":checked")) {
+      $("#customer_s_address").val($("#customer_b_address").val())
+      $("#customer_s_city").val($("#customer_b_city").val())
+      $("#customer_s_pin_code").val($("#customer_b_pin_code").val())
+      $("#customer_s_state").val($("#customer_b_state").val())
+      $("#customer_s_state_code").val($("#customer_b_state_code").val())
+      $("#customer_s_country").val($("#customer_b_country").val())
+    }
+  });
+
+  $('#clear_shipping').click(function(){
+    $('#customer_is_shipping').prop("checked", false);
+    $("#customer_s_address").val('')
+    $("#customer_s_city").val('')
+    $("#customer_s_pin_code").val('')
+    $("#customer_s_state").val('')
+    $("#customer_s_state_code").val('')
+    $("#customer_s_country").val('')
+  });
 
   $("#add_visiting_address").click(function(){
     $("#visiting_address_wrapper").removeClass("hide");
