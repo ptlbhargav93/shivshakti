@@ -107,7 +107,7 @@ gem 'comma'
 gem "haml", '~> 4.0.6'
 
 # Haml scaffolding functions
-gem 'haml-rails', '~> 0.9.0', :group => :development
+gem 'haml-rails'
 # gem 'bullet', group: 'development'
 
 # Authentication
@@ -163,17 +163,16 @@ gem "roo", "~> 2.7.0"
 
 gem 'formvalidation-rails'
 
+gem 'pg', '~> 0.15'
 
 
 group :production do
-  gem 'pg', '~> 1.1', '>= 1.1.4'
   gem 'exception_notification'
 end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and
   # get a debugger console
-  gem 'sqlite3'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'pry-doc'
@@ -231,4 +230,3 @@ group :deployment do
   gem 'capistrano-sidekiq'
   gem 'capistrano-rbenv'
 end
-
