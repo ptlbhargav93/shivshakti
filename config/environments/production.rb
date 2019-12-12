@@ -66,7 +66,7 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   config.active_job.queue_adapter = :sidekiq
-  config.active_job.queue_name_prefix = "madhav"
+  config.active_job.queue_name_prefix = "shivshakti"
   config.active_job.queue_name_delimiter = "_"  
 
   # Log the query plan for queries taking more than this (works
@@ -81,21 +81,21 @@ Rails.application.configure do
   #   :arguments      => '-i -t'
   # }
 
-  config.action_mailer.smtp_settings = {
-    address:        'smtp.gmail.com',
-    port:           587,
-    domain:         'gmail.com',
-    user_name:      'fenux.test.user',
-    password:       'fenux_123',
-    authentication: 'plain',
-    :enable_starttls_auto  => true
-  }
+  # config.action_mailer.smtp_settings = {
+  #   address:        'smtp.gmail.com',
+  #   port:           587,
+  #   domain:         'gmail.com',
+  #   user_name:      'fenux.test.user',
+  #   password:       'fenux_123',
+  #   authentication: 'plain',
+  #   :enable_starttls_auto  => true
+  # }
 
   Rails.application.config.middleware.use ExceptionNotification::Rack,
     :email => {
       :deliver_with => :deliver, # Rails >= 4.2.1 do not need this option since it defaults to :deliver_now
-      :email_prefix => "[Madhav ERROR] ",
-      :sender_address => %{"Madhav" <no-reply@madhavcorporation.in>},
-      :exception_recipients => %w{nitin.barai777@gmail.com}
+      :email_prefix => "[shivshakti ERROR] ",
+      :sender_address => %{"shivshakti" <no-reply@shivshakti.in>},
+      :exception_recipients => %w{ptlbhargav93@gmail.com}
     }
 end
