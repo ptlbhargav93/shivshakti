@@ -349,7 +349,7 @@ GEM
     parser (2.4.0.0)
       ast (~> 2.2)
     pdfkit (0.8.2)
-    pg (0.21.0)
+    pg (0.20.0)
     polyamorous (1.3.1)
       activerecord (>= 3.0)
     powerpack (0.1.1)
@@ -642,7 +642,7 @@ DEPENDENCIES
   paperclip-ffmpeg
   paranoia (~> 2.0)
   pdfkit
-  pg (~> 0.15)
+  pg (= 0.20)
   pry-byebug
   pry-doc
   pry-rails

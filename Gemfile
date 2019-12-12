@@ -163,7 +163,7 @@ gem "roo", "~> 2.7.0"
 
 gem 'formvalidation-rails'
 
-gem 'pg', '~> 0.15'
+gem 'pg', '0.20'
 
 
 group :production do
