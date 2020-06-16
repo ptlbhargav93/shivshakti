@@ -87,7 +87,7 @@ GEM
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
-    bcrypt (3.1.11)
+    bcrypt (3.1.12)
     better_errors (2.4.0)
       coderay (>= 1.0.0)
       erubi (>= 1.0.0)
@@ -316,7 +316,7 @@ GEM
     minitest (5.10.3)
     mock_redis (0.17.3)
     multi_json (1.12.2)
-    mysql2 (0.4.9)
+    mysql2 (0.4.10)
     nenv (0.3.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -595,7 +595,7 @@ DEPENDENCIES
   ancestry
   awesome_nested_set
   awesome_print
-  bcrypt (~> 3.1.7)
+  bcrypt (= 3.1.12)
   better_errors
   bootstrap-datepicker-rails
   bootstrap-sass
@@ -636,7 +636,7 @@ DEPENDENCIES
   kaminari
   mail
   mock_redis
-  mysql2
+  mysql2 (~> 0.4.0)
   nokogiri
   omniauth
   paperclip (= 4.2.0)
@@ -689,4 +689,4 @@ RUBY VERSION
    ruby 2.4.1p111
 
 BUNDLED WITH
-   1.16.0
+   1.17.3

@@ -48,7 +48,7 @@ gem "remotipart", "~> 1.2"
 gem 'bootstrap-datepicker-rails'
 
 # Expect MySQL as main database
-gem 'mysql2'
+gem 'mysql2', '~> 0.4.0'
 
 # Use unicorn as the app server
 gem 'unicorn'
@@ -67,7 +67,7 @@ gem 'redis-namespace'
 gem 'config'
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '3.1.12'
 
 # Bulk Insert / Update
 gem 'upsert'
@@ -163,11 +163,10 @@ gem "roo", "~> 2.7.0"
 
 gem 'formvalidation-rails'
 
-gem 'pg', '0.20'
-
 
 group :production do
   gem 'exception_notification'
+  gem 'pg', '0.20'
 end
 
 group :development, :test do

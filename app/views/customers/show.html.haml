@@ -19,7 +19,7 @@
                       %label.label-view
                         %span
                           = t('customer.name')
-                      %label.label-value= @customer.name
+                      %label.label-value= @customer.b_name
                     .card-row
                       %label.label-view
                         %span= t('user.address')
@@ -48,7 +48,7 @@
                     .card-row
                       %label.label-view
                         %span= t('user.gst_number')
-                      %label.label-value= @customer.gst_number.present? ? @customer.gst_number : '-'
+                      %label.label-value= @customer.b_gst_number.present? ? @customer.b_gst_number : '-'
                 
                 - unless @customer.is_shipping
                   .row.row10
@@ -61,36 +61,36 @@
                         %label.label-view
                           %span
                             = t('customer.name')
-                        %label.label-value= @customer.name
+                        %label.label-value= @customer.s_name
                       .card-row
                         %label.label-view
                           %span= t('user.address')
-                        %label.label-value= @customer.b_address.present? ? @customer.b_address : '-'
+                        %label.label-value= @customer.s_address.present? ? @customer.s_address : '-'
                       .card-row
                         %label.label-view
                           %span= t('user.city')
-                        %label.label-value= @customer.b_city.present? ? @customer.b_city : '-'
+                        %label.label-value= @customer.s_city.present? ? @customer.s_city : '-'
                       .card-row
                         %label.label-view
                           %span= t('user.state')
-                        %label.label-value= @customer.b_state.present? ? @customer.b_state : '-'
+                        %label.label-value= @customer.s_state.present? ? @customer.s_state : '-'
                     .col-xs-12.col-md-6
                       .card-row
                         %label.label-view
                           %span= t('user.state_code')
-                        %label.label-value= @customer.b_state_code.present? ? @customer.b_state_code : '-'
+                        %label.label-value= @customer.s_state_code.present? ? @customer.s_state_code : '-'
                       .card-row
                         %label.label-view
                           %span= t('user.pin_code')
-                        %label.label-value= @customer.b_pin_code.present? ? @customer.b_pin_code : '-'
+                        %label.label-value= @customer.s_pin_code.present? ? @customer.s_pin_code : '-'
                       .card-row
                         %label.label-view
                           %span= t('user.country')
-                        %label.label-value= @customer.b_country.present? ? @customer.b_country : '-'
+                        %label.label-value= @customer.s_country.present? ? @customer.s_country : '-'
                       .card-row
                         %label.label-view
                           %span= t('user.gst_number')
-                        %label.label-value= @customer.gst_number.present? ? @customer.gst_number : '-'
+                        %label.label-value= @customer.s_gst_number.present? ? @customer.gst_number : '-'
 
           %td.stepBtnGroup{:width => "20%"}
             %a.h15.stepBtn.backBtn{:href => customers_path}

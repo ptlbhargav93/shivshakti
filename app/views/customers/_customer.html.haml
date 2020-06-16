@@ -1,7 +1,7 @@
 .col-xs-12.col-sm-6.col-md-4.col-10
   .rxBox
     .rxHeader
-      .rxTitle= customer.name
+      .rxTitle= customer.b_name
     .rxContent
       .row.row5
         .col-xs-12
@@ -23,7 +23,7 @@
         .col-xs-12.col-sm-6
           .rxDesc
             %span= "GST Number"
-            .rxValue= customer.gst_number.present? ? customer.gst_number : '-'
+            .rxValue= customer.b_gst_number.present? ? customer.b_gst_number : '-'
     .rxBottom
       .row
         .col-xs-12.col-sm-7.pb5

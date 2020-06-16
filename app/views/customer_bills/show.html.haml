@@ -8,7 +8,7 @@
               .formBox.view-details
                 .formHeader.clearfix
                   %h1
-                    = "Customer bill card - " + @customer_bill.customer.name
+                    = "Customer bill card - " + @customer_bill.customer.b_name
                 .row.row10
                   .col-xs-12.col-md-6
                     .card-row
@@ -87,6 +87,86 @@
                                 = "Rate"
                             %label.label-value
                               = bill_product.rate
+                .row.row10
+                  .col-xs-12
+                    %h3
+                      = "Billing Address"
+                .row.row10
+                  .col-xs-12.col-md-6
+                    .card-row
+                      %label.label-view
+                        %span
+                          = t('customer.name')
+                      %label.label-value= @customer_bill.customer.b_name
+                    .card-row
+                      %label.label-view
+                        %span= t('user.address')
+                      %label.label-value= @customer_bill.customer.b_address.present? ? @customer_bill.customer.b_address : '-'
+                    .card-row
+                      %label.label-view
+                        %span= t('user.city')
+                      %label.label-value= @customer_bill.customer.b_city.present? ? @customer_bill.customer.b_city : '-'
+                    .card-row
+                      %label.label-view
+                        %span= t('user.state')
+                      %label.label-value= @customer_bill.customer.b_state.present? ? @customer_bill.customer.b_state : '-'
+                  .col-xs-12.col-md-6
+                    .card-row
+                      %label.label-view
+                        %span= t('user.state_code')
+                      %label.label-value= @customer_bill.customer.b_state_code.present? ? @customer_bill.customer.b_state_code : '-'
+                    .card-row
+                      %label.label-view
+                        %span= t('user.pin_code')
+                      %label.label-value= @customer_bill.customer.b_pin_code.present? ? @customer_bill.customer.b_pin_code : '-'
+                    .card-row
+                      %label.label-view
+                        %span= t('user.country')
+                      %label.label-value= @customer_bill.customer.b_country.present? ? @customer_bill.customer.b_country : '-'
+                    .card-row
+                      %label.label-view
+                        %span= t('user.gst_number')
+                      %label.label-value= @customer_bill.customer.b_gst_number.present? ? @customer_bill.customer.b_gst_number : '-'
+                .row.row10
+                  .col-xs-12
+                    %h3
+                      = "Shipping Address"
+                .row.row10
+                  .col-xs-12.col-md-6
+                    .card-row
+                      %label.label-view
+                        %span
+                          = t('customer.name')
+                      %label.label-value= @customer_bill.customer.s_name
+                    .card-row
+                      %label.label-view
+                        %span= t('user.address')
+                      %label.label-value= @customer_bill.customer.s_address.present? ? @customer_bill.customer.s_address : '-'
+                    .card-row
+                      %label.label-view
+                        %span= t('user.city')
+                      %label.label-value= @customer_bill.customer.s_city.present? ? @customer_bill.customer.s_city : '-'
+                    .card-row
+                      %label.label-view
+                        %span= t('user.state')
+                      %label.label-value= @customer_bill.customer.s_state.present? ? @customer_bill.customer.s_state : '-'
+                  .col-xs-12.col-md-6
+                    .card-row
+                      %label.label-view
+                        %span= t('user.state_code')
+                      %label.label-value= @customer_bill.customer.s_state_code.present? ? @customer_bill.customer.s_state_code : '-'
+                    .card-row
+                      %label.label-view
+                        %span= t('user.pin_code')
+                      %label.label-value= @customer_bill.customer.s_pin_code.present? ? @customer_bill.customer.s_pin_code : '-'
+                    .card-row
+                      %label.label-view
+                        %span= t('user.country')
+                      %label.label-value= @customer_bill.customer.s_country.present? ? @customer_bill.customer.s_country : '-'
+                    .card-row
+                      %label.label-view
+                        %span= t('user.gst_number')
+                      %label.label-value= @customer_bill.customer.s_gst_number.present? ? @customer_bill.customer.gst_number : '-'
 
           %td.stepBtnGroup{:width => "20%"}
             %a.h15.stepBtn.backBtn{:href => customer_bills_path}
@@ -95,6 +175,10 @@
             %a.h15.stepBtn.nextBtn{:href => edit_customer_bill_path(@customer_bill, :step => 1), :action => :open_card_param }
               %span= t("form_action_button.edit_basic_information")
               = image_tag "save_and_next_btn.png", :class => "mt15"
+            = link_to print_invoice_pdf_path(@customer_bill.id, format: 'html'), class: "h15 stepBtn nextBtn" do
+              %span
+                = t("form_action_button.view invoice pdf")
+              = image_tag "print_profile.png", :class => "mt15"
             = link_to print_invoice_pdf_path(@customer_bill.id, format: 'pdf'), class: "h15 stepBtn nextBtn" do
               %span
                 = t("form_action_button.print invoice pdf")

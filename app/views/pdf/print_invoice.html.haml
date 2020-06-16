@@ -7,7 +7,7 @@
     %meta{:content => "2006-09-16T00:00:00", :name => "created"}/
     %meta{:content => "2018-09-25T09:13:21", :name => "changed"}/
     :css
-      body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Calibri"; font-size:medium; text-align: center; }
+      body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Calibri"; font-size:medium; text-align: center; padding: 5px }
       a.comment-indicator:hover + comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em;  } 
       a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em;  } 
       comment { display:none;  }
@@ -243,9 +243,6 @@
             %br/
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
-            %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
-          %font{:color => "#000000"}
             %br/
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
@@ -736,7 +733,8 @@
           %font{:color => "#000000", :size => "3"}
             %br/
         %td{:align => "right", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-          %font{:color => "#000000", :size => "3"} 12,500
+          %font{:color => "#000000", :size => "3"}
+            = @customer_bill.total_amount
         %td{:align => "right", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} -
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
@@ -967,7 +965,8 @@
             %br/
         %td{:align => "right", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
-            %font{:color => "#000000", :size => "3"} 12,500
+            %font{:color => "#000000", :size => "3"}
+              = @customer_bill.total_amount
         %td{:align => "right", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} -
@@ -1049,11 +1048,11 @@
         %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"}
-              = @customer_bill.total_amount
               %br/
         %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
           %b
-            %font{:color => "#000000", :size => "3"} 12,500.00
+            %font{:color => "#000000", :size => "3"} 
+              = @customer_bill.total_amount
       %tr
         %td{:align => "center", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b

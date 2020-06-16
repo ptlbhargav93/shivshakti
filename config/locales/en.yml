@@ -223,7 +223,7 @@ en:
         notice: "%{resource_name} was successfully updated."
   footer:
     powerby: Powered by
-    dbm: Madhav
+    dbm: Shiv Shakti Transport Co.
   general:
     add_some_profiles: Add SOME-profiles
     about: About
@@ -252,7 +252,7 @@ en:
     delete_content: Delete content
     delete_message: Are you sure?
     descending: Descending
-    desktop_header: Madhav
+    desktop_header: Shiv Shakti
     destroy: Destroy
     edit: Edit
     edit_profile: Edit Profile
@@ -336,7 +336,7 @@ en:
     email: e-mail address
     login_to_your_account: LOG IN TO YOUR ACCOUNT
     password: password
-  site_title: Madhav - DIGITAL BUSINESS MANAGER
+  site_title: Shiv Shakti Transport - DIGITAL BUSINESS MANAGER
   toogle_header:
     end_session: End <span> session </span>
     start_screen: Start <span> screen </span>
@@ -368,7 +368,7 @@ en:
     my_reports: My <span> reports </span>
   background_variable:
     sales_area_name: Sales area
-    dbm_sales_area: Madhav sales area
+    dbm_sales_area: Shiv shakti sales area
     background_variable_header: Background variables
     sales_area:
       add_new_sales_area: Add new sales area
@@ -404,8 +404,8 @@ en:
     name: name
     first_name: First name
     last_name: Last name
-    dbm_email: Madhav email
-    dbm_id: Madhav id
+    dbm_email: ShivShakti email
+    dbm_id: ShivShakti id
     personal_email: Personal email
     job_role: Job role
     office: Office
@@ -452,7 +452,7 @@ en:
       text_area_message: "Greetings,<br /><br /> We are requesting new e-mail address for our new employee: <a href='javascript:void(0);'>%{request_email}</a>
                 <br /><br /> Please send confirmation e-mail to <a href='javascript:void(0);'>%{current_user_email}</a> when new e-mail is ready for use.
                 <br /><br /> Best regards,<br /><br /> %{current_user_name}"
-      order_dbm_email_sent: Request for Madhav email sent successfully.
+      order_dbm_email_sent: Request for ShivShakti email sent successfully.
     performing_patient_work: Performing billable patient work
     sv_number: SV-number
     contractual_relationship: Contractual relationship
@@ -765,7 +765,7 @@ en:
     male: Male
     company: Company
     contract_starting_date: Starting date
-    dbm_id: Madhav id
+    dbm_id: ShivShakti id
     contract: Contract
     speciality: Speciality
     language_skills: Language skills
@@ -821,7 +821,7 @@ en:
     confirm_password: Confirm new password
     current_password: Current password
     new_password: New password
-  dbm_email: Madhav
+  dbm_email: ShivShakti
   feedback:
     depending_on_message_contact: Depending on your message developers might contact
       you also by phone.
@@ -988,7 +988,7 @@ en:
     please_unlock_invoice_first: Please unlock Invoice first.
     copy_of_invoice_date: "copy of invoice, period %{date}" 
     copy_of_reward_detail: "copy of reward details, period %{date}" 
-    dbm_info: Madhav-INFO
+    dbm_info: ShivShakti-INFO
     browse_and_search_postning_invoices: "Browse and search postning invoices"
     press_hear_to_lock_this_invoice_quality_check: <b><i>Press hear to lock this invoice for quality check</i></b>
     press_hear_to_unlock_this_invoice_quality_check: <b><i>Press hear to unlock this invoice for quality check</i></b>
@@ -1087,7 +1087,7 @@ en:
     select_an_professional_and_send_bill: Select an professional and send bill for chosen professional
     select_clinic_and_send_bill_to_professional: Select a clinic(s) and send invoice to clinic's professional
     please_select_the_professionals: Please select the professionals for whom you want to submit an invoice and/or performance report. Confirm your selection by pressing a person's card (Press here to select). Then press button <b> Proceed to next step </b> on a right action bar. 
-    please_select_to_generate_automatic: "Please start to generate information from the patient information system by pressing button: <b>Retrive the information</b>. A professional personal card <b><i>will change the color green</i></b> as soon as his or her data is retrived from the patient information system. <b>if no data is found or errors are detected, the card charges its  color to red.</b> if you want to check retrived data. please select the professional by pressing a person's card(Press hear to select) and proceed to next step. You can also go directly to the invoice delivery stage. if you choose to do this, make no selection and just press button <b>Proceed to next step on right action bar as soon as all the data has been transfered to th Madhav system</b>" 
+    please_select_to_generate_automatic: "Please start to generate information from the patient information system by pressing button: <b>Retrive the information</b>. A professional personal card <b><i>will change the color green</i></b> as soon as his or her data is retrived from the patient information system. <b>if no data is found or errors are detected, the card charges its  color to red.</b> if you want to check retrived data. please select the professional by pressing a person's card(Press hear to select) and proceed to next step. You can also go directly to the invoice delivery stage. if you choose to do this, make no selection and just press button <b>Proceed to next step on right action bar as soon as all the data has been transfered to th ShivShakti system</b>" 
     system_notification_for_automatic_billing: If you want to generate information automatically from a patient information system, please note that this method requires construction of the interface. Please call to Fenux Customer Service.
     please_select_clinic_description: Please select the clinic for which you want to submit an invoice. Confirm your selection by pressing a clinic's card (Press here to select). Please notice that when you confirm clinic, all the professional that are linked to the choosen clinic, will be automatically selected.
     please_select_automatic_clinic_description: "Please start to generate information from patient information system by pressing button: <b>Retrive the information.</b> Clinics card <b><i>will change the color green</i></b> as soon as all the data is retrived from the patient information system. <b><i>if no data is found or errors are detected, the card changes its color to red.</i></b> Please note that in next step you are able to check and edit data of all selected professional."
@@ -1105,7 +1105,7 @@ en:
                          <br> >> Return back to stpe2 to create a new invoice (if you have more invoices to create)
                          <br> >> Close invoiceApp and return to start page (if you have already done all the invoices) </b>.
 
-                         <br><br> Please note that using either of function mention above, the performance data and billing information is automatically stored in Madhav-system.
+                         <br><br> Please note that using either of function mention above, the performance data and billing information is automatically stored in ShivShakti-system.
                          <br><br> If you suspect the contents of the bill, you can lock the bill by presing the button <b> Press here to lock this invoice for quality check. </b>
                               when doing so, information is locked until you have unlocked and confirm it."
     step_3_centralized_summary_text: "You have now made a list for chosen clinic(s) and professional below. Please fill the invoice data of each selected clinic(s) and professional(s) by pressing first button <b>Open clinic professional(s) and</b> after that please press button for a selected professional: <b>Press hear to fill invoice data</b>. After you have filled and store the invoice data of selected professional, print and send invoice buttons are activated and the fill the invoice data - buttons text will be changed to : Prese hear to edit invoice data.<br/>
@@ -1125,7 +1125,7 @@ en:
     press_here_to_lock: Press here to lock this invoice for quality check
     your_copy_of_invoice: Your copy of invoice, period %{date}
     send_invoice_email_text:  Hi
-                              <br><br> Please find your copy of invoice for this period attach. Also, please remember to log in your  Madhav account and see your personal reports.
+                              <br><br> Please find your copy of invoice for this period attach. Also, please remember to log in your  ShivShakti account and see your personal reports.
                               <br><br> Kind Regards,
                               <br> %{name} - %{phone_number}
     send_invoice_via_email_text: Send invoice via email
