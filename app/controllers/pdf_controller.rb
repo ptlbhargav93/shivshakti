@@ -24,7 +24,7 @@ class PdfController < ApplicationController
 
   def print_invoice
     @customer_bill = CustomerBill.find(params[:id])
-    subject = "#{@customer_bill.customer.name.gsub(' ', '_')}"
+    subject = "#{@customer_bill.customer.b_name.gsub(' ', '_')}"
     respond_to do |format|
       format.html
       format.pdf do

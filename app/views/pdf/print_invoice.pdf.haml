@@ -186,7 +186,7 @@
         %td{:align => "left", :colspan => "3", :style => "border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
           %b
             %font{:face => "Times New Roman"}
-              = @customer_bill.customer.name
+              = @customer_bill.customer.b_name
               %br/
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000"}
@@ -196,7 +196,7 @@
         %td{:align => "left", :colspan => "3", :style => "border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
           %b
             %font{:face => "Times New Roman"}
-              = @customer_bill.customer.name
+              = @customer_bill.customer.s_name
               %br/
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000"}
@@ -423,7 +423,7 @@
         %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :face => "Times New Roman", :size => "3"}
-              = @customer_bill.customer.gst_number
+              = @customer_bill.customer.b_gst_number
               %br/
         %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
@@ -439,7 +439,7 @@
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :face => "Times New Roman", :size => "3"}
-              = @customer_bill.customer.gst_number
+              = @customer_bill.customer.s_gst_number
               %br/
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
