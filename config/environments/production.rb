@@ -51,7 +51,7 @@ Rails.application.configure do
   # config.assets.precompile += %w( search.js )
 
   # Disable delivery errors, bad email addresses will be ignored
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Enable threaded mode
   # config.threadsafe!
@@ -80,7 +80,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:        'smtp.gmail.com',
-    port:           25,
+    port:           587,
     domain:         'gmail.com',
     user_name:      'shiv.shaktiahm@gmail.com',
     password:       'Rajan@145',
