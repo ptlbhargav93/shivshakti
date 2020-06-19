@@ -37,6 +37,12 @@
                 .rxValue
                   = customer_bill.total_amount
             .col-xs-12.col-sm-4
-              %a.rxNextBtn{:href => customer_bill_path(customer_bill) }
-                = "Open Bill"
-                %i.fa.fa-angle-double-right                        
+              %a.rxNextBtn.mt5{:href => customer_bill_path(customer_bill) }
+                = "Edit Bill"
+                %i.fa.fa-angle-double-right
+              %a.rxNextBtn.mt5{:href => print_invoice_pdf_path(customer_bill, format: 'html') }
+                = "View Bill"
+                %i.fa.fa-angle-double-right
+              %a.rxNextBtn.mt5{:href => print_invoice_pdf_path(customer_bill, format: 'pdf', without_image: "true") }
+                = "Download Bill"
+                %i.fa.fa-angle-double-right
