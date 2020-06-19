@@ -65,9 +65,9 @@ Rails.application.configure do
 
   config.log_formatter = ::Logger::Formatter.new
 
-  config.active_job.queue_adapter = :sidekiq
-  config.active_job.queue_name_prefix = "shivshakti"
-  config.active_job.queue_name_delimiter = "_"  
+  # config.active_job.queue_adapter = :sidekiq
+  # config.active_job.queue_name_prefix = "shivshakti"
+  # config.active_job.queue_name_delimiter = "_"  
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
