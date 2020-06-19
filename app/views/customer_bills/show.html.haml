@@ -171,7 +171,7 @@
                     .card-row
                       %label.label-view
                         %span= t('user.gst_number')
-                      %label.label-value= @customer_bill.customer.s_gst_number.present? ? @customer_bill.customer.gst_number : '-'
+                      %label.label-value= @customer_bill.customer.s_gst_number.present? ? @customer_bill.customer.s_gst_number : '-'
 
           %td.stepBtnGroup{:width => "20%"}
             %a.h15.stepBtn.backBtn{:href => customer_bills_path}
