@@ -5,6 +5,8 @@
   comment { display:none;  }
 - if params[:with_image] || false
   = wicked_pdf_image_tag "#{@domain_url}shivshakti_logo.png", :height => "230px", :width => "100%"
+- else
+  %div{:style => "height: 85px"}
 %table{:border => "0", :cellspacing => "0"}
   %colgroup{:width => "71"}
   %colgroup{:width => "122"}
