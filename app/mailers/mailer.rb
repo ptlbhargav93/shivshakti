@@ -25,10 +25,11 @@ class Mailer < ActionMailer::Base
     end
   end
 
-  def send_invoice_to_accountant_via_email(options={})    
+  def send_invoice_to_accountant_via_email(options={})
     @message = options[:message]
     @current_brand = Brand.find_by_id options[:current_brand]
     @customer_bill = CustomerBill.find_by_id options[:customer_bill_id]
+    @without_image = "false"
     invoice_pdf_name = t("send_bills.file_name_bill_archive_attachment",:name => @customer_bill.customer.b_name, :date => @customer_bill.invoice_date.strftime("%m/%Y")) 
     invoice_content = render_to_string(:layout => "pdf.html", :template => 'pdf/print_invoice.pdf.haml')
     attachments["#{invoice_pdf_name}.pdf"] = WickedPdf.new.pdf_from_string(

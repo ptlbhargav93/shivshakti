@@ -3,10 +3,11 @@
   a.comment-indicator:hover + comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em;  } 
   a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em;  } 
   comment { display:none;  }
-- if params[:with_image] || false
-  = wicked_pdf_image_tag "shivshakti_logo.png", :height => "230px", :width => "100%"
-- else
+- if @without_image == "true"
   %div{:style => "height: 200px"}
+- else
+  = wicked_pdf_image_tag "shivshakti_logo.png", :height => "230px", :width => "100%"
+
 %table{:border => "0", :cellspacing => "0"}
   %colgroup{:width => "71"}
   %colgroup{:width => "122"}

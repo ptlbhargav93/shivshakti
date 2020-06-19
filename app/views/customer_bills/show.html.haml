@@ -184,7 +184,7 @@
               %span
                 = t("form_action_button.view invoice pdf")
               = image_tag "print_profile.png", :class => "mt15"
-            = link_to print_invoice_pdf_path(@customer_bill.id, format: 'pdf'), class: "h15 stepBtn nextBtn" do
+            = link_to print_invoice_pdf_path(@customer_bill.id, format: 'pdf', without_image: "true"), class: "h15 stepBtn nextBtn" do
               %span
                 = t("form_action_button.print invoice pdf")
               = image_tag "print_profile.png", :class => "mt15"
