@@ -14,7 +14,7 @@ class EmailsController < ApplicationController
                   :customer_bill_id => params[:id],
                   :date => params[:date]
                 }
-      Mailer.send_invoice_to_accountant_via_email(options).deliver_later
+      Mailer.send_invoice_to_accountant_via_email(options).deliver_now
     end
     flash.keep[:notice] = t("send_bills.mail_sent_success")
     redirect_to :back

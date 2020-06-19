@@ -63,17 +63,12 @@ Rails.application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  config.log_formatter = ::Logger::Formatter.new
-
-  # config.active_job.queue_adapter = :sidekiq
-  # config.active_job.queue_name_prefix = "shivshakti"
-  # config.active_job.queue_name_delimiter = "_"  
+  config.log_formatter = ::Logger::Formatter.new  
 
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
   # config.action_mailer.default_url_options = { host: 'straumann.fenux.fi' }
-  config.action_mailer.perform_deliveries = false
 
   # config.action_mailer.delivery_method = :sendmail
   # config.action_mailer.sendmail_settings = {
