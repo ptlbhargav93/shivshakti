@@ -68,19 +68,21 @@ Rails.application.configure do
   # Log the query plan for queries taking more than this (works
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
-  # config.action_mailer.default_url_options = { host: 'straumann.fenux.fi' }
+  config.action_mailer.default_url_options = { host: 'shivshakti-transport.herokuapp.com' }
 
   # config.action_mailer.delivery_method = :sendmail
   # config.action_mailer.sendmail_settings = {
   #   :location       => '/usr/sbin/sendmail',
   #   :arguments      => '-i -t'
   # }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default :charset => "utf-8"
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:        'smtp.gmail.com',
-    port:           587,
+    port:           25,
     domain:         'gmail.com',
-    user_name:      'shiv.shaktiahm',
+    user_name:      'shiv.shaktiahm@gmail.com',
     password:       'Rajan@145',
     authentication: 'plain',
     :enable_starttls_auto  => true
