@@ -290,7 +290,7 @@ class ApplicationController < ActionController::Base
     if @current_brand.custom_domain.present?
       @domain_url = "#{request_protocol}#{@current_brand.custom_domain}/default/pdf/"
     else
-      @domain_url = "#{request_protocol}#{@current_brand.slug}.#{Settings.system.domain}/default/pdf/"
+      @domain_url = "#{Settings.system.domain}/default/pdf/"
     end
   end
 end
