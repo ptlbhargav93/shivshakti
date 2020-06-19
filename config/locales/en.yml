@@ -1,4 +1,32 @@
 en:
+  number:
+    currency_in_words:
+      connector: ' and '
+      negative_format: '(%n)'
+      skip_and: true
+      delimiter: true
+      currencies:
+        rupee:
+          unit:
+            one: 'rupee'
+            many: 'rupees'
+          decimal: 
+            one: 'paise'
+            many: 'paise'
+        euro: 
+          unit:
+            one: 'euro'
+            many: 'euros'
+          decimal: 
+            one: 'cent'
+            many: 'cents'
+        pound:
+          unit:
+            one: 'pound'
+            many: 'pounds'
+          decimal: 
+            one: 'penny'
+            many: 'pence'
   active_admin:
     access_denied:
       message: You are not authorized to perform this action.
@@ -205,6 +233,7 @@ en:
     sessions:
       already_signed_out: Signed out successfully.
       signed_in: Signed in successfully.
+      passivate_account: Your account has been passivated.
       signed_out: Signed out successfully.
     unlocks:
       send_instructions: You will receive an email with instructions for how to unlock
@@ -222,9 +251,54 @@ en:
       update:
         notice: "%{resource_name} was successfully updated."
   footer:
-    powerby: Powered by
-    dbm: Shiv Shakti Transport Co.
+    powerby: Copyright © <span><a href = "http://www.fenux.fi/" class="footerBlue">Fenux Ltd</a></span> 2018. All Rights Reserved. 
   general:
+    press_here_to_open: PRESS HERE </br>TO OPEN
+    press_here_to_close: PRESS HERE </br>TO CLOSE
+    professional_category: PROFESSIONAL </br>CATEGORY
+    user_passivated: User passivated
+    search_by_name: Search by name
+    friday: Friday
+    monday: Monday
+    saturday: Saturday
+    sunday: Sunday
+    thursday: Thursday
+    tuesday: Tuesday
+    wednesday: Wednesday
+    agreement_end_date: Agreement </br>ending date
+    select_one_person: Please select at least one person
+    general_dentist: General dentist
+    dental_specialist: Dental specialist
+    dental_hygienist: Dental hygienist 
+    technician: Technician
+    endodontist: Endodontist
+    prostheticst_and_bite_physiology_dental_specialist: Prostheticst and bite physiology dental specialist 
+    clinical_dental_treatment: Clinical dental treatment
+    prostheticst: Prostheticst
+    orthodontist: Orthodontist
+    surgery: Surgery
+    pedodontist: Pedodontist
+    radiology: Radiology
+    register: Register
+    dentist_register: Dentist register
+    dental_hygienist_register: Dental hygienist register
+    director_register: Director register
+    executive_register: Executive register
+    responsible_person_register: Responsible person register
+    total: Total
+    scroll: scroll
+    open: Open
+    close: Close
+    figures: FIGURES
+    sheet: sheet
+    up: up
+    down: down
+    upload: Upload
+    remove: Remove
+    speciality: Speciality
+    clinic: Clinic
+    language: Language
+    add_attachments: Add attachments
     add_some_profiles: Add SOME-profiles
     about: About
     account_locked: Your account has been locked due to an excessive number of unsuccessful
@@ -244,6 +318,10 @@ en:
     change_my_password: Change my password
     change_password: Change Password
     confirm_deletion: Confirm deletion of %{user}
+    confirm_passivate_user: Confirm passivate user
+    confirm_reactivates_user: Confirm reactivates user
+    passivate_user: Passivate user
+    reactivates_user: Reactivates user
     confirm_email: 'You can confirm your account email through the link below:'
     confirm_my_account: Confirm my account
     confirmation_password: Confirmation password
@@ -252,9 +330,12 @@ en:
     delete_content: Delete content
     delete_message: Are you sure?
     descending: Descending
-    desktop_header: Shiv Shakti
+    desktop_header: DBM
     destroy: Destroy
     edit: Edit
+    order: Order
+    profession: asiantuntija
+    confirmed_all: Vahvista kaikki
     edit_profile: Edit Profile
     email: E-mail address
     error_invalid_current_password: Invalid or require current password
@@ -265,6 +346,8 @@ en:
     fname: First name
     forgot_password: FORGOT PASSWORD?
     has_already_been_taken: Has already been taken
+    email_has_already_been_taken: Email has already been taken
+
     have_an_account: HAVE AN ACCOUNT?
     home: Home
     ignore_email: If you didn't request this, please ignore this email. Your password
@@ -298,6 +381,8 @@ en:
     successfully_created: Successfully created.
     successfully_deleted: Successfully deleted.
     successfully_updated: Successfully updated.
+    successfully_passivate: Successfully user passivated
+    successfully_reactivates: Successfully user reactivates 
     unlock_my_account: Unlock my account
     unlock_your_account: 'Click the link below to unlock your account:'
     unsubscribe_from_this_list: Unsubscribe from this list
@@ -306,10 +391,12 @@ en:
     updating: Updating
     welcome_email: Welcome %{email}!
     search_name_or_city: Search by name or city
+    search_name_or_clinic: Search by name of clinic or professional
     gender: Gender
     date_of_birth: Date of birth (SSN)
     more_options: More options
     remove_user: Remove %{user}
+    remove_responsible_person: Remove responsible person
     linkedin: "Linkedin"
     facebook: "Facebook"
     twitter: "Twitter"
@@ -320,7 +407,7 @@ en:
       subject: "Your login information to %{brand}’s system."
       text_area_message: "<b>Dear %{name}</b>, <br /><br /> Please find your login id and password to %{brand} system below. 
                 You can change your password in <b>My settings</b> page after you login into system. <br /><br />
-                <b>Login id:</b>  %{email}, <br /> <b>Password:</b>  ******** <br /><br />
+                <b>Login id:</b>  %{email} <br /> <b>Password:</b>  ******** <br /><br />
                 You will find in your %{brand} also contact information of %{brand}'s user support. Just click on icon: Send feedback to developers and you
                 find contact information and also with that function you can send feedback <br /><br />
                 <b>Welcome to our team %{name}!</b>"
@@ -331,27 +418,24 @@ en:
     general_yes: "Yes"
     general_no: "No"
     upload_photos: Upload photos
+    upload_brand_desktop_logo: Upload brand desktop logo
+    upload_brand_logo: Upload brand logo
     upload_photo: Upload photo
+    note_for_responsible_profession: "Please note that the professional you are removing will act as the person responsible for the following clinics:"
   login:
     email: e-mail address
     login_to_your_account: LOG IN TO YOUR ACCOUNT
     password: password
-  site_title: Shiv Shakti Transport - DIGITAL BUSINESS MANAGER
+  site_title: DBM - DIGITAL BUSINESS MANAGER
   toogle_header:
     end_session: End <span> session </span>
     start_screen: Start <span> screen </span>
     user_register: User <span> register </span>
   desktop:
+    unit_model: Unit <span> model </span>
+    centralized_model: Centralized <span> model </span>
     clinic_register: Clinic/Professional <span> registers </span>
-    manage_resource_variable: Manage <span>users </span>
-    manage_balance_sheet: Manage <span>balance sheet </span>
-    manage_orders: Manage <span>orders </span>
-    manage_stocks: Manage <span>stocks </span>
-    manage_customer_accounts: Manage <span>customer accounts </span>
-    manage_product_purchases: Manage <span>product purchases </span>
-    manage_income: Manage <span>income </span>
-    manage_expense: Manage <span>expense </span>
-
+    manage_resource_variable: Manage resources <span>variables </span>
     office_register: Office <span> register </span>
     business_management: Business <span> management </span>
     performance_reports: Performance <span> reports </span>
@@ -367,19 +451,48 @@ en:
     my_profile_and_information: My profile and <span> information </span>
     my_reports: My <span> reports </span>
   background_variable:
+    resource_parameters_time: Resource parameters - Time
+    resource_parameters_professionals: Resource parameters - Professionals
+    brand_logo: Brand logo
+    brand_desktop_logo: Brand desktop logo
+    operating_weeks_per_year: Operating <b>weeks</b> per year
+    operating_weeks_per_month: Operating <b>weeks</b> per month
+    operating_days_per_week: Operating <b>days</b> per week
+    operating_hours_per_day:  Operating <b>hours</b> per day
+    duration_of_clinic_full_day: <b>Dentists</b> - Duration of clinical full day (hours)
+    duration_of_clinic_full_week: <b>Dentists</b> - Duration of clinical full week (hours) 
+    assisting_staff_index: <b>Assisting Staff Index</b> for Dentist work
+    assisting_sraff_weekly_hours: <b>Assisting Staff</b> Weekly working hours
     sales_area_name: Sales area
-    dbm_sales_area: Shiv shakti sales area
+    dbm_sales_area: DBM sales area
     background_variable_header: Background variables
+    forecast_parameters: Forecast parameters
+    first_half: "1st half %"
+    second_half: "2nd half %"
+    forecast_text: Fill in the percentages to distribute turnover and customer volumes between first and second half of each month. This is important for ensuring realibility of the forecasts.
     sales_area:
       add_new_sales_area: Add new sales area
       name: Enter sales area name
       remove_sales_area: Remove
     invoice_parameters: Invoice parameters
+    billing_information_for_chain: Billing information for chain
+    bank_account_number: Bank account number
+    add_bank_account: Add bank account
+    postal_address_of_invoices: Postal address of invoices
+    street_pobox: Street / P.O. Box
+    post_number: Postal code
+    city: City
+    email_address_of_invoices: Email address of invoices
+    email_address: Email address
+    electronic_invoices: Electronic invoices
+    e_invoicing_operator: e-invoicing operator
+    e_invoicing_address: e-invoicing address
+    ovt_id: OVT-id
   executive_desktop:
-    staff_register: Staff <span> register </span>
-    executive_register: User/Staff <span> register </span>
-    customer_register: Customer <span> register </span>
-    provider_register: Provider <span> register </span>
+    dentist_register: Dentist <span> register </span>
+    director_register: Director <span> register </span>
+    executive_register: Executive <span> register </span>
+    responsible_person_register: Responsible person<span> register </span>
     user_register: User register
     dental_hygienist_register: Dental Hygienist <span> register </span>
     clinic_professional_register: Clinic/Professional registers
@@ -388,24 +501,35 @@ en:
     start: Start
     desktop: Desktop
     user_register: User register
-    executives: Users
+    executives: Executives
     directors: Directors
     dentists: Dentists
+    dental_hygienists: Dental hygienists
     clinics: Clinics
     my_clinic_profile: My clinics profile
     resources_and_variable: Resources & variables
     send_bill: Send bill
     operation_model: Operational model
+    performance_reports: Performance reports
+    choose_user: Choose user
+    choose_clinic: Choose clinic
+    responsible_persons: Responsible persons
   executive:
+    indefinitely_valid: Indefinitely valid
+    time_limited: Time limited
+    degrees: Degrees 
+    recipient: Recipient 
+    subject: Subject
+    message: Message
     register: Register
     starting_date: Starting date
-    executive_card: card - %{name}
-    register_executive: Registering new user
-    name: name
+    executive_card: Executive card - %{name}
+    register_executive: Registering new executive
+    name: Executive name
     first_name: First name
     last_name: Last name
-    dbm_email: ShivShakti email
-    dbm_id: ShivShakti id
+    dbm_email: Work email
+    dbm_id: DBM id
     personal_email: Personal email
     job_role: Job role
     office: Office
@@ -422,6 +546,7 @@ en:
     language_skills: Language skills
     contractual_relationship: Contractual relationship
     contract_starting_date: Starting day
+    contract_ending_date: Ending day
     contract_url: Contract
     open_card: Open card
     change_password: Change password
@@ -443,16 +568,19 @@ en:
     write_job_role: Write job role here..
     introduction_text: Introduction text
     add_introduction_text: Add introduction text
-    executive_updated: User was successfully updated.
-    executive_destroyed: User was successfully destroyed.
+    executive_updated: Executive was successfully updated.
+    executive_destroyed: Executive was successfully destroyed.
     upload_photos: Upload photos
     upload_certificates: Upload certificates
+    confirm_user_rights: Confirm user rights for DBM
+    permission_to_create_invoice: Permission to create invoice
+    permission_to_see_reports: Permission to see performance reports
     order_dbm_email:
       subject: Request for new e-mail address, new %{brand} employee
       text_area_message: "Greetings,<br /><br /> We are requesting new e-mail address for our new employee: <a href='javascript:void(0);'>%{request_email}</a>
                 <br /><br /> Please send confirmation e-mail to <a href='javascript:void(0);'>%{current_user_email}</a> when new e-mail is ready for use.
                 <br /><br /> Best regards,<br /><br /> %{current_user_name}"
-      order_dbm_email_sent: Request for ShivShakti email sent successfully.
+      order_dbm_email_sent: Request for work email has been sent successfully.
     performing_patient_work: Performing billable patient work
     sv_number: SV-number
     contractual_relationship: Contractual relationship
@@ -469,7 +597,10 @@ en:
     choose_profession: Choose profession
     dentist: Dentist
     dental_hygienist: Dental hygienist
+    technician: Technician
+    practioner: Practitioner
     registration_number: Registration number
+    has_director_permission: Has director permission for this clinic
   director:
     director_card: Director card - %{name}
     director_name: Director's name
@@ -487,6 +618,9 @@ en:
     dental_hygienist_updated: Dental hygienist was successfully updated.
     dental_hygienist_destroyed: Dental hygienist was successfully destroyed.
   dentist:
+    fixed_bonus: Fixed bonus
+    email: E-mail
+    phone_number: Phone
     register: Register new dentist
     dentist_card: Dentist card - %{name}
     register_dentist: Registering new dentist
@@ -500,29 +634,45 @@ en:
     no_clinic_found: No clinic found
     reward_base_information: REWARD BASE INFORMATION
     fixed_rental: Fixed rental-%
+    clinic_share_of_billing: (Clinic's share of billing)
     fixed_per_month: Fixed rental fee per month
-    fixed_per_hour: Fixed rental fee per reserved hour
+    fixed_per_hour: Fixed rental fee per hour
     fixed_reward: Fixed reward-%
     fixed_salary_per_month: Fixed salary per month
     fixed_salary_per_hour: Fixed salary per reserved hour
     assigned_clinics: Assigned clinics
     assigned_users: Assigned users
+    assigned_responsible_persons: Assigned responsible persons
     company_name: Company name
     clinic_name: Clinic name
     contract_starting_date: Starting date
     reward: Reward-%
+    bonus: Bonus-%
+    percentage_fee_model: Percentage-based fee model
+    euro_fee_model: Euro-based fee model
+    percentage_fee_model_not_in_contract: Percentage-based fee model is not in this contract
+    periods_planned_working_hours: Periods planned working hours
+    periods_realized_working_hours: Periods realized working hours
+    average_hourly_rate_cal: The average hourly rate is calculated
+    fixed_fee_cal: Fixed fee is calculated
+    euro_fee_model_not_in_contract: Euro-based fee model is not in this contract
+    fixed_rental_fee_per_reserved_hour: Fixed rental fee per reserved hour
+    fixed_rental_fee_per_month: Fixed rental fee per month
+    pass_through_billing_deducted_from_income_billing: Pass through billing will be deducted from income billing
     incentive_type_per_month:
       model1: "Incentive model 1: Based on patient turnover per month"
       step: STEP
       step_count: Step%{count}
-      add_step: Add step
-    turnover: Turnover
+      add_step: Add new step
+    turnover: Turnover- Eur
     rental: Rental-%
-    speciality: SPECIALITY
+    speciality: Speciality
+    from_turnover_that_exceeds: from turnover that exceeds
     incentive_type_per_hour:
       model2: "Incentive model 2: Based on average of hourly rate"
       until_average_hour_rate: until average hourly rate is
       after_that_rental: after that rental-% is
+      after_that_bonus: after that bonus-% is
     additional_fees:
       title: ADDITIONAL FEES
       referral_fee_to_hygienist: referral fee to hygienist
@@ -534,8 +684,13 @@ en:
       commited_yes: "Yes"
       commited_no: "No"
       per_from_xray_billing: "% from x-ray billing"
+      per_from_part_xray_billing: "% from part-x-ray billing"
     payment_and_information:
+      income_billing: Income billing
       payment_rules: PAYMENT RULES
+      register_contact_person: REGISTER CONTACT PERSON/PROFESSIONAL'S ACCOUNT
+      add_person: Add person
+      remove_person: Remove person
       third_party_rule: Clinic charge patient fees , pays pass-through billing to third parties and pays dentist share to dentist once in a month at the latest day
       dentist_share_rule: Clinic charges patient fees and pays laboratory costs (pass-through billing) and dentist share of patient fee once in a month at the latest
       clinic_share_rule: Dentist charge patient fees and pays pass-through billing and pays clinics share of patient fee once in a month at the latest day
@@ -543,6 +698,7 @@ en:
       bank_name: Bank name
       bank_account_number: Bank account number
       billing_place_number: Billing place number
+      ref_no: Ref.no
       base_for_reward: BASE FOR THE REWARD
       base_for_rent: BASE FOR THE RENT
       base_for_bonus: BASE FOR THE BONUS
@@ -554,6 +710,9 @@ en:
       dentist_name: Dentist's name
       billing_place_information: Billing place information
       account_and_payment_information: ACCOUNT AND PAYMENT INFORMATION
+      not_possible_due_to_model1: "This option is not possible due the confirmed reward base: Incentive model 1"
+      not_possible_due_to_base_for_rent: "This option is not possible due the confirmed base for the rent: Value of invoiced work. If you want to confirm this reward base option, You have to confirm an option – Value of work done – for the Rent base first"
+      before_through_billing_reduction: (Before through billing reduction)
     relationship_types:
       PRACTITIONER: Practitioner
       PAYROLL_COMPANY: Payroll company
@@ -573,11 +732,18 @@ en:
                                     automatically clears."
     internal_person: Internal person
     exetrnal_person: Exetrnal person
+  clinic:
+    change_responsible_person_of_clinic: Change responsible person of clinic
+    remove_responsible_person_from_clinic: Remove responsible person from clinic
+    upload_written_agreement: Upload written agreement
+    upload_agreement_attachment: Upload agreement attachment 
+    clinic: Clinic
+    fraction: Fraction
     register_new_clinic: Register new clinic
     owner_name: Name
     birthdate: Date of birth (Social security number)
     members: Members
-    chief_executive_officer: Chief User officer
+    chief_executive_officer: Chief executive officer
     assigned_responsible_person: "Responsible person -"
     no_responsible_person_assigned: Not assigned
     first_name: First Name
@@ -586,7 +752,6 @@ en:
     days: Days
     register: Registering new clinic
     register_new: Register new clinic
-    clinic: Clinic
     clinic_name: Clinic name
     company_name: Company name
     company: Company
@@ -662,19 +827,17 @@ en:
     director_last_name: Last name
     director_ssn: SSN
     remove_director: Remove
-    ceo: Chief User officer
+    ceo: Chief executive officer
     ceo_first_name: First name
     ceo_last_name: Last name
     ceo_ssn: SSN
-    franchise_agreement_info: Chains/Clinics agreement information
+    franchise_agreement_info: Franchise agreement information
     agreement_signing_date: Signing Date
     agreement_start_date: Agreement's starting date
     agreement_end_date: Agreement's ending date
     joining_fee: Joining fee
     fixed_fee: Fixed fee
     royalty: "% Royalty"
-    upload_written_agreement: Upload written agreement
-    upload_agreement_attachment: Upload agreement attachment
     clinic_updated: Clinic was successfully updated.
     clinic_deleted: Clinic was deleted successfully.
     confirm_info_and_finish_registration: Confirm clinic information and finish registration
@@ -707,13 +870,18 @@ en:
     remove_clinic: Remove clinic permanently
     xray_room_optg: OPTG
     xray_room_kkt: KKT
-    clinic_responsible_for_bill: The clinic is responsible for generating bills for practitioners
+    clinic_responsible_for_bill: Clinic responsible for bill
     corporate_information_in_invoice: Corporate information in invoice
-    chains: Chain's
-    clinics: Clinic's
+    chains: Chains
+    clinics: Clinics
+    show_assigned_users: Show assigned dentists
+    hide_assigned_users: Hide assigned dentists
+    show_assigned_responsible_persons: Show assigned responsible persons
+    hide_assigned_responsible_persons: Hide assigned responsible persons
     responsible_person:
-      responsible_person: Responsible person
-      person_type: "%{type} person"
+      internal: Internal person
+      external: External person
+      responsible_person: Responsible persons
       area_of_responsibility: Area of responsibility
       first_name: First name
       last_name: Last name
@@ -734,6 +902,19 @@ en:
         internal: Internal person
         external: External person
   responsible_person:
+    responsible_person_updated: Responsible person was successfully updated.
+    upload_photo: "Upload photo"
+    upload_nda_agreement: "Upload NDA-agreement"
+    upload_lkv_certificate: "Upload LKV-certificate"
+    lkv_certificate: "LKV-certificate"
+    responsible_person_card: "Responsible user card - %{name}"
+    basic_information: "Basic information"
+    type: "Type"
+    open_card: Open card
+    register: "Registering new responsible user"
+    register_new: "Register new responsible user"
+    register_new: Register new responsible person 
+    assigned_clinics: "Assigned clinics"
     first_name: First name
     last_name: Last name
     name: Name
@@ -746,11 +927,15 @@ en:
     press_here_to_unselect_person: Press here to unselect person
     press_here_to_select: Press here to select
     press_here_to_unselect: Press here to unselect
-    press_here_to_select_office: Press here to select office
-    press_here_to_unselect_office: Press here to unselect office
-    press_here_to_select_agent: Press here to select agent
-    press_here_to_unselect_agent: Press here to unselect agent
+    press_here_to_select_clinic: Press here to select clinic
+    press_here_to_unselect_clinic: Press here to unselect clinic
     assigned_responsible_person: Responsible person -
+    role:
+      internal: "Internal person"
+      external: "External person"
+    assign_to_clinics:
+      title: "Assign responsible person to clinics"
+      subtitle: "Choose clinics from the list and press assign to chosen clinics Button"
   user:
     address: Address
     basic_information: "%{type} basic information"
@@ -765,9 +950,10 @@ en:
     male: Male
     company: Company
     contract_starting_date: Starting date
-    dbm_id: ShivShakti id
+    dbm_id: DBM id
     contract: Contract
     speciality: Speciality
+    rent_base_value: Rent base value
     language_skills: Language skills
     sv_number: SV-number
     certificate: Certificate
@@ -821,7 +1007,7 @@ en:
     confirm_password: Confirm new password
     current_password: Current password
     new_password: New password
-  dbm_email: ShivShakti
+  dbm_email: Shiv Shakti Transport Co.
   feedback:
     depending_on_message_contact: Depending on your message developers might contact
       you also by phone.
@@ -835,8 +1021,7 @@ en:
       developers.
     tip_1: Here you can send us information about the problem you discovered or suggest
       a development idea - something you would like to see in upcoming software updates.
-    tip_2: You can also call to Fenux Oy user support by phone 020-000000. User support
-      is open on Monday-Friday 8:00-17:00.
+    tip_2: 'You can also call to Fenux Oy user support by phone. User support is open on Monday-Friday 8:00-17:00. Contact details: Ari Heiskanen, gsm. 040-866 8348 ja Juri Oshujev, gsm. 050-327 2507.'
     tip_3: Remember to store user support phone number to your phone contacts.
   recovery:
     email: e-mail address
@@ -845,18 +1030,23 @@ en:
     recover_password: RECOVER PASSWORD
   form:
     executive:
-      basic_information: User's basic information
+      basic_information: Executive's basic information
       form_step_1: "Step 1: Basic information"
-      form_step_2: "Step 2: User profile and introduction"
-      form_step_3: "Step 3: Summary"
+      form_step_2: "Step 2: Executive profile and introduction"
+      form_step_3: "Step 3: Reward base and contract"
+      form_step_4: "Step 4: Payment rules and information"
+      form_step_5: "Summary"
       form_step_1_without_number: Basic information
-      form_step_2_without_number: User profile and introduction
+      form_step_2_without_number: Executive profile and introduction
       form_step_3_without_number: Summary     
     director:
       basic_information: Director's basic information
       form_step_1: "Step 1: Basic information"
       form_step_2: "Step 2: Clinics director profile and introduction"
       form_step_3: "Step 3: Summary"
+      form_step_3: "Step 3: Reward base and contract"
+      form_step_4: "Step 4: Payment rules and information"
+      form_step_5: "Summary"
       form_step_1_without_number: Basic information
       form_step_2_without_number: Clinics director profile and introduction
       form_step_3_without_number: Summary
@@ -894,20 +1084,47 @@ en:
       form_step_2_without_number: Clinic profile information
       form_step_3_without_number: Payment and owner structure information
       form_step_4_without_number: Summary
+    responsible_person:
+      form_step_1: "Step 1: Basic information"
+      form_step_2: "Step 2: Assigned to clinics"
+      form_step_3: "Step 3: Summary"
+      form_step_1_without_number: "Basic information"
+      form_step_2_without_number: "Assigned to clinics"
+      form_step_3_without_number: "Summary"
+  confirm_user:
+    header: "Confirm responsible person"
+    header1: "Confirm agent"
+    name: "Name"
+    creator_name: 'Creator'
+    creator: Creator
+    role: 'Role'
+    button:
+      confirm: 'Confirm'
   form_action_button:
-    return_button: Return Back
+    edit_reward_details: Edit reward details
+    edit_payment_rules: Edit payment rules
+    assign_to_clinics: Assign to chosen clinics
+    edit_assignments: "Edit assignments"
+    return_back_to_step_to_create_new_invoice: Return back to create new invoices
+    return_button: Return back
+    return_back: Return back
+    go_to_desktop: Go to desktop
+    create_new_bill: Create new bill
+    go_to_archive: Go to archive
+    save: Save
     close_and_return_button: Close and return back
     save_button: Save
     save_changes: Save changes
     save_and_next_button: Save and proceed to the NEXT STEP
+    insert_confirm_information_to_database: Insert confirmed information to database
     close_invoice_app: Close invoiceApp and return to the startpage
     save_and_return_to_step3: Save invoice data and return to step 3
     save_changes_and_return_back: Save changes and return back
     discard_changes_and_return_back: Discard changes and return back
     edit_profile: Edit profile
     other_options: Other options
-    finish_executive_registration: Finish User registration
-    save_executive_registration: Save User
+    finish_executive_registration: Finish executive registration
+    save_executive_registration: Save executive
     finish_director_registration: Finish director registration
     save_director_registration: Save director
     save_registration: Save
@@ -937,11 +1154,15 @@ en:
     edit_payment_rules_and_information: Edit payment rules and information
     send_message: Send message
     clinic:
+      save_clinic_registration: Save clinic registration
+      add: Add
       card:
         basic_information: Basic information
         profile_and_information: Profile information
         team_and_responsible_persons: Clinic's team members & responsible person
         payment_info_and_share: Payment information & shares
+        close: Close
+        save: Save
     keep_this_payment_rule: Keep this payment rule
   translation_tool:
     translation: Translation tool
@@ -969,38 +1190,430 @@ en:
       ClinicTeamMember:
         CEO: CEO
         CFO: CFO
-      User:
-        BITE_PHYSIOLOGY_DENTAL_SPECIALIST: Bite physiology dental specialist
-        GENERAL_DENTIST: General dentist
-        DENTAL_HYGIENIST: Dental hygienist
-        ORTHODONTIST: Orthodontist
-        PEDODONTIST: Pedodontist
-        PERIODONTIST: Paradontologi
-        PROSTHETICST: Prostheticst
-        RADIOLOGY: Radiology
-        SURGERY: Surgery
+      user:
+        specialties:
+          PROSTHETICST_AND_BITE_PHYSIOLOGY_DENTAL_SPECIALIST: Prostheticst and bite physiology dental specialist
+          GENERAL_DENTIST: General dentist
+          DENTAL_HYGIENIST: Dental hygienist
+          ORTHODONTIST: Orthodontist
+          PEDODONTIST: Pedodontist
+          PERIODONTIST: Paradontologi
+          PROSTHETICST: Prostheticst
+          RADIOLOGY: Radiology
+          SURGERY: Surgery
+          TECHNICIAN: Technician
+          ENDODONTIST: Endodontist
+          CLINICAL_DENTAL_TREATMENT: Clinical dental treatment
+        contract_types:
+          NONE: None
+          INDEFINITELY_VALID: Indefinitely valid
+          TIME_LIMITED: Time limited
+      user_bill:
+        months:
+          january: January
+          february: February
+          march: March
+          april: April
+          may: May
+          june: June
+          july: July
+          august: August
+          september: September
+          october: October
+          november: November
+          december: December
+        invoice_status_types:
+          UNLOCKED: Unlocked
+          LOCKED: Locked
+      clinic_user:
+        base_for_rents:
+          VALUE_OF_INVOICED_WORK: Value of invoiced work
+          VALUE_OF_WORK_DONE: Value of work done
+          INCOME_BILLING: Income billing
+        relationship_types:
+          PRACTITIONER: Practitioner
+          PAYROLL_COMPANY: Payroll company
+          EMPLOYEE_MODEL: Employee model
+      user_role:
+        roles:
+          EXECUTIVE: Executive
+          DIRECTOR: Director
+          DENTIST: Dentist
+          DENTAL_HYGIENIST: Dental Hygienist
+          INTERNAL: Internal
+          EXTERNAL: External
   performance_reports:
-    executive_reports: User <span> reports </span>
-    clinic_reports: Clinic <span> reports </span>
+    value_drivers_page:
+      booking_vs_capacity: Booking vs capacity
+    press_hear: press here
+    press_hear_to_start_search: Press here to start search
+    to_change_period: to change period
+    clinic_reports_app: Clinic report app
+    chain_reports_app: Chain report app
+    confirm_selection_and_retrive_report: Confirm and retrive report
+    set_reporting_period: Set reporting period
+    change_person: Change person
+    executive_reports_title: Executive <span> reports </span>
+    clinic_reports_title: Clinic <span> reports </span>
     individual_reports: Individual <span> reports </span>
+    select_professional: Please select one professionals
+    patient_performance_indicators: Patient performance </br> indicators (PPI)
+    action_performance_indicators: Action performance </br> indicators (API)
+    press_hear_to_change_period: Press here to</br> change period
+    press_hear_close: Press here to close
+    performance_reports_app: Performance report app
+    period_text: Period
+    add_benchmark_period: Add benchmark period
+    remove_benchmark_period: Remove benchmark period
+    step_forward: Step forward
+    step_backward: Step backward
+    period_results:
+      growth_rates: GROWTH RATES
+      period_results_title: PERIOD'S RESULTS
+      title: Period result's
+      own_share: OWN SHARE, PERIOD %{month}/%{year}
+      share_of_billing: Share of billing
+      additional_fees: Additional fees
+      billing_addition: Billing addition
+      billing_reduction: Billing reduction
+      share_in_period: SHARE IN PERIOD
+      turnover_and_invoicing: TURNOVER AND INVOICING
+      cumulative_value: CUMULATIVE VALUE - YEAR %{year}
+      cumulative_value_without_year: CUMULATIVE VALUES
+      forecast_period: "FORECAST PERIOD: %{month1} - %{month2} %{year}"
+      forecast_period_vs_previous_year: FORECAST PERIOD vs. PREVIOUS YEAR
+      gross_turnover: Grossturnover
+      gross_turnover_1: Gross turnover
+      net_turnover: Netturnover
+      net_turnover_1: Net turnover
+      gross_turnover_general_dentist: Gross turnover - general dentist
+      net_turnover_general_dentist: Net turnover - general dentist
+      gross_turnover_dental_speciality: Gross turnover - dental speciality
+      net_turnover_dental_speciality: Net turnover - dental speciality
+      gross_turnover_dental_hygienist: Gross turnover - dental hygienist
+      net_turnover_dental_hygienist: Net turnover - dental hygienist
+      gross_turnover_technician: Gross turnover - technician
+      net_turnover_technician: Net turnover - technician
+      invoicing: Invoicing
+      value_of_pass_through_billing: Value of pass through billing
+      invoice_vs_gross: Invoice vs. Grossturnover
+      add_benchmark_period: Add benchmark period
+      remove_benchmark_period: Remove benchmark period
+      select_whole_year: Select whole year
+      pass_through_billing: Pass through billing
+      confirm_selection_and_retrive_report: confirm selection and retrive report
+      patient_and_invoicing: PATIENT TURNOVER AND INVOICING
+      period_report_text_header: Please press the buttons <b>Patient Performance Indicators</b> or/and <b>Action Performance Indicators </b> to change report view from <i>Period's results.</i> if you want to change reporting period. please press button <b>Press here to change period.</b> Sign out from the App by pressing button <b>Press here to close Performance Report App.</b>
+    patient_performance:
+      patient_performance_title: PATIENT PERFORMANCE INDICATORS (PPI)
+      patient_profile: PATIENT PROFILE
+      volume: Volume
+      weight: Weight
+      new_customers: New customers
+      recall_customers: RECALL customers
+      vol_total_q1: Vol. TOTAL Q1
+      vol_total_q2: Vol. TOTAL Q2
+      vol_total_q3: Vol. TOTAL Q3
+      vol_total_q4: Vol. TOTAL Q4
+      quater_1_year: Q1 / %{year}
+      quater_2_year: Q2 / %{year}
+      quater_3_year: Q3 / %{year}
+      quater_4_year: Q4 / %{year}
+      customer_visits_in_peroid: Customer visit in period
+      visit_per_customer: Visit per customer
+      patient_visits: PATIENT VISITS
+      press_here_to_open_patient_profile: PRESS HERE TO OPEN UNIT INDICATORS PATIENT PROFILE
+      press_here_to_close_patient_profile: PRESS HERE TO CLOSE UNIT INDICATORS PATIENT PROFILE
+      average: Average
+      customer_visits: Customer visits 
+      grossvalue_per_patient: GROSSVALUE PER PATIENT
+      netvalue_per_patient: NETVALUE PER PATIENT
+      grossvalue_per_visit: GROSSVALUE PER VISIT
+      netvalue_per_visit: NETVALUE PER VISIT
+    action_performance:
+      planned: Planned
+      realized: Realized
+      difference: Difference
+      press_here_to_close_action_profile: PRESS HERE TO CLOSE ACTION PROFILE
+      press_here_to_open_action_profile: PRESS HERE TO OPEN ACTION PROFILE
+      action_performance_indicators: ACTION PERFORMANCE INDICATORS(API)
+      working_hours: WORKING HOURS
+      period_working_hours: PERIODS WORKING HOURS
+      planned_hours: Planned </br>hours
+      planned_hours_1: Planned hours
+      realized_hours: Realized </br>hours
+      realized_hours_1: Realized hours
+      differenc_between_hours: Difference </br>( Realized vs. Planned)
+      differenc_between_hours_1: Difference ( Realized vs. Planned)
+      average_hourly_rate_gross: AVERAGE HOURLY RATE (GROSS)
+      average_hourly_rate_net: AVERAGE HOURLY RATE (NET)
+      time_per_patient: TIME PER PATIENT
+    customer_show_value:
+      - Customer visit in period
+      - Visit per customer
+    action_performance_show_value:
+      - Planned
+      - Realized
+      - Difference      
+    executive_reports:
+      resource_reports:
+        clinic_related_text: '<b>Clinic related</b>: %{clinic_total} Clinics, %{room} treatment room(s) total.'
+        x_ray_options: '<b>X-ray options</b>'
+        press_here_to_open_capacity_by_area: PRESS HERE TO OPEN CAPACITY FIGURES DIVIDED BY AREA
+        press_here_to_close_capacity_by_area: PRESS HERE TO CLOSE CAPACITY FIGURES DIVIDED BY AREA
+        customer_volumes_and_shares_divided_by_area: CUSTOMER VOLUMES AND SHARES DIVIDED BY AREAS
+        share_of_customers: SHARE OF CUSTOMERS
+        share_of_visits: SHARE OF VISITS
+        details_of_area: DETAILS OF AREA
+        customer_profile: CUSTOMER PROFILE
+        customer_value: CUSTOMER VALUE
+        customer_volume: CUSTOMER VOLUME
+        customer_total: Customer total
+        billing_per_customer: Billing per customer
+        billing_per_visit: Billing per visit
+        working_hours_divided_by_area: WORKING HOURS DIVIDED BY AREA
+        share_of_realized_hours: SHARE OF REALIZED HOURS 
+        share_of_planned_hours: SHARE OF PLANNED HOURS
+        working_hours_by_category: WORKING HOURS BY CATEGORY
+      forecast_page:
+        press_here_to_open_forecast_for_area: PRESS HERE TO OPEN DETAILS OF AREA
+        press_here_to_close_forecast_for_area: PRESS HERE TO CLOSE DETAILS OF AREA
+        classification_on_forecast_performance: "Forecast map: Classification of all chain clinics based on forecast performance"
+        info_step_1: 1 Clinics area classified based on slope coefficient of three months liner forecast slope coefficient is calculated separately for each forecasted parameter.
+        info_step_2: 2 Forecast map is based on slopes for gross and net turnover, Clinic symbols readilty take into account slopes of customer volume forecasts.
+        recall_and_new_customer_growing: Recall and new customers growing
+        recall_customer_growing: Recall customers growing
+        new_customer_growing: New customers growing
+        customer_base_shrinking: Customer base shrinking
+      capacity_location: CAPACITY LOCATION
+      year: "YEAR"
+      now: Now
+      clinics: "CLINICS"
+      treatment_rooms: "TREATMENT</br>ROOMS"
+      x_ray_options: "X-RAY </br>OPTIONS"
+      optg: "OPTG :"
+      kktt: "KKTT :"
+      capacity_hours_year: "CAPACITY: HOURS/YEAR"
+      basic_rooms_without_break: "Basic rooms:"
+      operating_rooms_without_break: "Operating rooms:"
+      laboratory_rooms_without_break: "Laboratory rooms: "
+      paid_reward_devided_by_area_and_professional_category: PAID REWARDS DIVIDED BY AREA AND PROFESSIONAL CATEGORY
+      gross_turnover: GROSS TURNOVER
+      net_turnover: NET TURNOVER
+      paid_turnover: PAID TURNOVER
+      share_turnover: SHARE TURNOVER
+      turnover_gross_and_net: TURNOVER-GROSS AND NET - DIVIDED BY PROFESSIONAL CATEGORY AND AREA
+      welcome_to_executive_reports_main_page: "Welcome to <b> Chain Reports,</b>  page: <i>Operational conditions.</i> Please press button on a right to change a view. If you want to change result period, please press button <b> Press here to change period.</b> Sign out from the App by pressing button <b> Press here to close Chain Report App</b>."
+      operational_conditions: Operational</br>conditions
+      use_of_resources: Use of resources
+      capital_structure: CAPITAL STRUCTURE
+      south: South
+      east: East
+      west: West
+      north: North
+      total: TOTAL
+      clinic_total: CLINIC</br>TOTAL
+      basic_rooms: BASIC</br>ROOMS
+      operating_rooms: OPERATING</br>ROOMS
+      laboratory_rooms: LABORATORY</br>ROOMS
+      x-ray: X-RAY</br>OPTG KKTT
+      press_here_to_open_knowledge_based_capital: PRESS HERE TO OPEN KNOWLEDGE BASED CAPITAL PROFILE
+      press_here_to_close_knowledge_based_capital: PRESS HERE TO CLOSE KNOWLEDGE BASED CAPITAL PROFILE
+      knowledge_base_by_category: KNOWLEDGE BASED BY CATEGORY
+      knowledge_based_capital: KNOWLEDGE BASED CAPITAL
+      results_page:
+        press_here_to_open_turnover_figures_by_areas: PRESS HERE TO OPEN TURNOVER FIGURES DIVIDED BY AREAS AND PROFESSIONAL CATEGORYS
+        press_here_to_close_turnover_figures_by_areas: PRESS HERE TO CLOSE TURNOVER FIGURES DIVIDED BY AREAS AND PROFESSIONAL CATEGORYS
+    clinic_reports:
+      net_turnover: NET TURNOVER
+      paid_turnover: PAID TURNOVER
+      share_of_billing: SHARE OF BILLING
+      paid_reward_devided_by_professional_category: PAID REWARDS DIVIDED BY PROFESSIONAL CATEGORY
+      total_costs: TOTAL COSTS
+      add_to_clinic_net_turnover: ADD TO CLINICS NET TURNOVER
+      paid_reward_for_professional: PAID REWARDS FOR PROFESSIONAL
+      laboratory_cost: Laboratory costs (Total)
+      laboratory_cost_own: Laboratory costs (Own)
+      laboratory_cost_external: Laboratory costs (External)
+      material_cost: Material cost
+      x_ray: X-Ray
+      office_fee: Office fee
+      other_costs: Other costs 
+      share_of_pass_billing: SHARE OF PASS THROUGH BILLING
+      net_turnover_total_in_period: Net turnover total in period
+      of_net_turnover: of Net turnover
+      invoice_work_total_in_period: Invoiced work total in period
+      invoice_work_total_in_period_executive: Realized billing for a total period
+      of_invoiced_work_executive: of actual billing
+      of_invoiced_work: of invoiced work
+      period_date: "Period: %{month} %{year}"
+      turnover_by_category: TURNOVER BY CATEGORY
+      press_here_to_open_turnover_figures: PRESS HERE TO OPEN TURNOVER FIGURES DIVIDED BY PROFESSIONAL CATEGORY
+      press_here_to_close_turnover_figures: PRESS HERE TO CLOSE TURNOVER FIGURES DIVIDED BY PROFESSIONAL CATEGORY
+      press_here_to_open_sheet_of_paid_rewards: PRESS HERE TO OPEN SHEET OF PAID REWARDS
+      press_here_to_close_sheet_of_paid_rewards: PRESS HERE TO CLOSE SHEET OF PAID REWARDS
+      welcome_to_clinic_reports_main_page: Welcome to <b> Clinic Reports</b>.You are now on <b> Result view </b>. Please press button on a right to change a view. If you want to change result period, please press button <b> Press here to change period </b>. Sign out from the App by pressing button <b> Press here to close Performance Report App</b>.
+      results: Results
+      resources: Resources
+      lost_and_win: Lost-win-sheet
+      performance_maps: Performance Maps
+      forecast: Forecast
+      clinic: "Clinic :"
+      period: "Period :"
+      press_here_to_change_a_clinic: Press here to change a clinic
+      forecast_recall_label: "Forecast: Recall customers"
+      forecast_new_label: "Forecast: New customers"
+      forecast_gross_label: "Forecast: Gross tunrover"
+      forecast_net_label: "Forecast: Net turnover"
+      professional_values: 
+      - General dentist
+      - Dental specialist
+      - Dental hygienist 
+      - Technician 
+      - Total
+      forecast_page:
+        press_here_to_open_forecast_for_recall: PRESS HERE TO OPEN FORECAST FOR RECALL CUSTOMERS
+        press_here_to_open_forecast_for_new: PRESS HERE TO OPEN FORECAST FOR NEW CUSTOMERS
+        press_here_to_open_forecast_for_gross: PRESS HERE TO OPEN FORECAST FOR GROSS TURNOVER 
+        press_here_to_open_forecast_for_net: PRESS HERE TO OPEN FORECAST FOR NET TURNOVER 
+        press_here_to_close_forecast_for_recall: PRESS HERE TO CLOSE FORECAST FOR RECALL CUSTOMERS
+        press_here_to_close_forecast_for_new: PRESS HERE TO CLOSE FORECAST FOR NEW CUSTOMERS
+        press_here_to_close_forecast_for_gross: PRESS HERE TO CLOSE FORECAST FOR GROSS TURNOVER 
+        press_here_to_close_forecast_for_net: PRESS HERE TO CLOSE FORECAST FOR NET TURNOVER 
+        forecast_adjustment: FORECAST ADJUSTMENT
+        forecast_level_factor: Forecast level factor
+        forecast_seasonal_factor: Seasonality factor
+        forecast_recall_customer_volumes: FORECAST RECALL CUSTOMER VOLUMES
+        forecast_new_customer_volumes: FORECAST NEW CUSTOMER VOLUMES
+        forecast_gross_customer_volumes: FORECAST GROSS TURNOVER
+        forecast_net_customer_volumes: FORECAST NET TURNOVER
+        forecast_gross_turnover_volumes: FORECAST GROSS TURNOVER VOLUMES
+        forecast_net_turnover_volumes: FORECAST NET TURNOVER VOLUMES
+
+    resource_reports:
+      net_turnover: Net turnover
+      paid_turnover: Paid turnover
+      share_of_billing: Share of billing
+      planned_hours: Planned hours
+      realized_hours: Realized hours
+      realized_and_planned_capacity: REALIZED AND PLANNED CAPACITY
+      calculation_parameters: CALCULATION PARAMETERS
+      time_related: 'Time related:'
+      time_related_text: '<b>Time related</b>: %{day} days per week, %{hour} hours per day, %{week} weeks per month.'
+      professional_related_text: '<b>Professional related</b>: Full day dentist: %{hour_per_day} clinical hours per day, %{hour_per_week} clinical hours per week; assisting staff index: %{staff_index} and weekly working hours %{weekly_hours}'
+      clinic_related_text: '<b>Clinic related</b>: %{room} treatment room(s), %{o_room} operational room(s).'
+      x_ray_options: '<b>X-ray options</b>: %{option}'
+      max_capacity_hours_in_month: MAX CAPACITY <span>%{hours}</span> HOURS IN ONE MONTH.
+      press_here_to_open_summary_of_ppi: PRESS HERE TO OPEN SUMMARY OF PATIENT PERFORMANCE INDICATORS (PPI)
+      press_here_to_close_summary_of_ppi: PRESS HERE TO CLOSE SUMMARY OF PATIENT PERFORMANCE INDICATORS (PPI)
+      press_here_to_open_summary_of_api: PRESS HERE TO OPEN SUMMARY OF ACTION PERFORMANCE INDICATORS (API)
+      press_here_to_close_summary_of_api: PRESS HERE TO CLOSE SUMMARY OF ACTION PERFORMANCE INDICATORS (API)
+      customer_information: CUSTOMER INFORMATION
+      action_performance: ACTION PERFORMANCE
+      data_summary_of_period: DATA SUMMARY OF PERIOD
+      customers_total: Customers total
+      customer_visits: Customer visits
+      recall_customers: RECALL customers
+      new_customers: New customers
+      average_billing_per_customer: Average billing per customer
+      average_billing_per_visit: Average billing per visit
+      volume: Volume
+      share: Share
+      customer_volumes_and_shares_devided_by_professional_category:  CUSTOMER VOLUMES AND SHARES DIVIDED BY PROFESSIONAL CATEGORY
+      working_hours_devided_by_professional_category: WORKING HOURS DIVIDED BY PROFESSIONAL CATEGORY
+      difference: Difference
+      loss_of_dentist_resource: LOSS OF BILLING RESOURCE
+      loss_of_assisting_resource: LOSS OF ASSISTING RESOURCE
+      hours_text: "Hours:" 
+      weeks_text: "Weeks:"
+      customer_profile_and_visits: CUSTOMER PROFILE AND VISIT
+      difference_hours: Difference
+      difference_in_hours: DIFFERENCE (HOURS)
+      customer_profile_category:
+      - RECALL customers
+      - NEW customers
+      - Customer visits
+      - Customers total
+    lost_win_sheet:
+      balance_of_loss_win: BALANCE OF LOSS WIN
+      period_date: "Period: %{month} - %{year}"  
+      total_plus_minus: TOTAL (+/-)
+      clinic_plus_minus: CLINIC (+/-)
+      professional_plus_minus: PROFESSIONAL (+/-)
+      loss_win_sheet_devided_by_professional_category: Loss win sheet divided by professional category
+      loss_win_sheet_devided_by_area: Loss win sheet divided by area
+      hourly_rate: Hourly </br>rate
+      total_loss_of_turnover: Total loss of </br>turnover
+      loss_of_professional: Loss of </br>professional
+      loss_of_clinic: Loss of </br>clinic
+      loss_of: Loss of </br> %{first_name}
+      total_difference: Total difference
+      hours_in_period: hours in period(+/-)
+      loss_win_of_clinic: Loss-Win of clinic
+    performance_maps:
+      use_of_resources_vs_net: Use of resources vs Net turnover
+      use_of_resources_vs_hourly: Use of resources vs Hourly rate
+      recall_vs_new_customers: Recall customer (vol.) vs New customer (vol.)
+      share_vs_average_billing: Share of customers (%) vs. Average Billing per customer (gross)
+      realized_capacity_vs_net: Realized capacity vs Net turnover
+      realized_capacity_vs_billing: Realized capacity vs Billing per treatment room
+      individual_efficiency_chart: Individual efficiency chart
+      show_on_map: SHOW ON MAP
+      add_on_map: ADD ON MAP
+      info: INFO
+      name_and_values: Name and values
+      clinic_name_and_values: Clinic name and values
+      average_values: AVERAGE VALUES
+      x_avg: X(avg.)
+      y_avg: Y(avg.)
+      choose_professionals: CHOOSE PROFESSIONAL CATEGORY
+      hourly_rate_vs_surgery: HOURLY RATE (NET) - SURGERY
+      average_of_each_individual: Average of each individual
+      average_of_all_individual: Average of all individuals
+      position_of_balls_in_grid: The position of the balls in grid is based on the selected level of performance of the professional working in the clinic. By using function <b> Show on Map </b> you can add or remove professional groups on the performance maps. By using function <b> Add on map </b> you will see a professional name and their performance value(x and y axes). Please notice that you can take off and on lengeds also by clicking the ball. <b> Average values </b> information shows to you average values of selected variables on the map.
+      search_box_period: "Reporting period:"
+      confirmed_area: "Confirmed area(s):"
+      confirmed_professional_category: "Confirmed professional category:"
+      number_of_observation: "Number of observations:"
+      professionals: 
+        - General dentists
+        - Dental specialists
+        - Dental hygienists 
+        - Technician
   send_bills:
-    mail_sent_success: Email sent successfully
+    note_for_blue_data_field: Please note that blue data field below is marked with the basis of which the professional fee calculation is based.
+    invoice_information: Invoice information
+    income_billing: Income billing
+    send_invoices_to_all_professionals_on_the_list: Send invoices to all professionals on the list
+    choose_professionals: Choose professionals
+    invoice_status: Invoice status
+    send_it_via_email: SEND IT VIA EMAIL
+    open_an_invoice: OPEN AN INVOICE
+    professional_list: All professional list - %{count} contacts - %{date}
+    mail_sent_success: Email has been sent successfully.
     please_unlock_invoice_first: Please unlock Invoice first.
     copy_of_invoice_date: "copy of invoice, period %{date}" 
     copy_of_reward_detail: "copy of reward details, period %{date}" 
-    dbm_info: ShivShakti-INFO
+    file_name_bill_archive_attachment: "%{name}, period %{date}" 
+    dbm_info: DBM-INFO
     browse_and_search_postning_invoices: "Browse and search postning invoices"
-    press_hear_to_lock_this_invoice_quality_check: <b><i>Press hear to lock this invoice for quality check</i></b>
-    press_hear_to_unlock_this_invoice_quality_check: <b><i>Press hear to unlock this invoice for quality check</i></b>
-    press_hear_to_send_it_via_email_to_professional: Press hear to sent it via email to professional
-    press_hear_to_print_an_invoice_to_this_professional: Press hear to print an invoice to this professionals
-    press_hear_to_fill_invoice_data: Press hear to fill invoice data
-    press_hear_to_edit_invoice_data: Press hear to edit invoice data
-    open_clinic_professional_list: "Open clinic's professionals list by pressing hear"
-    close_clinic_professional_list: "Close clinic's professionals list by pressing hear"
+    press_hear_to_lock_this_invoice_quality_check: <b><i>Press here to lock this invoice for quality check</i></b>
+    press_hear_to_unlock_this_invoice_quality_check: <b><i>Press here to unlock this invoice for quality check</i></b>
+    send_invoice_information_to_accountant: Send invoice information to client
+    press_hear_to_send_it_via_email_to_professional:  SENT IT VIA EMAIL TO PROFESSIONAL
+    press_hear_to_send_que_regard_invoice:  SEND A QUESTION(S) REGARDING INVOICE
+    press_hear_to_fill_invoice_data: FILL INVOICE DATA
+    press_hear_to_edit_invoice_data: CHECK AND EDIT INVOICE DATA
+    press_hear_to: PRESS HERE TO
+    print_an_invoice_to_professional: PRINT AN INVOICE TO THIS PROFESSIONAL
+    open_clinic_professional_list: "Open clinic's professionals list by pressing here"
+    close_clinic_professional_list: "Close clinic's professionals list by pressing here"
     select_chain_or_individual: Please select at least one clinic/professionals
+    row_skipped: "%{skipped_row} rows was skipped while processing excel file. Please check that the data in excel file is correct"
+    select_one_file: Please select at least one file
     please_select_one_professional: Please select one clinic/professionals
     form_step_1: "Send bill <span> Step 1: Choose professionals </span>"
+    form_step_1_centralized: "Send bill <span> Step 1: Choose clinics </span>"
     form_step_2: "Send bill <span> Step 2: Invoice options and settings </span>"
     form_step_3: "Step 3: Performance and invoicing data"
     form_step_fill_edit_3: "Bill period %{date} <span> Step 3: Fill,Edit and Send invoice </span>"
@@ -1010,9 +1623,16 @@ en:
     form_step_centralize_2: "Step 2: Additional fees and billing reduction or/and addition"
     form_step_centralize_3: "Step 3: Save an invoice data"
     form_step_6: "Step 6: Send invoice"
+    confirmed_import_billing_information: "Bill period %{date}, %{clinic_name} <span> Confirm imported billing information </span>"
+    import_billing_information: "Bill period %{date}, %{clinic_name} <span> Imported billing information </span>"
+    close_professional_info_by_pressing_here: Close professional's information by pressing here. 
+    open_professional_info_by_pressing_here: Open professional's information by pressing here. 
     billing_period: Billing period
+    period_date: period %{date}
     billing_period_date: Billing period %{date}
+    billing_information_date: Billing information %{date}
     performance_information: Performance information
+    volume_information: Volume information
     period_planned_working_hrs: Period planned working hours
     period_realized_working_hrs: Period realized working hours
     number_of_customers_in_period: Number of customers in period
@@ -1021,19 +1641,28 @@ en:
     total_billing: TOTAL BILLING
     through_billing_reduction: THROUGH BILLING REDUCTION
     period_rent_basis_billing: PERIOD RENT BASIS BILLING
-    add_new_reduction: Add new reduction
+    add_new_through_billing_reduction: Add new through billing reduction
+    other_reward_adjusments: OTHER REWARD ADJUSMENTS
+    add_through_billing_reduction: Add through billing reduction
+    add_rent_addition_place_holder: Add rent addition
+    add_rent_reduction_place_holder: Add rent reduction
+    add_rent_addition: Add rent addition (+)
+    add_rent_reduction: Add rent reduction (-)
     additional_rental: ADDITIONAL RENTAL
-    add_rent_addition: Add rent addition
+    reductional_rental: REDUCTIONAL RENTAL
     laboratory_cost: Laboratory costs
     material_cost: Material cost
     x-ray: X-Ray
     office_fee: Office fee
     additional_fee_based_on_agreement: ADDITIONAL FEES BASED ON AGREEMENT
+    additional_fees_volume: Additional fees volume
     referral_fee_to_hygienist: referral fee to hygienist
     per_additional_note: / additional note
     referral_fee_to_x: referral fee to x-ray
+    referral_fee_part_to_x: referral fee to part-x-ray
+    referral_fee_part_to_x: referral fee to part-x-ray
     referral_fee_to_own_lab: referral fee to own laboratory
-    of_turnover: of turnover
+    of_turnover: "% of turnover"
     additional_notes: additional notes in period
     tunrover_in_period: turnover in period
     total_fee: TOTAL FEE
@@ -1044,10 +1673,16 @@ en:
     confirm_billing_info_and_create: Confirm the billing information below and proceed to next step by pressing button <b> create an invoice </b>
     through_billing_reduction_total: Through billing reduction total
     add_billing_addition: Add billing addition
+    rend_basis_billing_income_billing: RENT BASIS BILLING - Income billing 
     rend_basis_billing: RENT BASIS BILLING
-    dentist_reward_base: Dentists Reward Base
+    period_bonus_basis_billing: PERIOD BONUS BASIS BILLING
+    dentist_reward_base: Dentists reward base
     dentist_share_of_billing: DENTISTS SHARE OF BILLING
-    dentist_share_in_period: DENTISTS SHARE IN PERIOD
+    dentist_share_in_period: DENTISTS SHARE IN PERIOD %{date}
+    hygienist_reward_base: Hygienist reward base
+    hygienist_share_of_billing: Hygienist SHARE OF BILLING
+    hygienist_share_in_period: Hygienist SHARE IN PERIOD %{date}
+    clinic_share_in_period: CLINICS SHARE IN PERIOD %{date}
     additional_billing_additions: ADDITIONAL BILLING ADDITIONS
     additional_billing_reductions: ADDITIONAL BILLING REDUCTIONS
     additional_fees: Additional fees
@@ -1056,6 +1691,7 @@ en:
     periods_total_fee: PERIODS TOTAL FEE
     admission_note_hygienist: Admission note, Hygienist
     admission_note_xray: Admission note, X-ray
+    admission_note_part_xray: Admission note, Part X-ray
     use_of_own_lab:  Use of own laboratory
     of_lab_cost_in_this_period: of lab costs in this period
     periods_additional_fee_total: PERIODS ADDITIONAL FEE, TOTAL
@@ -1083,12 +1719,15 @@ en:
     choose_method_for_bill: Choose the method for generating billing information
     manual: Manual
     automatic: Automatic
+    import_data_form_excel_file: Import data from excel file
+    upload_file: Upload file
     confirm_the_billing_period: Confirm the billing period
     select_an_professional_and_send_bill: Select an professional and send bill for chosen professional
     select_clinic_and_send_bill_to_professional: Select a clinic(s) and send invoice to clinic's professional
     please_select_the_professionals: Please select the professionals for whom you want to submit an invoice and/or performance report. Confirm your selection by pressing a person's card (Press here to select). Then press button <b> Proceed to next step </b> on a right action bar. 
-    please_select_to_generate_automatic: "Please start to generate information from the patient information system by pressing button: <b>Retrive the information</b>. A professional personal card <b><i>will change the color green</i></b> as soon as his or her data is retrived from the patient information system. <b>if no data is found or errors are detected, the card charges its  color to red.</b> if you want to check retrived data. please select the professional by pressing a person's card(Press hear to select) and proceed to next step. You can also go directly to the invoice delivery stage. if you choose to do this, make no selection and just press button <b>Proceed to next step on right action bar as soon as all the data has been transfered to th ShivShakti system</b>" 
+    please_select_to_generate_automatic: "Please start to generate information from the patient information system by pressing button: <b>Retrive the information</b>. A professional personal card <b><i>will change the color green</i></b> as soon as his or her data is retrived from the patient information system. <b>if no data is found or errors are detected, the card charges its  color to red.</b> if you want to check retrived data. please select the professional by pressing a person's card(Press here to select) and proceed to next step. You can also go directly to the invoice delivery stage. if you choose to do this, make no selection and just press button <b>Proceed to next step on right action bar as soon as all the data has been transfered to th DBM system</b>" 
     system_notification_for_automatic_billing: If you want to generate information automatically from a patient information system, please note that this method requires construction of the interface. Please call to Fenux Customer Service.
+    infor_excel_file_imported: Information from Excel file was sucessfully imported. <b> Confirm imported information </b> for each professional by opening details using <b> Open professional's information by pressing here </b> button. You can change imported information by providing new values to the input fields. Press <b> Confirm information </b> button for each professional to confirm imported values to be inserted to the database. <b> Unconfirmed information will not be inserted to the database </b>. After you went through imported information go to the next step to insert confirmed data to the database.
     please_select_clinic_description: Please select the clinic for which you want to submit an invoice. Confirm your selection by pressing a clinic's card (Press here to select). Please notice that when you confirm clinic, all the professional that are linked to the choosen clinic, will be automatically selected.
     please_select_automatic_clinic_description: "Please start to generate information from patient information system by pressing button: <b>Retrive the information.</b> Clinics card <b><i>will change the color green</i></b> as soon as all the data is retrived from the patient information system. <b><i>if no data is found or errors are detected, the card changes its color to red.</i></b> Please note that in next step you are able to check and edit data of all selected professional."
     please_provide_or_check_performance: Please provide or/and check performance and invoicing data below and then press button <b> Proceed to next step </b> on a right.
@@ -1099,16 +1738,21 @@ en:
     recall_customers_in_period: RECALL-customers in period
     value_of_invoiced_work: Value of invoiced work
     value_of_work_done: Value of work done
+    press_here_to_confirm_this_data: Press here to confirm this data to be inserted to database
+    press_here_to_unconfirm_this_data: This data is confirmed to be inserted to database. Press here to unconfirm.
+    press_here_to_close_professional_view: Press here to close this professional view
+    press_here_to_inserted_to_database: Press here to be inserted to database but locked for quality check
+    press_here_to_inserted_to_database_unconfirm: This data is confirmed to be inserted to database but locked for quality check. Press here to unconfirm.
     your_invoice_are_ready: Your invoice(s) is/are now ready for printing and sending
     step_6_summary_text: "You have now made bills for your chosen professionals below. Please check invoice(s) by pressing button <b> Open invoice </b>. You can also print and send invoice via email for chosen professional(s).
                          <br><br> If you are happy with the content of the invoice. <b> please press one of the button on right :
                          <br> >> Return back to stpe2 to create a new invoice (if you have more invoices to create)
                          <br> >> Close invoiceApp and return to start page (if you have already done all the invoices) </b>.
 
-                         <br><br> Please note that using either of function mention above, the performance data and billing information is automatically stored in ShivShakti-system.
+                         <br><br> Please note that using either of function mention above, the performance data and billing information is automatically stored in DBM-system.
                          <br><br> If you suspect the contents of the bill, you can lock the bill by presing the button <b> Press here to lock this invoice for quality check. </b>
                               when doing so, information is locked until you have unlocked and confirm it."
-    step_3_centralized_summary_text: "You have now made a list for chosen clinic(s) and professional below. Please fill the invoice data of each selected clinic(s) and professional(s) by pressing first button <b>Open clinic professional(s) and</b> after that please press button for a selected professional: <b>Press hear to fill invoice data</b>. After you have filled and store the invoice data of selected professional, print and send invoice buttons are activated and the fill the invoice data - buttons text will be changed to : Prese hear to edit invoice data.<br/>
+    step_3_centralized_summary_text: "You have now made a list for chosen clinic(s) and professional below. Please fill the invoice data of each selected clinic(s) and professional(s) by pressing first button <b>Open clinic professional(s) and</b> after that please press button for a selected professional: <b>Press here to fill invoice data</b>. After you have filled and store the invoice data of selected professional, print and send invoice buttons are activated and the fill the invoice data - buttons text will be changed to : Prese here to edit invoice data.<br/>
                          <br> If you are happy with the content of the invoice. <b> please press one of the button on right: </b>
                          <br> <b> >> Return back to stpe2 to create a new invoice </b>(if you have more invoices to create)
                          <br> >> Send invoices to all professionals on the list.
@@ -1120,18 +1764,23 @@ en:
     return_back_to_step2: Return back to step 2 to create a new invoice
     close_invoice_app_and_return: Close invoiceApp and return to the startpage
     press_here_to_open_an_invoice: PRESS HERE TO OPEN AN INVOICE
-    press_here_to_print_an_invoice: PRESS HERE TO PRINT AN INVOICE
+    press_here_to_print_an_invoice: Press here to print an invoice
     press_here_to_send_it_via_email: PRESS HERE TO SEND IT VIA EMAIL
     press_here_to_lock: Press here to lock this invoice for quality check
     your_copy_of_invoice: Your copy of invoice, period %{date}
+    que_regard_of_invoice: Question regarding %{name} %{date}
+    mass_invoice_data: "Mass invoice data: %{clinic_name}, period %{date}"
+    your_invoice_for: Your invoice for %{date}
     send_invoice_email_text:  Hi
-                              <br><br> Please find your copy of invoice for this period attach. Also, please remember to log in your  ShivShakti account and see your personal reports.
+                              <br><br> Please find your copy of invoice for this period attach. Also, please remember to log in your  DBM account and see your personal reports.
                               <br><br> Kind Regards,
                               <br> %{name} - %{phone_number}
     send_invoice_via_email_text: Send invoice via email
     print_reward_detail_attachmentes: Print reward details
     reward_details: REWARD DETAILS
     of_xray_turnover_in_this_period: "% of xray turnover in this period"
+    of_part_xray_turnover_in_this_period: "% of part xray turnover in this period"
+    additional_fees_and_additions_reductions: ADDITIONAL FEES, ADDITIONS AND REDUCTIONS
     invoice:
       invoice_number: Invoice number
       invoice_date: Invoice date
@@ -1151,14 +1800,57 @@ en:
       ref_no: Ref no.
       due_date: Due date
       bic: BIC
+      invoice_text: Invoice
     pdf:
+      other_additions: "Other Additions"
+      other_reductions: "Other Reductions"
+      clinic_information: "Clinic information"
+      clinic_name: "Clinic name"
+      address: "Address"
+      city: "City"
+      company_name: "Company name"
+      post_number: "Post number"
       your_contact_information: Your contact information
+      reward_base_information: "Reward base information"
       reward_base: Reward base
       base_for_rent: Base for rent
       additional_fees: Additional fees
       referral_fee_hygienist: Referral fee, hygienist
       referral_fee_xray: Referral fee, xray
+      referral_fee_part_xray: Referral fee, part xray
       referral_fee_lab: Referral fee, laboratory
+      value_of_work_done: "VALUE&nbsp;OF&nbsp;WORK&nbsp;DONE"
+      VALUE_OF_WORK_DONE: "Value of work done"
+      VALUE_OF_INVOICED_WORK: "Value of invoiced work"
+      INCOME_BILLING: "Income billing"
+      BONUS_VALUE_OF_WORK_DONE: "Bonus value of work done"
+      BONUS_VALUE_OF_INVOICED_WORK: "Bonus value of invoiced work"
+      BONUS_INCOME_BILLING: "Bonus income billing"
+      REWARD_VALUE_OF_WORK_DONE: "Reward value of work done"
+      REWARD_VALUE_OF_INVOICED_WORK: "Reward value of invoiced work"
+      REWARD_INCOME_BILLING: "Reward income billing"
+      fixed_rental: Fixed rental-%
+      fixed_reward: Fixed reward-%
+      fixed_bonus: Fixed bonus-%
+      model1: "Incentive model 1 : Based on turnover"
+      model2: "Incentive model 2 : Based on hourly rate"
+      rent_per_reserved_hour: Rent per reserved hour
+      rent_per_reserved_hour_cal: Rent per reserved hour </br>(%{hour} h x %{euro} €/h )
+      rent_per_reserved_month: Rent per reserved month
+  months:
+    - nil
+    - JAN
+    - FEB
+    - MAR
+    - APR
+    - MAY
+    - JUN
+    - JUL
+    - AUG
+    - SEP
+    - OCT
+    - NOV
+    - DEC
   full_months:
     - nil
     - JANUARY
@@ -1174,7 +1866,53 @@ en:
     - NOVEMBER
     - DECEMBER
   billing_reduction_names:
-    - Laboratory costs
+    - Laboratory costs (Own lab)
+    - Laboratory costs (External lab)
     - Material cost
     - X-Ray
     - Office fee    
+  patient_turnover_type:  
+    - Grossturnover
+    - Netturnover
+    - Invoicing
+  average_rate_gross:
+    - Average hourly rate (Gross)
+    - Average
+  average_rate_net:
+    - Average hourly rate (Net)
+    - Average
+  average_rate_time:
+    - Time per patient
+    - Average
+  gross_value_per_patient:
+    - Gross value per patient
+    - average
+  net_value_per_patient:
+    - Net value per patient
+    - Average
+  gross_value_per_visit:
+    - Gross value per visit
+    - Average
+  net_value_per_visit:
+    - Net value per visit
+    - Average
+
+  resource_capacity:  
+    - Realized capacity
+    - Planned capacity
+  xray_room_type: 
+    - OPTG
+    - KKT
+  forecast_show:
+    - Forecast
+    - Actual
+  forecast_new_recall:
+    - Gross turnover
+    - Net turnover
+    - Recall customer%
+    - New customer%
+  forecast_show_on_map:
+    - Stars
+    - Cows
+    - Crosses
+    - Question marks

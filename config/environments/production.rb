@@ -80,16 +80,16 @@ Rails.application.configure do
   #   :location       => '/usr/sbin/sendmail',
   #   :arguments      => '-i -t'
   # }
-
-  # config.action_mailer.smtp_settings = {
-  #   address:        'smtp.gmail.com',
-  #   port:           587,
-  #   domain:         'gmail.com',
-  #   user_name:      'fenux.test.user',
-  #   password:       'fenux_123',
-  #   authentication: 'plain',
-  #   :enable_starttls_auto  => true
-  # }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:        'smtp.gmail.com',
+    port:           587,
+    domain:         'gmail.com',
+    user_name:      'shiv.shaktiahm',
+    password:       'Rajan@145',
+    authentication: 'plain',
+    :enable_starttls_auto  => true
+  }
 
   Rails.application.config.middleware.use ExceptionNotification::Rack,
     :email => {

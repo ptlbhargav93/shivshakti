@@ -17,9 +17,6 @@ Rails.application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
-  # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -41,9 +38,9 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
 
-  config.active_job.queue_adapter = :sidekiq
-  config.active_job.queue_name_prefix = "madhav"
-  config.active_job.queue_name_delimiter = "_"
+  # config.active_job.queue_adapter = :sidekiq
+  # config.active_job.queue_name_prefix = "madhav"
+  # config.active_job.queue_name_delimiter = "_"
 
   config.assets.raise_runtime_errors = true
 
@@ -58,7 +55,7 @@ Rails.application.configure do
     port:           587,
     domain:         'gmail.com',
     user_name:      'bhargavpvi.dev',
-    password:       'india@786',
+    password:       'bhargav@123',
     authentication: 'plain',
     :enable_starttls_auto  => true
   }

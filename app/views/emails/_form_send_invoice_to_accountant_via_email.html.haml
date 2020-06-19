@@ -1,0 +1,45 @@
+.DBMEmail
+  .formField
+    .row
+      .col-xs-12
+        = form_for(object, url: send_invoice_to_accountant_via_email_emails_path(object.id), :html => {:class => "", :method => "post", :id => "send_invoice_to_accountant_via_email_form"}) do |f|
+          = f.hidden_field :brand_name, :value => @current_brand.name
+          %table.tableForm{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+            %tbody
+              %tr
+                %td#stepBtnModalHeight.leftCol{:width => "80%"}
+                  .formBox
+                    .row
+                      .col-xs-12
+                        .form-group
+                          %label=t("general.recipient")
+                          = text_field_tag "recipient_email[]", "", :class => "form-control mandatory_field", :id => "recipient_email"
+                      .col-xs-12
+                        .form-group
+                          %label=t("general.subject")
+                          - subject = t("send_bills.mass_invoice_data", :clinic_name => object.customer.b_name, :date => object.invoice_date.strftime("%m/%Y"))
+                          = text_field_tag :subject, subject, :class => "form-control", :id => "send_bill_subject"
+                      .col-xs-12
+                        .form-group
+                          %label=t("general.message")
+                          = text_area_tag :message, "", :rows => 16, :class => "form-control ckeditorCustom", :id => "send_bill_body"
+                      .col-xs-12
+                        %label= t('general.attachments')
+                      = hidden_field_tag "date", object.invoice_date
+                      .col-xs-12
+                        .form-group
+                          = link_to print_invoice_pdf_path(object.id, format: 'pdf'), class: "stepBtn nextBtn btn_height_class" do
+                            %span=t("send_bills.file_name_bill_archive_attachment", :name => object.customer.b_name, :date => object.invoice_date.strftime("%m/%Y"))
+                          %a.remove-file-1.remove-media-file.dib{:id => "removeAccountantAttachement", :class => "removeAccountantAttachement"}
+                            .remove-preview-file.remove
+                              %i.fa.fa-times
+
+                %td.stepBtnGroup{:width => "20%"}
+                  %button.h25.stepBtn.backBtn{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                    %span
+                      =t("form_action_button.return_button")
+                    = image_tag "back_btn.png", :class => "mt15"
+                  %button.h75.stepBtn.nextBtn.checkMandatory{:name => "save", :type => "submit", :id => "send_invoice_email_btn"}
+                    %span
+                      =t("send_bills.send_invoice_via_email_text")
+                    = image_tag "email_btn.png", :class => "mt15"                     

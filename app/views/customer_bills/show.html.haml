@@ -1,5 +1,10 @@
 .container
   .row
+    .modal.fade{:id => "SendInvoiceToAccountant", :class => "SendInvoiceToAccountant", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+      .modal-dialog.modal-lg{:role => "document"}
+        .modal-content
+          .modal-body
+            = render :partial => "emails/form_send_invoice_to_accountant_via_email", :locals => {:object => @customer_bill}
     .col-xs-12#registration-form
       %table.tableForm{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
         %tbody
@@ -183,3 +188,7 @@
               %span
                 = t("form_action_button.print invoice pdf")
               = image_tag "print_profile.png", :class => "mt15"
+            %a.h15.stepBtn.nextBtn{"data-target" => "#SendInvoiceToAccountant", "data-toggle" => "modal"}
+              .flexCol.dib.w100p
+                %div
+                  = t('send_bills.send_invoice_information_to_accountant').html_safe

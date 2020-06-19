@@ -2,6 +2,10 @@ class PdfController < ApplicationController
 
   include ApplicationHelper
 
+  include ActionView::Helpers::NumberHelper
+
+  require 'currency-in-words'
+
   before_action :authenticate_user!
 
   before_action :set_pdf_asset_url

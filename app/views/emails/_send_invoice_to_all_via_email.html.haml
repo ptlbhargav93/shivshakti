@@ -1,0 +1,41 @@
+.DBMEmail
+  .formField
+    .row
+      .col-xs-12
+        = form_for(clinic, url: send_invoices_to_all_via_email_emails_path(clinic.id), :html => {:class => "", :method => "post", :id => "send_invoice_to_all_via_email_form"}) do |f|
+          = f.hidden_field :brand_id, :value => @current_brand.id
+          = hidden_field_tag 'billing_period',session[:billing_period]
+          = hidden_field_tag 'send_bill_id',clinic.id, :id => "send_bill_id"
+          = f.hidden_field :id
+          = hidden_field_tag 'form_submit', true, :id => "send_invoice_to_all_via_email_form_submit"
+          %table.tableForm{:border => "0", :cellpadding => "0", :cellspacing => "0", :width => "100%"}
+            %tbody
+              %tr
+                %td#stepBtnModalHeight.leftCol{:width => "80%"}
+                  .formBox
+                    .row
+                      .col-xs-12
+                        .form-group
+                          %label=t("general.recipient")
+                          = text_field_tag "recipient_email[]", t("send_bills.professional_list", :count => clinic.get_user_bill_ids(@current_brand,session[:billing_period]).count, :date => session[:billing_period].to_datetime.strftime("%m/%Y")), :class => "form-control form-group", :id => "input_recipient_email", :readonly =>true
+                      .col-xs-12
+                        .form-group
+                          %label=t("general.subject")
+                          = text_field_tag :subject, t("send_bills.your_copy_of_invoice", date: session[:billing_period].to_datetime.strftime("%m/%Y")), :class => "form-control", :id => "send_bill_subject"
+                      .col-xs-12
+                        .form-group
+                          %label=t("general.message")
+                          - message = t("send_bills.send_invoice_email_text", name: current_user.name, phone_number: current_user.phone_number).html_safe
+                          = text_area_tag :message, message, :rows => 16, :class => "form-control ckeditorCustom", :id => "send_bill_body"
+                      .col-xs-12.col-xs-8
+                        .form-group
+                          = render :partial => "shared/upload_files", :locals => {:object => clinic, :type => 'temp_folder_send_invoice', :resource_type => 'DOCUMENT', :resource_spec => 'ATTACHMENT', :title => t("general.add_attachments").html_safe, :index => "1"}
+                %td.stepBtnGroup{:width => "20%"}
+                  %button.h25.stepBtn.backBtn{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+                    %span
+                      =t("form_action_button.return_button")
+                    = image_tag "back_btn.png", :class => "mt15"
+                  %button.h75.stepBtn.nextBtn{:name => "save", :type => "submit", :id => "send_invoice_email_btn"}
+                    %span
+                      =t("send_bills.send_invoice_via_email_text")
+                    = image_tag "email_btn.png", :class => "mt15"                     

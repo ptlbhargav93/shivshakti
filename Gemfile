@@ -213,6 +213,10 @@ group :developemnt, :test do
   gem 'database_cleaner'
   # Coveralls
   gem 'coveralls', :require => false
+
+  gem 'origami'
+
+  gem 'currency-in-words'
 end
 
 group :test do

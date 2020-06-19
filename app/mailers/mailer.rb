@@ -25,6 +25,22 @@ class Mailer < ActionMailer::Base
     end
   end
 
+  def send_invoice_to_accountant_via_email(options={})    
+    @message = options[:message]
+    @current_brand = Brand.find_by_id options[:current_brand]
+    @customer_bill = CustomerBill.find_by_id options[:customer_bill_id]
+    invoice_pdf_name = t("send_bills.file_name_bill_archive_attachment",:name => @customer_bill.customer.b_name, :date => @customer_bill.invoice_date.strftime("%m/%Y")) 
+    invoice_content = render_to_string(:layout => "pdf.html", :template => 'pdf/print_invoice.pdf.haml')
+    attachments["#{invoice_pdf_name}.pdf"] = WickedPdf.new.pdf_from_string(
+        invoice_content,  pdf: "#{t("send_bills.copy_of_invoice")}",
+                                viewport_size: '1280x1024',
+                                :margin => { :top => 10, :bottom => 3, :left => 10, :right => 10})
+      
+    I18n.with_locale(I18n.locale) do
+      mail(:to => options[:recipient_email], :subject => options[:subject])
+    end
+  end
+
   def send_invoice_via_email(options)
     @message = options[:message]
     temp_folder = options[:temp_folder]

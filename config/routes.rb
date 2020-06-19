@@ -123,6 +123,7 @@ Rails.application.routes.draw do
         post '/order_email_for_user', to: 'emails#order_email_for_user', as: 'order_email_for_user'
         post '/send_feedback_email', to: 'emails#send_feedback_email', as: 'send_feedback_email'
         post '/:id/send_login_info_by_email', to: 'emails#send_login_info_by_email', as: 'send_login_info_by_email'
+        post '/:id/send_invoice_to_accountant_via_email_form', to: 'emails#send_invoice_to_accountant_via_email', as: 'send_invoice_to_accountant_via_email'
         post '/:id/send_invoice_via_email_form', to: 'emails#send_invoice_via_email', as: 'send_invoice_via_email'
       end
     end

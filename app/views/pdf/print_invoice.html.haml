@@ -7,11 +7,12 @@
     %meta{:content => "2006-09-16T00:00:00", :name => "created"}/
     %meta{:content => "2018-09-25T09:13:21", :name => "changed"}/
     :css
-      body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Calibri"; font-size:medium; text-align: center; padding: 5px }
+      body,div,table,thead,tbody,tfoot,tr,th,td,p { font-family:"Calibri"; font-size:medium; text-align: center; padding: 4px }
       a.comment-indicator:hover + comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em;  } 
       a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em;  } 
       comment { display:none;  }
   %body
+    = image_tag "#{@domain_url}shivshakti_logo.png", :height => "330px", :width => "100%"
     %table{:border => "0", :cellspacing => "0"}
       %colgroup{:width => "71"}
       %colgroup{:width => "122"}
@@ -33,32 +34,32 @@
           %i
             %font{:color => "#000000", :size => "3"}
               %br/
-        %td{:align => "center", :colspan => "5", :style => "border-bottom: 2px solid #000000", :valign => "middle"}
+        %td{:align => "center", :colspan => "5", :style => "border-bottom: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :face => "Times New Roman", :size => "3"} Original For Receipient
       %tr
-        %td{:align => "left", :bgcolor => "#EBF1DE", :colspan => "9", :height => "30", :style => "border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#EBF1DE", :colspan => "9", :height => "30", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :face => "Times New Roman", :size => "4"} Details of Supplier
-        %td{:align => "left", :style => "border-top: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :face => "Times New Roman", :size => "4"}
               %br/
-        %td{:align => "left", :bgcolor => "#EBF1DE", :colspan => "5", :style => "border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#EBF1DE", :colspan => "5", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :face => "Times New Roman", :size => "4"} GSTIN : 24AHUPP1215B1ZN
       %tr
-        %td{:align => "left", :colspan => "9", :height => "24", :style => "border-left: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :colspan => "9", :height => "24", :style => "border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :face => "Times New Roman", :size => "4"} SHIV SHAKTI TRANSPORT CO.
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000", :face => "Times New Roman", :size => "4"}
             %br/
-        %td{:align => "left", :bgcolor => "#EBF1DE", :colspan => "5", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#EBF1DE", :colspan => "5", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :face => "Times New Roman", :size => "4"} PAN NO. : AHUPP1215B
       %tr
-        %td{:align => "left", :colspan => "9", :height => "25", :style => "border-left: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :colspan => "9", :height => "25", :style => "border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "4"} Address : 1, Ganshyam Park Society, S.P. Ring Road Circle, Asalali, Ahmedabad
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000"}
@@ -75,29 +76,29 @@
         %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} City
-        %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} City Pin
       %tr
-        %td{:align => "center", :colspan => "9", :height => "27", :style => "border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "center", :colspan => "9", :height => "27", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-bottom: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} India
-        %td{:align => "center", :style => "border-bottom: 2px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
+        %td{:align => "center", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} Gujarat
-        %td{:align => "center", :sdnum => "1033;", :sdval => "24", :style => "border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "center", :sdnum => "1033;", :sdval => "24", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} 24
-        %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} Ahmedabad
-        %td{:align => "center", :sdnum => "1033;", :sdval => "382427", :style => "border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "center", :sdnum => "1033;", :sdval => "382427", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} 382427
       %tr
@@ -148,28 +149,28 @@
             %font{:color => "#000000"}
               %br/
       %tr
-        %td{:align => "left", :bgcolor => "#FDEADA", :height => "30", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FDEADA", :height => "30", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} (Billed to)
-        %td{:align => "left", :bgcolor => "#FDEADA", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FDEADA", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"}
               %br/
-        %td{:align => "left", :bgcolor => "#FDEADA", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FDEADA", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"}
               %br/
-        %td{:align => "left", :bgcolor => "#FDEADA", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FDEADA", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"}
               %br/
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :bgcolor => "#FDEADA", :colspan=>"3", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FDEADA", :colspan=>"3", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} (Shipped to)
-        %td{:align => "left", :bgcolor => "#FDEADA", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FDEADA", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"}
               %br/
@@ -177,13 +178,13 @@
           %b
             %font{:color => "#000000", :size => "3"}
               %br/
-        %td{:align => "left", :bgcolor => "#EBF1DE", :colspan => "5", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#EBF1DE", :colspan => "5", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} Invoice Details : -
       %tr
-        %td{:align => "left", :height => "41", :style => "border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :height => "41", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} Name :
-        %td{:align => "left", :colspan => "3", :style => "border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :colspan => "3", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:face => "Times New Roman"}
               = @customer_bill.customer.b_name
@@ -191,9 +192,9 @@
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} Name :
-        %td{:align => "left", :colspan => "3", :style => "border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :colspan => "3", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:face => "Times New Roman"}
               = @customer_bill.customer.s_name
@@ -201,40 +202,40 @@
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} Invoice Type
-        %td{:align => "left", :style => "border-top: 2px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} SERVICE
-        %td{:align => "left", :style => "border-top: 2px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :style => "border-top: 2px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 2px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#FFFFFF"} 000002
       %tr
-        %td{:align => "left", :height => "30", :style => "border-top: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :height => "30", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} Address :
-        %td{:align => "left", :colspan => "3",:rowspan => "3", :style => "border-top: 2px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :colspan => "3",:rowspan => "3", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             = @customer_bill.customer.b_address
             %br/
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} Address :
-        %td{:align => "left", :colspan => "3", :rowspan => "3", :style => "border-top: 2px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :colspan => "3", :rowspan => "3", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             = @customer_bill.customer.s_address
             %br/
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} Invoice No
         %td{:align => "left", :colspan=>"2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
@@ -244,165 +245,165 @@
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
       %tr
-        %td{:align => "left", :height => "30", :style => "border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :height => "30", :style => "border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :bgcolor => "", :rowspan => "3", :style => "border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "", :rowspan => "3", :style => "border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :style => "border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} Invoice Date
-        %td{:align => "left", :colspan => "2", :sdnum => "1033;0;DD/MM/YYYY", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :colspan => "2", :sdnum => "1033;0;DD/MM/YYYY", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             = @customer_bill.invoice_date.to_datetime.to_s(:default_date)
             %br/
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
       %tr
-        %td{:align => "left", :height => "30", :style => "border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :height => "30", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :style => "border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} Vendor Code
-        %td{:align => "left", :colspan => "2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :colspan => "2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"}
               %br/
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
       %tr
-        %td{:align => "left", :height => "30", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :height => "30", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} City
-        %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} 
             = @customer_bill.customer.b_city
         %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} City PIN
-        %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             = @customer_bill.customer.b_pin_code
             %br/
         
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} City
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             = @customer_bill.customer.s_city
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} City PIN
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             = @customer_bill.customer.s_pin_code
             %br/
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} L.R. No.
-        %td{:align => "left", :colspan => "2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :colspan => "2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             = @customer_bill.lr_number
             %br/
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
       %tr
-        %td{:align => "left", :height => "30", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :height => "30", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} State
-        %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} 
             = @customer_bill.customer.b_state
         %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} State Code
-        %td{:align => "left", :bgcolor => "", :sdnum => "1033;", :sdval => "24", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "", :sdnum => "1033;", :sdval => "24", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} 
             = @customer_bill.customer.b_state_code
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} State
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             = @customer_bill.customer.s_state
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} State Code
-        %td{:align => "left", :sdnum => "1033;", :sdval => "24", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :sdnum => "1033;", :sdval => "24", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} 
             = @customer_bill.customer.s_state_code
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} L.R. Dt.
-        %td{:align => "left", :colspan => "2", :sdnum => "1033;0;DD/MM/YYYY", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :colspan => "2", :sdnum => "1033;0;DD/MM/YYYY", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             = @customer_bill.lr_date.to_datetime.to_s(:default_date)
             %br/
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
       %tr
-        %td{:align => "left", :height => "30", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :height => "30", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} Country
-        %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             = @customer_bill.customer.b_country
         %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} Country
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             = @customer_bill.customer.s_country
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
@@ -414,43 +415,43 @@
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
       %tr
-        %td{:align => "left", :height => "30", :style => "border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :height => "30", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} GSTIN
-        %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :face => "Times New Roman", :size => "3"}
               = @customer_bill.customer.b_gst_number
               %br/
-        %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} GSTIN
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :face => "Times New Roman", :size => "3"}
               = @customer_bill.customer.s_gst_number
               %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
         %td{:align => "left", :sdnum => "1033;0;DD/MM/YYYY", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
@@ -462,7 +463,7 @@
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
       %tr
@@ -512,31 +513,31 @@
           %font{:color => "#000000"}
             %br/
       %tr
-        %td{:align => "center", :height => "46", :rowspan => "2", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "center", :height => "46", :rowspan => "2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"}
               Sr.
               %br>/
               No.
-        %td{:align => "center", :rowspan => "2", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "center", :rowspan => "2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} Ref. Invoice No.
-        %td{:align => "left", :colspan => "8", :rowspan => "2", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :colspan => "8", :rowspan => "2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} Description of Goods/Services
-        %td{:align => "left", :rowspan => "2", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :rowspan => "2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} HSN/SAC Code
-        %td{:align => "center", :rowspan => "2", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "center", :rowspan => "2", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} UOM
-        %td{:align => "center", :rowspan => "2", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "center", :rowspan => "2", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} QTY/Unit
-        %td{:align => "center", :rowspan => "2", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "center", :rowspan => "2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} Rate
-        %td{:align => "center", :rowspan => "2", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "center", :rowspan => "2", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} Total Value (Rs.)
       %tr
@@ -545,7 +546,7 @@
         - count = @customer_bill.customer_bill_products.count
         - @customer_bill.customer_bill_products.each do |bill|
           %tr
-            %td{:align => "center", :height => "29", :sdnum => "1033;", :sdval => "1", :style => "border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+            %td{:align => "center", :height => "29", :sdnum => "1033;", :sdval => "1", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
               %font{:color => "#000000", :size => "3"} 1
             %td{:align => "center", :bgcolor => "", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
               %font{:color => "#000000", :size => "3"}
@@ -568,12 +569,12 @@
             %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
               %font{:color => "#000000", :size => "3"}
                 %br/
-            %td{:align => "right", :bgcolor => "", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-bottom: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+            %td{:align => "right", :bgcolor => "", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
               %font{:color => "#000000", :size => "3"}
                 = bill.rate
       - (5-count).times do |i|
         %tr
-          %td{:align => "center", :height => "29", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+          %td{:align => "center", :height => "29", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
             %font{:color => "#000000", :size => "3"}
               %br/
           %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
@@ -615,61 +616,61 @@
           %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
             %font{:color => "#000000", :size => "3"}
               %br/
-          %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-bottom: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+          %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
             %font{:color => "#000000", :size => "3"}
               %br/
       %tr
-        %td{:align => "left", :bgcolor => "#FFFF00", :height => "29", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FFFF00", :height => "29", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"}
               %br/
-        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} Subtotal
-        %td{:align => "left", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"}
               %br/
-        %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "1", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "1", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} 1.00
-        %td{:align => "left", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "left", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"}
               %br/
-        %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 2px solid #000000; border-bottom: 2px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"}
               = @customer_bill.total_amount
       %tr
-        %td{:align => "center", :height => "205", :rowspan => "7", :style => "border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "center", :height => "205", :rowspan => "7", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"}
               HSN / SAC
@@ -716,7 +717,7 @@
         %td{:align => "center", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
-        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
       %tr
@@ -753,7 +754,7 @@
           %b
             %font{:color => "#000000", :size => "3"}
               %br/
-        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
       %tr
@@ -794,7 +795,7 @@
           %b
             %font{:color => "#000000", :size => "3"}
               %br/
-        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"}
               %br/
@@ -823,7 +824,7 @@
         %td{:align => "left", :bgcolor => "#FFFF00",:colspan=>6, :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} TOTAL TAXABLE AMOUNT
-        %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"}
               = @customer_bill.total_amount
@@ -865,7 +866,7 @@
               %br/
         %td{:align => "right", :sdnum => "1033;0;0.00%", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} 0.00%
-        %td{:align => "right", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "right", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} -
       %tr
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
@@ -902,7 +903,7 @@
               %br/
         %td{:align => "right", :sdnum => "1033;0;0.00%", :sdval => "0.025", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} 2.50%
-        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
       %tr
@@ -940,11 +941,11 @@
               %br/
         %td{:align => "right", :sdnum => "1033;0;0.00%", :sdval => "0.025", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} 2.50%
-        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
       %tr
-        %td{:align => "left", :height => "29", :style => "border-left: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :height => "29", :style => "border-left: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
@@ -983,10 +984,10 @@
               %br/
         %td{:align => "right", :sdnum => "1033;0;0.00%", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} 0.00%
-        %td{:align => "right", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "right", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} -
       %tr
-        %td{:align => "left", :height => "29", :style => "border-left: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :height => "29", :style => "border-left: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
         %td{:align => "left", :valign => "middle"}
@@ -1017,31 +1018,18 @@
           %b
             %font{:color => "#000000", :size => "3"}
               %br/
-        %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} -
       %tr
-        %td{:align => "center", :height => "54", :rowspan => "2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 2px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "center", :height => "54", :rowspan => "2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} Invoice Value (Inwords) :
-        %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %td{:align => "center", :colspan=>"7", :rowspan => "2",  :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
-            %font{:color => "#000000", :size => "3"} Crores
-        %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-          %b
-            %font{:color => "#000000", :size => "3"} Lakhs
-        %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-          %b
-            %font{:color => "#000000", :size => "3"} Thousands
-        %td{:align => "center", :colspan => "2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-          %b
-            %font{:color => "#000000", :size => "3"} Hundreds
-        %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-          %b
-            %font{:color => "#000000", :size => "3"} Tens
-        %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-          %b
-            %font{:color => "#000000", :size => "3"} Units
+            %font{:color => "#000000", :size => "3"}
+          = number_to_currency_in_words(@customer_bill.total_amount, currency: :rupee).upcase
+
         %td{:align => "left", :bgcolor => "#FFFF00", :colspan => 5,:style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} TOTAL INVOICE VALUE
@@ -1049,112 +1037,67 @@
           %b
             %font{:color => "#000000", :size => "3"}
               %br/
-        %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"} 
               = @customer_bill.total_amount
       %tr
-        %td{:align => "center", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-          %b
-            %font{:color => "#000000", :size => "3"} -
-        %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-          %b
-            %font{:color => "#000000", :size => "3"}
-              %br/
-        %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-          %b
-            %font{:color => "#000000", :size => "3"}
-              %br/
-        %td{:align => "center", :colspan => "2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-          %b
-            %font{:color => "#000000", :size => "3"}
-              %br/
-        %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-          %b
-            %font{:color => "#000000", :size => "3"}
-              %br/
-        %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-          %b
-            %font{:color => "#000000", :size => "3"} -
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
-          %b
-            %font{:color => "#000000", :size => "3"}
-              %br/
-        %td{:align => "left", :valign => "middle"}
-          %font{:color => "#000000", :size => "3"}
-            %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
-          %b
-            %font{:color => "#000000", :size => "3"}
-              %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
-          %b
-            %font{:color => "#000000", :size => "3"}
-              %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
-          %b
-            %font{:color => "#000000", :size => "3"}
-              %br/
-        %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
-          %b
-            %font{:color => "#000000", :size => "3"}
-              %br/
-        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "center", :colspan => "7", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "3"}
               %br/
       %tr
-        %td{:align => "left", :colspan => "15", :height => "32", :style => "border-top: 1px solid #000000; border-bottom: 2px solid #000000; border-left: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :colspan => "15", :height => "32", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "4"} REMARKS : GST IS PAYABLE UNDER RCM
       %tr
-        %td{:align => "left", :height => "19", :style => "border-top: 2px solid #000000; border-left: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :height => "19", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :style => "border-top: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
       %tr
-        %td{:align => "left", :height => "20", :style => "border-left: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :height => "20", :style => "border-left: 1px solid #000000", :valign => "middle"}
           %b
             %i
               %font{:color => "#000000"}
@@ -1189,11 +1132,11 @@
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "center", :colspan => "4", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "center", :colspan => "4", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "4"} For Shiv Shakti Transport Co.
       %tr
-        %td{:align => "left", :height => "25", :style => "border-left: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :height => "25", :style => "border-left: 1px solid #000000", :valign => "middle"}
           %b
             %i
               %font{:color => "#000000"}
@@ -1237,11 +1180,11 @@
         %td{:align => "left", :valign => "bottom"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
       %tr
-        %td{:align => "left", :height => "28", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-left: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :height => "28", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-left: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000"}
               %br/
@@ -1276,11 +1219,11 @@
         %td{:align => "left", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "center", :colspan => "4", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "center", :colspan => "4", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-right: 1px solid #000000", :valign => "middle"}
           %b
             %font{:color => "#000000", :size => "4"} Proprietor
       %tr
-        %td{:align => "left", :height => "21", :style => "border-left: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :height => "21", :style => "border-left: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
         %td{:align => "left", :style => "", :valign => "middle"}
@@ -1304,54 +1247,54 @@
         %td{:align => "left", :style => "", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
       %tr
-        %td{:align => "left", :height => "21", :style => "border-bottom: 2px solid #000000; border-left: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :height => "21", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :height => "21", :style => "border-bottom: 2px solid #000000;", :valign => "middle"}
+        %td{:align => "left", :height => "21", :style => "border-bottom: 1px solid #000000;", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :height => "21", :style => "border-bottom: 2px solid #000000;", :valign => "middle"}
-          %font{:color => "#000000"}
-            %br/
-
-        %td{:align => "left", :height => "21", :style => "border-bottom: 2px solid #000000;", :valign => "middle"}
-          %font{:color => "#000000"}
-            %br/
-        %td{:align => "left", :height => "21", :style => "border-bottom: 2px solid #000000;", :valign => "middle"}
-          %font{:color => "#000000"}
-            %br/
-        %td{:align => "left", :height => "21", :style => "border-bottom: 2px solid #000000;", :valign => "middle"}
-          %font{:color => "#000000"}
-            %br/
-        %td{:align => "left", :height => "21", :style => "border-bottom: 2px solid #000000;", :valign => "middle"}
-          %font{:color => "#000000"}
-            %br/
-        %td{:align => "left", :height => "21", :style => "border-bottom: 2px solid #000000;", :valign => "middle"}
+        %td{:align => "left", :height => "21", :style => "border-bottom: 1px solid #000000;", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
 
-        %td{:align => "left", :height => "21", :style => "border-bottom: 2px solid #000000;", :valign => "middle"}
+        %td{:align => "left", :height => "21", :style => "border-bottom: 1px solid #000000;", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :height => "21", :style => "border-bottom: 2px solid #000000;", :valign => "middle"}
+        %td{:align => "left", :height => "21", :style => "border-bottom: 1px solid #000000;", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :height => "21", :style => "border-bottom: 2px solid #000000;", :valign => "middle"}
+        %td{:align => "left", :height => "21", :style => "border-bottom: 1px solid #000000;", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :height => "21", :style => "border-bottom: 2px solid #000000;", :valign => "middle"}
+        %td{:align => "left", :height => "21", :style => "border-bottom: 1px solid #000000;", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :height => "21", :style => "border-bottom: 2px solid #000000;", :valign => "middle"}
+        %td{:align => "left", :height => "21", :style => "border-bottom: 1px solid #000000;", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :height => "21", :style => "border-bottom: 2px solid #000000;", :valign => "middle"}
+
+        %td{:align => "left", :height => "21", :style => "border-bottom: 1px solid #000000;", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
-        %td{:align => "left", :height => "21", :style => "border-bottom: 2px solid #000000; border-right: 2px solid #000000", :valign => "middle"}
+        %td{:align => "left", :height => "21", :style => "border-bottom: 1px solid #000000;", :valign => "middle"}
+          %font{:color => "#000000"}
+            %br/
+        %td{:align => "left", :height => "21", :style => "border-bottom: 1px solid #000000;", :valign => "middle"}
+          %font{:color => "#000000"}
+            %br/
+        %td{:align => "left", :height => "21", :style => "border-bottom: 1px solid #000000;", :valign => "middle"}
+          %font{:color => "#000000"}
+            %br/
+        %td{:align => "left", :height => "21", :style => "border-bottom: 1px solid #000000;", :valign => "middle"}
+          %font{:color => "#000000"}
+            %br/
+        %td{:align => "left", :height => "21", :style => "border-bottom: 1px solid #000000;", :valign => "middle"}
+          %font{:color => "#000000"}
+            %br/
+        %td{:align => "left", :height => "21", :style => "border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000"}
             %br/
