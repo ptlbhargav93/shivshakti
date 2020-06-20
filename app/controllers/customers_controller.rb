@@ -67,7 +67,7 @@ class CustomersController < ApplicationController
   end
 
   def fetch_customers
-    customers = current_user.customers.all
+    customers = Customer.all
     if params[:search].present?
       search = session[:register_customer_search] = params[:search]
     else

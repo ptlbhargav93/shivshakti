@@ -24,14 +24,20 @@
                     .card-row
                       %label.label-view
                         %span
-                          = "Invoice date"
-                      %label.label-value
-                        = @customer_bill.invoice_date.to_datetime.to_s(:default_date) if @customer_bill.invoice_date
+                          = "L R number"
+                      %label.label-value= @customer_bill.lr_number
                     .card-row
                       %label.label-view
                         %span
-                          = "L R number"
-                      %label.label-value= @customer_bill.lr_number
+                          = "P O number"
+                      %label.label-value= @customer_bill.po_number
+                  .col-xs-12.col-md-6
+                    .card-row
+                      %label.label-view
+                        %span
+                          = "Invoice date"
+                      %label.label-value
+                        = @customer_bill.invoice_date.to_datetime.to_s(:default_date) if @customer_bill.invoice_date
                     .card-row
                       %label.label-view
                         %span
@@ -41,9 +47,18 @@
                     .card-row
                       %label.label-view
                         %span
-                          = "Total amount"
-                      %label.label-value
-                        = @customer_bill.total_amount
+                          = "Vendor code"
+                      %label.label-value= @customer_bill.vendor_code
+                  .row.row10
+                    .col-xs-12
+                      .hr.h25
+                    .col-xs-6
+                      .card-row
+                        %label.label-view
+                          %span.form-group.formTitle
+                            = "Total amount"
+                        %label.label-value
+                          = @customer_bill.total_amount
                 .row.row10
                   .col-xs-12
                     .hr.h25
@@ -182,13 +197,17 @@
               = image_tag "save_and_next_btn.png", :class => "mt15"
             = link_to print_invoice_pdf_path(@customer_bill.id, format: 'html'), class: "h15 stepBtn nextBtn" do
               %span
-                = t("form_action_button.view invoice pdf")
+                = t("form_action_button.preview_bill")
               = image_tag "print_profile.png", :class => "mt15"
             = link_to print_invoice_pdf_path(@customer_bill.id, format: 'pdf', without_image: "true"), class: "h15 stepBtn nextBtn" do
               %span
-                = t("form_action_button.print invoice pdf")
+                = t("form_action_button.download_invoice_withtout_logo").html_safe
               = image_tag "print_profile.png", :class => "mt15"
+            = link_to print_invoice_pdf_path(@customer_bill.id, format: 'pdf', without_image: "false"), class: "h15 stepBtn nextBtn" do
+              %span
+                = t("form_action_button.download_invoice_with_logo").html_safe
+              = image_tag "down-arrow.png", :class => "mt15"
             %a.h15.stepBtn.nextBtn{"data-target" => "#SendInvoiceToAccountant", "data-toggle" => "modal"}
-              .flexCol.dib.w100p
-                %div
-                  = t('send_bills.send_invoice_information_to_accountant').html_safe
+              %span= t('send_bills.send_invoice_information_to_accountant').html_safe
+              = image_tag "email_btn.png", :class => "mt15"
+

@@ -5,7 +5,7 @@
         %tbody
           %tr
             %td#stepBtnHeight.leftCol{:width => "80%"}
-              .formBox.view-details
+              .formBox.view-details.minH500
                 .formHeader.clearfix
                   %h1
                     = "Customer card"
@@ -98,6 +98,9 @@
               = image_tag "back_btn.png", :class => "mt15"
             %a.h15.stepBtn.nextBtn{:href => edit_customer_path(@customer, :step => 1), :action => :open_card_param }
               %span= t("form_action_button.edit_basic_information")
+              = image_tag "save_and_next_btn.png", :class => "mt15"
+            %a.h15.stepBtn.nextBtn{:href => customer_bills_path(:bill_customer => @customer.id)}
+              %span= t("form_action_button.view_bills")
               = image_tag "save_and_next_btn.png", :class => "mt15"
             %a.h15.stepBtn.nextBtn{:href => customer_path, "data-method" => :delete, data: { confirm: 'Are you sure?' }}
               %span= t("form_action_button.delete")

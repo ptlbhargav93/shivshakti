@@ -7,6 +7,9 @@
     %a.rxBox1{:href => new_customer_bill_path, :class => 'btn btn-primary right btn-lg'}
       %i.fa.fa-plus-circle
       = "Create cutomer bill"
+    %a.rxBox1.mr5{:href => customer_path(@customer.id), :class => 'btn btn-primary right btn-lg'}
+      %i.fa.fa-plus-circle
+      = "View cutomer details"
 %br
 .scroll.row.row-10
   .col-xs-12.col-10

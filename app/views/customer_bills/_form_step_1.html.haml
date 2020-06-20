@@ -26,6 +26,10 @@
                       %i.fa.fa-calendar
                   - if @customer_bill.errors[:invoice_date].any?
                     %span.text-error.text-message= @customer_bill.errors[:invoice_date].first
+                #po_number.form-group
+                  = f.text_field :po_number, :class => "form-control",:placeholder => "P O number"
+                  - if @customer_bill.errors[:po_number].any?
+                    %span.text-error.text-message= @customer_bill.errors[:po_number].first
               .col-xs-12.col-sm-6
                 #lr_number.form-group
                   = f.text_field :lr_number, :class => "form-control",:placeholder => "L R number"
@@ -38,6 +42,10 @@
                       %i.fa.fa-calendar
                   - if @customer_bill.errors[:lr_date].any?
                     %span.text-error.text-message= @customer_bill.errors[:lr_date].first
+                #vendor_code.form-group
+                  = f.text_field :vendor_code, :class => "form-control",:placeholder => "Vendor code"
+                  - if @customer_bill.errors[:vendor_code].any?
+                    %span.text-error.text-message= @customer_bill.errors[:vendor_code].first
 
               .col-xs-12
                 .row

@@ -13,7 +13,7 @@
             .row
               .col-xs-12.col-sm-6
                 = hidden_field_tag 'step', '1'
-                #name.form-group
+                #b_name.form-group
                   = f.text_field :b_name, :class => "form-control",:placeholder => "Full Name"
                   - if @customer.errors[:name].any?
                     %span.text-error.text-message= @customer.errors[:name].first
@@ -37,7 +37,7 @@
                       = f.text_field :b_state_code, :value=>@customer.b_state_code.present? ? @customer.b_state_code : "24", :class => "form-control", :placeholder => "Billing state code"
                 #country.form-group
                   = f.text_field :b_country, :value=> @customer.b_country.present? ? @customer.b_country : "INDIA", :class => "form-control", :placeholder => "Billing country"
-                #gst_number.form-group
+                #b_gst_number.form-group
                   = f.text_field :b_gst_number, :class => "form-control", :placeholder => "GST number"
                 #country.form-group
                   %label.checkBox{:id => "is_shipping_#{@customer.id}", :class => "is_shipping"}
@@ -45,7 +45,7 @@
                     %span.lbl
                       = "Is billing address same as shipping address ?"
               .col-xs-12.col-sm-6
-                #name.form-group
+                #s_name.form-group
                   = f.text_field :s_name, :class => "form-control",:placeholder => "Full Name"
                   - if @customer.errors[:name].any?
                     %span.text-error.text-message= @customer.errors[:name].first
@@ -69,7 +69,7 @@
                       = f.text_field :s_state_code, :value=>@customer.s_state_code.present? ? @customer.s_state_code : "24", :class => "form-control", :placeholder => "Shipping state code"
                 #country.form-group
                   = f.text_field :s_country, :value=> @customer.s_country.present? ? @customer.s_country : "INDIA", :class => "form-control", :placeholder => "Shipping country"
-                #gst_number.form-group
+                #s_gst_number.form-group
                   = f.text_field :s_gst_number, :class => "form-control", :placeholder => "GST number"
                 .btn.btn-primary.btn-md.right#clear_shipping
                   = "Clear Shipping Details"

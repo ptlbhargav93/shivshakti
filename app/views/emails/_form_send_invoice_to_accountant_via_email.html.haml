@@ -29,7 +29,7 @@
                       .col-xs-12
                         .form-group
                           = link_to print_invoice_pdf_path(object.id, format: 'pdf', without_image: "false"), class: "stepBtn nextBtn btn_height_class" do
-                            %span=t("send_bills.file_name_bill_archive_attachment", :name => object.customer.b_name, :date => object.invoice_date.strftime("%m/%Y"))
+                            %span=t("send_bills.file_name_bill_archive_attachment", :name => object.customer.b_name, :date => object.invoice_date.strftime("%m/%Y"), :rate => object.total_amount, :invoice_number => object.invoice_number)
                           %a.remove-file-1.remove-media-file.dib{:id => "removeAccountantAttachement", :class => "removeAccountantAttachement"}
                             .remove-preview-file.remove
                               %i.fa.fa-times

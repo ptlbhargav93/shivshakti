@@ -28,8 +28,7 @@ class PdfController < ApplicationController
 
   def print_invoice
     @customer_bill = CustomerBill.find(params[:id])
-    subject = "#{@customer_bill.customer.b_name.gsub(' ', '_')}"
-    # raise params[:without_image].inspect
+    subject = t("send_bills.file_name_bill_archive_attachment",:name => @customer_bill.customer.b_name, :date => @customer_bill.invoice_date.strftime("%m/%Y"), :invoice_number => @customer_bill.invoice_number, :rate => @customer_bill.total_amount) 
     @without_image = params[:without_image].to_s || "false"
     respond_to do |format|
       format.html

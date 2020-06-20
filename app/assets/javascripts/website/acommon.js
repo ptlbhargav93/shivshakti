@@ -191,23 +191,35 @@ $(document).ready(function(){
 
   $('#customer_is_shipping').click(function(){
     if($(this).is(":checked")) {
+      $("#customer_s_name").val($("#customer_b_name").val())
       $("#customer_s_address").val($("#customer_b_address").val())
       $("#customer_s_city").val($("#customer_b_city").val())
       $("#customer_s_pin_code").val($("#customer_b_pin_code").val())
       $("#customer_s_state").val($("#customer_b_state").val())
       $("#customer_s_state_code").val($("#customer_b_state_code").val())
       $("#customer_s_country").val($("#customer_b_country").val())
+      $("#customer_s_gst_number").val($("#customer_b_gst_number").val())
     }
   });
 
   $('#clear_shipping').click(function(){
     $('#customer_is_shipping').prop("checked", false);
+    $("#customer_s_name").val('')
     $("#customer_s_address").val('')
     $("#customer_s_city").val('')
     $("#customer_s_pin_code").val('')
     $("#customer_s_state").val('')
     $("#customer_s_state_code").val('')
     $("#customer_s_country").val('')
+    $("#customer_s_gst_number").val('')
+  });
+
+  $('.amountClass').on( 'change', function(){
+    var sum = 0;
+    $('.amountClass').each(function(){
+        sum += +$(this).val();
+    });
+    $("#customer_bill_total_amount").val(sum)
   });
 
   $("#add_visiting_address").click(function(){

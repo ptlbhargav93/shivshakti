@@ -13,7 +13,7 @@
         .col-xs-12.col-sm-6.form-group
           = f.text_field :quantity, :value => (f.object.quantity.present? ? f.object.quantity : ''), :class => "form-control", :placeholder => "Quantity"
         .col-xs-12.col-sm-6.form-group
-          = f.text_field :rate, :value => (f.object.rate.present? ? f.object.rate : ''), :class => "form-control", :placeholder => "Amount"
+          = f.text_field :rate, :value => (f.object.rate.present? ? f.object.rate : ''), :class => "form-control amountClass", :placeholder => "Amount"
       = link_to_remove_association f, :class => 'addLink' do
         %i.removeIcon
         = t('clinic.remove')

@@ -1101,6 +1101,10 @@ en:
     button:
       confirm: 'Confirm'
   form_action_button:
+    view_bills: View Bills
+    preview_bill: Preview bill
+    download_invoice_withtout_logo: Download bill <b>WITHOUT</b> logo
+    download_invoice_with_logo: Download bill <b>WITH</b> logo
     edit_reward_details: Edit reward details
     edit_payment_rules: Edit payment rules
     assign_to_clinics: Assign to chosen clinics
@@ -1594,12 +1598,12 @@ en:
     please_unlock_invoice_first: Please unlock Invoice first.
     copy_of_invoice_date: "copy of invoice, period %{date}" 
     copy_of_reward_detail: "copy of reward details, period %{date}" 
-    file_name_bill_archive_attachment: "%{name}, period %{date}" 
+    file_name_bill_archive_attachment: "%{name} - %{rate} - %{invoice_number}" 
     dbm_info: DBM-INFO
     browse_and_search_postning_invoices: "Browse and search postning invoices"
     press_hear_to_lock_this_invoice_quality_check: <b><i>Press here to lock this invoice for quality check</i></b>
     press_hear_to_unlock_this_invoice_quality_check: <b><i>Press here to unlock this invoice for quality check</i></b>
-    send_invoice_information_to_accountant: Send invoice information to client
+    send_invoice_information_to_accountant: Send Email
     press_hear_to_send_it_via_email_to_professional:  SENT IT VIA EMAIL TO PROFESSIONAL
     press_hear_to_send_que_regard_invoice:  SEND A QUESTION(S) REGARDING INVOICE
     press_hear_to_fill_invoice_data: FILL INVOICE DATA
