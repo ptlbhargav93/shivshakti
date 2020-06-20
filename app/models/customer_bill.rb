@@ -14,4 +14,16 @@ class CustomerBill < ActiveRecord::Base
   validates :customer, :presence => true
 	validates :invoice_number, :presence => true
 	validates :invoice_date, :presence => true
+
+  def self.localize_months_values
+    array = []
+    months = []
+    months = Date::MONTHNAMES.compact
+    months.each_with_index do |name,idx|
+      idx = idx+1
+      display_name = I18n.t("activerecord.attributes.#{model_name.i18n_key}.months.#{name.downcase}", default: name.titleize)
+      array << [display_name, idx]
+    end
+    array
+  end
 end

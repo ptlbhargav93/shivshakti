@@ -652,7 +652,8 @@
           %br/
     %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "1", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} 1.00
+        %font{:color => "#000000", :size => "3"}
+          = @customer_bill.customer_bill_products.pluck(:quantity).inject(:+)
     %td{:align => "left", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
@@ -718,7 +719,8 @@
     %td{:align => "right", :sdnum => "1033;0;0%", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"} 0%
     %td{:align => "right", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "1", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"} 1.00
+      %font{:color => "#000000", :size => "3"}
+        = @customer_bill.customer_bill_products.pluck(:quantity).inject(:+)
     %td{:align => "left", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/

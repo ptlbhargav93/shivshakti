@@ -7,7 +7,7 @@ $(document).ready(function(){
     $('#filterFormId').submit();
   });
 
-  $(document).on('keyup', '#search',  function() {
+  $(document).on('keyup', '#search, #city, #state',  function() {
     clearTimeout(t);    
     t = setTimeout(function () {
       $('#filterFormId').submit();

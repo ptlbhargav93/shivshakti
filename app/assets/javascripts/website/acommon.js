@@ -354,6 +354,14 @@ function common_events(){
 
   // virtual keyboard
   $('.container').on('cocoon:after-insert', function(e, insertedItem) {
+
+    $('.amountClass').on( 'change', function(){
+      var sum = 0;
+      $('.amountClass').each(function(){
+          sum += +$(this).val();
+      });
+      $("#customer_bill_total_amount").val(sum)
+    });
     if ($("#pc_browser").val() != 'true') {
       $('.virtualKeyboard').attr('readonly', true);
     }    

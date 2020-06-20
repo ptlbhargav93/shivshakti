@@ -12,13 +12,15 @@ class CustomerBillsController < ApplicationController
       @customer = Customer.find(session[:bill_customer])
     end
     @nav_header_menus = [
-                          {:href => root_path, :label => t("nav_header.start"), :arrowBack => true}
+                          {:href => root_path, :label => t("nav_header.start"), :arrowBack => false},
+                          {:href => customers_path, :label => t("nav_header.customers"), :arrowBack => true}
                         ]
     @back_to_top = true
     @customer_bills = fetch_customer_bills.page(page).per(first_limit)
   end
 
   def customer_bill_filter
+    @customer = Customer.find(session[:bill_customer])
     @customer_bills = fetch_customer_bills.page(page).per(first_limit)
   end
 
@@ -37,8 +39,7 @@ class CustomerBillsController < ApplicationController
 
   def create
     @customer_bill = CustomerBill.new(customer_bill_params.merge(:creator_id => current_user.id))
-    # raise @customer_bill.inspect
-    if @customer_bill.save!
+    if @customer_bill.save
       redirect_to customer_bill_path(@customer_bill)
     else
       @customer = Customer.find(session[:bill_customer])
@@ -46,7 +47,12 @@ class CustomerBillsController < ApplicationController
     end
   end
 
+  def show
+    nav_header
+  end
+
   def edit
+    nav_header
     @step = params[:step] || 1
   end
 
@@ -78,6 +84,16 @@ class CustomerBillsController < ApplicationController
     @customer_bill = CustomerBill.find(params[:id])
   end
 
+  def calculate_month_year
+    unless params[:year].present? or params[:month].present?
+      date = session[:billing_period].present? ? session[:billing_period].to_datetime : Date.today
+      params[:year] = date.year
+      params[:month] = date.month
+    end
+    @billing_period = Date.new(params[:year].to_i,params[:month].to_i)
+    session[:billing_period] = @billing_period
+  end
+
   def fetch_customer_bills
     if session[:bill_customer].present?
       customer = Customer.find(session[:bill_customer])
@@ -97,19 +113,18 @@ class CustomerBillsController < ApplicationController
     end
     if search.present?
       session[:register_customer_bill_search] = search
-      customer_bills = customer_bills.joins(:customer)
-      search.split(' ').each do |s|
-        if s.present?
-          customer_bills = customer_bills.where('customer_bills.invoice_number LIKE :s or customers.name LIKE :s or customers.address1 LIKE :s or customers.gst_number LIKE :s or customers.phone_number LIKE :s or customers.address2 LIKE :s', :s => "%#{s}%")
-        end
-      end
+      customer_bills = customer_bills.where('invoice_number LIKE :s', :s => "%#{search.delete(' ')}%")
     end
-    customer_bills.order('customer_bills.invoice_date DESC').uniq
+    @years = customer_bills.select('extract(year from invoice_date) as year').group('year').map{|e| e.year}.compact.reject(&:blank?)
+    calculate_month_year
+    customer_bills = customer_bills.where('extract(year from invoice_date) = ? and extract(month from invoice_date) = ?', @billing_period.year, @billing_period.month)
+    customer_bills = params[:order].present? ? customer_bills.order("id #{params[:order]}").distinct : customer_bills.order('id DESC')
   end
 
   def nav_header
     @nav_header_menus = [
-                          {:href => root_path, :label => t("nav_header.desktop"), :arrowBack => true}
+                          {:href => root_path, :label => t("nav_header.desktop"), :arrowBack => false},
+                          {:href => customers_path, :label => t("nav_header.customers"), :arrowBack => true}
                         ]
   end
 

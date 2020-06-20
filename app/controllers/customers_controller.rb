@@ -77,16 +77,39 @@ class CustomersController < ApplicationController
         search = session[:register_customer_search] if session[:register_customer_search].present?
       end
     end
-    if search.present?
-      session[:register_customer_search] = search
-      customers = customers.joins("LEFT JOIN cities ON customers.city_id = cities.id LEFT JOIN areas ON customers.area_id = areas.id")
-      search.split(' ').each do |s|
-        if s.present?
-          customers = customers.where('areas.name LIKE :s or cities.name LIKE :s or customers.name LIKE :s or customers.person_name LIKE :s or customers.gst_number LIKE :s or customers.mobile_number1 LIKE :s or customers.mobile_number2 LIKE :s or CONCAT(customers.name,customers.person_name) LIKE :s', :s => "%#{s}%")
-        end
+
+    if params[:city].present?
+      city = session[:register_customer_city] = params[:city]
+    else
+      if params[:role].present?
+        city = session[:register_customer_city] = nil
+      else
+        city = session[:register_customer_city] if session[:register_customer_city].present?
       end
     end
-    customers.order('id DESC').uniq
+
+    if params[:state].present?
+      state = session[:register_customer_state] = params[:state]
+    else
+      if params[:role].present?
+        state = session[:register_customer_state] = nil
+      else
+        state = session[:register_customer_state] if session[:register_customer_state].present?
+      end
+    end
+    if search.present?
+      session[:register_customer_search] = search
+      customers = customers.where('b_name LIKE :s or s_name LIKE :s', :s => "%#{search.delete(' ')}%")
+    end
+    if city.present?
+      session[:register_customer_city] = city
+      customers = customers.where('b_city LIKE :s or s_city LIKE :s', :s => "#{city.delete(' ')}%")
+    end
+    if state.present?
+      session[:register_customer_state] = state
+      customers = customers.where('b_state LIKE :s or s_state LIKE :s', :s => "#{state.delete(' ')}%")
+    end
+    customers = params[:order].present? ? customers.order("id #{params[:order]}").distinct : customers.order('id DESC')
   end
 
   def nav_header
