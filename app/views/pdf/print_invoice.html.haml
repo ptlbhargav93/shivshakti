@@ -6,10 +6,15 @@
 
 = link_to 'Back', :back, class: "h15 stepBtn previous btn btn-primary"
 = wicked_pdf_image_tag "#{@domain_url}shivshakti_logo.png", :height => "230px", :width => "100%"  
-- rate = @customer_bill.customer_bill_products.pluck(:rate)
+- if @customer_bill.customer_bill_products.count > 0
+  - rate = @customer_bill.customer_bill_products.pluck(:rate)
+- else
+  - rate = [0]
 - subtotal = rate.inject(:+)
-- cgst = (subtotal*@customer_bill.cgst/100).round(2)
-- sgst = (subtotal*@customer_bill.sgst/100).round(2)
+- cgst = 0
+- sgst = 0
+- cgst = (subtotal*@customer_bill.cgst/100).round(2) if @customer_bill.cgst
+- sgst = (subtotal*@customer_bill.sgst/100).round(2) if @customer_bill.sgst
 - total_gst_amount = cgst+sgst
 - total_tax_amount = @customer_bill.total_amount - subtotal
 %table{:border => "0", :cellspacing => "0"}
@@ -912,11 +917,11 @@
           %br/
     %td{:align => "right", :sdnum => "1033;0;0.00%", :sdval => "0.025", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
-        = @customer_bill.cgst
+        = @customer_bill.cgst || 0.00
         = "%"
     %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
-        = cgst
+        = cgst == 0 ? "-" : cgst
   %tr
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
@@ -952,11 +957,11 @@
           %br/
     %td{:align => "right", :sdnum => "1033;0;0.00%", :sdval => "0.025", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
-        = @customer_bill.sgst
+        = @customer_bill.sgst || 0.00
         = "%"
     %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
-        = sgst
+        = sgst == 0 ? "-" : sgst
   %tr
     %td{:align => "left", :height => "29", :style => "border-left: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
@@ -1034,7 +1039,7 @@
     %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
-        = total_gst_amount
+        = total_gst_amount == 0 ? "-" : total_gst_amount
   %tr
     %td{:align => "center", :height => "54", :rowspan => "2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b

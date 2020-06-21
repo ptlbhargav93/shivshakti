@@ -368,7 +368,7 @@ function common_events(){
   // virtual keyboard
   $('.container').on('cocoon:after-insert', function(e, insertedItem) {
 
-    $('.amountClass .amountClass1').on( 'change', function(){
+    $('.amountClass, .amountClass1').on( 'change', function(){
       var sum = 0;
       var cgst = 0;
       var sgst = 0;
@@ -383,10 +383,8 @@ function common_events(){
       if ($("#customer_bill_sgst").val() != ""){
         sgst = parseFloat(sum*$("#customer_bill_sgst").val()/100)
       }
-      if (sum > 0){
-        sum = (parseFloat(sum)+parseFloat(cgst)+parseFloat(sgst)).toFixed(2)
-      }
-
+      console.log(sgst)
+      sum = (parseFloat(sum)+parseFloat(cgst)+parseFloat(sgst)).toFixed(2)
 
       $("#customer_bill_total_amount").val(sum)
     });
