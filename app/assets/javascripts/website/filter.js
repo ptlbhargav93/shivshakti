@@ -2,7 +2,7 @@ $(document).ready(function(){
   var t;
 
   // common filter event
-  $('#filterFormId').on( 'change', 'select', function(){
+  $('#filterFormId').on( 'change', function(){
     $('#loader-image').show();
     $('#filterFormId').submit();
   });

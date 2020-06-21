@@ -95,6 +95,8 @@ class CustomerBillsController < ApplicationController
     @years = CustomerBill.select('extract(year from invoice_date) as year').group('year').map{|e| e.year.to_i}.compact.reject(&:blank?)
     if params[:year].present? and params[:month].present?
       customer_bills = CustomerBill.where('extract(year from invoice_date) = ? and extract(month from invoice_date) = ?', params[:year], params[:month])
+      directory = "#{Rails.root}/public/pdfs/" # full path-to-unzipped-dir
+      FileUtils.rm_f Dir.glob("#{directory}*")
       customer_bills.each do |bill|
         @customer_bill = bill
         invoice_pdf_name = t("send_bills.file_name_bill_archive_attachment",:name => @customer_bill.customer.b_name, :date => @customer_bill.invoice_date.strftime("%m/%Y"), :invoice_number => @customer_bill.invoice_number, :rate => @customer_bill.total_amount) 
@@ -109,9 +111,8 @@ class CustomerBillsController < ApplicationController
           file << pdf
         end
       end
-      directory = "#{Rails.root}/public/pdfs/" # full path-to-unzipped-dir
       file_name = "#{params[:month]}_#{params[:year]}_bill_archive_#{DateTime.now.to_i}.zip"
-      zipfile_name = "#{Rails.root}/#{file_name}" # full path-to-zip-file
+      zipfile_name = "#{directory}/#{file_name}" # full path-to-zip-file
 
       Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
         Dir[File.join(directory, '*')].each do |file|

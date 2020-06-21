@@ -1,6 +1,6 @@
 .filterTop
   .row
-    = form_for '', :url => bulk_download_customer_bills_path, :method => 'post', :html => {:id => "filterFormId"} do
+    = form_for '', :url => bulk_download_customer_bills_path, :method => 'post', :html => {:id => "filterFormId112"} do
       .col-xs-12.col-sm-4
         = select_tag "month", options_for_select(CustomerBill.localize_months_values,Date.today.month), :class => "form-control"
       .col-xs-12.col-sm-4
