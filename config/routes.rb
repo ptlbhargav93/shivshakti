@@ -74,6 +74,7 @@ Rails.application.routes.draw do
       collection do
         post "/search/customer_bill_filter" => "customer_bills#customer_bill_filter", :as => :customer_bill_filter
         get 'next/:page', to: 'customer_bills#next_customer_bills', as: 'next'
+        match 'bulk_download', to: 'customer_bills#bulk_download', as: 'bulk_download', via: [:get, :post]
       end
     end
 

@@ -7,6 +7,8 @@ class CustomerBillsController < ApplicationController
   def index
     if params[:bill_customer].present?
       session[:bill_customer] = params[:bill_customer]
+    else
+      session[:bill_customer] = nil
     end
     if session[:bill_customer]
       @customer = Customer.find(session[:bill_customer])
@@ -20,7 +22,7 @@ class CustomerBillsController < ApplicationController
   end
 
   def customer_bill_filter
-    @customer = Customer.find(session[:bill_customer])
+    @customer = Customer.find(session[:bill_customer]) if session[:bill_customer]
     @customer_bills = fetch_customer_bills.page(page).per(first_limit)
   end
 
@@ -89,6 +91,37 @@ class CustomerBillsController < ApplicationController
     end
   end
 
+  def bulk_download
+    @years = CustomerBill.select('extract(year from invoice_date) as year').group('year').map{|e| e.year.to_i}.compact.reject(&:blank?)
+    if params[:year].present? and params[:month].present?
+      customer_bills = CustomerBill.where('extract(year from invoice_date) = ? and extract(month from invoice_date) = ?', params[:year], params[:month])
+      customer_bills.each do |bill|
+        @customer_bill = bill
+        invoice_pdf_name = t("send_bills.file_name_bill_archive_attachment",:name => @customer_bill.customer.b_name, :date => @customer_bill.invoice_date.strftime("%m/%Y"), :invoice_number => @customer_bill.invoice_number, :rate => @customer_bill.total_amount) 
+        invoice_content = render_to_string(:layout => "pdf.html", :template => 'pdf/print_invoice.pdf.haml')
+        pdf = WickedPdf.new.pdf_from_string(
+            invoice_content,  pdf: invoice_pdf_name,
+                                    viewport_size: '1280x1024',
+                                    :margin => { :top => 10, :bottom => 3, :left => 10, :right => 10})
+        # then save to a file
+        save_path = Rails.root.join('public/pdfs/',invoice_pdf_name)
+        File.open(save_path, 'wb') do |file|
+          file << pdf
+        end
+      end
+      directory = "#{Rails.root}/public/pdfs/" # full path-to-unzipped-dir
+      file_name = "#{params[:month]}_#{params[:year]}_bill_archive_#{DateTime.now.to_i}.zip"
+      zipfile_name = "#{Rails.root}/#{file_name}" # full path-to-zip-file
+
+      Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
+        Dir[File.join(directory, '*')].each do |file|
+          zipfile.add(file.sub(directory, ''), file)
+        end
+      end
+      send_file(zipfile_name, filename: file_name,type: "application/zip")
+    end
+  end
+
   private
 
   def set_customer_bill
@@ -124,7 +157,7 @@ class CustomerBillsController < ApplicationController
     end
     if search.present?
       session[:register_customer_bill_search] = search
-      customer_bills = customer_bills.where('invoice_number LIKE :s', :s => "%#{search.delete(' ')}%")
+      customer_bills = customer_bills.where('invoice_number LIKE :s', :s => "#{search.delete(' ')}%")
     end
     @years = customer_bills.select('extract(year from invoice_date) as year').group('year').map{|e| e.year}.compact.reject(&:blank?)
     # calculate_month_year

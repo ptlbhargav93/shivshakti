@@ -1,4 +1,5 @@
 .container
+  = render :partial => 'bulk_download' unless session[:bill_customer].present?
   = render :partial => 'customer_bill_filter'
   #filter_customer_bills
     = render :partial => "fetchAll"

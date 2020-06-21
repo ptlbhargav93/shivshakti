@@ -1,17 +1,16 @@
-.row
-  .col-xs-6
-    .left
-      - if @customer
+- if @customer
+  .row
+    .col-xs-6
+      .left
         %h3
           = @customer.b_name
-  .col-xs-6
-    %a.rxBox1{:href => new_customer_bill_path, :class => 'btn btn-primary right btn-lg'}
-      %i.fa.fa-plus-circle
-      = "Create cutomer bill"
-    - if @customer
-      %a.rxBox1.mr5{:href => customer_path(@customer.id), :class => 'btn btn-primary right btn-lg'}
+    .col-xs-6
+      %a.rxBox1{:href => new_customer_bill_path, :class => 'btn btn-primary right btn-lg'}
         %i.fa.fa-plus-circle
-        = "View cutomer details"
+        = "Create cutomer bill"
+        %a.rxBox1.mr5{:href => customer_path(@customer.id), :class => 'btn btn-primary right btn-lg'}
+          %i.fa.fa-plus-circle
+          = "View cutomer details"
 %br
 .scroll.row.row-10
   .col-xs-12.col-10

@@ -214,11 +214,24 @@ $(document).ready(function(){
     $("#customer_s_gst_number").val('')
   });
 
-  $('.amountClass').on( 'change', function(){
+  $('.amountClass, .amountClass1').on( 'change', function(){
     var sum = 0;
+    var cgst = 0;
+    var sgst = 0;
     $('.amountClass').each(function(){
         sum += +$(this).val();
     });
+    console.log(sum)
+    if ($("#customer_bill_cgst").val() != ""){
+      cgst = parseFloat(sum*$("#customer_bill_cgst").val()/100)
+    }
+    console.log(cgst)
+    if ($("#customer_bill_sgst").val() != ""){
+      sgst = parseFloat(sum*$("#customer_bill_sgst").val()/100)
+    }
+    console.log(sgst)
+    sum = (parseFloat(sum)+parseFloat(cgst)+parseFloat(sgst)).toFixed(2)
+
     $("#customer_bill_total_amount").val(sum)
   });
 
@@ -355,11 +368,26 @@ function common_events(){
   // virtual keyboard
   $('.container').on('cocoon:after-insert', function(e, insertedItem) {
 
-    $('.amountClass').on( 'change', function(){
+    $('.amountClass .amountClass1').on( 'change', function(){
       var sum = 0;
+      var cgst = 0;
+      var sgst = 0;
       $('.amountClass').each(function(){
           sum += +$(this).val();
       });
+      console.log(sum)
+      if ($("#customer_bill_cgst").val() != ""){
+        cgst = parseFloat(sum*$("#customer_bill_cgst").val()/100)
+      }
+      console.log(cgst)
+      if ($("#customer_bill_sgst").val() != ""){
+        sgst = parseFloat(sum*$("#customer_bill_sgst").val()/100)
+      }
+      if (sum > 0){
+        sum = (parseFloat(sum)+parseFloat(cgst)+parseFloat(sgst)).toFixed(2)
+      }
+
+
       $("#customer_bill_total_amount").val(sum)
     });
     if ($("#pc_browser").val() != 'true') {

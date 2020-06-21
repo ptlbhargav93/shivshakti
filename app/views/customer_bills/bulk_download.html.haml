@@ -1,0 +1,9 @@
+.filterTop
+  .row
+    = form_for '', :url => bulk_download_customer_bills_path, :method => 'post', :html => {:id => "filterFormId"} do
+      .col-xs-12.col-sm-4
+        = select_tag "month", options_for_select(CustomerBill.localize_months_values,Date.today.month), :class => "form-control"
+      .col-xs-12.col-sm-4
+        = select_tag "year", options_for_select(@years.map{|year| [year]},Date.today.year), :class => "form-control"
+      .col-xs-12.col-sm-4
+        = submit_tag "Download Zip file", :class => "form-control"

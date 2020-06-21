@@ -1,3 +1,6 @@
+require 'zip'
+require "zip/zip"
+
 class PdfController < ApplicationController
 
   include ApplicationHelper

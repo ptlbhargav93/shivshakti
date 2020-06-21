@@ -217,6 +217,9 @@ group :developemnt, :test do
   gem 'origami'
 
   gem 'currency-in-words'
+
+  gem 'rubyzip', '>= 1.0.0'
+  gem 'zip-zip'
 end
 
 group :test do
