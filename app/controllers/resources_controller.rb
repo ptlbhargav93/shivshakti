@@ -50,8 +50,8 @@ class ResourcesController < ApplicationController
       object = nil
       if params[:type] == 'User'
         object = User.find(params[:id])
-      elsif params[:type] == "Clinic"
-        object = @current_brand.clinics.find(params[:id])
+      elsif params[:type] == "CustomerBill"
+        object = CustomerBill.find(params[:id])
       elsif params[:type] == "ClinicUser"
         object = @current_brand.clinic_users.find(params[:id])
       end
@@ -85,6 +85,8 @@ class ResourcesController < ApplicationController
       object = nil
       if params[:type] == 'User'
         object = User.find(params[:id])
+      elsif params[:type] == 'CustomerBill'
+        object = CustomerBill.find(params[:id]) 
       end
       if object.present?
         media = object.resources.find(params[:media_id])

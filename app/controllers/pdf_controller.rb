@@ -43,4 +43,20 @@ class PdfController < ApplicationController
     end
   end
 
+  def print_receiving_copy
+    @customer_bill = CustomerBill.find(params[:id])
+    subject = t("send_bills.file_name_bill_archive_attachment_receiving_copy",:name => @customer_bill.customer.b_name, :date => @customer_bill.invoice_date.strftime("%m/%Y"), :invoice_number => @customer_bill.invoice_number, :rate => @customer_bill.total_amount) 
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render :pdf => (subject),
+               :layout => "pdf.html",
+               :template => "pdf/print_receiving_copy.pdf.haml",
+               :margin => { :top => 10, :bottom => 10, :left => 10, :right => 10},
+               :viewport_size => '1280x1024',
+               disposition: 'attachment'
+      end
+    end
+  end
+
 end

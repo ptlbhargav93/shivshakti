@@ -8,6 +8,13 @@
   font-family: 'Helvetica Neue';
 }
 
+.center123 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
 body{ font-size: 16px; font-family:"Helvetica Neue", Helvetica, Arial, sans-serif; font-weight:normal; line-height:1.3; color:#333333; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}/*PDF Change*/
 img{ max-width: 100%;}
 a, a:hover, a:focus, input, input:focus{ outline: none; text-decoration: none;}

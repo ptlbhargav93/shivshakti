@@ -156,6 +156,7 @@ Rails.application.routes.draw do
         # send PDF
         get 'send_pdf', to: 'pdf#send_pdf', as: 'send'
         get 'print_invoice', to: 'pdf#print_invoice', as: 'print_invoice'
+        get 'print_receiving_copy', to: 'pdf#print_receiving_copy', as: 'print_receiving_copy'
         get 'reward_detail', to: 'pdf#reward_detail', as: 'reward_detail'
       end
     end

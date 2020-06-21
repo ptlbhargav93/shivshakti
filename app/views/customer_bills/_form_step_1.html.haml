@@ -88,6 +88,13 @@
                         = f.text_field :total_amount, :class => "form-control", :placeholder => "Bill amount"
                       .col-xs-4.pt5.label-sm-up-12
                         = "Total bill amount"
+              .col-xs-12
+                .hr                            
+              .col-xs-12
+                .form-group.formTitle
+                  = "Receiving Copy"
+              .col-xs-12.col-md-7.col-lg-7
+                = render :partial => "shared/upload_files", :locals => {:object => @customer_bill, :type => 'CustomerBill', :resource_type => 'DOCUMENT', :resource_spec => 'ATTACHMENT', :title => "Receiving Copy", :index => "1"}  
         %td.stepBtnGroup{:width => "20%"}
           - back_btn_href = @customer_bill.new_record? ? customer_bills_path : customer_bill_path(@customer_bill.id)
           %a.stepBtn.backBtn{:href => back_btn_href}

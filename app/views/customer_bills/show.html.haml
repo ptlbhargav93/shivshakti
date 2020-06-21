@@ -109,8 +109,12 @@
                               = bill_product.rate
                 .row.row10
                   .col-xs-12
+                    .hr.h25
+                  .col-xs-12
                     %h3
                       = "Billing Address"
+                  .col-xs-12
+                    .hr.h25
                 .row.row10
                   .col-xs-12.col-md-6
                     .card-row
@@ -149,8 +153,12 @@
                       %label.label-value= @customer_bill.customer.b_gst_number.present? ? @customer_bill.customer.b_gst_number : '-'
                 .row.row10
                   .col-xs-12
+                    .hr.h25
+                  .col-xs-12
                     %h3
                       = "Shipping Address"
+                  .col-xs-12
+                    .hr.h25
                 .row.row10
                   .col-xs-12.col-md-6
                     .card-row
@@ -187,6 +195,37 @@
                       %label.label-view
                         %span= t('user.gst_number')
                       %label.label-value= @customer_bill.customer.s_gst_number.present? ? @customer_bill.customer.s_gst_number : '-'
+                - receiving_images = @customer_bill.resources.with_type('DOCUMENT::ATTACHMENT')
+                - if receiving_images.count > 0
+                  - if receiving_images.where(:media_content_type => "image/jpeg").count > 0
+                    .row.row10
+                      .col-xs-12
+                        .hr.h25
+                      .col-xs-12
+                        %h3
+                          = "Receiving Copy images"
+                      .col-xs-12
+                        .hr.h25
+                      - receiving_images.where(:media_content_type => "image/jpeg").each do |receiving_image|
+                        .col-xs-12
+                          = image_tag receiving_image.media.url(:medium), :class => "center123"
+                  - if receiving_images.where(:media_content_type => "application/pdf").count > 0
+                    .row.row10
+                      .col-xs-12
+                        .hr.h25
+                      .col-xs-12
+                        %h3
+                          = "Receiving Copy PDFs"
+                      .col-xs-12
+                        .hr.h25
+                      - receiving_images.where(:media_content_type => "application/pdf").each do |receiving_image|
+                        .col-xs-12
+                          .col-xs-2
+                            = image_tag "to_pdf.png"
+                          .col-xs-8
+                            = link_to receiving_image.media_file_name, download_resource_path(receiving_image.id)
+                          
+                          
 
           %td.stepBtnGroup{:width => "20%"}
             %a.h15.stepBtn.backBtn{:href => customer_bills_path}
@@ -206,6 +245,10 @@
             = link_to print_invoice_pdf_path(@customer_bill.id, format: 'pdf', without_image: "false"), class: "h15 stepBtn nextBtn" do
               %span
                 = t("form_action_button.download_invoice_with_logo").html_safe
+              = image_tag "down-arrow.png", :class => "mt15"
+            = link_to print_receiving_copy_pdf_path(@customer_bill.id, format: 'pdf'), class: "h15 stepBtn nextBtn" do
+              %span
+                = "Download receiving Copy"
               = image_tag "down-arrow.png", :class => "mt15"
             %a.h15.stepBtn.nextBtn{"data-target" => "#SendInvoiceToAccountant", "data-toggle" => "modal"}
               %span= t('send_bills.send_invoice_information_to_accountant').html_safe

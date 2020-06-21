@@ -57,6 +57,7 @@ class CustomerBillsController < ApplicationController
   end
 
   def update
+    remove_blank_resources
     if not params[:customer_bill].present?
       @customer_bill.update_attributes(:registered => true) unless @customer_bill.registered
       redirect_to customer_bills_path, :flash => { :notice => t("customer_bill.customer_bill_updated") }
@@ -78,21 +79,31 @@ class CustomerBillsController < ApplicationController
     end
   end
 
+  def remove_blank_resources
+    if params[:customer_bill][:resources_attributes].present?
+      if params[:customer_bill][:resources_attributes]['0']['id'].present?
+        unless Resource.find_by_id(params[:customer_bill][:resources_attributes]['0']['id']).present?
+          params[:customer_bill][:resources_attributes]['0'].delete :id
+        end
+      end
+    end
+  end
+
   private
 
   def set_customer_bill
     @customer_bill = CustomerBill.find(params[:id])
   end
 
-  def calculate_month_year
-    unless params[:year].present? or params[:month].present?
-      date = session[:billing_period].present? ? session[:billing_period].to_datetime : Date.today
-      params[:year] = date.year
-      params[:month] = date.month
-    end
-    @billing_period = Date.new(params[:year].to_i,params[:month].to_i)
-    session[:billing_period] = @billing_period
-  end
+  # def calculate_month_year
+  #   unless params[:year].present? or params[:month].present?
+  #     date = session[:billing_period].present? ? session[:billing_period].to_datetime : Date.today
+  #     params[:year] = date.year
+  #     params[:month] = date.month
+  #   end
+  #   @billing_period = Date.new(params[:year].to_i,params[:month].to_i)
+  #   session[:billing_period] = @billing_period
+  # end
 
   def fetch_customer_bills
     if session[:bill_customer].present?
@@ -116,8 +127,8 @@ class CustomerBillsController < ApplicationController
       customer_bills = customer_bills.where('invoice_number LIKE :s', :s => "%#{search.delete(' ')}%")
     end
     @years = customer_bills.select('extract(year from invoice_date) as year').group('year').map{|e| e.year}.compact.reject(&:blank?)
-    calculate_month_year
-    customer_bills = customer_bills.where('extract(year from invoice_date) = ? and extract(month from invoice_date) = ?', @billing_period.year, @billing_period.month)
+    # calculate_month_year
+    # customer_bills = customer_bills.where('extract(year from invoice_date) = ? and extract(month from invoice_date) = ?', @billing_period.year, @billing_period.month)
     customer_bills = params[:order].present? ? customer_bills.order("id #{params[:order]}").distinct : customer_bills.order('id DESC')
   end
 
@@ -130,7 +141,9 @@ class CustomerBillsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def customer_bill_params
-    params.require(:customer_bill).permit(:invoice_number, :lr_number, :po_number, :vendor_code, :invoice_date, :lr_date, :customer_id, :cgst, :sgst, :total_amount, :creator_id, :updater_id, customer_bill_products_attributes: [:id, :vehical_number, :ref_invoice_number, :from, :to, :quantity, :rate, :_destroy])
+    params.require(:customer_bill).permit(:invoice_number, :lr_number, :po_number, :vendor_code, :invoice_date, :lr_date, :customer_id, :cgst, :sgst, :total_amount, :creator_id, :updater_id, 
+                                          customer_bill_products_attributes: [:id, :vehical_number, :ref_invoice_number, :from, :to, :quantity, :rate, :_destroy],
+                                          resources_attributes: [:id, :media, :resource_type_id, :resource_spec_id, :_destroy])
   end
 
 end

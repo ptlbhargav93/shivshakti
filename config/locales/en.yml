@@ -565,7 +565,7 @@ en:
     add_language: Add language
     open_card: Open card
     contract_length_and_type: Contract's length and type
-    contract: Contract
+    contract: Upload Receving Image
     upload_clinic_logo: Upload clinic's logo
     upload_written_contract: Upload written contract
     upload_contract_attachment: Upload contract attachment
@@ -1603,6 +1603,7 @@ en:
     copy_of_invoice_date: "copy of invoice, period %{date}" 
     copy_of_reward_detail: "copy of reward details, period %{date}" 
     file_name_bill_archive_attachment: "%{name} - %{rate} - %{invoice_number}" 
+    file_name_bill_archive_attachment_receiving_copy: "Receiving Copy - %{name} - %{rate} - %{invoice_number}" 
     dbm_info: DBM-INFO
     browse_and_search_postning_invoices: "Browse and search postning invoices"
     press_hear_to_lock_this_invoice_quality_check: <b><i>Press here to lock this invoice for quality check</i></b>

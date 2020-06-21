@@ -4,7 +4,7 @@
   a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em;  } 
   comment { display:none;  }
 - if @without_image == "true"
-  %div{:style => "height: 250px"}
+  %div{:style => "height: 280px"}
 - else
   = wicked_pdf_image_tag "shivshakti_logo.png", :height => "230px", :width => "100%"
 
@@ -24,6 +24,10 @@
   %colgroup{:width => "87"}
   %colgroup{:width => "97"}
   %colgroup{:width => "129"}
+  .col-xs-12
+    %b 
+      %font{:color => "#000000", :size => "5"}
+        = "TAX INVOICE"
   %tr
     %td{:align => "center", :colspan => "10", :height => "25", :valign => "middle"}
       %i
@@ -543,7 +547,13 @@
             = number
         %td{:align => "center", :bgcolor => "", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
-            = bill.ref_invoice_number
+            - if bill.ref_invoice_number.include? "OF" 
+              - arr = bill.ref_invoice_number.split("OF")
+              = arr[0]
+              %br/
+              = "OF" + arr[1]
+            - else
+              = bill.ref_invoice_number
             %br/
         %td{:align => "left", :colspan => "7", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} 

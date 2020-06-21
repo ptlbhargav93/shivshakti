@@ -48,7 +48,7 @@ gem "remotipart", "~> 1.2"
 gem 'bootstrap-datepicker-rails'
 
 # Expect MySQL as main database
-gem 'mysql2', '~> 0.4.0'
+gem 'pg', '0.20'
 
 # Use unicorn as the app server
 gem 'unicorn'

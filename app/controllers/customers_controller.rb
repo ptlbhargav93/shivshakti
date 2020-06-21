@@ -99,15 +99,15 @@ class CustomersController < ApplicationController
     end
     if search.present?
       session[:register_customer_search] = search
-      customers = customers.where('b_name LIKE :s or s_name LIKE :s', :s => "%#{search.delete(' ')}%")
+      customers = customers.where('b_name ILIKE :s', :s => "%#{search.delete(' ')}%")
     end
     if city.present?
       session[:register_customer_city] = city
-      customers = customers.where('b_city LIKE :s or s_city LIKE :s', :s => "#{city.delete(' ')}%")
+      customers = customers.where('b_city ILIKE :s', :s => "#{city.delete(' ')}%")
     end
     if state.present?
       session[:register_customer_state] = state
-      customers = customers.where('b_state LIKE :s or s_state LIKE :s', :s => "#{state.delete(' ')}%")
+      customers = customers.where('b_state ILIKE :s', :s => "#{state.delete(' ')}%")
     end
     customers = params[:order].present? ? customers.order("id #{params[:order]}").distinct : customers.order('id DESC')
   end

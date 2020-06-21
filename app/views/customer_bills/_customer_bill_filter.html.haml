@@ -1,14 +1,14 @@
 .filterTop
   .row
     = form_for '', :url => customer_bill_filter_customer_bills_path, :method => 'post', :html => {:id => "filterFormId"}, :remote => true do
-      .col-xs-12.col-sm-3
+      .col-xs-12.col-sm-9
         = hidden_field_tag 'role', 'customer_bill'
         - date = session[:billing_period].present? ? session[:billing_period].to_datetime : Date.today
         = text_field_tag :search, session[:register_customer_bill_search],:class => "form-control",placeholder: "Search by Invoice number"
-      .col-xs-12.col-sm-3
-        = select_tag "month", options_for_select(CustomerBill.localize_months_values,date.month), :class => "form-control"
-      .col-xs-12.col-sm-3
-        = select_tag "year", options_for_select(@years.map{|year| [year]},date.year), :class => "form-control"
+      / .col-xs-12.col-sm-3
+      /   = select_tag "month", options_for_select(CustomerBill.localize_months_values,date.month), :class => "form-control"
+      / .col-xs-12.col-sm-3
+      /   = select_tag "year", options_for_select(@years.map{|year| [year]},date.year), :class => "form-control"
       .col-xs-12.col-sm-3
         = select_tag "order", options_for_select([[t('general.ascending'), 'ASC'], [t('general.descending'), 'DESC']]), prompt: t('general.order'), :class => "form-control"
     %div{id: 'loader-image', class: 'loader'}

@@ -1,4 +1,7 @@
 class CustomerBill < ActiveRecord::Base
+
+  include HasResources
+  
 	enum transportation_mode: ['Private', 'Public']
 
   has_many :customer_bill_products, dependent: :destroy, inverse_of: :customer_bill
