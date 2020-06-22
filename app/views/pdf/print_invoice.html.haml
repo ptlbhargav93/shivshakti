@@ -3,6 +3,7 @@
   a.comment-indicator:hover + comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em;  } 
   a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em;  } 
   comment { display:none;  }
+- ist_time = Time.now.in_time_zone("Chennai")
 - with_sign = @with_sign == "true"
 = link_to 'Back', :back, class: "h15 stepBtn previous btn btn-primary"
 = wicked_pdf_image_tag "#{@domain_url}shivshakti_logo.png", :height => "230px", :width => "100%"  
@@ -1053,7 +1054,7 @@
         %br/
     %td{:align => "left",:rowspan => "3",:colspan => "3", :style => "border-top: 1px solid #000000; text-align: left", :valign => "middle"}
       %font{:color => "#000000"}
-        = "Digitally signed by </br> Rajan Patel </br> #{Time.now.strftime("%Y.%m.%d")} </br> #{Time.now.strftime("%T %:z")}".html_safe if with_sign
+        = "Digitally signed by </br> Rajan Patel </br> #{ist_time.strftime("%Y.%m.%d")} </br> #{ist_time.strftime("%T %:z")}".html_safe if with_sign
     %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
