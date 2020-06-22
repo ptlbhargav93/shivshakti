@@ -3,6 +3,7 @@
   a.comment-indicator:hover + comment { background:#ffd; position:absolute; display:block; border:1px solid black; padding:0.5em;  } 
   a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em;  } 
   comment { display:none;  }
+- with_sign = @with_sign == "true"
 - if @without_image == "true"
   %div{:style => "height: 260px"}
 - else
@@ -82,7 +83,7 @@
         %font{:color => "#000000", :size => "3"} State
     %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} State Code
+        %font{:color => "#000000", :size => "3"} Code
     %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"} City
@@ -312,7 +313,7 @@
       %font{:color => "#000000", :size => "3"} 
         = @customer_bill.customer.b_city
     %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"} City PIN
+      %font{:color => "#000000", :size => "3"} PIN
     %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         = @customer_bill.customer.b_pin_code
@@ -324,7 +325,7 @@
       %font{:color => "#000000", :size => "3"}
         = @customer_bill.customer.s_city
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"} City PIN
+      %font{:color => "#000000", :size => "3"} PIN
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         = @customer_bill.customer.s_pin_code
@@ -351,7 +352,7 @@
       %font{:color => "#000000", :size => "3"} 
         = @customer_bill.customer.b_state
     %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"} State Code
+      %font{:color => "#000000", :size => "3"} Code
     %td{:align => "left", :bgcolor => "", :sdnum => "1033;", :sdval => "24", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"} 
         = @customer_bill.customer.b_state_code
@@ -364,7 +365,7 @@
       %font{:color => "#000000", :size => "3"}
         = @customer_bill.customer.s_state
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"} State Code
+      %font{:color => "#000000", :size => "3"} Code
     %td{:align => "left", :sdnum => "1033;", :sdval => "24", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"} 
         = @customer_bill.customer.s_state_code
@@ -568,7 +569,7 @@
             %br/
         %td{:align => "left", :colspan => "7", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"} 
-            - a = "GOODS AND TRANSPORT AGENCY SERVICE BY ROAD FROM #{bill.from} TO #{bill.to}.".html_safe
+            - a = "GOODS AND TRANSPORT AGENCY SERVICE BY ROAD </br> FROM #{bill.from} TO #{bill.to}.".html_safe
             - a = a+" Vehical Number: #{bill.vehical_number}" if bill.vehical_number.present?
             = a
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
@@ -1033,9 +1034,11 @@
       %b
         %font{:color => "#000000", :size => "4"} REMARKS : GST IS PAYABLE UNDER RCM
   %tr
-    %td{:align => "left", :height => "19", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
+    %td{:align => "left", :height => "19", :colspan => "3", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
+      %b
+        %i
+          %font{:color => "#000000", :size => "4"}
+            %u Our Bank Details
     %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
@@ -1051,93 +1054,53 @@
     %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+    %td{:align => "left",:rowspan => "3",:colspan => "3", :style => "border-top: 1px solid #000000; text-align: left", :valign => "middle"}
       %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
+        = "Digitally signed by </br> Rajan Patel </br> #{Time.now.strftime("%Y.%m.%d")} </br> #{Time.now.strftime("%T %:z")}".html_safe if with_sign
     %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
     %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
-    %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000;border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
   %tr
-    %td{:align => "left", :height => "20", :style => "border-left: 1px solid #000000", :valign => "middle"}
-      %b
-        %i
-          %font{:color => "#000000"}
-            %br/
+    %td{:align => "left", :height => "20", :colspan => "3", :style => "border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
+      %i
+        %font{:color => "#000000", :size => "4"}
+          = "HDFC Bank Vatva Br"
     %td{:align => "left", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
+    / %td{:align => "left", :valign => "middle"}
+    /   %font{:color => "#000000"}
+    /     %br/
+    / %td{:align => "left", :valign => "middle"}
+    /   %font{:color => "#000000"}
+    /     %br/
     %td{:align => "left", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000"}
+    %td{:align => "left", :valign => "middle", :style => ""}
+      %font{:color => "#000000", :size => "5"}
         %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
+    %td{:align => "left", :valign => "middle", :colspan => 2, :style => "text-align: right"}
+      %font{:color => "#000000", :size => "5"}
+        = "Rajan Patel" if with_sign
+
     %td{:align => "center", :colspan => "4", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "4"} For Shiv Shakti Transport Co.
   %tr
-    %td{:align => "left", :height => "25", :style => "border-left: 1px solid #000000", :valign => "middle"}
-      %b
-        %i
-          %font{:color => "#000000"}
-            %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
+    %td{:align => "left", :height => "25", :colspan => "3", :style => "border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
+      %i
+        %font{:color => "#000000", :size => "4"}
+          = "A/c No. 50200009679313"
     %td{:align => "left", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
@@ -1166,16 +1129,10 @@
       %font{:color => "#000000"}
         %br/
   %tr
-    %td{:align => "left", :height => "28", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
-      %b
-        %font{:color => "#000000"}
-          %br/
-    %td{:align => "left", :style => "border-bottom: 1px solid #000000;", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :style => "border-bottom: 1px solid #000000;",  :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
+    %td{:align => "left", :height => "28", :colspan => "3", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
+      %i
+        %font{:color => "#000000", :size => "4"}
+          = "IFSC Code : HDFC 0000971"
     %td{:align => "left", :style => "border-bottom: 1px solid #000000;", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
