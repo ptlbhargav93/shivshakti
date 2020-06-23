@@ -38,6 +38,10 @@ class ExecutivesController < ApplicationController
     end
   end
 
+  def desktop
+    session[:bill_customer] = nil
+  end
+
   def destroy
     @executive.destroy
     respond_to do |format|

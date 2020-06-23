@@ -32,19 +32,18 @@ class CustomerBillsController < ApplicationController
   end  
 
   def new
-    if not session[:bill_customer].present?
-      redirect_to customers_path
-    end
-    @customer = Customer.find(session[:bill_customer])
+    @customer = Customer.find(session[:bill_customer]) if session[:bill_customer]
     @customer_bill = CustomerBill.new
   end
 
   def create
+    @customer = Customer.create(customer_params) if params[:customer].present?
     @customer_bill = CustomerBill.new(customer_bill_params.merge(:creator_id => current_user.id))
+    @customer_bill.customer = @customer if @customer.present?
     if @customer_bill.save
       redirect_to customer_bill_path(@customer_bill)
     else
-      @customer = Customer.find(session[:bill_customer])
+      @customer = Customer.find(session[:bill_customer]) if session[:bill_customer]
       render 'new'
     end
   end
@@ -173,9 +172,13 @@ class CustomerBillsController < ApplicationController
                         ]
   end
 
+  def customer_params
+    params.require(:customer).permit(:b_name, :s_name, :b_gst_number, :s_gst_number, :b_address, :b_city, :b_state, :b_state_code, :b_pin_code, :b_country, :s_address, :s_city, :s_state, :s_tate_code, :s_pin_code, :s_country, :s_state_code, :is_shipping, :ref_customer)
+  end
+
   # Never trust parameters from the scary internet, only allow the white list through.
   def customer_bill_params
-    params.require(:customer_bill).permit(:invoice_number, :lr_number, :po_number, :vendor_code, :invoice_date, :lr_date, :customer_id, :cgst, :sgst, :total_amount, :creator_id, :updater_id, 
+    params.require(:customer_bill).permit(:invoice_number, :lr_number, :po_number, :vendor_code, :invoice_date, :lr_date, :customer_id, :cgst, :sgst, :total_amount, :creator_id, :updater_id, :payment_mode, :payment_date, :cheque_number, :bank_name,
                                           customer_bill_products_attributes: [:id, :vehical_number, :ref_invoice_number, :from, :to, :quantity, :rate, :_destroy],
                                           resources_attributes: [:id, :media, :resource_type_id, :resource_spec_id, :_destroy])
   end

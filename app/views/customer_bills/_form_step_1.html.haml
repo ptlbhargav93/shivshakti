@@ -7,14 +7,70 @@
           .formBox
             .formHeader.clearfix
               %h1
-                = "Create customer bill - " + (@customer_bill.new_record? ? @customer.b_name : @customer_bill.customer.b_name)
+                = "Create customer bill - " + (@customer_bill.new_record? ? "New Record" : @customer_bill.customer.b_name)
+            - if @customer_bill.new_record? and !session[:bill_customer].present?
+              .row
+                .col-xs-12.col-sm-6
+                  #b_name.form-group
+                    = text_field_tag "customer[b_name]", "",:class => "form-control",:placeholder => "Full Name"
+                  #address1.form-group
+                    = text_area_tag :b_address, "",:class => "form-control", :placeholder => "Billing address"
+                  .row
+                    .col-xs-12.col-sm-6
+                      #city.form-group
+                        = text_field_tag "customer[b_city]",  "AHMEDABAD", :class => "form-control", :placeholder => "Billing city"
+                    .col-xs-12.col-sm-6
+                      #pin_code.form-group
+                        = text_field_tag "customer[b_pin_code]","", :class => "form-control", :placeholder => "Billing pin code"
+                  .row
+                    .col-xs-12.col-sm-6
+                      #state.form-group
+                        = text_field_tag "customer[b_state]", "GUJARAT", :class => "form-control", :placeholder => "Billing state"
+                    .col-xs-12.col-sm-6
+                      #state_code.form-group
+                        = text_field_tag "customer[b_state_code]", "24", :class => "form-control", :placeholder => "Billing state code"
+                  #country.form-group
+                    = text_field_tag "customer[b_country]", "INDIA", :class => "form-control", :placeholder => "Billing country"
+                  #b_gst_number.form-group
+                    = text_field_tag "customer[b_gst_number]","", :class => "form-control", :placeholder => "GST number"
+                  #ref_customer.form-group
+                    = text_field_tag "customer[ref_customer]","", :class => "form-control",:placeholder => "Ref Customer"
+                  #country.form-group
+                    %label.checkBox{:id => "is_shipping_new", :class => "is_shipping"}
+                      = check_box_tag :is_shipping, :class => "form-control"
+                      %span.lbl
+                        = "Is billing address same as shipping address ?"
+                .col-xs-12.col-sm-6
+                  #s_name.form-group
+                    = text_field_tag "customer[s_name]","", :class => "form-control",:placeholder => "Full Name"
+                  #address1.form-group
+                    = text_area_tag :s_address,"", :class => "form-control", :placeholder => "Shipping address"
+                  .row
+                    .col-xs-12.col-sm-6
+                      #city.form-group
+                        = text_field_tag "customer[s_city]",  "AHMEDABAD", :class => "form-control", :placeholder => "Shipping city"
+                    .col-xs-12.col-sm-6
+                      #pin_code.form-group
+                        = text_field_tag "customer[s_pin_code]","", :class => "form-control", :placeholder => "Shipping pin code"
+                  .row
+                    .col-xs-12.col-sm-6
+                      #state.form-group
+                        = text_field_tag "customer[s_state]", "GUJARAT", :class => "form-control", :placeholder => "Shipping state"
+                    .col-xs-12.col-sm-6
+                      #state_code.form-group
+                        = text_field_tag "customer[s_state_code]", "24", :class => "form-control", :placeholder => "Shipping state code"
+                  #country.form-group
+                    = text_field_tag "customer[s_country]", "INDIA", :class => "form-control", :placeholder => "Shipping country"
+                  #s_gst_number.form-group
+                    = text_field_tag "customer[s_gst_number]","", :class => "form-control", :placeholder => "GST number"
+                  .btn.btn-primary.btn-md.right#clear_shipping
+                    = "Clear Shipping Details"
+
             .row
               .col-xs-12.col-sm-6
                 = hidden_field_tag 'step', '1'
-                - if @customer_bill.new_record?
+                - if @customer_bill.new_record? && session[:bill_customer].present?
                   = f.hidden_field :customer_id, :value => session[:bill_customer]
-                - else
-                  = f.hidden_field :customer_id
                 #invoice_number.form-group
                   = f.text_field :invoice_number, :class => "form-control",:placeholder => "Invoice number"
                   - if @customer_bill.errors[:invoice_number].any?
@@ -68,20 +124,20 @@
                 .row
                   %hr
               .row
-                .col-xs-6
-                  .col-xs-12.col-sm-6
+                .col-xs-12.col-md-6
+                  .col-xs-6.col-sm-6
                     .row.row2.form-group
                       .col-xs-10
                         = f.text_field :cgst, :value => f.object.cgst || 0, :class => "form-control amountClass1", :placeholder => "CGST"
-                      .col-xs-2.pt5.label-sm-up-12
-                        ="%"
-                  .col-xs-12.col-sm-6
+                      .col-xs-2.pt15
+                        = "%"
+                  .col-xs-6.col-sm-6
                     .row.row2.form-group
                       .col-xs-10
                         = f.text_field :sgst,:value => f.object.sgst || 0, :class => "form-control amountClass1", :placeholder => "SGST"
-                      .col-xs-2.pt5.label-sm-up-12
-                        ="%"
-                .col-xs-6
+                      .col-xs-2.pt15
+                        = "%"
+                .col-xs-12.col-md-6
                   .col-xs-12
                     .row.row2.form-group
                       .col-xs-8
@@ -94,7 +150,37 @@
                 .form-group.formTitle
                   = "Receiving Copy"
               .col-xs-12.col-md-7.col-lg-7
-                = render :partial => "shared/upload_files", :locals => {:object => @customer_bill, :type => 'CustomerBill', :resource_type => 'DOCUMENT', :resource_spec => 'ATTACHMENT', :title => "Receiving Copy", :index => "1"}  
+                = render :partial => "shared/upload_files", :locals => {:object => @customer_bill, :type => 'CustomerBill', :resource_type => 'DOCUMENT', :resource_spec => 'ATTACHMENT', :title => "Receiving Copy", :index => "1"}
+              .col-xs-12
+                .hr                            
+              .row
+                .col-xs-12.col-md-8
+                  .col-xs-12
+                    .form-group.formTitle
+                      = "Receiving Payment Information"
+                    %label.radioBox.radioInline
+                      = f.radio_button :payment_mode, "NONE", :class => "payment_mode_btn"
+                      %span.lbl= "None"
+                    %label.radioBox.radioInline
+                      = f.radio_button :payment_mode, "CHEQUE", :class => "payment_mode_btn"
+                      %span.lbl= "Cheque"
+                    %label.radioBox.radioInline
+                      = f.radio_button :payment_mode, "BANK", :class => "payment_mode_btn"
+                      %span.lbl= "Bank Transfer"
+                    %label.radioBox.radioInline
+                      = f.radio_button :payment_mode, "CASH", :class => "payment_mode_btn"
+                      %span.lbl= "Cash"
+                .col-xs-12.col-md-4.form-group
+                  .col-xs-12
+                    .form-group.formTitle
+                      = "Payment Received Date"
+                    = f.text_field :payment_date, :value => (@customer_bill.payment_date.present? ? @customer_bill.payment_date.to_datetime.to_s(:default_date) : (Time.now).to_datetime.to_s(:default_date)), :class => "form-control datepickeron", :placeholder => "Payment date"
+            .row#chequeDetails
+              .col-xs-12.col-sm-3.form-group
+                = f.text_field :cheque_number, :value => (f.object.cheque_number.present? ? f.object.cheque_number : ''), :class => "form-control", :placeholder => "Cheque number"
+              .col-xs-12.col-sm-3.form-group
+                = f.text_field :bank_name, :value => (f.object.bank_name.present? ? f.object.bank_name : ''), :class => "form-control", :placeholder => "Bank name"
+              
         %td.stepBtnGroup{:width => "20%"}
           - back_btn_href = @customer_bill.new_record? ? customer_bills_path : customer_bill_path(@customer_bill.id)
           %a.stepBtn.backBtn{:href => back_btn_href}

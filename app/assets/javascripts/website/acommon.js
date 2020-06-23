@@ -213,6 +213,28 @@ $(document).ready(function(){
     $("#customer_s_country").val('')
     $("#customer_s_gst_number").val('')
   });
+  
+  // if ($("#customer_bill_payment_mode_cheque").val() == "CHEQUE"){
+  //   $("#chequeDetails").show()
+  // }else{
+  //   alert('Test')
+  //   $("#chequeDetails").hide()
+  // }
+  if ($('#customer_bill_payment_mode_cheque').is(':checked')) { 
+    $("#chequeDetails").show()
+  }else{
+    $("#chequeDetails").hide()
+  }
+
+  $('.payment_mode_btn').on( 'change', function(){
+    var mode = $(this).val()
+    if (mode == "CHEQUE"){
+      $("#chequeDetails").show()
+    }else{
+      $("#chequeDetails").hide()
+    }
+
+  });
 
   $('.amountClass, .amountClass1').on( 'change', function(){
     var sum = 0;

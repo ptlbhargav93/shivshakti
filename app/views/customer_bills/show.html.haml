@@ -49,16 +49,57 @@
                         %span
                           = "Vendor code"
                       %label.label-value= @customer_bill.vendor_code
-                  .row.row10
-                    .col-xs-12
-                      .hr.h25
-                    .col-xs-6
-                      .card-row
-                        %label.label-view
-                          %span.form-group.formTitle
-                            = "Total amount"
-                        %label.label-value
-                          = @customer_bill.total_amount
+                  - unless @customer_bill.payment_mode == "NONE" 
+                    .row.row10
+                      .col-xs-12
+                        .hr.h25
+                      .col-xs-12
+                        .form-group.formTitle
+                          = "Receiving Payment Information"
+                      .col-xs-12.col-md-6
+                        .card-row
+                          %label.label-view
+                            %span
+                              = "Payment Mode"
+                          %label.label-value
+                            = @customer_bill.payment_mode
+                        .card-row
+                          %label.label-view
+                            %span
+                              = "Received Date"
+                          %label.label-value
+                            = @customer_bill.payment_date.to_datetime.to_s(:default_date) if @customer_bill.payment_date
+                        .card-row
+                          %label.label-view
+                            %span.form-group.formTitle
+                              = "Total amount"
+                          %label.label-value
+                            = @customer_bill.total_amount
+                      - if @customer_bill.payment_mode == "CHEQUE"
+                        .col-xs-6
+                          .card-row
+                            %label.label-view
+                              %span
+                                = "Cheque Number"
+                            %label.label-value
+                              = @customer_bill.cheque_number
+                          .card-row
+                            %label.label-view
+                              %span
+                                = "Bank Name"
+                            %label.label-value
+                              = @customer_bill.bank_name
+                  - else
+                    .row.row10
+                      .col-xs-12
+                        .hr.h25
+                      .col-xs-6
+                        .card-row
+                          %label.label-view
+                            %span.form-group.formTitle
+                              = "Total amount"
+                          %label.label-value
+                            = @customer_bill.total_amount
                 .row.row10
                   .col-xs-12
                     .hr.h25
@@ -228,8 +269,11 @@
                           
 
           %td.stepBtnGroup{:width => "20%"}
-            %a.h15.stepBtn.backBtn{:href => customer_bills_path}
+            %a.h15.stepBtn.backBtn{:href => customer_bills_path(:bill_customer => @customer_bill.customer.id)}
               %span= t("form_action_button.return_button")
+              = image_tag "back_btn.png", :class => "mt15"
+            %a.h15.stepBtn.backBtn{:href => customer_bills_path}
+              %span= "View ALL Bills"
               = image_tag "back_btn.png", :class => "mt15"
             %a.h15.stepBtn.nextBtn{:href => edit_customer_bill_path(@customer_bill, :step => 1), :action => :open_card_param }
               %span= t("form_action_button.edit_basic_information")

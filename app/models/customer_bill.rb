@@ -3,6 +3,7 @@ class CustomerBill < ActiveRecord::Base
   include HasResources
   
 	enum transportation_mode: ['Private', 'Public']
+  enum payment_mode: ['NONE', 'CHEQUE', 'BANK', 'CASH']
 
   has_many :customer_bill_products, dependent: :destroy, inverse_of: :customer_bill
   accepts_nested_attributes_for :customer_bill_products, allow_destroy: true

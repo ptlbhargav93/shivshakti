@@ -39,6 +39,8 @@
                   = f.text_field :b_country, :value=> @customer.b_country.present? ? @customer.b_country : "INDIA", :class => "form-control", :placeholder => "Billing country"
                 #b_gst_number.form-group
                   = f.text_field :b_gst_number, :class => "form-control", :placeholder => "GST number"
+                #ref_customer.form-group
+                  = f.text_field :ref_customer, :class => "form-control",:placeholder => "Ref Customer"
                 #country.form-group
                   %label.checkBox{:id => "is_shipping_#{@customer.id}", :class => "is_shipping"}
                     = f.check_box :is_shipping, :class => "form-control"
@@ -73,6 +75,7 @@
                   = f.text_field :s_gst_number, :class => "form-control", :placeholder => "GST number"
                 .btn.btn-primary.btn-md.right#clear_shipping
                   = "Clear Shipping Details"
+                  
 
         %td.stepBtnGroup{:width => "20%"}
           - back_btn_href = @customer.new_record? ? customers_path : customer_path(@customer.id)
