@@ -12,16 +12,20 @@
               .row
                 .col-xs-12.col-sm-6
                   #b_name.form-group
-                    = text_field_tag "customer[b_name]", "",:class => "form-control",:placeholder => "Full Name"
+                    = text_field_tag "customer[b_name]", @customer.b_name || "",:class => "form-control",:placeholder => "Full Name"
+                    - if @customer.errors.any?
+                      %span.text-error.text-message= @customer.errors[:b_name]
                   #address1.form-group
-                    = text_area_tag :b_address, "",:class => "form-control", :placeholder => "Billing address"
+                    = text_area_tag "customer[b_address]", @customer.b_address || "",:class => "form-control", :placeholder => "Billing address"
+                    - if @customer.errors[:b_address].any?
+                      %span.text-error.text-message= @customer.errors[:b_address].first                    
                   .row
                     .col-xs-12.col-sm-6
                       #city.form-group
                         = text_field_tag "customer[b_city]",  "AHMEDABAD", :class => "form-control", :placeholder => "Billing city"
                     .col-xs-12.col-sm-6
                       #pin_code.form-group
-                        = text_field_tag "customer[b_pin_code]","", :class => "form-control", :placeholder => "Billing pin code"
+                        = text_field_tag "customer[b_pin_code]",@customer.b_pin_code || "", :class => "form-control", :placeholder => "Billing pin code"
                   .row
                     .col-xs-12.col-sm-6
                       #state.form-group
@@ -32,26 +36,30 @@
                   #country.form-group
                     = text_field_tag "customer[b_country]", "INDIA", :class => "form-control", :placeholder => "Billing country"
                   #b_gst_number.form-group
-                    = text_field_tag "customer[b_gst_number]","", :class => "form-control", :placeholder => "GST number"
+                    = text_field_tag "customer[b_gst_number]",@customer.b_gst_number || "", :class => "form-control", :placeholder => "GST number"
                   #ref_customer.form-group
-                    = text_field_tag "customer[ref_customer]","", :class => "form-control",:placeholder => "Ref Customer"
+                    = text_field_tag "customer[ref_customer]",@customer.ref_customer || "", :class => "form-control",:placeholder => "Ref Customer"
                   #country.form-group
                     %label.checkBox{:id => "is_shipping_new", :class => "is_shipping"}
-                      = check_box_tag :is_shipping, :class => "form-control"
+                      = check_box_tag "customer[is_shipping]", true, false,:class => "form-control",:id => "customer_is_shipping"
                       %span.lbl
                         = "Is billing address same as shipping address ?"
                 .col-xs-12.col-sm-6
                   #s_name.form-group
-                    = text_field_tag "customer[s_name]","", :class => "form-control",:placeholder => "Full Name"
+                    = text_field_tag "customer[s_name]",@customer.s_name || "", :class => "form-control",:placeholder => "Full Name"
+                    - if @customer.errors[:name].any?
+                      %span.text-error.text-message= @customer.errors[:name].first
                   #address1.form-group
-                    = text_area_tag :s_address,"", :class => "form-control", :placeholder => "Shipping address"
+                    = text_area_tag "customer[s_address]",@customer.s_address || "", :class => "form-control", :placeholder => "Shipping address"
+                    - if @customer.errors[:s_address].any?
+                      %span.text-error.text-message= @customer.errors[:s_address].first
                   .row
                     .col-xs-12.col-sm-6
                       #city.form-group
                         = text_field_tag "customer[s_city]",  "AHMEDABAD", :class => "form-control", :placeholder => "Shipping city"
                     .col-xs-12.col-sm-6
                       #pin_code.form-group
-                        = text_field_tag "customer[s_pin_code]","", :class => "form-control", :placeholder => "Shipping pin code"
+                        = text_field_tag "customer[s_pin_code]",@customer.s_pin_code || "", :class => "form-control", :placeholder => "Shipping pin code"
                   .row
                     .col-xs-12.col-sm-6
                       #state.form-group
@@ -62,7 +70,7 @@
                   #country.form-group
                     = text_field_tag "customer[s_country]", "INDIA", :class => "form-control", :placeholder => "Shipping country"
                   #s_gst_number.form-group
-                    = text_field_tag "customer[s_gst_number]","", :class => "form-control", :placeholder => "GST number"
+                    = text_field_tag "customer[s_gst_number]",@customer.s_gst_number || "", :class => "form-control", :placeholder => "GST number"
                   .btn.btn-primary.btn-md.right#clear_shipping
                     = "Clear Shipping Details"
 

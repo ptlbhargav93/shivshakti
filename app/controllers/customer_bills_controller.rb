@@ -32,18 +32,28 @@ class CustomerBillsController < ApplicationController
   end  
 
   def new
-    @customer = Customer.find(session[:bill_customer]) if session[:bill_customer]
+    if session[:bill_customer]
+      @customer = Customer.find(session[:bill_customer])
+    else
+      @customer = Customer.new
+    end
     @customer_bill = CustomerBill.new
   end
 
   def create
     @customer = Customer.create(customer_params) if params[:customer].present?
-    @customer_bill = CustomerBill.new(customer_bill_params.merge(:creator_id => current_user.id))
-    @customer_bill.customer = @customer if @customer.present?
-    if @customer_bill.save
-      redirect_to customer_bill_path(@customer_bill)
+    if @customer.errors.empty?
+      @customer_bill = CustomerBill.new(customer_bill_params.merge(:creator_id => current_user.id))
+      @customer_bill.customer = @customer if @customer.present?
+      if @customer_bill.save
+        redirect_to customer_bill_path(@customer_bill)
+      else
+        @customer = Customer.find(session[:bill_customer]) if session[:bill_customer]
+        render 'new'
+      end
     else
-      @customer = Customer.find(session[:bill_customer]) if session[:bill_customer]
+      flash.keep[:notice] = @customer.errors.messages
+      @customer_bill = CustomerBill.new
       render 'new'
     end
   end
