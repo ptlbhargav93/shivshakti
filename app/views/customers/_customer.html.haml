@@ -26,11 +26,15 @@
     /         .rxValue= customer.b_gst_number.present? ? customer.b_gst_number : '-'
     .rxBottom
       .row
-        .col-xs-12.col-sm-7.pb5
+        .col-xs-12.col-sm-4.pb5
           %a.rxNextBtn{:href => customer_path(customer) }
-            = t("customer.open_card")
+            = "Edit"
             %i.fa.fa-angle-double-right
-        .col-xs-12.col-sm-5.pb5
+        .col-xs-12.col-sm-4.pb5
           %a.rxNextBtn{:href => customer_bills_path(:bill_customer => customer.id) }
-            = "Bills"
+            = "View"
+            %i.fa.fa-angle-double-right
+        .col-xs-12.col-sm-4.pb5
+          %a.rxNextBtn{:href => new_customer_bill_path(:bill_customer => customer.id) }
+            = "Create"
             %i.fa.fa-angle-double-right        
