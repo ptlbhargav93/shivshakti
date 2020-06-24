@@ -7,13 +7,15 @@
 - with_sign = @with_sign == "true"
 = link_to 'Back', :back, class: "h15 stepBtn previous btn btn-primary"
 = wicked_pdf_image_tag "#{@domain_url}shivshakti_logo.png", :height => "230px", :width => "100%"  
-- if @customer_bill.customer_bill_products.count > 0
-  - rate = @customer_bill.customer_bill_products.pluck(:rate)
-- else
-  - rate = [0]
-- subtotal = rate.inject(:+)
+
+- subtotal = 0
+- quntity = 0
 - cgst = 0
 - sgst = 0
+- if @customer_bill.customer_bill_products.count > 0
+  - subtotal = @customer_bill.customer_bill_products.pluck(:rate).inject(:+)
+  - subtotal = subtotal + @customer_bill.loading_amount if @customer_bill.loading_amount.present?
+  - quntity = @customer_bill.customer_bill_products.pluck(:quantity).compact.inject(:+) || 0
 - cgst = (subtotal*@customer_bill.cgst/100).round(2) if @customer_bill.cgst
 - sgst = (subtotal*@customer_bill.sgst/100).round(2) if @customer_bill.sgst
 - total_gst_amount = cgst+sgst
@@ -566,15 +568,18 @@
               = bill.ref_invoice_number
             %br/
         %td{:align => "left", :colspan => "7", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
-          %font{:color => "#000000", :size => "3"} 
-            - a = "GOODS AND TRANSPORT AGENCY SERVICE BY ROAD </br> FROM #{bill.from} TO #{bill.to}.".html_safe
-            - a = a+" Vehical Number: #{bill.vehical_number}" if bill.vehical_number.present?
-            = a
+          %font{:color => "#000000", :size => "3"}
+            - a = number == 1 ? "GOODS AND TRANSPORT AGENCY SERVICE BY ROAD </br>".html_safe : ""
+            - b = bill.from.present? ? "FROM #{bill.from} " : ""
+            - c = bill.to.present? ? "TO #{bill.to} " : ""
+            - d = bill.vehical_number.present? ? "Vehical Number: #{bill.vehical_number}" : ""
+            = a+b+c+d
         %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
         %td{:align => "center", :sdnum => "1033;", :sdval => "996511", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-          %font{:color => "#000000", :size => "3"} 996511
+          %font{:color => "#000000", :size => "3"}
+            = 996511 if number == 1
         %td{:align => "center", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
           %font{:color => "#000000", :size => "3"}
             %br/
@@ -634,6 +639,50 @@
       %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
         %font{:color => "#000000", :size => "3"}
           %br/
+  - if @customer_bill.loading_text.present? || @customer_bill.loading_amount.present?
+    %tr
+      %td{:align => "center", :height => "29", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %font{:color => "#000000", :size => "3"}
+          %br/
+      %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %font{:color => "#000000", :size => "3"}
+          %br/
+      %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
+        %font{:color => "#000000", :size => "3"}
+          %br/
+      %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+        %font{:color => "#000000", :size => "3"}
+          %br/
+      %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+        %font{:color => "#000000", :size => "3"}
+          %br/
+      %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+        %font{:color => "#000000", :size => "3"}
+          %br/
+      %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+        %font{:color => "#000000", :size => "3"}
+          %br/
+      %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+        %font{:color => "#000000", :size => "3"}
+          %br/
+      %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+        %font{:color => "#000000", :size => "3"}
+          %br/
+      %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %font{:color => "#000000", :size => "3"}
+          %br/
+      %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %font{:color => "#000000", :size => "3"}
+          %br/
+      %td{:align => "left", :colspan => 2, :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; text-align: left", :valign => "middle"}
+        %font{:color => "#000000", :size => "3"}
+          = @customer_bill.loading_text
+      %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %font{:color => "#000000", :size => "3"}
+          %br/
+      %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %font{:color => "#000000", :size => "3"}
+          = @customer_bill.loading_amount
   %tr
     %td{:align => "left", :bgcolor => "#FFFF00", :height => "29", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
       %b
@@ -676,7 +725,7 @@
     %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "1", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
-          = @customer_bill.customer_bill_products.pluck(:quantity).inject(:+)
+          = quntity
     %td{:align => "left", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
@@ -743,7 +792,7 @@
       %font{:color => "#000000", :size => "3"} 0%
     %td{:align => "right", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "1", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
-        = @customer_bill.customer_bill_products.pluck(:quantity).inject(:+)
+        = quntity
     %td{:align => "left", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/
@@ -937,7 +986,7 @@
     %td{:align => "right", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "1", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
-          = @customer_bill.customer_bill_products.pluck(:quantity).inject(:+)
+          = quntity
     %td{:align => "left", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/

@@ -10,7 +10,7 @@
         %tbody
           %tr
             %td#stepBtnHeight.leftCol{:width => "80%"}
-              .formBox.view-details
+              .formBox.view-details.minH1120
                 .formHeader.clearfix
                   %h1
                     = "Customer bill card - " + @customer_bill.customer.b_name
@@ -301,4 +301,7 @@
             %a.h15.stepBtn.nextBtn{"data-target" => "#SendInvoiceToAccountant", "data-toggle" => "modal"}
               %span= t('send_bills.send_invoice_information_to_accountant').html_safe
               = image_tag "email_btn.png", :class => "mt15"
+            %a.h15.stepBtn.nextBtn{:href => customer_bill_path, "data-method" => :delete, data: { confirm: 'Are you sure?' }}
+              %span= t("form_action_button.delete")
+              = image_tag "btn_discard.png", :class => "mt15"
 

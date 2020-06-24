@@ -32,11 +32,7 @@ class CustomerBillsController < ApplicationController
   end  
 
   def new
-    if params[:bill_customer].present?
-      session[:bill_customer] = params[:bill_customer]
-    else
-      session[:bill_customer] = nil
-    end
+    session[:bill_customer] = params[:bill_customer] if params[:bill_customer].present?
     if session[:bill_customer]
       @customer = Customer.find(session[:bill_customer])
     else
@@ -107,14 +103,14 @@ class CustomerBillsController < ApplicationController
       FileUtils.rm_f Dir.glob("#{directory}*")
       customer_bills.each do |bill|
         @customer_bill = bill
-        invoice_pdf_name = t("send_bills.file_name_bill_archive_attachment",:name => @customer_bill.customer.b_name, :date => @customer_bill.invoice_date.strftime("%m/%Y"), :invoice_number => @customer_bill.invoice_number, :rate => @customer_bill.total_amount) 
+        invoice_pdf_name = t("send_bills.file_name_bill_archive_attachment",:name => @customer_bill.customer.try(:b_name), :date => @customer_bill.invoice_date.strftime("%m/%Y"), :invoice_number => @customer_bill.invoice_number, :rate => @customer_bill.total_amount) 
         invoice_content = render_to_string(:layout => "pdf.html", :template => 'pdf/print_invoice.pdf.haml')
         pdf = WickedPdf.new.pdf_from_string(
             invoice_content,  pdf: invoice_pdf_name,
                                     viewport_size: '1280x1024',
                                     :margin => { :top => 10, :bottom => 3, :left => 10, :right => 10})
         # then save to a file
-        save_path = Rails.root.join('public/pdfs/',invoice_pdf_name)
+        save_path = Rails.root.join('public/pdfs/',"#{invoice_pdf_name}.pdf")
         File.open(save_path, 'wb') do |file|
           file << pdf
         end
@@ -187,7 +183,7 @@ class CustomerBillsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def customer_bill_params
-    params.require(:customer_bill).permit(:invoice_number, :lr_number, :po_number, :vendor_code, :invoice_date, :lr_date, :customer_id, :cgst, :sgst, :total_amount, :creator_id, :updater_id, :payment_mode, :payment_date, :cheque_number, :bank_name,
+    params.require(:customer_bill).permit(:invoice_number, :lr_number, :po_number, :vendor_code, :invoice_date, :lr_date, :customer_id, :cgst, :sgst, :total_amount, :creator_id, :updater_id, :payment_mode, :payment_date, :cheque_number, :bank_name, :loading_text, :loading_amount,
                                           customer_bill_products_attributes: [:id, :vehical_number, :ref_invoice_number, :from, :to, :quantity, :rate, :_destroy],
                                           resources_attributes: [:id, :media, :resource_type_id, :resource_spec_id, :_destroy])
   end

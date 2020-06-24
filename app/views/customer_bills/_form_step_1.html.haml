@@ -133,6 +133,17 @@
                   %hr
               .row
                 .col-xs-12.col-md-6
+                  .col-xs-12
+                    .row.row2.form-group
+                      .col-xs-12
+                        = f.text_field :loading_text, :class => "form-control", :placeholder => "Loading text"
+                  
+                .col-xs-12.col-md-6
+                  .col-xs-12
+                    .row.row2.form-group
+                      .col-xs-12
+                        = f.text_field :loading_amount, :class => "form-control amountClass", :placeholder => "Loading Amount"
+                .col-xs-12.col-md-6
                   .col-xs-6.col-sm-6
                     .row.row2.form-group
                       .col-xs-10
