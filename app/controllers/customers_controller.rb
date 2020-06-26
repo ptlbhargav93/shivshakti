@@ -99,7 +99,7 @@ class CustomersController < ApplicationController
     end
     if search.present?
       session[:register_customer_search] = search
-      customers = customers.where('b_name ILIKE :s', :s => "%#{search.delete(' ')}%")
+      customers = customers.where('b_name ILIKE :s or ref_customer ILIKE :s', :s => "%#{search.delete(' ')}%")
     end
     if city.present?
       session[:register_customer_city] = city

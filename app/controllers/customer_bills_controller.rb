@@ -162,7 +162,7 @@ class CustomerBillsController < ApplicationController
     end
     if search.present?
       session[:register_customer_bill_search] = search
-      customer_bills = customer_bills.where('invoice_number LIKE :s', :s => "#{search.delete(' ')}%")
+      customer_bills = customer_bills.joins(:customer).where('customer_bills.invoice_number LIKE :s or customers.ref_customer LIKE :s', :s => "#{search.delete(' ')}%")
     end
     @years = customer_bills.select('extract(year from invoice_date) as year').group('year').map{|e| e.year}.compact.reject(&:blank?)
     # calculate_month_year
