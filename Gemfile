@@ -163,6 +163,9 @@ gem "roo", "~> 2.7.0"
 
 gem 'formvalidation-rails'
 
+gem 'sendgrid-ruby'
+
+
 
 group :production do
   gem 'exception_notification'

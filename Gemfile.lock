@@ -497,6 +497,7 @@ GEM
     ruby-prof (0.16.2)
     ruby-progressbar (1.9.0)
     ruby_dep (1.5.0)
+    ruby_http_client (3.5.0)
     ruby_parser (3.10.1)
       sexp_processor (~> 4.9)
     rubyzip (1.2.1)
@@ -518,6 +519,8 @@ GEM
     seedbank (0.4.0)
     select2-rails (4.0.3)
       thor (~> 0.14)
+    sendgrid-ruby (6.3.1)
+      ruby_http_client (~> 3.4)
     sexp_processor (4.10.0)
     shellany (0.0.1)
     sidekiq (5.0.5)
@@ -688,6 +691,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   seedbank
+  sendgrid-ruby
   sidekiq
   spring
   sqlite3

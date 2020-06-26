@@ -79,13 +79,13 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:        'smtp.gmail.com',
-    port:           587,
-    domain:         'gmail.com',
-    user_name:      'bhargavpvi.dev',
-    password:       'bhargav@123',
-    authentication: 'plain',
-    :enable_starttls_auto  => true
+    :user_name => "apikey" ,
+    :password => "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",
+    :domain => 'shivshakti-transport.herokuapp.com/',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
   }
 
   Rails.application.config.middleware.use ExceptionNotification::Rack,
