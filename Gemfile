@@ -220,6 +220,8 @@ group :developemnt, :test do
 
   gem 'rubyzip', '>= 1.0.0'
   gem 'zip-zip'
+  gem 'fog-google'
+
 end
 
 group :test do

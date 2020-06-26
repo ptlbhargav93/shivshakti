@@ -1,0 +1,8 @@
+development:
+  provider: Google
+  google_storage_access_key_id: GOOGGNQXGWG4PJQB3BUFZEBF
+  google_storage_secret_access_key: p3GPIfpwQTSE30uGC4BqDshf/DXEzUpUbzD2AMaY
+production:
+  provider: Google
+  google_storage_access_key_id: GOOGGNQXGWG4PJQB3BUFZEBF
+  google_storage_secret_access_key: p3GPIfpwQTSE30uGC4BqDshf/DXEzUpUbzD2AMaY

@@ -1,15 +1,18 @@
 class Resource < ActiveRecord::Base
-  
+  require 'fog/google'
   belongs_to :resource_holder, polymorphic: true, inverse_of: :resources
   belongs_to :resource_type
   belongs_to :resource_spec
 
-  has_attached_file :media,
-                    styles: lambda { |a| a.instance.media_content_type =~ %r(image) ? {:small => {:geometry => "100x100"}, :medium => {:geometry => "256x256"} }  : {} },
+  has_attached_file :media, 
+                    :styles => lambda { |a| a.instance.media_content_type =~ %r(image) ? {:small => {:geometry => "100x100"}, :medium => {:geometry => "256x256"} }  : {} },
                     convert_options: { all: '-auto-orient' },
-                    path: :media_path,
-                    url: :media_url,
-                    default_url: :media_default_url,
+                    :storage => :fog,
+                    :fog_public => true,
+                    :fog_credentials => "#{Rails.root}/config/gce.yml",
+                    :fog_directory => "shivshakti_bucket",
+                    :path => "/system/:class/:attachment/:id/:style/:filename" ,
+                    :default_url => :media_default_url,
                     processors: [:dispatcher]
 
   validates_attachment_content_type :media, 

@@ -238,7 +238,7 @@
                       %label.label-value= @customer_bill.customer.s_gst_number.present? ? @customer_bill.customer.s_gst_number : '-'
                 - receiving_images = @customer_bill.resources.with_type('DOCUMENT::ATTACHMENT')
                 - if receiving_images.count > 0
-                  - if receiving_images.where(:media_content_type => "image/jpeg").count > 0
+                  - if receiving_images.where.not(:media_content_type => "application/pdf").count > 0
                     .row.row10
                       .col-xs-12
                         .hr.h25
@@ -247,7 +247,7 @@
                           = "Receiving Copy images"
                       .col-xs-12
                         .hr.h25
-                      - receiving_images.where(:media_content_type => "image/jpeg").each do |receiving_image|
+                      - receiving_images.where.not(:media_content_type => "application/pdf").each do |receiving_image|
                         .col-xs-12
                           = image_tag receiving_image.media.url(:medium), :class => "center123"
                   - if receiving_images.where(:media_content_type => "application/pdf").count > 0
@@ -264,7 +264,7 @@
                           .col-xs-2
                             = image_tag "to_pdf.png"
                           .col-xs-8
-                            = link_to receiving_image.media_file_name, download_resource_path(receiving_image.id)
+                            = link_to receiving_image.media_file_name, receiving_image.media.url
                           
                           
 
