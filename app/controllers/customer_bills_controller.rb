@@ -167,7 +167,7 @@ class CustomerBillsController < ApplicationController
     @years = customer_bills.select('extract(year from invoice_date) as year').group('year').map{|e| e.year}.compact.reject(&:blank?)
     # calculate_month_year
     # customer_bills = customer_bills.where('extract(year from invoice_date) = ? and extract(month from invoice_date) = ?', @billing_period.year, @billing_period.month)
-    customer_bills = params[:order].present? ? customer_bills.order("id #{params[:order]}").distinct : customer_bills.order('id DESC')
+    customer_bills = customer_bills.order('id DESC')
   end
 
   def nav_header

@@ -13,15 +13,13 @@
           = "View cutomer details"
 %br
 .scroll.row.row-10
-  .col-xs-12.col-10
-    .row
-      - if @customer_bills.present?
-        - @customer_bills.each do |customer_bill|
-          = render :partial => 'customer_bill', :locals => {customer_bill: customer_bill}
-        - if @customer_bills.count > Settings.system.per_page
-          = link_to next_customer_bills_path(2), :remote => true, :class => "loadMore jscroll-next" do
-            %i.downArrow
-            = t("general.next")
-      - else
-        .col-xs-12.col-10.alert.alert-warning
-          %span= t('general.no_record_found')
+  - if @customer_bills.present?
+    - @customer_bills.each do |customer_bill|
+      = render :partial => 'customer_bill', :locals => {customer_bill: customer_bill}
+    - if @customer_bills.count > Settings.system.per_page
+      = link_to next_customer_bills_path(2), :remote => true, :class => "loadMore jscroll-next" do
+        %i.downArrow
+        = t("general.next")
+  - else
+    .col-xs-12.col-10.alert.alert-warning
+      %span= t('general.no_record_found')
