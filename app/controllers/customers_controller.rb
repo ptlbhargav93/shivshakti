@@ -68,48 +68,13 @@ class CustomersController < ApplicationController
 
   def fetch_customers
     customers = Customer.all
-    if params[:search].present?
-      search = session[:register_customer_search] = params[:search]
-    else
-      if params[:role].present?
-        search = session[:register_customer_search] = nil
-      else
-        search = session[:register_customer_search] if session[:register_customer_search].present?
-      end
-    end
-
-    if params[:city].present?
-      city = session[:register_customer_city] = params[:city]
-    else
-      if params[:role].present?
-        city = session[:register_customer_city] = nil
-      else
-        city = session[:register_customer_city] if session[:register_customer_city].present?
-      end
-    end
-
-    if params[:state].present?
-      state = session[:register_customer_state] = params[:state]
-    else
-      if params[:role].present?
-        state = session[:register_customer_state] = nil
-      else
-        state = session[:register_customer_state] if session[:register_customer_state].present?
-      end
-    end
-    if search.present?
-      session[:register_customer_search] = search
-      customers = customers.where('b_name ILIKE :s or ref_customer ILIKE :s', :s => "%#{search.delete(' ')}%")
-    end
-    if city.present?
-      session[:register_customer_city] = city
-      customers = customers.where('b_city ILIKE :s', :s => "#{city.delete(' ')}%")
-    end
-    if state.present?
-      session[:register_customer_state] = state
-      customers = customers.where('b_state ILIKE :s', :s => "#{state.delete(' ')}%")
-    end
-    customers = params[:order].present? ? customers.order("id #{params[:order]}").distinct : customers.order('id DESC')
+    search = params[:search] if params[:search].present?
+    city = params[:city] if params[:city].present?
+    state = params[:state] if params[:state].present?
+    customers = customers.where('b_name ILIKE :s or ref_customer ILIKE :s', :s => "%#{search}%") if search.present?
+    customers = customers.where('b_city ILIKE :s', :s => "#{city}%") if city.present?
+    customers = customers.where('b_state ILIKE :s', :s => "#{state}%") if state.present?
+    customers = customers.order('id DESC')
   end
 
   def nav_header

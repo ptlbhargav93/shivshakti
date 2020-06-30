@@ -151,19 +151,9 @@ class CustomerBillsController < ApplicationController
       customer_bills = CustomerBill.all
     end
     
-    if params[:search].present?
-      search = session[:register_customer_bill_search] = params[:search]
-    else
-      if params[:role].present?
-        search = session[:register_customer_bill_search] = nil
-      else
-        search = session[:register_customer_bill_search] if session[:register_customer_bill_search].present?
-      end
-    end
-    if search.present?
-      session[:register_customer_bill_search] = search
-      customer_bills = customer_bills.joins(:customer).where('customer_bills.invoice_number LIKE :s or customers.ref_customer LIKE :s', :s => "#{search.delete(' ')}%")
-    end
+    
+    search = params[:search] if params[:search].present?
+    customer_bills = customer_bills.joins(:customer).where('customer_bills.invoice_number LIKE :s or customers.ref_customer LIKE :s', :s => "#{search}%") if search.present?
     @years = customer_bills.select('extract(year from invoice_date) as year').group('year').map{|e| e.year}.compact.reject(&:blank?)
     # calculate_month_year
     # customer_bills = customer_bills.where('extract(year from invoice_date) = ? and extract(month from invoice_date) = ?', @billing_period.year, @billing_period.month)
