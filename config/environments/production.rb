@@ -78,11 +78,21 @@ Rails.application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #   :user_name => "apikey" ,
+  #   :password => "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",
+  #   :domain => 'shivshakti-transport.herokuapp.com/',
+  #   :address => 'smtp.sendgrid.net',
+  #   :port => 587,
+  #   :authentication => :plain,
+  #   :enable_starttls_auto => true
+  # }
+
   config.action_mailer.smtp_settings = {
-    :user_name => "apikey" ,
-    :password => "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",
-    :domain => 'shivshakti-transport.herokuapp.com/',
-    :address => 'smtp.sendgrid.net',
+    :user_name => "postmaster@sandbox924f507703ef45739959adb57008b82f.mailgun.org" ,
+    :password => "cb3f5965b6a16f1b9fe5aa87571d0105-913a5827-44bbbf10",
+    :domain => 'shivshakti-transport.herokuapp.com',
+    :address => 'smtp.mailgun.org',
     :port => 587,
     :authentication => :plain,
     :enable_starttls_auto => true

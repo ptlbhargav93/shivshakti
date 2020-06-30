@@ -2,7 +2,7 @@ class Mailer < ActionMailer::Base
 
   include ApplicationHelper
 
-  default :from => "'#{I18n.t('dbm_email')}' <no-reply@fenux.fi>"
+  default :from => "'#{I18n.t('dbm_email')}' <no-reply@shivshakti.in>"
 
   def send_feedback_email(options={})
     @message = options[:message]
