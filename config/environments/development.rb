@@ -38,9 +38,9 @@ Rails.application.configure do
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
 
-  # config.active_job.queue_adapter = :sidekiq
-  # config.active_job.queue_name_prefix = "madhav"
-  # config.active_job.queue_name_delimiter = "_"
+  config.active_job.queue_adapter = :sidekiq
+  config.active_job.queue_name_prefix = "shivshakti"
+  config.active_job.queue_name_delimiter = "_"
 
   config.assets.raise_runtime_errors = true
 

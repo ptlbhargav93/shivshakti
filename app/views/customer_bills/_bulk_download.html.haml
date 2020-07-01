@@ -1,9 +1,11 @@
 .filterTop
   .row
-    = form_for '', :url => bulk_download_customer_bills_path, :method => 'post', :html => {:id => "filterFormId112"} do
+    = form_for '', :url => send_archive_bills_via_email_emails_path, :method => 'post', :html => {:id => "filterFormId112"} do
       .col-xs-12.col-sm-4
+        = text_field_tag "recipient_email[]", "", :class => "form-control mandatory_field", :id => "recipient_email"
+      .col-xs-12.col-sm-2
         = select_tag "month", options_for_select(CustomerBill.localize_months_values,Date.today.month), :class => "form-control"
-      .col-xs-12.col-sm-4
+      .col-xs-12.col-sm-2
         = select_tag "year", options_for_select(@years.map{|year| [year]},Date.today.year), :class => "form-control"
       .col-xs-12.col-sm-4
-        = submit_tag "Download Zip file", :class => "form-control"
+        = submit_tag "Send Zip file to Email", :class => "form-control"

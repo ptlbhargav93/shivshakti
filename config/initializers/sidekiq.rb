@@ -1,6 +1,6 @@
 case Rails.env
   when 'production'
-    url = 'redis://127.0.0.1:6379/12'
+    url = 'redis://redistogo:752241e4625b430df005ad562d1c7e5c@pike.redistogo.com:11587/'
   when 'staging'
     url = 'redis://staging:6379/12'
   else

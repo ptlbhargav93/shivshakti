@@ -126,6 +126,7 @@ Rails.application.routes.draw do
         post '/:id/send_login_info_by_email', to: 'emails#send_login_info_by_email', as: 'send_login_info_by_email'
         post '/:id/send_invoice_to_accountant_via_email_form', to: 'emails#send_invoice_to_accountant_via_email', as: 'send_invoice_to_accountant_via_email'
         post '/:id/send_invoice_via_email_form', to: 'emails#send_invoice_via_email', as: 'send_invoice_via_email'
+        post '/send_archive_bills_via_email', to: 'emails#send_archive_bills_via_email', as: 'send_archive_bills_via_email'
       end
     end
 

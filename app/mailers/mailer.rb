@@ -2,7 +2,7 @@ class Mailer < ActionMailer::Base
 
   include ApplicationHelper
 
-  default :from => "'#{I18n.t('dbm_email')}' <no-reply@shivshakti.in>"
+  default :from => "'#{I18n.t('dbm_email')}' <shiv.shaktiahm@gmail.com>"
 
   def send_feedback_email(options={})
     @message = options[:message]
@@ -22,6 +22,44 @@ class Mailer < ActionMailer::Base
     @message = options[:message]
     I18n.with_locale(I18n.locale) do
       mail(:to => options[:recipient_email], :subject => options[:subject])
+    end
+  end
+
+  def send_archive_bills_via_email(options={})
+    @message = "test mail"
+    if options[:year].present? and options[:month].present?
+      customer_bills = CustomerBill.where('extract(year from invoice_date) = ? and extract(month from invoice_date) = ?', options[:year], options[:month])
+      directory = "#{Rails.root}/public/pdfs/" # full path-to-unzipped-dir
+      FileUtils.rm_f Dir.glob("#{directory}*")
+      customer_bills.each do |bill|
+        @customer_bill = bill
+        invoice_pdf_name = t("send_bills.file_name_bill_archive_attachment",:name => @customer_bill.customer.try(:b_name), :date => @customer_bill.invoice_date.strftime("%m/%Y"), :invoice_number => @customer_bill.invoice_number, :rate => @customer_bill.total_amount) 
+        invoice_content = render_to_string(:layout => "pdf.html", :template => 'pdf/print_invoice.pdf.haml')
+        pdf = WickedPdf.new.pdf_from_string(
+            invoice_content,  pdf: invoice_pdf_name,
+                                    viewport_size: '1280x1024',
+                                    :margin => { :top => 10, :bottom => 3, :left => 10, :right => 10})
+        # then save to a file
+        save_path = Rails.root.join('public/pdfs/',"#{invoice_pdf_name}.pdf")
+        File.open(save_path, 'wb') do |file|
+          file << pdf
+        end
+      end
+      file_name = "#{options[:month]}_#{options[:year]}_bill_archive_#{DateTime.now.to_i}.zip"
+      zipfile_name = "#{directory}/#{file_name}" # full path-to-zip-file
+
+      Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
+        Dir[File.join(directory, '*')].each do |file|
+          zipfile.add(file.sub(directory, ''), file)
+        end
+      end
+      @message = options[:message]
+      @current_brand = Brand.find_by_id options[:current_brand]
+      attachments[file_name] = File.read(zipfile_name)
+        
+      I18n.with_locale(I18n.locale) do
+        mail(:to => options[:recipient_email], :subject => options[:subject])
+      end
     end
   end
 
