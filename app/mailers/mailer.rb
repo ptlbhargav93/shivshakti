@@ -72,7 +72,7 @@ class Mailer < ActionMailer::Base
       attachments[file_name] = File.read(zipfile_name)
       begin
         I18n.with_locale(I18n.locale) do
-          mail(:to => options["recipient_email"], :subject => "subject")
+          mail(:to => options["recipient_email"], :subject => "Bills - #{options["month"]}-#{options["year"]}")
         end    
       rescue Exception => e
         puts "+=======+++++++++++++++++++++++++++++++++++++#{e.message}"

@@ -24,7 +24,7 @@ class EmailsController < ApplicationController
     begin
       puts "==================1"
       options = {
-                  :message => "send_archive_bills_via_email",
+                  :message => "Please find attached here with the Bill copies of the #{params[:month]} - #{params[:year]}",
                   :subject => params[:subject],
                   :recipient_email => params[:recipient_email],
                   :current_brand => @current_brand.id,
