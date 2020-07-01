@@ -9,4 +9,5 @@ test:
   <<: *default
 
 production:
-  <<: *default
+  host: redistogo:752241e4625b430df005ad562d1c7e5c@pike.redistogo.com
+  port: 11587

@@ -26,12 +26,20 @@ class Mailer < ActionMailer::Base
   end
 
   def send_archive_bills_via_email(options={})
+    puts "=====send_archive_bills_via_email"
+    puts options.inspect
+    puts options["year"].inspect
+    puts options["month"].inspect
+    puts "================="
     @message = "test mail"
-    if options[:year].present? and options[:month].present?
-      customer_bills = CustomerBill.where('extract(year from invoice_date) = ? and extract(month from invoice_date) = ?', options[:year], options[:month])
+
+    if options["year"].present? and options["month"].present?
+      puts "=====send_archive_bills_via_email -- 2"
+      customer_bills = CustomerBill.where('extract(year from invoice_date) = ? and extract(month from invoice_date) = ?', options["year"], options["month"])
       directory = "#{Rails.root}/public/pdfs/" # full path-to-unzipped-dir
       FileUtils.rm_f Dir.glob("#{directory}*")
       customer_bills.each do |bill|
+        puts "------#{bill.id}"
         @customer_bill = bill
         invoice_pdf_name = t("send_bills.file_name_bill_archive_attachment",:name => @customer_bill.customer.try(:b_name), :date => @customer_bill.invoice_date.strftime("%m/%Y"), :invoice_number => @customer_bill.invoice_number, :rate => @customer_bill.total_amount) 
         invoice_content = render_to_string(:layout => "pdf.html", :template => 'pdf/print_invoice.pdf.haml')
@@ -45,22 +53,34 @@ class Mailer < ActionMailer::Base
           file << pdf
         end
       end
-      file_name = "#{options[:month]}_#{options[:year]}_bill_archive_#{DateTime.now.to_i}.zip"
+      file_name = "#{options["month"]}_#{options["year"]}_bill_archive_#{DateTime.now.to_i}.zip"
+      puts "=====send_archive_bills_via_email -- file_name"
+      puts file_name.inspect
+      puts "======================================="
       zipfile_name = "#{directory}/#{file_name}" # full path-to-zip-file
+      puts "=====send_archive_bills_via_email -- zipfile_name"
+      puts zipfile_name.inspect
+      puts "======================================="
 
       Zip::File.open(zipfile_name, Zip::File::CREATE) do |zipfile|
         Dir[File.join(directory, '*')].each do |file|
           zipfile.add(file.sub(directory, ''), file)
         end
       end
-      @message = options[:message]
-      @current_brand = Brand.find_by_id options[:current_brand]
+      @message = options["message"]
+      @current_brand = Brand.find_by_id options["current_brand"]
       attachments[file_name] = File.read(zipfile_name)
-        
-      I18n.with_locale(I18n.locale) do
-        mail(:to => options[:recipient_email], :subject => options[:subject])
-      end
+      begin
+        I18n.with_locale(I18n.locale) do
+          mail(:to => options["recipient_email"], :subject => "subject")
+        end    
+      rescue Exception => e
+        puts "+=======+++++++++++++++++++++++++++++++++++++#{e.message}"
+      end  
+      
+      puts "=====send_archive_bills_via_email -- 4"
     end
+    puts "=====send_archive_bills_via_email -- 5"
   end
 
   def send_invoice_to_accountant_via_email(options={})
