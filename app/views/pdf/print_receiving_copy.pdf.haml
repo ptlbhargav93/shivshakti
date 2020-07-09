@@ -4,12 +4,11 @@
   a.comment-indicator { background:red; display:inline-block; border:1px solid black; width:0.5em; height:0.5em;  } 
   comment { display:none;  }
 
-= link_to 'Back', :back, class: "h15 stepBtn previous btn btn-primary"
-= wicked_pdf_image_tag "shivshakti_logo.png", :height => "230px", :width => "100%"  
+= wicked_pdf_image_tag "shivshakti_logo.png", :height => "230px", :width => "100%"
 
 - receiving_images = @customer_bill.resources.with_type('DOCUMENT::ATTACHMENT')
 - if receiving_images.count > 0
-  - if receiving_images.where(:media_content_type => "image/jpeg").count > 0
+  - if receiving_images.where.not(:media_content_type => "application/pdf").count > 0
     .row.row10
       .col-xs-12
         .hr.h25
@@ -18,6 +17,10 @@
           = "Receiving Copy images"
       .col-xs-12
         .hr.h25
-      - receiving_images.where(:media_content_type => "image/jpeg").each do |receiving_image|
+      - receiving_images.where.not(:media_content_type => "application/pdf").each do |receiving_image|
         .col-xs-12
+          = receiving_image.media.url(:medium)
+          = "AbC"
+          = image_tag receiving_image.media.url(:medium), :class => "center123"
+          = "DEF"
           = wicked_pdf_image_tag receiving_image.media.url(:medium), :class => "center123"

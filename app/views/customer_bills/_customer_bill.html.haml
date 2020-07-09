@@ -7,9 +7,9 @@
             .col-xs-12.col-sm-4
               .rxDesc
                 %span
-                  = "Invoice date"
+                  = "Customer Name"
                 .rxValue
-                  = customer_bill.invoice_date.to_datetime.to_s(:default_date) if customer_bill.invoice_date
+                  = customer_bill.customer.b_name
               .rxDesc
                 %span
                   = "Invoice Number"
@@ -25,31 +25,44 @@
                     = "TO"
                     = item.to
 
-            .col-xs-12.col-sm-4
+            .col-xs-12.col-sm-2
+              .rxDesc
+                %span
+                  = "Invoice date"
+                .rxValue
+                  = customer_bill.invoice_date.to_datetime.to_s(:default_date) if customer_bill.invoice_date
               .rxDesc
                 %span
                   = "LR Number"
                 .rxValue
                   = customer_bill.lr_number
+            .col-xs-12.col-sm-2
               .rxDesc
                 %span
                   = "Total amount"
                 .rxValue
                   = customer_bill.total_amount
+              - if customer_bill.payment_mode != "NONE" 
+                .rxDesc
+                  %span
+                    = "Payment Mode"
+                  .rxValue
+                    = customer_bill.payment_mode
+                .rxDesc
+                  %span
+                    = "Payment Date"
+                  .rxValue
+                    = customer_bill.payment_date.to_datetime.to_s(:default_date) if customer_bill.payment_date
             .col-xs-12.col-sm-4
-              .col-xs-12.col-md-6
+              .col-xs-6
                 %a.rxNextBtn.mt5{:href => customer_bill_path(customer_bill) }
+                  = "Show Bill"
+              .col-xs-6
+                %a.rxNextBtn.mt5{:href => edit_customer_bill_path(customer_bill) }
                   = "Edit Bill"
-                  %i.fa.fa-angle-double-right
-              .col-xs-12.col-md-6
-                %a.rxNextBtn.mt5{:href => print_invoice_pdf_path(customer_bill, format: 'html') }
-                  = "PreView Bill"
-                  %i.fa.fa-angle-double-right
-              .col-xs-12.col-md-6
+              .col-xs-6
                 %a.rxNextBtn.mt5{:href => print_invoice_pdf_path(customer_bill, format: 'pdf', without_image: "true") }
                   = "NO Logo"
-                  %i.fa.fa-angle-double-right
-              .col-xs-12.col-md-6
+              .col-xs-6
                 %a.rxNextBtn.mt5{:href => print_invoice_pdf_path(customer_bill, format: 'pdf', without_image: "false") }
                   = "YES Logo"
-                  %i.fa.fa-angle-double-right

@@ -199,9 +199,9 @@ a:hover{ color: #3f92be;}
 .rxHeader + .rxContent{ padding-top: 15px;}
 .rxDesc{ line-height: 20px; padding-bottom: 8px;}
 .rxDesc span{ display: inline-block; width: 100%; color: #333333; font-weight: 700;}
-.rxDesc .rxValue{ display: inline-block; width: 100%; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; vertical-align: top;}
+.rxDesc .rxValue{ display: inline-block; width: 100%; overflow: hidden; text-overflow: ellipsis; vertical-align: top;}
 .rxBox .rxNextBtn,
-.rxBox .rxNextBtn:hover{ background: #585858; min-height: 45px; width: 100%; padding: 11px 35px 11px 15px; display: inline-block; font-size: 18px; line-height: 22px; font-weight: 500; color: #fff; text-decoration: none; position: relative; border-radius: 5px;}
+.rxBox .rxNextBtn:hover{ background: #585858; min-height: 45px; width: 100%; padding: 11px 15px 11px 15px; display: inline-block; font-size: 18px; line-height: 22px; font-weight: 500; color: #fff; text-decoration: none; position: relative; border-radius: 5px;}
 .rxBox .rxNextBtn .fa{ position: absolute; right: 15px; top: 0; line-height: 44px;}
 .rxBox .rxNextBtn.iconCenter .fa{ top: 50%; margin-top: -22px;}
 
