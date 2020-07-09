@@ -604,7 +604,7 @@ GEM
     xdan-datetimepicker-rails (2.5.4)
       jquery-rails
       rails (>= 3.2.16)
-    yard (0.9.9)
+    yard (0.9.25)
     zeus (0.15.14)
       method_source (>= 0.6.7)
     zip-zip (0.3)
