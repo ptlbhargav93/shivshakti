@@ -19,8 +19,4 @@
         .hr.h25
       - receiving_images.where.not(:media_content_type => "application/pdf").each do |receiving_image|
         .col-xs-12
-          = receiving_image.media.url(:medium)
-          = "AbC"
-          = image_tag receiving_image.media.url(:medium), :class => "center123"
-          = "DEF"
-          = wicked_pdf_image_tag receiving_image.media.url(:medium), :class => "center123"
+          = wicked_pdf_image_tag image_url(receiving_image.media.url(:medium)), :class => "center123"

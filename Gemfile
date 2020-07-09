@@ -149,6 +149,8 @@ gem 'wicked_pdf'
 
 gem 'wkhtmltopdf-binary-edge'
 
+gem 'wkhtmltopdf-heroku', '2.12.5.0'
+
 gem "cocoon"
 
 gem 'time_difference'

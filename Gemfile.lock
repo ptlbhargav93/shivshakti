@@ -600,6 +600,7 @@ GEM
     wicked_pdf (1.1.0)
     will_paginate (3.1.6)
     wkhtmltopdf-binary-edge (0.12.4.0)
+    wkhtmltopdf-heroku (2.12.5.0)
     xdan-datetimepicker-rails (2.5.4)
       jquery-rails
       rails (>= 3.2.16)
@@ -712,6 +713,7 @@ DEPENDENCIES
   wicked_pdf
   will_paginate
   wkhtmltopdf-binary-edge
+  wkhtmltopdf-heroku (= 2.12.5.0)
   zeus
   zip-zip
 
