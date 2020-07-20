@@ -432,7 +432,7 @@
   %tr
     %td{:align => "left", :height => "30", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"} GSTIN
-    %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; min-width: 180px", :valign => "middle"}
       %b
         %font{:color => "#000000", :face => "Times New Roman", :size => "3"}
           = @customer_bill.customer.b_gst_number
@@ -448,7 +448,7 @@
         %br/
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"} GSTIN
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; min-width: 180px", :valign => "middle"}
       %b
         %font{:color => "#000000", :face => "Times New Roman", :size => "3"}
           = @customer_bill.customer.s_gst_number
