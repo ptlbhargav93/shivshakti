@@ -79,22 +79,6 @@
                 = hidden_field_tag 'step', '1'
                 - if @customer_bill.new_record? && session[:bill_customer].present?
                   = f.hidden_field :customer_id, :value => session[:bill_customer]
-                #invoice_number.form-group
-                  = f.text_field :invoice_number, :class => "form-control",:placeholder => "Invoice number"
-                  - if @customer_bill.errors[:invoice_number].any?
-                    %span.text-error.text-message= @customer_bill.errors[:invoice_number].first
-                #invoice_date.form-group
-                  .inputGroup
-                    = f.text_field :invoice_date, :value => (@customer_bill.invoice_date.present? ? @customer_bill.invoice_date.to_datetime.to_s(:default_date) : (Time.now).to_datetime.to_s(:default_date)), :class => "form-control datepickeron", :placeholder => "Invoice date"
-                    .inputAddons.iconRight
-                      %i.fa.fa-calendar
-                  - if @customer_bill.errors[:invoice_date].any?
-                    %span.text-error.text-message= @customer_bill.errors[:invoice_date].first
-                #po_number.form-group
-                  = f.text_field :po_number, :class => "form-control",:placeholder => "P O number"
-                  - if @customer_bill.errors[:po_number].any?
-                    %span.text-error.text-message= @customer_bill.errors[:po_number].first
-              .col-xs-12.col-sm-6
                 #lr_number.form-group
                   = f.text_field :lr_number, :class => "form-control",:placeholder => "L R number"
                   - if @customer_bill.errors[:lr_number].any?
@@ -106,6 +90,22 @@
                       %i.fa.fa-calendar
                   - if @customer_bill.errors[:lr_date].any?
                     %span.text-error.text-message= @customer_bill.errors[:lr_date].first
+                #po_number.form-group
+                  = f.text_field :po_number, :class => "form-control",:placeholder => "P O number"
+                  - if @customer_bill.errors[:po_number].any?
+                    %span.text-error.text-message= @customer_bill.errors[:po_number].first
+              .col-xs-12.col-sm-6
+                #invoice_number.form-group
+                  = f.text_field :invoice_number, :class => "form-control",:placeholder => "Invoice number"
+                  - if @customer_bill.errors[:invoice_number].any?
+                    %span.text-error.text-message= @customer_bill.errors[:invoice_number].first
+                #invoice_date.form-group
+                  .inputGroup
+                    = f.text_field :invoice_date, :value => (@customer_bill.invoice_date.present? ? @customer_bill.invoice_date.to_datetime.to_s(:default_date) : (Time.now).to_datetime.to_s(:default_date)), :class => "form-control datepickeron", :placeholder => "Invoice date"
+                    .inputAddons.iconRight
+                      %i.fa.fa-calendar
+                  - if @customer_bill.errors[:invoice_date].any?
+                    %span.text-error.text-message= @customer_bill.errors[:invoice_date].first
                 #vendor_code.form-group
                   = f.text_field :vendor_code, :class => "form-control",:placeholder => "Vendor code"
                   - if @customer_bill.errors[:vendor_code].any?

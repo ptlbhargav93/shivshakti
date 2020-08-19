@@ -6,6 +6,7 @@
     %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
     %meta{:content => "width=device-width, initial-scale=1,maximum-scale=1", :name => "viewport"}
     = stylesheet_link_tag 'application', media: 'all'
+    / = stylesheet_link_tag 'http://twitter.github.io/typeahead.js/css/examples.css'
     = csrf_meta_tags
   %body
     = render 'layouts/header'
@@ -29,6 +30,7 @@
     = javascript_include_tag "i18n"
     = javascript_include_tag "i18n/translations"
     = javascript_include_tag 'bootstrapValidator.min'
+    = javascript_include_tag "http://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"
     - if current_user.present?
       = javascript_include_tag 'application'
     - else
