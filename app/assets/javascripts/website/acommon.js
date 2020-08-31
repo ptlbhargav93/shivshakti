@@ -68,6 +68,41 @@ $(document).ready(function(){
     };
   };
 
+  state_codes = { "ANDHRA PRADESH": 37,
+  "ARUNACHAL PRADESH": 12,
+  "ASSAM": 18,
+  "BIHAR": 10,
+  "CHHATTISGARH": 22,
+  "GOA": 30,
+  "GUJARAT": 24,
+  "HARYANA": 06,
+  "HIMACHAL PRADESH": 02,
+  "JAMMU AND KASHMIR": 01,
+  "JHARKHAND": 20,
+  "KARNATAKA": 29,
+  "KERALA": 32,
+  "MADHYA PRADESH": 23,
+  "MAHARASHTRA": 27,
+  "MANIPUR": 14,
+  "MEGHALAYA": 17,
+  "MIZORAM": 15,
+  "NAGALAND": 13,
+  "ODISHA": 21,
+  "PUNJAB": 03,
+  "RAJASTHAN": 08,
+  "SIKKIM": 11,
+  "TAMIL NADU": 33,
+  "TELANGANA": 36,
+  "TRIPURA": 16,
+  "UTTARAKHAND": 05,
+  "UTTAR PRADESH": 09,
+  "WEST BENGAL": 19,
+  "ANDAMAN AND NICOBAR ISLANDS": 35,
+  "CHANDIGARH": 04,
+  "DADRA AND NAGAR HAVELI": 26,
+  "DAMAN AND DIU": 25,
+  "PUDUCHERRY": 34}
+
   $('#the-basics .typeahead').typeahead({
     input: 'Typeahead-input',
     hint: true,
@@ -79,6 +114,9 @@ $(document).ready(function(){
     source: substringMatcher(states)
   });
 
+  $("#the-basics").focusout(function(){
+    $("#customer_b_state_code").val(state_codes[$('#customer_b_state').val()])
+  });
 
   common_events();
 
