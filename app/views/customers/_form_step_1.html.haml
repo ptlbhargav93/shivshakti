@@ -31,7 +31,7 @@
                 .row
                   .col-xs-12.col-sm-6
                     #the-basics.form-group
-                      = f.text_field :b_state, :value=>@customer.b_state.present? ? @customer.b_state : "GUJARAT1", :class => "form-control typeahead", :placeholder => "Billing state"
+                      = f.text_field :b_state, :value=>@customer.b_state.present? ? @customer.b_state : "GUJARAT", :class => "form-control typeahead", :placeholder => "Billing state"
                   .col-xs-12.col-sm-6
                     #state_code.form-group
                       = f.text_field :b_state_code, :value=>@customer.b_state_code.present? ? @customer.b_state_code : "24", :class => "form-control", :placeholder => "Billing state code"

@@ -28,8 +28,8 @@
                         = text_field_tag "customer[b_pin_code]",@customer.b_pin_code || "", :class => "form-control", :placeholder => "Billing pin code"
                   .row
                     .col-xs-12.col-sm-6
-                      #state.form-group
-                        = text_field_tag "customer[b_state]", "GUJARAT", :class => "form-control", :placeholder => "Billing state"
+                      #the-basics.form-group
+                        = text_field_tag "customer[b_state]", "GUJARAT", :class => "form-control typeahead", :placeholder => "Billing state"
                     .col-xs-12.col-sm-6
                       #state_code.form-group
                         = text_field_tag "customer[b_state_code]", "24", :class => "form-control", :placeholder => "Billing state code"
