@@ -1109,6 +1109,7 @@ en:
     preview_bill: Preview bill
     download_invoice_withtout_logo: Download bill <b>WITHOUT</b> logo
     download_invoice_with_logo: Download bill <b>WITH</b> logo
+    download_invoice_with_manual_sign: "Download Bill with <b>Manual Sign</b>"
     edit_reward_details: Edit reward details
     edit_payment_rules: Edit payment rules
     assign_to_clinics: Assign to chosen clinics

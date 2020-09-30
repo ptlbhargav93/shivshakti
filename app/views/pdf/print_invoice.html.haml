@@ -789,7 +789,8 @@
     %td{:align => "center", :sdnum => "1033;", :sdval => "996511", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"} 996511
     %td{:align => "right", :sdnum => "1033;0;0%", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"} 0%
+      %font{:color => "#000000", :size => "3"}
+        = "#{(@customer_bill.cgst || 0.00) + (@customer_bill.sgst || 0.00)}%"
     %td{:align => "right", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "1", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         = quntity
@@ -801,9 +802,11 @@
         %br/
     %td{:align => "right", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
-        = @customer_bill.total_amount
+        / = @customer_bill.total_amount
+        = subtotal
     %td{:align => "right", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"} -
+      %font{:color => "#000000", :size => "3"}
+        = total_gst_amount == 0 ? "-" : total_gst_amount
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
@@ -851,7 +854,7 @@
     %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
-          = @customer_bill.total_amount
+          = subtotal
   %tr
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
@@ -927,8 +930,7 @@
           %br/
     %td{:align => "right", :sdnum => "1033;0;0.00%", :sdval => "0.025", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
-        = @customer_bill.cgst || 0.00
-        = "%"
+        = "#{@customer_bill.cgst || 0.00}%"
     %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         = cgst == 0 ? "-" : cgst
@@ -967,8 +969,7 @@
           %br/
     %td{:align => "right", :sdnum => "1033;0;0.00%", :sdval => "0.025", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
-        = @customer_bill.sgst || 0.00
-        = "%"
+        = "#{@customer_bill.sgst || 0.00}%"
     %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         = sgst == 0 ? "-" : sgst
@@ -996,10 +997,12 @@
     %td{:align => "right", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
-          = @customer_bill.total_amount
+          /= @customer_bill.total_amount
+          = subtotal
     %td{:align => "right", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} -
+        %font{:color => "#000000", :size => "3"}
+          = total_gst_amount
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"} UTGST
@@ -1107,18 +1110,10 @@
     %td{:align => "left",:rowspan => "3",:colspan => "3", :style => "border-top: 1px solid #000000; text-align: left", :valign => "middle"}
       %font{:color => "#000000"}
         = "Digitally signed by </br> Rajan Patel </br> #{ist_time.strftime("%Y.%m.%d")} </br> #{ist_time.strftime("%T %:z")}".html_safe if with_sign
-    %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000;border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
+    %td{:align => "center", :colspan => "4", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-right: 1px solid #000000", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "4"} 
+          = "For Shiv Shakti Transport Co." unless with_sign
   %tr
     %td{:align => "left", :bgcolor => "#FFFF00", :height => "20", :colspan => "2", :style => "border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
       %i
@@ -1147,9 +1142,10 @@
       %font{:color => "#000000", :size => "5"}
         = "Rajan Patel" if with_sign
 
-    %td{:align => "center", :colspan => "4", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "center", :colspan => "4", :rowspan => "2", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-right: 1px solid #000000", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "4"} For Shiv Shakti Transport Co.
+        %font{:color => "#000000", :size => "4"}
+          = wicked_pdf_image_tag "#{@domain_url}signature.jpeg", :height => "100px", :width => "150px" unless with_sign || @without_image == "true"
   %tr
     %td{:align => "left", :bgcolor => "#FFFF00", :height => "25", :colspan => "2", :style => "border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
       %i
@@ -1183,9 +1179,6 @@
     %td{:align => "left", :valign => "bottom"}
       %font{:color => "#000000"}
         %br/
-    %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
   %tr
     %td{:align => "left", :bgcolor => "#FFFF00", :height => "28", :colspan => "2", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
       %i
@@ -1203,4 +1196,5 @@
         %font{:color => "#000000", :size => "3"} Subject to Ahmedabd, Gujarat Jurisdiction
     %td{:align => "center", :colspan => "4", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-right: 1px solid #000000; border-bottom: 1px solid #000000;", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "4"} Proprietor
+        %font{:color => "#000000", :size => "4"} 
+          = "Proprietor" unless with_sign
