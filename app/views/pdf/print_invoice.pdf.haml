@@ -10,6 +10,7 @@
   %div{:style => "height: 260px"}
 - else
   = wicked_pdf_image_tag "shivshakti_logo.png", :height => "230px", :width => "100%"
+  = wicked_pdf_image_tag "signature.png", :height => "100px", :width => "150px" unless with_sign || @without_image == "true"
 
 - subtotal = 0
 - quntity = 0
@@ -1149,7 +1150,6 @@
     %td{:align => "center", :colspan => "4", :rowspan => "2", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "4"}
-          = image_tag "signature.png"
           = wicked_pdf_image_tag "signature.png", :height => "100px", :width => "150px" unless with_sign || @without_image == "true"
   %tr
     %td{:align => "left", :bgcolor => "#FFFF00", :height => "25", :colspan => "2", :style => "border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
