@@ -41,7 +41,7 @@ class Mailer < ActionMailer::Base
       customer_bills.each do |bill|
         puts "------#{bill.id}"
         @customer_bill = bill
-        invoice_pdf_name = t("send_bills.file_name_bill_archive_attachment",:name => @customer_bill.customer.try(:b_name), :date => @customer_bill.invoice_date.strftime("%m/%Y"), :invoice_number => @customer_bill.invoice_number, :rate => @customer_bill.total_amount) 
+        invoice_pdf_name = t("send_bills.file_name_bill_archive_attachment",:name => @customer_bill.customer.try(:b_name), :date => @customer_bill.invoice_date.strftime("%m/%Y"), :invoice_number => @customer_bill.invoice_number, :rate => @customer_bill.total_amount, :label => (@customer_bill.cgst > 0 || @customer_bill.sgst > 0 ? "With" : "Without")) 
         invoice_content = render_to_string(:layout => "pdf.html", :template => 'pdf/print_invoice.pdf.haml')
         pdf = WickedPdf.new.pdf_from_string(
             invoice_content,  pdf: invoice_pdf_name,
@@ -53,6 +53,7 @@ class Mailer < ActionMailer::Base
           file << pdf
         end
       end
+
       file_name = "#{options["month"]}_#{options["year"]}_bill_archive_#{DateTime.now.to_i}.zip"
       puts "=====send_archive_bills_via_email -- file_name"
       puts file_name.inspect

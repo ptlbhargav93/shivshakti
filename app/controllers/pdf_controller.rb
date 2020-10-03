@@ -31,7 +31,7 @@ class PdfController < ApplicationController
 
   def print_invoice
     @customer_bill = CustomerBill.find(params[:id])
-    subject = t("send_bills.file_name_bill_archive_attachment",:name => @customer_bill.customer.b_name, :date => @customer_bill.invoice_date.strftime("%m/%Y"), :invoice_number => @customer_bill.invoice_number, :rate => @customer_bill.total_amount) 
+    subject = t("send_bills.file_name_bill_archive_attachment",:name => @customer_bill.customer.b_name, :date => @customer_bill.invoice_date.strftime("%m/%Y"), :invoice_number => @customer_bill.invoice_number, :rate => @customer_bill.total_amount, :label => (@customer_bill.cgst > 0 || @customer_bill.sgst > 0 ? "With" : "Without")) 
     @without_image = params[:without_image].to_s || "false"
     @with_sign = params[:with_sign].to_s || "false"
     respond_to do |format|

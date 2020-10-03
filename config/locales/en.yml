@@ -1603,7 +1603,7 @@ en:
     please_unlock_invoice_first: Please unlock Invoice first.
     copy_of_invoice_date: "copy of invoice, period %{date}" 
     copy_of_reward_detail: "copy of reward details, period %{date}" 
-    file_name_bill_archive_attachment: "%{name} - %{rate} - %{invoice_number}" 
+    file_name_bill_archive_attachment: "%{name} - %{rate} - %{invoice_number} - %{label} GST" 
     file_name_bill_archive_attachment_receiving_copy: "Receiving Copy - %{name} - %{rate} - %{invoice_number}" 
     dbm_info: DBM-INFO
     browse_and_search_postning_invoices: "Browse and search postning invoices"
