@@ -34,6 +34,7 @@ class EmailsController < ApplicationController
                 }
       puts "==================2"              
       SendMonthlyBill.perform_async(options)
+      # Mailer.send_archive_bills_via_email(options).deliver_now
       puts "==================3"
       flash.keep[:notice] = t("send_bills.mail_sent_success")
       puts "==================4"

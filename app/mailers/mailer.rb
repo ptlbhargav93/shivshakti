@@ -33,9 +33,9 @@ class Mailer < ActionMailer::Base
     puts "================="
     @message = "test mail"
 
-    if options["year"].present? and options["month"].present?
+    if options[:year].present? and options[:month].present?
       puts "=====send_archive_bills_via_email -- 2"
-      customer_bills = CustomerBill.where('extract(year from invoice_date) = ? and extract(month from invoice_date) = ?', options["year"], options["month"])
+      customer_bills = CustomerBill.where('extract(year from invoice_date) = ? and extract(month from invoice_date) = ?', options[:year], options[:month])
       directory = "#{Rails.root}/public/pdfs/" # full path-to-unzipped-dir
       FileUtils.rm_f Dir.glob("#{directory}*")
       customer_bills.each do |bill|
@@ -53,11 +53,12 @@ class Mailer < ActionMailer::Base
           file << pdf
         end
       end
-      file_name = "#{options["month"]}_#{options["year"]}_bill_archive_#{DateTime.now.to_i}.zip"
+      file_name = "#{options[:month]}_#{options[:year]}_bill_archive_#{DateTime.now.to_i}.zip"
       puts "=====send_archive_bills_via_email -- file_name"
       puts file_name.inspect
       puts "======================================="
       zipfile_name = "#{directory}/#{file_name}" # full path-to-zip-file
+      puts "=============================================================================#{zipfile_name}"
       puts "=====send_archive_bills_via_email -- zipfile_name"
       puts zipfile_name.inspect
       puts "======================================="
