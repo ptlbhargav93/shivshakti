@@ -1149,11 +1149,8 @@
     %td{:align => "center", :colspan => "4", :rowspan => "2", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "4"}
-          = image_tag "https://storage.cloud.google.com/shivshakti_bucket/signature.png", :height => "100px", :width => "150px" unless with_sign || @without_image == "true"
-          = wicked_pdf_image_tag "https://storage.cloud.google.com/shivshakti_bucket/signature.png", :height => "100px", :width => "150px" unless with_sign || @without_image == "true"
-          = wicked_pdf_image_tag "shivshakti_logo.png", :height => "100px", :width => "150px"
-          = wicked_pdf_image_tag "dbm-logo.png", :height => "100px", :width => "150px"
-          = wicked_pdf_image_tag "sign2.png", :height => "100px", :width => "150px"
+          = wicked_pdf_image_tag "signature.png", :height => "100px", :width => "150px"
+          
   %tr
     %td{:align => "left", :bgcolor => "#FFFF00", :height => "25", :colspan => "2", :style => "border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
       %i
