@@ -294,7 +294,7 @@
               %span
                 = "Download Bill with Digital Sign"
               = image_tag "down-arrow.png", :class => "mt15"
-            = link_to print_invoice_pdf_path(@customer_bill.id, format: 'pdf', with_sign: "false"), class: "h15 stepBtn nextBtn" do
+            = link_to print_invoice_pdf_path(@customer_bill.id, format: 'pdf', with_manual_sign: "true"), class: "h15 stepBtn nextBtn" do
               %span
                 = t("form_action_button.download_invoice_with_manual_sign").html_safe
               = image_tag "down-arrow.png", :class => "mt15"
