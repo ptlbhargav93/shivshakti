@@ -21,6 +21,7 @@
 - sgst = (subtotal*@customer_bill.sgst/100).round(2) if @customer_bill.sgst
 - total_gst_amount = cgst+sgst
 - total_tax_amount = @customer_bill.total_amount - subtotal
+- quntity = quntity.to_i
 %table{:border => "0", :cellspacing => "0"}
   %colgroup{:width => "71"}
   %colgroup{:width => "122"}
@@ -72,7 +73,7 @@
         %font{:color => "#000000", :face => "Times New Roman", :size => "4"} PAN NO. : AHUPP1215B
   %tr
     %td{:align => "left", :colspan => "9", :height => "25", :style => "border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "4"} Address : 1, Ganshyam Park Society, S.P. Ring Road Circle, Asalali, Ahmedabad
+      %font{:color => "#000000", :size => "4"} Address : 1, Ghanshyam Park Society,Nr. Over Bridge, S.P. Ring Road, Aslali, Ahmedabad
     %td{:align => "left", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
@@ -90,7 +91,7 @@
         %font{:color => "#000000", :size => "3"} City
     %td{:align => "center", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} City Pin
+        %font{:color => "#000000", :size => "3"} Pin Code
   %tr
     %td{:align => "center", :colspan => "9", :height => "27", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000"}
@@ -195,7 +196,7 @@
         %font{:color => "#000000", :size => "3"} Invoice Details : -
   %tr
     %td{:align => "left", :height => "41", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"} Name :
+      %font{:color => "#000000", :size => "3"} Name
     %td{:align => "left", :colspan => "3", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:face => "Times New Roman"}
@@ -205,7 +206,7 @@
       %font{:color => "#000000"}
         %br/
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"} Name :
+      %font{:color => "#000000", :size => "3"} Name
     %td{:align => "left", :colspan => "3", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:face => "Times New Roman"}
@@ -216,22 +217,25 @@
         %br/
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} Invoice Type
+        %font{:color => "#000000", :size => "3"} Invoice No
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; text-align: left;", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} SERVICE
+        %font{:color => "#000000", :size => "3"} 
+          = @customer_bill.invoice_number
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#FFFFFF"} 000002
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3"}
+          = "Date"
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000; text-align: left;", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        = @customer_bill.invoice_date.to_datetime.to_s(:default_date)
   %tr
     %td{:align => "left", :height => "30", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"} Address :
-    %td{:align => "left", :colspan => "3",:rowspan => "3", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"} Address
+    %td{:align => "left", :colspan => "3", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         = @customer_bill.customer.b_address
         %br/
@@ -239,8 +243,8 @@
       %font{:color => "#000000", :size => "3"}
         %br/
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"} Address :
-    %td{:align => "left", :colspan => "3", :rowspan => "3", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"} Address
+    %td{:align => "left", :colspan => "3", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         = @customer_bill.customer.s_address
         %br/
@@ -249,64 +253,18 @@
         %br/
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} Invoice No
+        %font{:color => "#000000", :size => "3"} Invoice Type
     %td{:align => "left", :colspan=>"2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; text-align: left;", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        = @customer_bill.invoice_number
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-  %tr
-    %td{:align => "left", :height => "30", :style => "border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :bgcolor => "", :rowspan => "3", :style => "border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :style => "border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} Invoice Date
-    %td{:align => "left", :colspan => "2", :sdnum => "1033;0;DD/MM/YYYY", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        = @customer_bill.invoice_date.to_datetime.to_s(:default_date)
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
+        %font{:color => "#000000", :size => "3"}
+          = "SERVICE"
+          %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3"} Vendor Code
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000"}
-        %br/
-  %tr
-    %td{:align => "left", :height => "30", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"} Vendor Code
-    %td{:align => "left", :colspan => "2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
         = @customer_bill.vendor_code
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
   %tr
     %td{:align => "left", :height => "30", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"} City
@@ -319,6 +277,8 @@
       %font{:color => "#000000", :size => "3"}
         = @customer_bill.customer.b_pin_code
         %br/
+    %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
     
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"} City
@@ -340,9 +300,8 @@
       %font{:color => "#000000", :size => "3"}
         = @customer_bill.po_number
         %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"} P.O. Date
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
@@ -374,17 +333,17 @@
       %font{:color => "#000000", :size => "3"}
         %br/
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"} L.R. No
+      %font{:color => "#000000", :size => "3"} L.R. No.
     %td{:align => "left", :colspan => "2", :sdnum => "1033;0;DD/MM/YYYY", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         = @customer_bill.lr_number
         %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        = "L.R. Date"
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000; text-align: left;", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        = @customer_bill.lr_date.to_datetime.to_s(:default_date)
   %tr
     %td{:align => "left", :height => "30", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"} Country
@@ -416,28 +375,25 @@
         %br/
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
-        = "L.R. Dt."
-    %td{:align => "left", :colspan => 2, :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; text-align: left;", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        = @customer_bill.lr_date.to_datetime.to_s(:default_date)
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
+        = "Vehical No."
+    %td{:align => "left", :sdnum => "1033;0;DD/MM/YYYY", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle", :colspan => "3"}
+      %font{:color => "#000000", :size => "3", :style => "float: left;"}
+        = @customer_bill.customer_bill_products.pluck(:vehical_number).join(",")
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
   %tr
     %td{:align => "left", :height => "30", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"} GSTIN
-    %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; min-width: 180px", :valign => "middle"}
+    %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; min-width: 180px", :valign => "middle"}
       %b
         %font{:color => "#000000", :face => "Times New Roman", :size => "3"}
           = @customer_bill.customer.b_gst_number
           %br/
-    %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000;", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/
-    %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "left", :bgcolor => "", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/
     %td{:align => "left", :valign => "middle"}
@@ -445,32 +401,23 @@
         %br/
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"} GSTIN
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; min-width: 180px", :valign => "middle"}
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; min-width: 180px", :valign => "middle"}
       %b
         %font{:color => "#000000", :face => "Times New Roman", :size => "3"}
           = @customer_bill.customer.s_gst_number
           %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000;", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/
     %td{:align => "left", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        = "Vehical No."
-    %td{:align => "left", :sdnum => "1033;0;DD/MM/YYYY", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        = @customer_bill.customer_bill_products.pluck(:vehical_number).join(",")
-    %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000"}
-        %br/
+      %font{:color => "#000000", :size => "3"}Remark
+    %td{:align => "left", :sdnum => "1033;0;DD/MM/YYYY", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle", :colspan => "3"}
+      %font{:color => "#000000", :size => "3", :style => "float: left;"}
     %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
@@ -541,13 +488,13 @@
         %font{:color => "#000000", :size => "3"} UOM
     %td{:align => "center", :rowspan => "2", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} QTY/Unit
+        %font{:color => "#000000", :size => "3"} Qty/Unit
     %td{:align => "center", :rowspan => "2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"} Rate
     %td{:align => "center", :rowspan => "2", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} Total Value (Rs.)
+        %font{:color => "#000000", :size => "3"} Total Amount (Rs.)
   %tr
   - count = 0 
   - if @customer_bill.customer_bill_products.count > 0
@@ -591,8 +538,8 @@
           %font{:color => "#000000", :size => "3"}
             %br/
         %td{:align => "right", :bgcolor => "", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-          %font{:color => "#000000", :size => "3"}
-            = bill.rate
+          %font{:color => "#000000", :size => "3", :style => "float: right;"}
+            = "#{('%.2f' % bill.rate) || 0.00}"
   - (3-count).times do |i|
     %tr
       %td{:align => "center", :height => "29", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
@@ -716,10 +663,10 @@
     %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/
-    %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000;", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} Subtotal
-    %td{:align => "left", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %font{:color => "#000000", :size => "3"}
+    %td{:align => "left", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000;", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
           %br/
@@ -733,10 +680,10 @@
           %br/
     %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"}
-          = subtotal
+        %font{:color => "#000000", :size => "3", :style => "float: right;"}
+          = "#{('%.2f' % subtotal) || 0.00}"
   %tr
-    %td{:align => "center", :height => "205", :rowspan => "6", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "center", :height => "205", :rowspan => "5", :style => "border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
           HSN / SAC
@@ -751,50 +698,53 @@
         %font{:color => "#000000", :size => "3"} HSN/SAC Code
     %td{:align => "center", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} Tax Rate
-    %td{:align => "center", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %b
         %font{:color => "#000000", :size => "3"} Qty
+    %td{:align => "center", :style => "border-left: 1px solid #000000;", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3"}
+    %td{:align => "center", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
     %td{:align => "center", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/
-    %td{:align => "center", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
     %td{:align => "center", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} Taxable Value
+        %font{:color => "#000000", :size => "3"} Taxable Amount
     %td{:align => "center", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} Tax Value
-    %td{:align => "center", :colspan => "2", :rowspan => "2", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "center", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %font{:color => "#000000", :size => "3"} 
+          = "Tax Rate"
+    %td{:align => "center", :style => "border-left: 1px solid #000000; border-bottom: 1px solid #000000;", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} Value
+        %font{:color => "#000000", :size => "3"}
+          = "Tax Amount"
+    %td{:align => "left", :valign => "middle", :style => "border-bottom: 1px solid #000000;"}
+      %b
+        %font{:color => "#000000", :size => "3"}
+    %td{:align => "center", :valign => "middle", :style => "border-left: 1px solid #000000;"}
+      %b
+        %font{:color => "#000000", :size => "3"}
     %td{:align => "center", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
-          %br/
+    %td{:align => "center", :style => "border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3"} SGST
     %td{:align => "center", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
-        %br/
+        = "#{('%.2f' % @customer_bill.sgst) || 0.00}%"
     %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
+      %font{:color => "#000000", :size => "3", :style => "float: right;"}
+        - a = "#{('%.2f' % sgst) || 0.00}"
+        = (a.to_f == 0) ? "-" : a
   %tr
     %td{:align => "center", :sdnum => "1033;", :sdval => "996511", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"} 996511
     %td{:align => "right", :sdnum => "1033;0;0%", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
-        = "#{(@customer_bill.cgst || 0.00) + (@customer_bill.sgst || 0.00)}%"
-    %td{:align => "right", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "1", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
         = quntity
+    %td{:align => "right", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "1", :style => "border-left: 1px solid #000000;", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
     %td{:align => "left", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/
@@ -802,139 +752,69 @@
       %font{:color => "#000000", :size => "3"}
         %br/
     %td{:align => "right", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        / = @customer_bill.total_amount
-        = subtotal
+      %b
+        %font{:color => "#000000", :size => "3"}
+          / = @customer_bill.total_amount
+          = "#{('%.2f' % subtotal) || 0.00}"
     %td{:align => "right", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        = total_gst_amount == 0 ? "-" : total_gst_amount
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
-          %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+          - a = (@customer_bill.cgst || 0.00) + (@customer_bill.sgst || 0.00)
+          = "#{('%.2f' % a) || 0.00}%"
+    %td{:align => "left", :style => "", :valign => "middle", :style => "border-left: 1px solid #000000; border-bottom: 1px solid #000000;"}
       %b
         %font{:color => "#000000", :size => "3"}
-          %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+          - a = "#{('%.2f' % total_gst_amount) || 0.00}"
+          = total_gst_amount == 0 ? "-" : a
+    %td{:align => "center", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
-          %br/
-    %td{:align => "right", :sdnum => "1033;0;0.00%", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "center", :valign => "middle", :style => "border-left: 1px solid #000000" }
       %b
         %font{:color => "#000000", :size => "3"}
-          %br/
-    %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-  %tr
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :sdnum => "1033;0;0%", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :bgcolor => "#FFFF00",:colspan=>6, :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
-      %b
-        %font{:color => "#000000", :size => "3"} TOTAL TAXABLE AMOUNT
-    %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %b
-        %font{:color => "#000000", :size => "3"}
-          = subtotal
-  %tr
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :sdnum => "1033;0;0%", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "center", :colspan => "2", :rowspan => "4", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %b
-        %font{:color => "#000000", :size => "3"} TAXES
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
-      %b
-        %font{:color => "#000000", :size => "3"} IGST
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "left", :style => "border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
           %br/
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %b
-        %font{:color => "#000000", :size => "3"}
-          %br/
-    %td{:align => "right", :sdnum => "1033;0;0.00%", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"} 0.00%
-    %td{:align => "right", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"} -
-  %tr
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :sdnum => "1033;0;0%", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"} CGST
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %b
-        %font{:color => "#000000", :size => "3"}
-          %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %b
-        %font{:color => "#000000", :size => "3"}
-          %br/
-    %td{:align => "right", :sdnum => "1033;0;0.00%", :sdval => "0.025", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "right", :sdnum => "1033;0;0.00%", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
-        = "#{@customer_bill.cgst || 0.00}%"
+        = "#{('%.2f' % @customer_bill.cgst) || 0.00}%"
     %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        = cgst == 0 ? "-" : cgst
+      %font{:color => "#000000", :size => "3", :style => "float: right;"}
+        - a = "#{('%.2f' % cgst) || 0.00}"
+        = (a.to_f == 0) ? "-" : a
+  / %tr
+  /   %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+  /     %font{:color => "#000000", :size => "3"}
+  /       %br/
+  /   %td{:align => "left", :sdnum => "1033;0;0%", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+  /     %font{:color => "#000000", :size => "3"}
+  /       %br/
+  /   %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+  /     %font{:color => "#000000", :size => "3"}
+  /       %br/
+  /   %td{:align => "left", :valign => "middle"}
+  /     %font{:color => "#000000", :size => "3"}
+  /       %br/
+  /   %td{:align => "left", :valign => "middle"}
+  /     %font{:color => "#000000", :size => "3"}
+  /       %br/
+  /   %td{:align => "left", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+  /     %font{:color => "#000000", :size => "3"}
+  /       %br/
+  /   %td{:align => "left", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+  /     %font{:color => "#000000", :size => "3"}
+  /       %br/
+  /   %td{:align => "left", :bgcolor => "#FFFF00",:colspan=>6, :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
+  /     %b
+  /       %font{:color => "#000000", :size => "3"} TOTAL TAXABLE AMOUNT
+  /   %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+  /     %b
+  /       %font{:color => "#000000", :size => "3"}
+  /         = "#{('%.2f' % subtotal) || 0.00}"
   %tr
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
@@ -942,7 +822,7 @@
     %td{:align => "left", :sdnum => "1033;0;0%", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/
-    %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-left: 1px solid #000000;", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/
     %td{:align => "left", :valign => "middle"}
@@ -957,38 +837,126 @@
     %td{:align => "left", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
+    %td{:align => "center", :colspan => "2", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000;", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} SGST
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+        %font{:color => "#000000", :size => "3"}
+    %td{:align => "left", :style => "", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3"}
+    %td{:align => "left", :style => "border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
           %br/
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
+        %font{:color => "#000000", :size => "3"} IGST
+    %td{:align => "right", :sdnum => "1033;0;0.00%", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}-
+    %td{:align => "right", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000", :size => "3", :style => "float: right;"}
+        = "0.00"
+  %tr
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :sdnum => "1033;0;0%", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-left: 1px solid #000000;", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :style => "", :valign => "middle", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000"}
+      %b
+        %font{:color => "#000000", :size => "3"}
+    %td{:align => "left", :style => "border-right: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+      %b
         %font{:color => "#000000", :size => "3"}
           %br/
+    %td{:align => "left", :style => "", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3"}
+    %td{:align => "left", :style => "", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3"}
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3"} UTGST
     %td{:align => "right", :sdnum => "1033;0;0.00%", :sdval => "0.025", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        = "#{@customer_bill.sgst || 0.00}%"
+      %font{:color => "#000000", :size => "3"}-
     %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000", :size => "3", :style => "float: right;"}
+        = "0.00"
+  %tr
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
-        = sgst == 0 ? "-" : sgst
+        %br/
+    %td{:align => "left",:style => "border-left: 1px solid #000000;", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-left: 1px solid #000000;", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :style => "", :valign => "middle", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000"}
+      %b
+        %font{:color => "#000000", :size => "3"}
+    %td{:align => "left", :style => "border-right: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3"}
+          %br/
+    %td{:align => "left", :style => "", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3"}
+          %br/
+    %td{:align => "left", :style => "", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3"}
+          %br/
+    %td{:align => "left", :colspan => 2, :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3"}
+          = "TOTAL TAX AMOUNT"
+    %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3", :style => "float: right;"}
+          = "#{('%.2f' % total_gst_amount) || 0.00}"
   %tr
     %td{:align => "left", :height => "29", :style => "border-left: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "left", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000;", :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} Total
+        %font{:color => "#000000", :size => "3"}
     %td{:align => "left", :sdnum => "1033;0;0%", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
           %br/
-    %td{:align => "right", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "1", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "right", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "1", :style => "border-left: 1px solid #000000;", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
-          = quntity
     %td{:align => "left", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/
@@ -999,97 +967,110 @@
       %b
         %font{:color => "#000000", :size => "3"}
           /= @customer_bill.total_amount
-          = subtotal
-    %td{:align => "right", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+          / = "#{('%.2f' % subtotal) || 0.00}"
+    %td{:align => "right", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; ", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
-          = total_gst_amount
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
-      %b
-        %font{:color => "#000000", :size => "3"} UTGST
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+          / = "#{('%.2f' % total_gst_amount) || 0.00}"
+    %td{:align => "left", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
-          %br/
-    %td{:align => "left", :style => "border-top: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "left", :style => "border-right: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
           %br/
-    %td{:align => "right", :sdnum => "1033;0;0.00%", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"} 0.00%
-    %td{:align => "right", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"} -
-  %tr
-    %td{:align => "left", :height => "29", :style => "border-left: 1px solid #000000", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :valign => "middle"}
-      %font{:color => "#000000", :size => "3"}
-        %br/
-    %td{:align => "left", :bgcolor => "#FFFF00", :colspan => 5, :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
-      %b
-        %font{:color => "#000000", :size => "3"} TOTAL TAX AMOUNT
-    %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "left", :style => "", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
           %br/
-    %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "left", :style => "", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
-        = total_gst_amount == 0 ? "-" : total_gst_amount
-  %tr
-    %td{:align => "center", :height => "54", :rowspan => "2", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %b
-        %font{:color => "#000000", :size => "3"} Invoice Value (Inwords) :
-    %td{:align => "center", :colspan=>"7", :rowspan => "2",  :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+          %br/
+    %td{:align => "left", :colspan => 2, :style => "border-top: 1px solid #000000; border-right: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
-      = number_to_currency_in_words(@customer_bill.total_amount, currency: :rupee).upcase
+          = "TOTAL AMOUNT"
+    %td{:align => "right", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; border-bottom: 1px solid #000000;", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3", :style => "float: right;"} 
+          = "#{('%.2f' % (total_gst_amount+subtotal)) || 0.00}"
+  / %tr
+  /   %td{:align => "left", :height => "29", :style => "border-left: 1px solid #000000", :valign => "middle"}
+  /     %font{:color => "#000000", :size => "3"}
+  /       %br/
+  /   %td{:align => "left", :valign => "middle"}
+  /     %font{:color => "#000000", :size => "3"}
+  /       %br/
+  /   %td{:align => "left", :valign => "middle"}
+  /     %font{:color => "#000000", :size => "3"}
+  /       %br/
+  /   %td{:align => "left", :valign => "middle"}
+  /     %font{:color => "#000000", :size => "3"}
+  /       %br/
+  /   %td{:align => "left", :valign => "middle"}
+  /     %font{:color => "#000000", :size => "3"}
+  /       %br/
+  /   %td{:align => "left", :valign => "middle"}
+  /     %font{:color => "#000000", :size => "3"}
+  /       %br/
+  /   %td{:align => "left", :valign => "middle"}
+  /     %font{:color => "#000000", :size => "3"}
+  /       %br/
+  /   %td{:align => "left", :valign => "middle"}
+  /     %font{:color => "#000000", :size => "3"}
+  /       %br/
+  /   %td{:align => "left", :bgcolor => "#FFFF00", :colspan => 5, :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
+  /     %b
+  /       %font{:color => "#000000", :size => "3"} TOTAL TAX AMOUNT
+  /   %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+  /     %b
+  /       %font{:color => "#000000", :size => "3"}
+  /         %br/
+  /   %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+  /     %b
+  /       %font{:color => "#000000", :size => "3"}
+  /       = total_gst_amount == 0 ? "-" : total_gst_amount
+  / %tr
+  /   %td{:align => "center", :height => "54", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+  /     %b
+  /       %font{:color => "#000000", :size => "3"} Invoice Value (Inwords) :
+  /   %td{:align => "center", :colspan=>"7",  :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+  /     %b
+  /       %font{:color => "#000000", :size => "3"}
+  /     = number_to_currency_in_words(@customer_bill.total_amount, currency: :rupee).upcase
 
-    %td{:align => "left", :bgcolor => "#FFFF00", :colspan => 5,:style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
-      %b
-        %font{:color => "#000000", :size => "3"} TOTAL INVOICE VALUE
-    %td{:align => "left", :bgcolor => "#FFFF00", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+  /   %td{:align => "left", :colspan => 5,:style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
+  /     %b
+  /       %font{:color => "#000000", :size => "3"}
+  /   %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+  /     %b
+  /       %font{:color => "#000000", :size => "3"}
+  /         %br/
+  /   %td{:align => "right", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+  /     %b
+  /       %font{:color => "#000000", :size => "3"} 
+  %tr
+    %td{:align => "center", :colspan => "6", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
-          %br/
-    %td{:align => "right", :bgcolor => "#FFFF00", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :sdval => "12500", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-      %b
-        %font{:color => "#000000", :size => "3"} 
-          = @customer_bill.total_amount
-  %tr
-    %td{:align => "center", :colspan => "7", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "center", :colspan => "9", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
-          %br/
   %tr
-    %td{:align => "left", :colspan => "15", :height => "32", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; text-align: left;", :valign => "middle"}
+    %td{:align => "left", :colspan => "6", :height => "32", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; text-align: left;", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "4"} REMARKS : GST IS PAYABLE UNDER RCM
+    %td{:align => "left", :colspan => "9", :height => "32", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000; text-align: left;", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "4"}
+          = "Total Amount (In words) : #{number_to_currency_in_words(@customer_bill.total_amount, currency: :rupee).upcase}"
   %tr
     %td{:align => "left", :bgcolor => "#FFFF00", :height => "19", :colspan => "2", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
       %b
         %i
           %font{:color => "#000000", :size => "5"}
-            %u Our Bank Details
+            %u Bank Details
     %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
@@ -1114,13 +1095,13 @@
     %td{:align => "center", :colspan => "4", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "4"} 
-          = "For Shiv Shakti Transport Co." unless with_sign
+          = "for, SHIV SHAKTI TRANSPORT CO." unless with_sign
   %tr
     %td{:align => "left", :bgcolor => "#FFFF00", :height => "20", :colspan => "2", :style => "border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
       %i
         %font{:color => "#000000", :size => "4"}
           %b
-            = "HDFC Bank Vatva Br"
+            = "HDFC Bank, Vatva Branch"
     %td{:align => "left", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
@@ -1152,7 +1133,7 @@
       %i
         %font{:color => "#000000", :size => "4"}
           %b
-            = "A/c No. 50200009679313"
+            = "A/c No. : 50200009679313"
     %td{:align => "left", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
@@ -1185,7 +1166,7 @@
       %i
         %font{:color => "#000000", :size => "4"}
           %b
-            = "IFSC Code : HDFC 0000971"
+            = "IFSC Code : HDFC0000971"
     %td{:align => "left", :style => "border-bottom: 1px solid #000000;", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
@@ -1194,7 +1175,7 @@
         %br/
     %td{:align => "left", :style => "border-bottom: 1px solid #000000;", :colspan=>7, :valign => "middle"}
       %b
-        %font{:color => "#000000", :size => "3"} Subject to Ahmedabd, Gujarat Jurisdiction
+        %font{:color => "#000000", :size => "3"} Subject to Ahmedabad, Gujarat Jurisdiction
     %td{:align => "center", :colspan => "4", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-right: 1px solid #000000; border-bottom: 1px solid #000000;", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "4"} 
