@@ -629,8 +629,8 @@
         %font{:color => "#000000", :size => "3"}
           %br/
       %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-bottom: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
-        %font{:color => "#000000", :size => "3"}
-          = @customer_bill.loading_amount
+        %font{:color => "#000000", :size => "3", :style => "float: right;"}
+          = "#{('%.2f' % @customer_bill.loading_amount) || 0.00}"
   %tr
     %td{:align => "left", :bgcolor => "#FFFF00", :height => "29", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
       %b
@@ -755,7 +755,7 @@
       %b
         %font{:color => "#000000", :size => "3"}
           / = @customer_bill.total_amount
-          = "#{('%.2f' % subtotal) || 0.00}"
+          = (cgst > 0 || sgst > 0) ? "#{('%.2f' % subtotal) || 0.00}" : "0.00"
     %td{:align => "right", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :sdval => "0", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
@@ -938,7 +938,7 @@
     %td{:align => "left", :colspan => 2, :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
-          = "TOTAL TAX AMOUNT"
+          = "TOTAL TAX"
     %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3", :style => "float: right;"}
