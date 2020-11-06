@@ -736,7 +736,7 @@
     %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3", :style => "float: right;"}
         - a = "#{('%.2f' % sgst) || 0.00}"
-        = (a.to_f == 0) ? "-" : a
+        = (a.to_f == 0) ? "0.00" : a
   %tr
     %td{:align => "center", :sdnum => "1033;", :sdval => "996511", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"} 996511
@@ -765,7 +765,7 @@
       %b
         %font{:color => "#000000", :size => "3"}
           - a = "#{('%.2f' % total_gst_amount) || 0.00}"
-          = total_gst_amount == 0 ? "-" : a
+          = total_gst_amount == 0 ? "0.00" : a
     %td{:align => "center", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
@@ -785,7 +785,7 @@
     %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3", :style => "float: right;"}
         - a = "#{('%.2f' % cgst) || 0.00}"
-        = (a.to_f == 0) ? "-" : a
+        = (a.to_f == 0) ? "0.00" : a
   / %tr
   /   %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
   /     %font{:color => "#000000", :size => "3"}
