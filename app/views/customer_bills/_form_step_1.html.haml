@@ -144,16 +144,22 @@
                       .col-xs-12
                         = f.text_field :loading_amount, :class => "form-control amountClass", :placeholder => "Loading Amount"
                 .col-xs-12.col-md-6
-                  .col-xs-6.col-sm-6
+                  .col-xs-6.col-sm-4
                     .row.row2.form-group
                       .col-xs-10
                         = f.text_field :cgst, :value => f.object.cgst || 0, :class => "form-control amountClass1", :placeholder => "CGST"
                       .col-xs-2.pt15
                         = "%"
-                  .col-xs-6.col-sm-6
+                  .col-xs-6.col-sm-4
                     .row.row2.form-group
                       .col-xs-10
                         = f.text_field :sgst,:value => f.object.sgst || 0, :class => "form-control amountClass1", :placeholder => "SGST"
+                      .col-xs-2.pt15
+                        = "%"
+                  .col-xs-6.col-sm-4
+                    .row.row2.form-group
+                      .col-xs-10
+                        = f.text_field :igst,:value => f.object.igst || 0, :class => "form-control amountClass1", :placeholder => "IGST"
                       .col-xs-2.pt15
                         = "%"
                 .col-xs-12.col-md-6

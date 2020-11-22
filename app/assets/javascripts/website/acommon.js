@@ -358,6 +358,7 @@ $(document).ready(function(){
     var sum = 0;
     var cgst = 0;
     var sgst = 0;
+    var igst = 0;
     $('.amountClass').each(function(){
         sum += +$(this).val();
     });
@@ -369,8 +370,11 @@ $(document).ready(function(){
     if ($("#customer_bill_sgst").val() != ""){
       sgst = parseFloat(sum*$("#customer_bill_sgst").val()/100)
     }
+    if ($("#customer_bill_igst").val() != ""){
+      igst = parseFloat(sum*$("#customer_bill_igst").val()/100)
+    }
     console.log(sgst)
-    sum = (parseFloat(sum)+parseFloat(cgst)+parseFloat(sgst)).toFixed(2)
+    sum = (parseFloat(sum)+parseFloat(cgst)+parseFloat(sgst)+parseFloat(igst)).toFixed(2)
 
     $("#customer_bill_total_amount").val(sum)
   });

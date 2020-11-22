@@ -81,6 +81,19 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def deep_transform_values(hash)
+    return hash unless hash.is_a?(Hash)
+
+    hash.transform_values do |val|
+      if val.is_a?(String)
+        val.upcase
+      else
+        deep_transform_values(val)
+      end
+    end
+  end
+
+
   private
 
   def authenticate_executive!

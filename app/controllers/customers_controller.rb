@@ -26,7 +26,7 @@ class CustomersController < ApplicationController
   end
 
   def create
-    @customer = Customer.new(customer_params.merge(:creator_id => current_user.id))
+    @customer = Customer.new(deep_transform_values(customer_params).merge(:creator_id => current_user.id))
     if @customer.save
       redirect_to customer_path(@customer)
     else
@@ -42,7 +42,7 @@ class CustomersController < ApplicationController
     if not params[:customer].present?
       @customer.update_attributes(:registered => true) unless @customer.registered
       redirect_to customers_path, :flash => { :notice => t("customer.customer_updated") }
-    elsif @customer.update(customer_params.merge(updater: current_user))
+    elsif @customer.update(deep_transform_values(customer_params).merge(updater: current_user))
       step = params[:proceed_next] ? (params[:step].to_i + 1) : (params[:step].to_i)
       flash.keep[:notice] = t("general.information_saved") if params[:save]
       redirect_to customer_path(@customer)

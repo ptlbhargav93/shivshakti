@@ -43,7 +43,7 @@ class CustomerBillsController < ApplicationController
 
   def create
     @customer = Customer.create(customer_params) if params[:customer].present?
-    @customer_bill = CustomerBill.new(customer_bill_params.merge(:creator_id => current_user.id))
+    @customer_bill = CustomerBill.new(deep_transform_values(customer_bill_params).merge(:creator_id => current_user.id))
     @customer_bill.customer = @customer if @customer.present?
     if @customer_bill.save
       redirect_to customer_bill_path(@customer_bill)
@@ -67,7 +67,7 @@ class CustomerBillsController < ApplicationController
     if not params[:customer_bill].present?
       @customer_bill.update_attributes(:registered => true) unless @customer_bill.registered
       redirect_to customer_bills_path, :flash => { :notice => t("customer_bill.customer_bill_updated") }
-    elsif @customer_bill.update(customer_bill_params.merge(updater: current_user))
+    elsif @customer_bill.update(deep_transform_values(customer_bill_params).merge(updater: current_user))
       step = params[:proceed_next] ? (params[:step].to_i + 1) : (params[:step].to_i)
       flash.keep[:notice] = t("general.information_saved") if params[:save]
       redirect_to customer_bill_path(@customer_bill)
@@ -173,7 +173,7 @@ class CustomerBillsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def customer_bill_params
-    params.require(:customer_bill).permit(:invoice_number, :lr_number, :po_number, :vendor_code, :invoice_date, :lr_date, :customer_id, :cgst, :sgst, :total_amount, :creator_id, :updater_id, :payment_mode, :payment_date, :cheque_number, :bank_name, :loading_text, :loading_amount,
+    params.require(:customer_bill).permit(:invoice_number, :lr_number, :po_number, :vendor_code, :invoice_date, :lr_date, :customer_id, :cgst, :sgst, :igst, :total_amount, :creator_id, :updater_id, :payment_mode, :payment_date, :cheque_number, :bank_name, :loading_text, :loading_amount,
                                           customer_bill_products_attributes: [:id, :vehical_number, :ref_invoice_number, :from, :to, :quantity, :rate, :_destroy],
                                           resources_attributes: [:id, :media, :resource_type_id, :resource_spec_id, :_destroy])
   end

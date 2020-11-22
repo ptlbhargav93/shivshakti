@@ -48,7 +48,40 @@
                       %label.label-view
                         %span
                           = "Vendor code"
-                      %label.label-value= @customer_bill.vendor_code
+                      %label.label-value
+                        = @customer_bill.vendor_code
+                  .col-xs-12.col-md-6
+                    .card-row
+                      %label.label-view
+                        %span
+                          = "CGST"
+                      %label.label-value
+                        = @customer_bill.cgst
+                    .card-row
+                      %label.label-view
+                        %span
+                          = "SGST"
+                      %label.label-value
+                        = @customer_bill.sgst
+                    .card-row
+                      %label.label-view
+                        %span
+                          = "IGST"
+                      %label.label-value
+                        = @customer_bill.igst
+                  .col-xs-12.col-md-6
+                    .card-row
+                      %label.label-view
+                        %span
+                          = "Loading Text"
+                      %label.label-value
+                        = @customer_bill.loading_text
+                    .card-row
+                      %label.label-view
+                        %span
+                          = "Loading Amount"
+                      %label.label-value
+                        = @customer_bill.loading_amount
                   - unless @customer_bill.payment_mode == "NONE" 
                     .row.row10
                       .col-xs-12
