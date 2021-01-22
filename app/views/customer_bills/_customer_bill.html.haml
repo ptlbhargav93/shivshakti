@@ -1,5 +1,7 @@
 .col-xs-12
-  .rxBox.rxBoxEvent
+  - bg_color = customer_bill.payment_mode != "NONE" ? "darkgrey" : ""
+  - gst_color = (customer_bill.cgst > 0 || customer_bill.sgst > 0 || customer_bill.igst > 0) ? "darkseagreen" : bg_color
+  .rxBox.rxBoxEvent{:style => "background: #{gst_color}"}
     .rxContent
       .row.row5
         .col-xs-12
