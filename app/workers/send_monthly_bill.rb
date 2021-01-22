@@ -8,6 +8,7 @@ class SendMonthlyBill
   	rescue Exception => e
   		puts "++++++++++++++++++++++++++++++++++++++++"
   		puts e.message
+      puts e.backtrace
   		puts "========================================"
   	end
   end

@@ -685,7 +685,7 @@
         %font{:color => "#000000", :size => "3", :style => "float: right;"}
           = "#{('%.2f' % subtotal) || 0.00}"
   %tr
-    %td{:align => "center", :height => "205", :rowspan => "5", :style => "border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+    %td{:align => "center", :height => "205", :rowspan => "6", :style => "border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %b
         %font{:color => "#000000", :size => "3"}
           HSN / SAC
@@ -905,6 +905,48 @@
     %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/
+    %td{:align => "left", :sdnum => "1033;0;0%", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-left: 1px solid #000000;", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :sdnum => "1033;0;_(* #,##0_);_(* \\(#,##0\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000;", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
+    %td{:align => "left", :style => "", :valign => "middle", :style => "border-bottom: 1px solid #000000; border-left: 1px solid #000000"}
+      %b
+        %font{:color => "#000000", :size => "3"}
+    %td{:align => "left", :style => "border-right: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3"}
+          %br/
+    %td{:align => "left", :style => "", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3"}
+    %td{:align => "left", :style => "", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3"}
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-right: 1px solid #000000; border-left: 1px solid #000000", :valign => "middle"}
+      %b
+        %font{:color => "#000000", :size => "3"}
+    %td{:align => "right", :sdnum => "1033;0;0.00%", :sdval => "0.025", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+    %td{:align => "left", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000", :size => "3", :style => "float: right;"}
+  %tr
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000", :size => "3"}
+        %br/
     %td{:align => "left",:style => "border-left: 1px solid #000000;", :valign => "middle"}
       %font{:color => "#000000", :size => "3"}
         %br/
@@ -1070,6 +1112,98 @@
         %font{:color => "#000000", :size => "4"}
           = "Total Amount (In words) : #{number_to_currency_in_words(@customer_bill.total_amount, currency: :rupee).upcase}"
   %tr
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+  %tr
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+    %td{:align => "left", :style => "border-top: 1px solid #000000; border-bottom: 1px solid #000000", :valign => "middle"}
+      %font{:color => "#000000"}
+        %br/
+  %tr
     %td{:align => "left", :bgcolor => "#FFFF00", :height => "19", :colspan => "2", :style => "border-top: 1px solid #000000; border-left: 1px solid #000000; text-align: left;", :valign => "middle"}
       %b
         %i
@@ -1093,7 +1227,7 @@
     %td{:align => "left", :style => "border-top: 1px solid #000000", :valign => "middle"}
       %font{:color => "#000000"}
         %br/
-    %td{:align => "left",:rowspan => "3",:colspan => "3", :style => "border-top: 1px solid #000000; text-align: left", :valign => "middle"}
+    %td{:align => "left",:rowspan => "2",:colspan => "3", :style => "border-top: 1px solid #000000; text-align: left", :valign => "middle"}
       %font{:color => "#000000"}
         = "Digitally signed by </br> Rajan Patel </br> #{ist_time.strftime("%Y.%m.%d")} </br> #{ist_time.strftime("%T %:z")}".html_safe if with_sign
     %td{:align => "center", :colspan => "5", :sdnum => "1033;0;_(* #,##0.00_);_(* \\(#,##0.00\\);_(* -??_);_(@_)", :style => "border-right: 1px solid #000000", :valign => "middle"}
