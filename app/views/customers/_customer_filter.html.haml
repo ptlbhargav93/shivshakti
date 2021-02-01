@@ -1,14 +1,15 @@
 .filterTop
   .row
     = form_for '', :url => customer_filter_customers_path, :method => 'post', :html => {:id => "filterFormId"}, :remote => true do
-      .col-xs-12.col-md-4.col-lg-4
+      .col-xs-12.col-md-4.col-lg-3
         = hidden_field_tag 'role', 'customer'
         = text_field_tag :search, session[:register_customer_search],:class => "form-control",placeholder: t("general.search_name")
+      .col-xs-12.col-sm-6.col-md-4.col-lg-3
+        = text_field_tag :ref_search, session[:ref_customer_search],:class => "form-control",placeholder: t("general.ref_search_name")
       .col-xs-12.col-sm-6.col-md-4.col-lg-3
         = text_field_tag :city, session[:register_customer_city], :class => "form-control",placeholder: t("general.search_city")
       .col-xs-12.col-sm-6.col-md-4.col-lg-3
         = text_field_tag :state, session[:register_customer_state], :class => "form-control",placeholder: t("general.search_state")
-      .col-xs-12.col-sm-6.col-md-4.col-lg-2
-        = select_tag "order", options_for_select([[t('general.ascending'), 'ASC'], [t('general.descending'), 'DESC']]), prompt: t('general.order'), :class => "form-control"
+        / = select_tag "order", options_for_select([[t('general.ascending'), 'ASC'], [t('general.descending'), 'DESC']]), prompt: t('general.order'), :class => "form-control"
     %div{id: 'loader-image', class: 'loader'}
       = image_tag 'loader-small.gif'

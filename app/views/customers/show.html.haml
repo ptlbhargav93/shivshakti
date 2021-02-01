@@ -49,6 +49,10 @@
                       %label.label-view
                         %span= t('user.gst_number')
                       %label.label-value= @customer.b_gst_number.present? ? @customer.b_gst_number : '-'
+                    .card-row
+                      %label.label-view
+                        %span= t('user.ref_customer')
+                      %label.label-value= @customer.ref_customer.present? ? @customer.ref_customer : '-'
                 
                 - unless @customer.is_shipping
                   .row.row10

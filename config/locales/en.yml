@@ -254,6 +254,7 @@ en:
     powerby: Copyright © <span><a href = "http://shivshakti-transport.herokuapp.com/" class="footerBlue">Shiv Shakti Transport Co</a></span> 2020. All Rights Reserved. 
   general:
     search_name: Search by Name or Ref Customer
+    ref_search_name: Search Ref Customer
     search_city: Search by City
     search_state: Search by State
     press_here_to_open: PRESS HERE </br>TO OPEN

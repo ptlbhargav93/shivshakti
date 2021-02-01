@@ -69,9 +69,11 @@ class CustomersController < ApplicationController
   def fetch_customers
     customers = Customer.all
     search = params[:search] if params[:search].present?
+    ref_search = params[:ref_search] if params[:ref_search].present?
     city = params[:city] if params[:city].present?
     state = params[:state] if params[:state].present?
-    customers = customers.where('b_name ILIKE :s or ref_customer ILIKE :s', :s => "%#{search}%") if search.present?
+    customers = customers.where('b_name ILIKE :s', :s => "%#{search}%") if search.present?
+    customers = customers.where('ref_customer ILIKE :s', :s => "%#{ref_search}%") if ref_search.present?
     customers = customers.where('b_city ILIKE :s', :s => "#{city}%") if city.present?
     customers = customers.where('b_state ILIKE :s', :s => "#{state}%") if state.present?
     customers = customers.order('id DESC')
