@@ -42,7 +42,7 @@ class CustomerBillsController < ApplicationController
   end
 
   def create
-    @customer = Customer.create(customer_params) if params[:customer].present?
+    @customer = Customer.create(deep_transform_values(customer_params)) if params[:customer].present?
     @customer_bill = CustomerBill.new(deep_transform_values(customer_bill_params).merge(:creator_id => current_user.id))
     @customer_bill.customer = @customer if @customer.present?
     if @customer_bill.save
